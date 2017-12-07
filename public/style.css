@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Dense;
+  src: url("../fonts/dense.otf"); }
+
+body {
+  min-height: 100vh;
+  background-color: #21252b; }
+
+.hide {
+  display: none; }
