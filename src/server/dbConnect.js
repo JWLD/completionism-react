@@ -1,21 +1,18 @@
-const { Pool } = require('pg');
-const Url = require('url');
+const url = require('url');
+const mysql = require('mysql');
 
-if (!process.env.DATABASE_URL) {
-  throw new Error('Environment variable DATABASE_URL must be set');
+if (!process.env.JAWSDB_URL) {
+  throw new Error('Environment variable JAWSDB_URL must be set');
 }
 
-const params = Url.parse(process.env.DATABASE_URL);
+const params = url.parse(process.env.JAWSDB_URL);
 const [user, password] = params.auth.split(':');
 
-const options = {
-  host: params.hostname,
-  port: params.port,
-  database: params.pathname.split('/')[1],
-  max: process.env.MAX_CONNECTIONS || 2,
-  user,
-  password,
-  ssl: params.hostname !== 'localhost'
-};
+const conn = mysql.createConnection({
+	host: params.hostname,
+	user,
+	password,
+	database: params.path.slice(1)
+});
 
-module.exports = new Pool(options);
+module.exports = conn;
