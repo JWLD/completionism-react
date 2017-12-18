@@ -1,6 +1,18 @@
 @font-face {
-  font-family: Dense;
-  src: url("../fonts/dense.otf"); }
+  font-family: DinB;
+  src: url("../fonts/dinBold.otf"); }
+
+@font-face {
+  font-family: DinM;
+  src: url("../fonts/dinMedium.otf"); }
+
+@font-face {
+  font-family: DinR;
+  src: url("../fonts/dinRegular.otf"); }
+
+@font-face {
+  font-family: DinL;
+  src: url("../fonts/dinLight.otf"); }
 
 body, div {
   margin: 0;
