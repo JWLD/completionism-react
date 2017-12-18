@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import store from './redux/store';
-import Landing from './components/Landing';
+import store from 'redux/store';
+import Landing from 'components/Landing/Landing';
 
 const App = () => (
   <BrowserRouter>
