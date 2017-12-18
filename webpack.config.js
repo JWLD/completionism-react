@@ -17,14 +17,27 @@ module.exports = {
   },
   devtool: 'cheap-eval-source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json'],
+		modules: [
+			path.resolve('./src/client'),
+			path.resolve('./node_modules')
+		]
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         use: 'babel-loader'
+      },
+			{
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', {
+					loader: 'sass-loader',
+					options: {
+						includePaths: [path.join(__dirname, 'public', 'sass')]
+					}
+				}]
       }
     ]
-  }
+  },
 };
