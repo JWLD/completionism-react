@@ -1,0 +1,22 @@
+{
+	"collections": [
+		"mounts",
+		"pets",
+		"toys"
+	],
+	"primary": [
+		"alchemy",
+		"blacksmithing",
+		"enchanting",
+		"engineering",
+		"inscription",
+		"jewelcrafting",
+		"leatherworking",
+		"tailoring"
+	],
+	"secondary": [
+		"cooking",
+		"first aid",
+		"mining"
+	]
+}
