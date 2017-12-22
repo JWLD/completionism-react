@@ -1,5 +1,19 @@
-@import 'global';
+.landing-page {
+	min-width: 100vw;
+	min-height: 100vh;
+}
 
-a {
-	background-color: pink;
+.landing-page nav {
+	flex-direction: column;
+
+	a {
+		width: 20rem;
+		margin: 1rem;
+		padding: 1rem;
+
+		background-color: gray;
+		color: white;
+		font: 5rem DinM;
+		text-transform: uppercase;
+	}
 }

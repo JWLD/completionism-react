@@ -1,3 +1,7 @@
+html {
+	font-size: 62.5%;
+}
+
 body, div {
   margin: 0;
   padding: 0;
@@ -6,10 +10,14 @@ body, div {
   box-sizing: border-box;
 }
 
-div {
+a, div, nav {
   @include flex;
 }
 
 a:hover, button:hover {
   cursor: pointer;
+}
+
+a {
+	text-decoration: none;
 }

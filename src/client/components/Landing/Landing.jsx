@@ -1,12 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { collections } from 'constants/categories';
 import './Landing.scss';
 
 const Landing = () => {
-	const links = collections.map((section) => <a key={section}>{section}</a>);
+	const links = collections.map((section) =>
+		<Link to={`/${section}`} key={section}>{section}</Link>
+	);
 
 	return (
-		<div>{links}</div>
+		<div className="landing-page">
+			<nav>{links}</nav>
+		</div>
 	);
 };
 

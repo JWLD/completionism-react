@@ -14,6 +14,9 @@
   font-family: DinL;
   src: url("../fonts/dinLight.otf"); }
 
+html {
+  font-size: 62.5%; }
+
 body, div {
   margin: 0;
   padding: 0;
@@ -21,13 +24,16 @@ body, div {
   border-radius: 0;
   box-sizing: border-box; }
 
-div {
+a, div, nav {
   display: flex;
   justify-content: center;
   align-items: center; }
 
 a:hover, button:hover {
   cursor: pointer; }
+
+a {
+  text-decoration: none; }
 
 body {
   min-height: 100vh;
