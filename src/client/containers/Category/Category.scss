@@ -1,5 +1,24 @@
+.category-page {
+	flex-direction: column;
+	padding: 3rem;
+}
+
 h1 {
 	color: white;
-	font: 5rem DinL;
-	text-transform: capitalize;
+	font: 5rem DinM;
+	text-transform: uppercase;
+}
+
+.item-list {
+	flex-direction: column;
+	padding: 2rem;
+	background-color: #222;
+
+	span {
+		justify-content: flex-start;
+		width: 50rem;
+		color: white;
+		font: 2rem DinR;
+		text-transform: uppercase;
+	}
 }
