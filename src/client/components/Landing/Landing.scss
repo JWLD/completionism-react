@@ -1,19 +1,24 @@
 .landing-page {
+	justify-content: flex-start;
+	align-items: flex-start;
+
 	min-width: 100vw;
 	min-height: 100vh;
+	padding: 1rem;
 }
 
-.landing-page nav {
+.landing-page div {
 	flex-direction: column;
+	margin-right: 1rem;
 
 	a {
-		width: 20rem;
-		margin: 1rem;
+		width: 10rem;
+		margin-bottom: 1rem;
 		padding: 1rem;
 
 		background-color: gray;
 		color: white;
-		font: 5rem DinM;
+		font: 1.5rem DinM;
 		text-transform: uppercase;
 	}
 }

@@ -1,0 +1,27 @@
+{
+	"100": "NLIG",
+	"101": "ACHIEVEMENT",
+	"102": "DROP",
+	"103": "PROFESSION",
+	"104": "PVP",
+	"105": "QUEST",
+	"106": "REPUTATION",
+	"107": "VENDOR",
+	"108": "WORLD EVENT",
+	"109": "TRAINER",
+
+	"201": "PROMOTION",
+	"202": "STORE",
+	"203": "TCG",
+	"204": "EVENT",
+	"205": "BLACK MARKET",
+
+	"300": "UNOBTAINABLE",
+	"301": "CLASS",
+	"302": "DISCOVERY",
+	"303": "GARRISON",
+	"304": "ORDER HALL",
+	"305": "PET BATTLE",
+	"306": "",
+	"307": "TREASURE"
+}
