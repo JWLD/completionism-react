@@ -23,7 +23,8 @@ class Category extends Component {
 		const categoryData = this.props[this.state.category] || [];
 
 		const list = categoryData.map((item) => {
-			return <span key={item.id}>{item.name}</span>
+			const quality = `q${item.quality}`;
+			return <span key={item.id} className={quality}>{item.name}</span>;
 		});
 
 		return (
