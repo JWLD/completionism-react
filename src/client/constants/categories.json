@@ -1,22 +1,78 @@
 {
 	"COLLECTIONS": [
-		"MOUNTS",
-		"PETS",
-		"TOYS"
+		{
+			"key": "mounts",
+			"name": "Mounts",
+			"icon": "mountjournalportrait"
+		},
+		{
+			"key": "pets",
+			"name": "Pets",
+			"icon": "petjournalportrait"
+		},
+		{
+			"key": "toys",
+			"name": "Toys",
+			"icon": "inv_misc_toy_05"
+		}
 	],
 	"PRIMARY": [
-		"ALCHEMY",
-		"BLACKSMITHING",
-		"ENCHANTING",
-		"ENGINEERING",
-		"INSCRIPTION",
-		"JEWELCRAFTING",
-		"LEATHERWORKING",
-		"TAILORING"
+		{
+			"key": "alchemy",
+			"name": "Alchemy",
+			"icon": "trade_alchemy"
+		},
+		{
+			"key": "blacksmithing",
+			"name": "Blacksmithing",
+			"icon": "trade_blacksmithing"
+		},
+		{
+			"key": "enchanting",
+			"name": "Enchanting",
+			"icon": "trade_engraving"
+		},
+		{
+			"key": "engineering",
+			"name": "Engineering",
+			"icon": "trade_engineering"
+		},
+		{
+			"key": "inscription",
+			"name": "Inscription",
+			"icon": "inv_inscription_tradeskill01"
+		},
+		{
+			"key": "jewelcrafting",
+			"name": "Jewelcrafting",
+			"icon": "inv_misc_gem_01"
+		},
+		{
+			"key": "leatherworking",
+			"name": "Leatherworking",
+			"icon": "inv_misc_armorkit_17"
+		},
+		{
+			"key": "tailoring",
+			"name": "Tailoring",
+			"icon": "trade_tailoring"
+		}
 	],
 	"SECONDARY": [
-		"COOKING",
-		"FIRSTAID",
-		"MINING"
+		{
+			"key": "cooking",
+			"name": "Cooking",
+			"icon": "inv_misc_food_15"
+		},
+		{
+			"key": "firstaid",
+			"name": "First Aid",
+			"icon": "spell_holy_sealofsacrifice"
+		},
+		{
+			"key": "mining",
+			"name": "Mining",
+			"icon": "trade_mining"
+		}
 	]
 }

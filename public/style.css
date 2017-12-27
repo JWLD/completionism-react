@@ -24,7 +24,7 @@ body, div {
   border-radius: 0;
   box-sizing: border-box; }
 
-a, div, nav {
+a, div, nav, span {
   display: flex;
   justify-content: center;
   align-items: center; }
