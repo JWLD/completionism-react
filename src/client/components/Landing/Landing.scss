@@ -1,5 +1,5 @@
 .landing-page {
-	align-items: flex-start;
+	flex-direction: column;
 
 	min-width: 100vw;
 	min-height: 100vh;
@@ -10,7 +10,7 @@
 	flex-direction: column;
 
 	a {
-		width: 35rem;
+		width: 50rem;
 		margin-bottom: 1rem;
 		padding: 1rem;
 
@@ -32,6 +32,6 @@
 	}
 
 	&:not(:last-child) {
-		margin-right: 3rem;
+		margin-bottom: 3rem;
 	}
 }
