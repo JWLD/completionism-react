@@ -16,14 +16,14 @@ const Landing = () => {
 						<MdAdd />
 					</button>
 
-					<Link to={`/${cat.key.toLowerCase()}`} className="cat-link">
+					<Link to={`/category/${cat.key.toLowerCase()}`} className="cat-link">
 						<img src={`${ICON_URL}${cat.icon}.jpg`}/>
 						<span>{cat.name}</span>
 					</Link>
 
-					<a className="cat-button">
+					<Link to='/import' className="cat-button">
 						<MdPerson />
-					</a>
+					</Link>
 				</li>
 			)}
 		</ul>
