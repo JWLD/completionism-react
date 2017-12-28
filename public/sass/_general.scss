@@ -9,6 +9,11 @@ body {
   display: none;
 }
 
+.inactive {
+	pointer-events: none;
+	cursor: default;
+}
+
 // STYLE CLASSES
 
 .q0 {
@@ -41,4 +46,12 @@ body {
 
 .q7 {
 	color: $q7;
+}
+
+.neg {
+	color: $neg;
+}
+
+.pos {
+	color: $pos;
 }

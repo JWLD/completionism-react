@@ -10,7 +10,7 @@ a, body, button, div, h1, h2, input, select, ul {
   box-sizing: border-box;
 }
 
-a, div, h2, li, nav, span {
+a, div, h2, li, nav, select, span {
   @include flex;
 }
 
