@@ -1,0 +1,37 @@
+.landing-page {
+	flex-direction: column;
+
+	min-width: 100vw;
+	min-height: 100vh;
+	padding: 4rem;
+}
+
+.landing-page div {
+	flex-direction: column;
+
+	a {
+		width: 50rem;
+		margin-bottom: 1rem;
+		padding: 1rem;
+
+		background-color: #333;
+		color: white;
+		font: 2.5rem DinM;
+
+		img {
+			border-radius: .4rem;
+		}
+
+		span {
+			flex-grow: 1;
+		}
+
+		&:hover {
+			background-color: #444;
+		}
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+}
