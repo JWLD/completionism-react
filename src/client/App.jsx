@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import store from 'redux/store';
 import Landing from 'components/Landing/Landing';
 import Category from 'containers/Category/Category';
-import Import from 'components/Import/Import';
+import Import from 'containers/Import/Import';
 
 const App = () => (
   <BrowserRouter>
