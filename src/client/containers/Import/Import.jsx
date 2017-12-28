@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import FaSearch from 'react-icons/lib/fa/search';
+import querystring from 'querystring';
 
 import './Import.scss';
 import Spinner from 'components/Spinner/Spinner';
@@ -24,6 +25,7 @@ class Import extends Component {
 		this.changeRegion = this.changeRegion.bind(this);
 		this.changeRealm = this.changeRealm.bind(this);
 		this.changeChar = this.changeChar.bind(this);
+		this.fetchCharData = this.fetchCharData.bind(this);
 	}
 
 	componentDidMount() {
@@ -37,9 +39,9 @@ class Import extends Component {
 		if (this.state.realms[region].length === 0) {
 			this.fetchRealmData(region);
 
-			this.setState({ region, realm: '', status: 1 });
+			this.setState({ region, status: 1 });
 		} else {
-			this.setState({ region, realm: '' });
+			this.setState({ region, realm: this.state.realms[region][0].slug });
 		}
 	}
 
@@ -51,6 +53,7 @@ class Import extends Component {
 						...prevState.realms,
 						[region]: response.data
 					},
+					realm: response.data[0].slug,
 					status: 0
 				}));
 			})
@@ -67,6 +70,22 @@ class Import extends Component {
 		this.setState({ char: e.target.value });
 	};
 
+	fetchCharData() {
+		const data = querystring.stringify({
+			region: this.state.region,
+			realm: this.state.realm,
+			char: this.state.char
+		});
+
+		axios.get(`/api/import?${data}`)
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((err) => {
+				return console.log(err.response.data || err);
+			});
+	}
+
 	render() {
 		const realms = this.state.realms[this.state.region].map((realm) =>
 			<option value={realm.slug} key={realm.slug}>{realm.name}</option>
@@ -81,6 +100,8 @@ class Import extends Component {
 		} else {
 			symbol = <FaSearch className="neg" />;
 		}
+
+		const buttonClass = this.state.status > 0 ? 'inactive' : null;
 
 		return (
 			<div className="import-page">
@@ -101,7 +122,7 @@ class Import extends Component {
 							<input onChange={this.changeChar} value={this.state.char} placeholder="Name" />
 						</div>
 
-						<button>
+						<button onClick={this.fetchCharData} className={buttonClass}>
 							{symbol}
 						</button>
 					</div>

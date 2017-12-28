@@ -62,8 +62,9 @@ body {
   display: none; }
 
 .inactive {
-  pointer-events: none;
-  cursor: default; }
+  pointer-events: none; }
+  .inactive:hover {
+    cursor: default; }
 
 .q0 {
   color: #9d9d9d; }

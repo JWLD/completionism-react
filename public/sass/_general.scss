@@ -11,7 +11,10 @@ body {
 
 .inactive {
 	pointer-events: none;
-	cursor: default;
+
+	&:hover {
+		cursor: default;
+	}
 }
 
 // STYLE CLASSES

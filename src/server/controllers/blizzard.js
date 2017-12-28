@@ -1,9 +1,9 @@
 const request = require('request');
 
-const blizzardController = module.exports = {};
+const blizzController = module.exports = {};
 
 // GET REALMS - GET REALM LIST FROM BLIZZARD API
-blizzardController.getRealmData = (req, res) => {
+blizzController.getRealmData = (req, res) => {
 	const url = `https://${req.query.q}.api.battle.net/wow/realm/status?locale=en_GB&apikey=${process.env.BATTLENET_KEY}`;
 
 	request(url, (err, response, body) => {
@@ -15,5 +15,16 @@ blizzardController.getRealmData = (req, res) => {
 		}));
 
 		res.send(data);
+	});
+};
+
+// GET IMPORT - GET CHAR DATA FROM BLIZZARD API
+blizzController.getCharData = (req, res) => {
+	const url = `https://${req.query.region}.api.battle.net/wow/character/${req.query.realm}/${req.query.char}?fields=mounts&locale=en_GB&apikey=${process.env.BATTLENET_KEY}`;
+
+	request(url, (err, response, body) => {
+		if (err) return res.status(500).send(err);
+
+		res.send(body);
 	});
 };
