@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import FaCheckCircle from 'react-icons/lib/fa/check-circle';
+import FaSearch from 'react-icons/lib/fa/search';
 
 import './Import.scss';
+import Spinner from 'components/Spinner/Spinner';
 
 class Import extends Component {
 	constructor(props) {
@@ -13,11 +16,14 @@ class Import extends Component {
 				'us': []
 			},
 			region: 'eu',
-			realm: ''
+			realm: '',
+			char: '',
+			status: 0
 		}
 
 		this.changeRegion = this.changeRegion.bind(this);
 		this.changeRealm = this.changeRealm.bind(this);
+		this.changeChar = this.changeChar.bind(this);
 	}
 
 	componentDidMount() {
@@ -27,12 +33,14 @@ class Import extends Component {
 	changeRegion(e) {
 		const region = e ? e.target.value : this.state.region;
 
-		// retrieve realm list from battle-net if necessary
+		// retrieve realm list from Blizzard if necessary
 		if (this.state.realms[region].length === 0) {
 			this.fetchRealmData(region);
-		}
 
-		this.setState({ region });
+			this.setState({ region, realm: '', status: 1 });
+		} else {
+			this.setState({ region, realm: '' });
+		}
 	}
 
 	fetchRealmData(region) {
@@ -42,7 +50,8 @@ class Import extends Component {
 					realms: {
 						...prevState.realms,
 						[region]: response.data
-					}
+					},
+					status: 0
 				}));
 			})
 			.catch((err) => {
@@ -54,10 +63,24 @@ class Import extends Component {
 		this.setState({ realm: e.target.value });
 	}
 
+	changeChar(e) {
+		this.setState({ char: e.target.value });
+	};
+
 	render() {
 		const realms = this.state.realms[this.state.region].map((realm) =>
 			<option value={realm.slug} key={realm.slug}>{realm.name}</option>
 		);
+
+		let symbol;
+
+		if (this.state.status === 1) {
+			symbol = <Spinner size="5" />;
+		} else if (this.state.status === 2) {
+			symbol = <FaCheckCircle className="pos" />;
+		} else {
+			symbol = <FaSearch className="neg" />;
+		}
 
 		return (
 			<div className="import-page">
@@ -75,10 +98,12 @@ class Import extends Component {
 								{realms}
 							</select>
 
-							<input placeholder="Name" />
+							<input onChange={this.changeChar} value={this.state.char} placeholder="Name" />
 						</div>
 
-						<button></button>
+						<button>
+							{symbol}
+						</button>
 					</div>
 				</section>
 			</div>
