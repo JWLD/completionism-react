@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MdAdd from 'react-icons/lib/md/add';
+import MdPerson from 'react-icons/lib/md/person';
 
 import categories from 'constants/categories';
 import { ICON_URL } from 'constants/urls';
@@ -7,14 +9,24 @@ import './Landing.scss';
 
 const Landing = () => {
 	const wraps = Object.keys(categories).map((sub) => (
-		<div key={sub}>
+		<ul key={sub}>
 			{categories[sub].map((cat) =>
-				<Link className="cat-link" to={`/${cat.key.toLowerCase()}`} key={cat.key}>
-					<img src={`${ICON_URL}${cat.icon}.jpg`}/>
-					<span>{cat.name}</span>
-				</Link>
+				<li key={cat.key}>
+					<button className="cat-button">
+						<MdAdd />
+					</button>
+
+					<Link to={`/${cat.key.toLowerCase()}`} className="cat-link">
+						<img src={`${ICON_URL}${cat.icon}.jpg`}/>
+						<span>{cat.name}</span>
+					</Link>
+
+					<a className="cat-button">
+						<MdPerson />
+					</a>
+				</li>
 			)}
-		</div>
+		</ul>
 	));
 
 	return (
