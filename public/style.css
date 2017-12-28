@@ -17,14 +17,14 @@
 html {
   font-size: 62.5%; }
 
-a, body, button, div, h1, ul {
+a, body, button, div, h1, h2, input, select, ul {
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
   box-sizing: border-box; }
 
-a, div, li, nav, span {
+a, div, h2, li, nav, span {
   display: flex;
   justify-content: center;
   align-items: center; }

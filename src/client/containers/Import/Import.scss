@@ -1,3 +1,56 @@
+// VARS
+
+@import 'global';
+
+$inputHeight: 4rem;
+$boxPadding: 2rem;
+
+// STYLING
+
 .import-page {
-	
+	padding: $pagePadding;
+}
+
+.char-sctn {
+	h2 {
+		justify-content: flex-start;
+		margin-bottom: $boxPadding * .25;
+		color: white;
+		font: 4rem DinR;
+	}
+
+	div {
+		justify-content: flex-start;
+		width: 70rem;
+		padding: $boxPadding;
+
+		border-radius: .3rem;
+		background-color: #333;
+
+		select, input {
+			height: $inputHeight;
+
+			border-radius: .3rem;
+			font: 2.5rem DinM;
+
+			&:not(:last-child) {
+				margin-right: $boxPadding * .5;
+			}
+		}
+
+		select {
+			&:first-child {
+				width: 8rem;
+			}
+
+			&:nth-child(2) {
+				flex-grow: 1;
+			}
+		}
+
+		input {
+			width: 50%;
+			padding: .8rem;
+		}
+	}
 }
