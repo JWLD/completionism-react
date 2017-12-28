@@ -3,35 +3,38 @@
 
 	min-width: 100vw;
 	min-height: 100vh;
-	padding: 4rem;
+	padding: 3rem;
+
+	& > div {
+		flex-direction: column;
+
+		&:not(:last-child) {
+			margin-bottom: 3rem;
+		}
+	}
 }
 
-.landing-page div {
-	flex-direction: column;
+.cat-link {
+	width: 50rem;
+	padding: 1rem;
 
-	a {
-		width: 50rem;
-		margin-bottom: 1rem;
-		padding: 1rem;
+	background-color: #333;
+	color: white;
+	font: 2.5rem DinM;
 
-		background-color: #333;
-		color: white;
-		font: 2.5rem DinM;
+	img {
+		border-radius: .4rem;
+	}
 
-		img {
-			border-radius: .4rem;
-		}
+	span {
+		flex-grow: 1;
+	}
 
-		span {
-			flex-grow: 1;
-		}
-
-		&:hover {
-			background-color: #444;
-		}
+	&:hover {
+		background-color: #444;
 	}
 
 	&:not(:last-child) {
-		margin-bottom: 3rem;
+		margin-bottom: 1rem;
 	}
 }
