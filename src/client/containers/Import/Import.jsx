@@ -13,38 +13,45 @@ class Import extends Component {
 				'us': []
 			},
 			region: 'eu',
-			realm: null
+			realm: ''
 		}
 
-		this.populateRealmList = this.populateRealmList.bind(this);
+		this.changeRegion = this.changeRegion.bind(this);
+		this.changeRealm = this.changeRealm.bind(this);
 	}
 
 	componentDidMount() {
-		this.populateRealmList();
+		this.changeRegion();
 	}
 
-	populateRealmList(e) {
+	changeRegion(e) {
 		const region = e ? e.target.value : this.state.region;
 
 		// retrieve realm list from battle-net if necessary
 		if (this.state.realms[region].length === 0) {
 			this.fetchRealmData(region);
-		} else {
-			this.setState({ region });
 		}
+
+		this.setState({ region });
 	}
 
 	fetchRealmData(region) {
 		axios.get(`/api/realms?q=${region}`)
 			.then((response) => {
-				let realms = Object.assign({}, this.state.realms);
-				realms[region] = response.data;
-
-				this.setState({ region, realms });
+				this.setState((prevState) => ({
+					realms: {
+						...prevState.realms,
+						[region]: response.data
+					}
+				}));
 			})
 			.catch((err) => {
 				return console.log(err.response.data || err);
 			});
+	}
+
+	changeRealm(e) {
+		this.setState({ realm: e.target.value });
 	}
 
 	render() {
@@ -59,12 +66,12 @@ class Import extends Component {
 
 					<div>
 						<div className="char-inputs">
-							<select onChange={this.populateRealmList} value={this.state.region}>
+							<select onChange={this.changeRegion} value={this.state.region}>
 								<option value="eu">EU</option>
 								<option value="us">US</option>
 							</select>
 
-							<select>
+							<select onChange={this.changeRealm} value={this.state.realm}>
 								{realms}
 							</select>
 
