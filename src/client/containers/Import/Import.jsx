@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './Import.scss';
 
@@ -27,10 +28,23 @@ class Import extends Component {
 
 		// retrieve realm list from battle-net if necessary
 		if (this.state.realms[region].length === 0) {
-			this.setState({ region });
+			this.fetchRealmData(region);
 		} else {
 			this.setState({ region });
 		}
+	}
+
+	fetchRealmData(region) {
+		axios.get(`/api/realms?q=${region}`)
+			.then((response) => {
+				let realms = Object.assign({}, this.state.realms);
+				realms[region] = response.data;
+
+				this.setState({ region, realms });
+			})
+			.catch((err) => {
+				return console.log(err.response.data || err);
+			});
 	}
 
 	render() {
@@ -44,16 +58,20 @@ class Import extends Component {
 					<h2>Choose Character</h2>
 
 					<div>
-						<select onChange={this.populateRealmList} value={this.state.region}>
-							<option value="eu">EU</option>
-							<option value="us">US</option>
-						</select>
+						<div className="char-inputs">
+							<select onChange={this.populateRealmList} value={this.state.region}>
+								<option value="eu">EU</option>
+								<option value="us">US</option>
+							</select>
 
-						<select>
-							{realms}
-						</select>
+							<select>
+								{realms}
+							</select>
 
-						<input placeholder="Name" />
+							<input placeholder="Name" />
+						</div>
+
+						<button></button>
 					</div>
 				</section>
 			</div>

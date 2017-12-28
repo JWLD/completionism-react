@@ -19,28 +19,29 @@ $boxPadding: 2rem;
 		font: 4rem DinR;
 	}
 
-	div {
-		justify-content: flex-start;
+	> div {
 		width: 70rem;
 		padding: $boxPadding;
 
-		border-radius: .3rem;
+		border-radius: .4rem;
 		background-color: #333;
+	}
+
+	.char-inputs {
+		flex-wrap: wrap;
+		flex-grow: 1;
 
 		select, input {
 			height: $inputHeight;
 
 			border-radius: .3rem;
-			font: 2.5rem DinM;
-
-			&:not(:last-child) {
-				margin-right: $boxPadding * .5;
-			}
+			font: 2.25rem DinM;
 		}
 
 		select {
 			&:first-child {
-				width: 8rem;
+				width: 10rem;
+				margin-right: $boxPadding * .5;
 			}
 
 			&:nth-child(2) {
@@ -49,8 +50,18 @@ $boxPadding: 2rem;
 		}
 
 		input {
-			width: 50%;
+			width: 100%;
+			margin-top: $boxPadding * .5;
 			padding: .8rem;
 		}
+	}
+
+	button {
+		height: ($inputHeight * 2) + ($boxPadding * .5);
+		width: ($inputHeight * 2) + ($boxPadding * .5);
+		margin-left: $boxPadding;
+
+		border-radius: .4rem;
+		background-color: #444;
 	}
 }
