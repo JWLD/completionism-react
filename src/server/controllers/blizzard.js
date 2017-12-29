@@ -23,7 +23,10 @@ blizzController.getRealmData = (req, res) => {
 
 // GET IMPORT - GET CHAR DATA FROM BLIZZARD API
 blizzController.getCharData = (req, res) => {
-	const { region, realm, char, cats } = req.query;
+	let { region, realm, char, cats } = req.query;
+
+	// convert cats to array if string (happens when user chooses only one category)
+	if (typeof cats === 'string') cats = [ cats ];
 
 	// work out what data to request from battle-net
 	let fields = [];
