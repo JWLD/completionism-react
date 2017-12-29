@@ -8,7 +8,7 @@ import querystring from 'querystring';
 
 import './Import.scss';
 import Spinner from 'components/Spinner/Spinner';
-import categories from 'constants/categories';
+import categories, { COLLECTIONS, PRIMARY, SECONDARY } from 'constants/categories';
 
 class Import extends Component {
 	constructor(props) {
@@ -88,7 +88,8 @@ class Import extends Component {
 		const data = querystring.stringify({
 			region: this.state.region,
 			realm: this.state.realm,
-			char: this.state.char
+			char: this.state.char,
+			cats: this.state.categories
 		});
 
 		axios.get(`/api/import?${data}`)
@@ -97,19 +98,26 @@ class Import extends Component {
 					return this.setState({ status: 3 });
 				}
 
-				const ids = response.data.mounts.collected.map((mount) => mount.spellId);
-
-				localStorage.mounts = JSON.stringify({
-					region: this.state.region,
-					char: response.data.thumbnail,
-					ids
-				});
-
-				this.setState({ status: 2 });
+				console.log(response.data);
+				this.setState({ status: 3 });
+				// this.saveCharData(response.data);
 			})
 			.catch((err) => {
-				return console.log(err.response.data || err);
+				this.setState({ status: 3 });
+				return console.log(err);
 			});
+	}
+
+	saveCharData(data) {
+		const ids = data.mounts.collected.map((mount) => mount.spellId);
+
+		localStorage.mounts = JSON.stringify({
+			region: this.state.region,
+			char: data.thumbnail,
+			ids
+		});
+
+		this.setState({ status: 2 });
 	}
 
 	changeCats(e) {
@@ -150,7 +158,7 @@ class Import extends Component {
 		let symbol = <FaSearch className="neg" />;
 
 		if (this.state.status === 1) {
-			symbol = <Spinner size="4.5" />;
+			symbol = <Spinner size="4.3" />;
 		} else if (this.state.status === 2) {
 			symbol = <FaCheckCircle className="pos" />;
 		} else if (this.state.status === 3) {

@@ -1,0 +1,17 @@
+{
+	"PRIMARY": [
+		"alchemy",
+		"blacksmithing",
+		"enchanting",
+		"engineering",
+		"inscription",
+		"jewelcrafting",
+		"leatherworking",
+		"mining",
+		"tailoring"
+	],
+	"SECONDARY": [
+		"cooking",
+		"firstaid"
+	]
+}

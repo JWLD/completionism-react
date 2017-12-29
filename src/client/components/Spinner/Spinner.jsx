@@ -6,7 +6,7 @@ const Spinner = (props) => {
 	const style = {
 		height: `${props.size}rem`,
 		width: `${props.size}rem`,
-		borderWidth: `${props.size * .15}rem`
+		borderWidth: `${props.size * .175}rem`
 	};
 
 	return (

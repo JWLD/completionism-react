@@ -56,6 +56,10 @@ $boxPadding: 2rem;
 			&:not(:last-child) {
 				margin-right: 2rem;
 			}
+
+			&:hover {
+				cursor: pointer;
+			}
 		}
 
 		input {
