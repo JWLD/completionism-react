@@ -38,10 +38,23 @@ class Import extends Component {
 		this.changeRegion();
 	}
 
+	changeCats(e) {
+		const val = e.target.name;
+		const arr = this.state.categories;
+
+		if (arr.includes(val)) {
+			arr.splice(arr.indexOf(val), 1);
+		} else {
+			arr.push(val);
+		}
+
+		this.setState({ categories: arr });
+	}
+
 	changeRegion(e) {
 		const region = e ? e.target.value : this.state.region;
 
-		// retrieve realm list from Blizzard if necessary
+		// retrieve realm list from battle-net if necessary
 		if (this.state.realms[region].length === 0) {
 			this.fetchRealmData(region);
 
@@ -98,9 +111,7 @@ class Import extends Component {
 					return this.setState({ status: 3 });
 				}
 
-				console.log(response.data);
-				this.setState({ status: 3 });
-				// this.saveCharData(response.data);
+				this.saveCharData(response.data);
 			})
 			.catch((err) => {
 				this.setState({ status: 3 });
@@ -109,28 +120,19 @@ class Import extends Component {
 	}
 
 	saveCharData(data) {
-		const ids = data.mounts.collected.map((mount) => mount.spellId);
+		data.char.region = this.state.region;
 
-		localStorage.mounts = JSON.stringify({
-			region: this.state.region,
-			char: data.thumbnail,
-			ids
+		// save each data category to localStorage
+		Object.keys(data).map((cat) => {
+			if (cat === 'char') return;
+
+			localStorage[cat] = JSON.stringify({
+				char: data.char,
+				ids: data[cat]
+			});
+
+			this.setState({ status: 2 });
 		});
-
-		this.setState({ status: 2 });
-	}
-
-	changeCats(e) {
-		const val = e.target.name;
-		const arr = this.state.categories;
-
-		if (arr.includes(val)) {
-			arr.splice(arr.indexOf(val), 1);
-		} else {
-			arr.push(val);
-		}
-
-		this.setState({ categories: arr });
 	}
 
 	render() {
