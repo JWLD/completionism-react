@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import FaCheck from 'react-icons/lib/fa/check';
+import FaPlus from 'react-icons/lib/fa/plus';
 
 import { fetchCategoryData } from 'redux/actions';
 import './Category.scss';
@@ -21,18 +23,29 @@ class Category extends Component {
 
 	render() {
 		const categoryData = this.props[this.state.category] || [];
+		const storageData = JSON.parse(localStorage[this.state.category]).ids;
 
 		const list = categoryData.map((item) => {
-			const quality = `q${item.quality}`;
-			return <span key={item.id} className={quality}>{item.name}</span>;
+			const itemNameClass = `q${item.quality}`;
+
+			const progBox = storageData.includes(item.id)
+				? <div><FaCheck className="pos" /></div>
+				: <div><FaPlus className="neg rot" /></div>;
+
+			return (
+				<li className="item" key={item.id}>
+					<span className={itemNameClass}>{item.name}</span>
+					{progBox}
+				</li>
+			);
 		});
 
 		return (
 			<div className="category-page">
 				<h1>{this.state.category}</h1>
-				<div className="item-list">
+				<ul className="item-list">
 					{list}
-				</div>
+				</ul>
 			</div>
 		);
 	}
