@@ -10,7 +10,9 @@ const Spinner = (props) => {
 	};
 
 	return (
-		<div className="spinner" style={style}></div>
+		<div>
+			<div className="spinner" style={style}></div>
+		</div>
 	);
 };
 

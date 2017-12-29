@@ -96,6 +96,7 @@ class Import extends Component {
 				const ids = response.data.mounts.collected.map((mount) => mount.spellId);
 
 				localStorage.mounts = JSON.stringify({
+					region: this.state.region,
 					char: response.data.thumbnail,
 					ids
 				});
@@ -112,16 +113,14 @@ class Import extends Component {
 			<option value={realm.slug} key={realm.slug}>{realm.name}</option>
 		);
 
-		let symbol;
+		let symbol = <FaSearch className="neg" />;
 
 		if (this.state.status === 1) {
-			symbol = <Spinner size="5" />;
+			symbol = <Spinner size="4.5" />;
 		} else if (this.state.status === 2) {
 			symbol = <FaCheckCircle className="pos" />;
 		} else if (this.state.status === 3) {
 			symbol = <FaTimesCircle className="neg" />;
-		} else {
-			symbol = <FaSearch className="neg" />;
 		}
 
 		const buttonClass = this.state.status === 1 ? 'inactive' : null;

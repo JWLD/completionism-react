@@ -48,8 +48,10 @@ $linkPadding: 1rem;
 }
 
 .cat-button {
-	width: $iconHeight + ($linkPadding * 2);
-	height: $iconHeight + ($linkPadding * 2);
+	$buttonSize: $iconHeight + ($linkPadding * 2);
+
+	width: $buttonSize;
+	height: $buttonSize;
 	padding: 1.5rem;
 
 	border-radius: .4rem;
@@ -59,6 +61,17 @@ $linkPadding: 1rem;
 		height: 100%;
 		width: 100%;
 		color: gray;
+	}
+
+	img {
+		height: $buttonSize;
+
+		transform: rotateY(180deg);
+		border-radius: .4rem;
+
+		&:hover {
+			filter: brightness(110%);
+		}
 	}
 
 	&:hover {

@@ -8,26 +8,36 @@ import { ICON_URL } from 'constants/urls';
 import './Landing.scss';
 
 const Landing = () => {
-	const wraps = Object.keys(categories).map((sub) => (
+	const wraps = Object.keys(categories).map((sub) =>
 		<ul key={sub}>
-			{categories[sub].map((cat) =>
-				<li key={cat.key}>
-					<button className="cat-button">
-						<MdAdd />
-					</button>
+			{categories[sub].map((cat) => {
+				let portrait = <MdPerson />;
 
-					<Link to={`/category/${cat.key.toLowerCase()}`} className="cat-link">
-						<img src={`${ICON_URL}${cat.icon}.jpg`}/>
-						<span>{cat.name}</span>
-					</Link>
+				if (localStorage[cat.key]) {
+					const { region, char } = JSON.parse(localStorage[cat.key]);
+					const url = `http://render-api-${region}.worldofwarcraft.com/static-render/${region}/${char}`;
+					portrait = <img src={url} />;
+				}
 
-					<Link to='/import' className="cat-button">
-						<MdPerson />
-					</Link>
-				</li>
-			)}
+				return (
+					<li key={cat.key}>
+						<button className="cat-button">
+							<MdAdd />
+						</button>
+
+						<Link to={`/category/${cat.key.toLowerCase()}`} className="cat-link">
+							<img src={`${ICON_URL}${cat.icon}.jpg`}/>
+							<span>{cat.name}</span>
+						</Link>
+
+						<Link to='/import' className="cat-button">
+							{portrait}
+						</Link>
+					</li>
+				);
+			})}
 		</ul>
-	));
+	);
 
 	return (
 		<div className="landing-page">
