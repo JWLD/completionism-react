@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
+import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 import FaSearch from 'react-icons/lib/fa/search';
 import querystring from 'querystring';
 
@@ -25,6 +26,7 @@ class Import extends Component {
 		this.changeRegion = this.changeRegion.bind(this);
 		this.changeRealm = this.changeRealm.bind(this);
 		this.changeChar = this.changeChar.bind(this);
+		this.onInputKeyPress = this.onInputKeyPress.bind(this);
 		this.fetchCharData = this.fetchCharData.bind(this);
 	}
 
@@ -68,9 +70,17 @@ class Import extends Component {
 
 	changeChar(e) {
 		this.setState({ char: e.target.value });
-	};
+	}
+
+	onInputKeyPress(e) {
+		if (e.key === 'Enter') {
+			this.fetchCharData();
+		}
+	}
 
 	fetchCharData() {
+		this.setState({ status: 1 });
+
 		const data = querystring.stringify({
 			region: this.state.region,
 			realm: this.state.realm,
@@ -79,7 +89,18 @@ class Import extends Component {
 
 		axios.get(`/api/import?${data}`)
 			.then((response) => {
-				console.log(response);
+				if (response.data.status === 'nok') {
+					return this.setState({ status: 3 });
+				}
+
+				const ids = response.data.mounts.collected.map((mount) => mount.spellId);
+
+				localStorage.mounts = JSON.stringify({
+					char: response.data.thumbnail,
+					ids
+				});
+
+				this.setState({ status: 2 });
 			})
 			.catch((err) => {
 				return console.log(err.response.data || err);
@@ -97,11 +118,13 @@ class Import extends Component {
 			symbol = <Spinner size="5" />;
 		} else if (this.state.status === 2) {
 			symbol = <FaCheckCircle className="pos" />;
+		} else if (this.state.status === 3) {
+			symbol = <FaTimesCircle className="neg" />;
 		} else {
 			symbol = <FaSearch className="neg" />;
 		}
 
-		const buttonClass = this.state.status > 0 ? 'inactive' : null;
+		const buttonClass = this.state.status === 1 ? 'inactive' : null;
 
 		return (
 			<div className="import-page">
@@ -119,7 +142,7 @@ class Import extends Component {
 								{realms}
 							</select>
 
-							<input onChange={this.changeChar} value={this.state.char} placeholder="Name" />
+							<input onChange={this.changeChar} onKeyPress={this.onInputKeyPress} value={this.state.char} placeholder="Name" />
 						</div>
 
 						<button onClick={this.fetchCharData} className={buttonClass}>
