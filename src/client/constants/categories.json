@@ -3,76 +3,90 @@
 		{
 			"key": "mounts",
 			"name": "Mounts",
-			"icon": "mountjournalportrait"
+			"icon": "mountjournalportrait",
+			"battle": true
 		},
 		{
 			"key": "pets",
 			"name": "Pets",
-			"icon": "petjournalportrait"
+			"icon": "petjournalportrait",
+			"battle": true
 		},
 		{
 			"key": "toys",
 			"name": "Toys",
-			"icon": "inv_misc_toy_05"
+			"icon": "inv_misc_toy_05",
+			"battle": false
 		}
 	],
 	"PRIMARY": [
 		{
 			"key": "alchemy",
 			"name": "Alchemy",
-			"icon": "trade_alchemy"
+			"icon": "trade_alchemy",
+			"battle": true
 		},
 		{
 			"key": "blacksmithing",
 			"name": "Blacksmithing",
-			"icon": "trade_blacksmithing"
+			"icon": "trade_blacksmithing",
+			"battle": true
 		},
 		{
 			"key": "enchanting",
 			"name": "Enchanting",
-			"icon": "trade_engraving"
+			"icon": "trade_engraving",
+			"battle": true
 		},
 		{
 			"key": "engineering",
 			"name": "Engineering",
-			"icon": "trade_engineering"
+			"icon": "trade_engineering",
+			"battle": true
 		},
 		{
 			"key": "inscription",
 			"name": "Inscription",
-			"icon": "inv_inscription_tradeskill01"
+			"icon": "inv_inscription_tradeskill01",
+			"battle": true
 		},
 		{
 			"key": "jewelcrafting",
 			"name": "Jewelcrafting",
-			"icon": "inv_misc_gem_01"
+			"icon": "inv_misc_gem_01",
+			"battle": true
 		},
 		{
 			"key": "leatherworking",
 			"name": "Leatherworking",
-			"icon": "inv_misc_armorkit_17"
+			"icon": "inv_misc_armorkit_17",
+			"battle": true
 		},
 		{
 			"key": "tailoring",
 			"name": "Tailoring",
-			"icon": "trade_tailoring"
+			"icon": "trade_tailoring",
+			"battle": true
 		}
 	],
 	"SECONDARY": [
 		{
 			"key": "cooking",
 			"name": "Cooking",
-			"icon": "inv_misc_food_15"
+			"icon": "inv_misc_food_15",
+			"battle": true
 		},
 		{
 			"key": "firstaid",
 			"name": "First Aid",
-			"icon": "spell_holy_sealofsacrifice"
+			"icon": "spell_holy_sealofsacrifice",
+			"battle": true
 		},
 		{
 			"key": "mining",
 			"name": "Mining",
-			"icon": "trade_mining"
+			"icon": "trade_mining",
+			"battle": true
 		}
 	]
 }

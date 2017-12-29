@@ -3,10 +3,12 @@ import axios from 'axios';
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 import FaSearch from 'react-icons/lib/fa/search';
+import FaCheck from 'react-icons/lib/fa/check';
 import querystring from 'querystring';
 
 import './Import.scss';
 import Spinner from 'components/Spinner/Spinner';
+import categories from 'constants/categories';
 
 class Import extends Component {
 	constructor(props) {
@@ -20,12 +22,14 @@ class Import extends Component {
 			region: 'eu',
 			realm: '',
 			char: '',
+			categories: [],
 			status: 0
 		}
 
 		this.changeRegion = this.changeRegion.bind(this);
 		this.changeRealm = this.changeRealm.bind(this);
 		this.changeChar = this.changeChar.bind(this);
+		this.changeCats = this.changeCats.bind(this);
 		this.onInputKeyPress = this.onInputKeyPress.bind(this);
 		this.fetchCharData = this.fetchCharData.bind(this);
 	}
@@ -108,7 +112,37 @@ class Import extends Component {
 			});
 	}
 
+	changeCats(e) {
+		const val = e.target.name;
+		const arr = this.state.categories;
+
+		if (arr.includes(val)) {
+			arr.splice(arr.indexOf(val), 1);
+		} else {
+			arr.push(val);
+		}
+
+		this.setState({ categories: arr });
+	}
+
 	render() {
+		const cats = Object.keys(categories).map((sub) =>
+			<div key={sub} className="cat-check-wrap">
+				{categories[sub].map((cat) => {
+					if (!cat.battle) return;
+
+					return (
+						<label key={cat.key}>{cat.name}
+							<input type="checkbox" name={cat.key} onChange={this.changeCats} />
+							<span>
+								<FaCheck />
+							</span>
+						</label>
+					);
+				})}
+			</div>
+		);
+
 		const realms = this.state.realms[this.state.region].map((realm) =>
 			<option value={realm.slug} key={realm.slug}>{realm.name}</option>
 		);
@@ -127,8 +161,16 @@ class Import extends Component {
 
 		return (
 			<div className="import-page">
+				<section className="cat-sctn">
+					<h2>Select Categories</h2>
+
+					<div>
+						{cats}
+					</div>
+				</section>
+
 				<section className="char-sctn">
-					<h2>Choose Character</h2>
+					<h2>Select Character</h2>
 
 					<div>
 						<div className="char-inputs">

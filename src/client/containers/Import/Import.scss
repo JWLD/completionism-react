@@ -8,25 +8,96 @@ $boxPadding: 2rem;
 // STYLING
 
 .import-page {
+	flex-direction: column;
 	padding: $pagePadding;
+
+	section {
+		h2 {
+			justify-content: flex-start;
+			margin-bottom: $boxPadding * .25;
+			color: white;
+			font: 4rem DinRC;
+		}
+
+		> div {
+			width: 70rem;
+			padding: $boxPadding;
+
+			border-radius: .4rem;
+			background-color: #333;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: $pagePadding * .5;
+		}
+	}
+}
+
+.cat-sctn {
+	> div {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.cat-check-wrap {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		label {
+			position: relative;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+
+			height: 3rem;
+			width: 20rem;
+			color: white;
+			font: 2.5rem DinMC;
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+			}
+		}
+
+		input {
+			position: absolute;
+			opacity: 0;
+
+			&:checked ~ span {
+				background-color: $pos;
+			}
+
+			&:checked ~ span svg {
+				opacity: 1;
+			}
+		}
+
+		span {
+			max-height: 2rem;
+			max-width: 2rem;
+			padding: .2rem;
+			margin-right: 1rem;
+
+			border-radius: .2rem;
+			background-color: white;
+
+			&:hover {
+				background-color: #ccc;
+			}
+		}
+
+		svg {
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
 }
 
 .char-sctn {
-	h2 {
-		justify-content: flex-start;
-		margin-bottom: $boxPadding * .25;
-		color: white;
-		font: 4rem DinRC;
-	}
-
-	> div {
-		width: 70rem;
-		padding: $boxPadding;
-
-		border-radius: .4rem;
-		background-color: #333;
-	}
-
 	.char-inputs {
 		flex-wrap: wrap;
 		flex-grow: 1;
