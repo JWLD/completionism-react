@@ -7,7 +7,7 @@ import { checkHigherRanks, filterByField, filterByFaction, orderByFields } from 
 
 const ItemList = (props) => {
 	const storageData = localStorage[props.category] ? JSON.parse(localStorage[props.category]).ids : [];
-	const { faction } = JSON.parse(localStorage[props.category]).char;
+	const { faction } = localStorage[props.category] ? JSON.parse(localStorage[props.category]).char : 2;
 
 	// process data
 	let data = props.categoryData;
