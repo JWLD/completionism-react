@@ -23,7 +23,7 @@ class Category extends Component {
 
 	render() {
 		const categoryData = this.props[this.state.category] || [];
-		const storageData = JSON.parse(localStorage[this.state.category]).ids;
+		const storageData = localStorage[this.state.category] ? JSON.parse(localStorage[this.state.category]).ids : [];
 
 		const list = categoryData.map((item) => {
 			const itemNameClass = `q${item.quality}`;
