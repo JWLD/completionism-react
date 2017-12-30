@@ -31,11 +31,11 @@ class Category extends Component {
 		return (
 			<div className="category-page">
 				<nav>
-					<Link to={`${urlBase}${page - 1}`}>
+					<Link to={`${urlBase}${page - 1}`} className={page === 1 ? 'inactive' : ''}>
 						<FaArrowCircleLeft />
 					</Link>
 					<h1>{this.state.category}</h1>
-					<Link to={`${urlBase}${page + 1}`}>
+					<Link to={`${urlBase}${page + 1}`} className={page === 9 ? 'inactive' : ''}>
 						<FaArrowCircleRight />
 					</Link>
 				</nav>
