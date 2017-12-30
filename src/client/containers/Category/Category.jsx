@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 import FaCheck from 'react-icons/lib/fa/check';
 import FaPlus from 'react-icons/lib/fa/plus';
+import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left';
+import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right';
 
 import { fetchCategoryData } from 'redux/actions';
 import { dataSelector } from 'selectors/dataSelector';
@@ -60,9 +64,20 @@ class Category extends Component {
 			);
 		});
 
+		const urlBase = this.props.match.url.slice(0, -1);
+		const page = Number(this.props.match.params.content);
+
 		return (
 			<div className="category-page">
-				<h1>{this.state.category}</h1>
+				<nav>
+					<Link to={`${urlBase}${page - 1}`}>
+						<FaArrowCircleLeft />
+					</Link>
+					<h1>{this.state.category}</h1>
+					<Link to={`${urlBase}${page + 1}`}>
+						<FaArrowCircleRight />
+					</Link>
+				</nav>
 				<ul className="item-list">
 					{list}
 				</ul>
