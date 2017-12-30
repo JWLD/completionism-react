@@ -13,7 +13,7 @@ const App = () => (
 	<BrowserRouter>
 		<Provider store={store}>
 			<div className="app">
-				<NavBar />
+				<Route path="/" component={NavBar}/>
 				<Route exact path="/" component={Landing} />
 				<Route path="/category/:category/:content" component={Category} />
 				<Route path="/import" component={Import} />
