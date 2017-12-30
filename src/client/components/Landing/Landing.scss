@@ -33,9 +33,11 @@ $linkPadding: 1rem;
 	color: white;
 	font: 2.5rem DinMC;
 
-	img {
+	i {
 		height: $iconHeight;
+		width: $iconHeight;
 		border-radius: .4rem;
+		background-size: cover;
 	}
 
 	span {
@@ -50,6 +52,8 @@ $linkPadding: 1rem;
 .cat-button {
 	$buttonSize: $iconHeight + ($linkPadding * 2);
 
+	position: relative;
+
 	width: $buttonSize;
 	height: $buttonSize;
 	padding: 1.5rem;
@@ -63,11 +67,17 @@ $linkPadding: 1rem;
 		color: gray;
 	}
 
-	img {
-		height: $buttonSize;
+	i {
+		position: absolute;
+		top: 0;
+		left: 0;
 
-		transform: rotateY(180deg);
+		height: $buttonSize;
+		min-width: $buttonSize;
+
+		background-size: cover;
 		border-radius: .4rem;
+		transform: rotateY(180deg);
 
 		&:hover {
 			filter: brightness(110%);

@@ -4,6 +4,7 @@ import FaPlus from 'react-icons/lib/fa/plus';
 
 import './ItemList.scss';
 import { checkHigherRanks, filterByField, filterByFaction, orderByFields } from 'helpers/dataHelpers';
+import { ICON_URLS } from 'constants/urls';
 
 const ItemList = (props) => {
 	const storageData = localStorage[props.category] ? JSON.parse(localStorage[props.category]).ids : [];
@@ -28,7 +29,8 @@ const ItemList = (props) => {
 
 		return (
 			<li className="item" key={item.id}>
-				<span className={itemNameClass}>{item.name} {item.rank} {item.source}</span>
+				<img src={`${ICON_URLS.medium}${item.icon}.jpg`}/>
+ 				<span className={itemNameClass}>{item.name} {item.rank} {item.source}</span>
 				{progBox}
 			</li>
 		);
