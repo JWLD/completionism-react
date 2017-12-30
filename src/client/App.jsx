@@ -13,7 +13,7 @@ const App = () => (
     <Provider store={store}>
       <Switch>
 				<Route exact path="/" component={Landing} />
-				<Route path="/category/:category" component={Category} />
+				<Route path="/category/:category/:content" component={Category} />
 				<Route path="/import" component={Import} />
       </Switch>
     </Provider>
