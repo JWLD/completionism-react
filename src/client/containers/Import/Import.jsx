@@ -99,7 +99,10 @@ class Import extends Component {
 	fetchCharData() {
 		if (!this.validateFetch()) return false;
 
-		this.setState({ status: 1 });
+		this.setState({
+			status: 1,
+			errMsg: ''
+		});
 
 		const data = querystring.stringify({
 			region: this.state.region,
