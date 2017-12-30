@@ -25,7 +25,7 @@ const Landing = () => {
 							<MdAdd />
 						</button>
 
-						<Link to={`/category/${cat.key.toLowerCase()}`} className="cat-link">
+						<Link to={`/category/${cat.key.toLowerCase()}/1`} className="cat-link">
 							<img src={`${ICON_URL}${cat.icon}.jpg`}/>
 							<span>{cat.name}</span>
 						</Link>
