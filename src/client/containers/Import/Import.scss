@@ -1,15 +1,12 @@
-// VARS
-
 @import 'global';
 
 $inputHeight: 4rem;
 $boxPadding: 2rem;
 
-// STYLING
-
 .import-page {
+	@include pageWrap;
+
 	flex-direction: column;
-	padding: $pagePadding;
 
 	section {
 		h2 {

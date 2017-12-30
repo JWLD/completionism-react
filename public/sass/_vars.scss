@@ -1,13 +1,6 @@
-// MIXINS
-
-@mixin flex() {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 // SIZING
 
+$navBarHeight: 8rem;
 $pagePadding: 5rem;
 
 // COLOURS
@@ -23,3 +16,17 @@ $q7: #ffcc00;
 
 $pos: #00cc66;
 $neg: #ff6347;
+
+// MIXINS
+
+@mixin flex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin pageWrap() {
+	min-width: 100vw;
+	margin-top: $navBarHeight;
+	padding: $pagePadding;
+}

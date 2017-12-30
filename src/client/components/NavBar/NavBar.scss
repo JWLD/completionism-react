@@ -1,0 +1,14 @@
+@import 'global';
+
+.main-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+
+	width: 100vw;
+	height: $navBarHeight;
+
+	background-color: #373e48;
+	box-shadow: 0 0 1.5rem .1rem black;
+}

@@ -1,12 +1,12 @@
+@import 'global';
+
 $iconHeight: 5rem;
 $linkPadding: 1rem;
 
 .landing-page {
-	flex-direction: column;
+	@include pageWrap;
 
-	min-width: 100vw;
-	min-height: 100vh;
-	padding: 3rem;
+	flex-direction: column;
 
 	& > ul {
 		flex-direction: column;

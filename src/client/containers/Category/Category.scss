@@ -1,6 +1,9 @@
+@import 'global';
+
 .category-page {
+	@include pageWrap;
+
 	flex-direction: column;
-	padding: 3rem;
 
 	nav {
 		margin-bottom: 1rem;
