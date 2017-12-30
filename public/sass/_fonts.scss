@@ -1,19 +1,39 @@
 @font-face {
+  font-family: DinBC;
+  src: url('../fonts/DinBoldC.otf');
+}
+
+@font-face {
+  font-family: DinMC;
+  src: url('../fonts/DinMediumC.otf');
+}
+
+@font-face {
+  font-family: DinRC;
+  src: url('../fonts/DinRegularC.otf');
+}
+
+@font-face {
+  font-family: DinLC;
+  src: url('../fonts/DinLightC.otf');
+}
+
+@font-face {
   font-family: DinB;
-  src: url('../fonts/dinBold.otf');
+  src: url('../fonts/DinBold.otf');
 }
 
 @font-face {
   font-family: DinM;
-  src: url('../fonts/dinMedium.otf');
+  src: url('../fonts/DinMedium.otf');
 }
 
 @font-face {
   font-family: DinR;
-  src: url('../fonts/dinRegular.otf');
+  src: url('../fonts/DinRegular.otf');
 }
 
 @font-face {
   font-family: DinL;
-  src: url('../fonts/dinLight.otf');
+  src: url('../fonts/DinLight.otf');
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import FaCheck from 'react-icons/lib/fa/check';
+import FaPlus from 'react-icons/lib/fa/plus';
 
 import { fetchCategoryData } from 'redux/actions';
 import './Category.scss';
@@ -19,20 +21,50 @@ class Category extends Component {
 		}
 	}
 
+	checkHigherRanks(item, catData, stoData) {
+		const higherRankItems = catData.filter((el) => el.name === item.name && el.rank > item.rank);
+
+		let higherRankObtained = false;
+
+		higherRankItems.map((el) => {
+			if (stoData.includes(el.id)) higherRankObtained = true;
+		});
+
+		return higherRankObtained;
+	}
+
 	render() {
-		const categoryData = this.props[this.state.category] || [];
+		const cat = this.state.category;
+		const categoryData = this.props[cat] || [];
+		const storageData = localStorage[cat] ? JSON.parse(localStorage[cat]).ids : [];
 
 		const list = categoryData.map((item) => {
-			const quality = `q${item.quality}`;
-			return <span key={item.id} className={quality}>{item.name}</span>;
+			const itemNameClass = `q${item.quality}`;
+
+			let checkRanks = false;
+
+			if (item.rank === 1 || item.rank === 2) {
+				checkRanks = this.checkHigherRanks(item, categoryData, storageData);
+			}
+
+			const progBox = storageData.includes(item.id) || checkRanks
+				? <div><FaCheck className="pos" /></div>
+				: <div><FaPlus className="neg rot" /></div>;
+
+			return (
+				<li className="item" key={item.id}>
+					<span className={itemNameClass}>{item.name} {item.rank}</span>
+					{progBox}
+				</li>
+			);
 		});
 
 		return (
 			<div className="category-page">
 				<h1>{this.state.category}</h1>
-				<div className="item-list">
+				<ul className="item-list">
 					{list}
-				</div>
+				</ul>
 			</div>
 		);
 	}

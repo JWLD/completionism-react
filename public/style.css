@@ -1,30 +1,46 @@
 @font-face {
+  font-family: DinBC;
+  src: url("../fonts/DinBoldC.otf"); }
+
+@font-face {
+  font-family: DinMC;
+  src: url("../fonts/DinMediumC.otf"); }
+
+@font-face {
+  font-family: DinRC;
+  src: url("../fonts/DinRegularC.otf"); }
+
+@font-face {
+  font-family: DinLC;
+  src: url("../fonts/DinLightC.otf"); }
+
+@font-face {
   font-family: DinB;
-  src: url("../fonts/dinBold.otf"); }
+  src: url("../fonts/DinBold.otf"); }
 
 @font-face {
   font-family: DinM;
-  src: url("../fonts/dinMedium.otf"); }
+  src: url("../fonts/DinMedium.otf"); }
 
 @font-face {
   font-family: DinR;
-  src: url("../fonts/dinRegular.otf"); }
+  src: url("../fonts/DinRegular.otf"); }
 
 @font-face {
   font-family: DinL;
-  src: url("../fonts/dinLight.otf"); }
+  src: url("../fonts/DinLight.otf"); }
 
 html {
   font-size: 62.5%; }
 
-body, div {
+a, body, button, div, h1, h2, input, select, span, ul {
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
   box-sizing: border-box; }
 
-a, div, nav, span {
+a, div, h2, label, li, nav, select, span {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -35,12 +51,20 @@ a:hover, button:hover {
 a {
   text-decoration: none; }
 
+button:focus {
+  outline: none; }
+
 body {
   min-height: 100vh;
   background-color: #21252b; }
 
 .hide {
   display: none; }
+
+.inactive {
+  pointer-events: none; }
+  .inactive:hover {
+    cursor: default; }
 
 .q0 {
   color: #9d9d9d; }
@@ -65,3 +89,9 @@ body {
 
 .q7 {
   color: #ffcc00; }
+
+.neg {
+  color: #ff6347; }
+
+.pos {
+  color: #00cc66; }

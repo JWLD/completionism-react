@@ -2,7 +2,7 @@ html {
 	font-size: 62.5%;
 }
 
-body, div {
+a, body, button, div, h1, h2, input, select, span, ul {
   margin: 0;
   padding: 0;
   border: 0;
@@ -10,7 +10,7 @@ body, div {
   box-sizing: border-box;
 }
 
-a, div, nav, span {
+a, div, h2, label, li, nav, select, span {
   @include flex;
 }
 
@@ -20,4 +20,8 @@ a:hover, button:hover {
 
 a {
 	text-decoration: none;
+}
+
+button:focus {
+	outline: none;
 }

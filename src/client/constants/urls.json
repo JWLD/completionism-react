@@ -1,3 +1,4 @@
 {
-	"WOWHEAD_ICON": "http://wow.zamimg.com/images/wow/icons/large/"
+	"ICON_URL": "http://wow.zamimg.com/images/wow/icons/large/",
+	"AVATAR_URL": "http://eu.battle.net/static-render/"
 }

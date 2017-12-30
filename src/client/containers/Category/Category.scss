@@ -4,19 +4,42 @@
 }
 
 h1 {
+	margin-bottom: 1rem;
 	color: white;
-	font: 5rem DinM;
+	font: 5rem DinMC;
 	text-transform: uppercase;
 }
 
 .item-list {
 	flex-direction: column;
+
+	width: 40rem;
 	padding: 2rem;
+
 	background-color: #222;
+}
+
+.item {
+	justify-content: space-between;
 
 	span {
 		justify-content: flex-start;
-		width: 50rem;
-		font: 2rem DinR;
+		font: 2rem DinRC;
+	}
+
+	div {
+		height: 2rem;
+		width: 2rem;
+		padding: .2rem;
+		background-color: #444;
+
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+
+		.rot {
+			transform: rotateZ(45deg);
+		}
 	}
 }

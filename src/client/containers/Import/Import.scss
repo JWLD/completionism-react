@@ -1,0 +1,161 @@
+// VARS
+
+@import 'global';
+
+$inputHeight: 4rem;
+$boxPadding: 2rem;
+
+// STYLING
+
+.import-page {
+	flex-direction: column;
+	padding: $pagePadding;
+
+	section {
+		h2 {
+			justify-content: flex-start;
+			margin-bottom: $boxPadding * .25;
+			color: white;
+			font: 4rem DinRC;
+		}
+
+		> div, .import-err {
+			width: 70rem;
+			padding: $boxPadding;
+
+			border-radius: .4rem;
+			background-color: #333;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: $pagePadding * .5;
+		}
+	}
+}
+
+.cat-sctn {
+	> div {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.cat-check-wrap {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		label {
+			position: relative;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+
+			height: 3rem;
+			width: 20rem;
+			color: white;
+			font: 2.5rem DinMC;
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		input {
+			position: absolute;
+			opacity: 0;
+
+			&:checked ~ span {
+				background-color: $pos;
+			}
+
+			&:checked ~ span svg {
+				opacity: 1;
+			}
+		}
+
+		span {
+			max-height: 2rem;
+			max-width: 2rem;
+			padding: .2rem;
+			margin-right: 1rem;
+
+			border-radius: .2rem;
+			background-color: white;
+
+			&:hover {
+				background-color: #ccc;
+			}
+		}
+
+		svg {
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+.char-sctn {
+	.char-inputs {
+		flex-wrap: wrap;
+		flex-grow: 1;
+
+		select, input {
+			height: $inputHeight;
+
+			border-radius: .3rem;
+			font: 2.5rem DinMC;
+		}
+
+		select {
+			&:first-child {
+				width: 10rem;
+				margin-right: $boxPadding * .5;
+			}
+
+			&:nth-child(2) {
+				flex-grow: 1;
+			}
+		}
+
+		input {
+			width: 100%;
+			margin-top: $boxPadding * .5;
+			padding: .8rem;
+
+			text-transform: capitalize;
+		}
+	}
+
+	button {
+		height: ($inputHeight * 2) + ($boxPadding * .5);
+		min-width: ($inputHeight * 2) + ($boxPadding * .5);
+		margin-left: $boxPadding;
+		padding: 2rem;
+
+		border-radius: .4rem;
+		background-color: #444;
+
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+
+		&:hover {
+			background-color: #555;
+		}
+	}
+
+	.import-err {
+		margin-top: $pagePadding * .5;
+
+		color: $neg;
+		font: 2.5rem DinRC;
+	}
+}
