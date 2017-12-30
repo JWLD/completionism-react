@@ -11,6 +11,8 @@ const Landing = () => {
 	const wraps = Object.keys(categories).map((sub) =>
 		<ul key={sub}>
 			{categories[sub].map((cat) => {
+				if (!cat.enabled) return;
+
 				let portrait = <MdPerson />;
 
 				if (localStorage[cat.key]) {

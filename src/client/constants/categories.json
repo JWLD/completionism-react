@@ -4,19 +4,22 @@
 			"key": "mounts",
 			"name": "Mounts",
 			"icon": "mountjournalportrait",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "pets",
 			"name": "Pets",
 			"icon": "petjournalportrait",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "toys",
 			"name": "Toys",
 			"icon": "inv_misc_toy_05",
-			"battle": false
+			"battle": false,
+			"enabled": true
 		}
 	],
 	"PRIMARY": [
@@ -24,69 +27,87 @@
 			"key": "alchemy",
 			"name": "Alchemy",
 			"icon": "trade_alchemy",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "blacksmithing",
 			"name": "Blacksmithing",
 			"icon": "trade_blacksmithing",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "enchanting",
 			"name": "Enchanting",
 			"icon": "trade_engraving",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "engineering",
 			"name": "Engineering",
 			"icon": "trade_engineering",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "inscription",
 			"name": "Inscription",
 			"icon": "inv_inscription_tradeskill01",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "jewelcrafting",
 			"name": "Jewelcrafting",
 			"icon": "inv_misc_gem_01",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "leatherworking",
 			"name": "Leatherworking",
 			"icon": "inv_misc_armorkit_17",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "tailoring",
 			"name": "Tailoring",
 			"icon": "trade_tailoring",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		}
 	],
 	"SECONDARY": [
 		{
+			"key": "archaeology",
+			"name": "Archaeology",
+			"icon": "trade_archaeology",
+			"battle": false,
+			"enabled": false
+		},
+		{
 			"key": "cooking",
 			"name": "Cooking",
 			"icon": "inv_misc_food_15",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "firstaid",
 			"name": "First Aid",
 			"icon": "spell_holy_sealofsacrifice",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		},
 		{
 			"key": "mining",
 			"name": "Mining",
 			"icon": "trade_mining",
-			"battle": true
+			"battle": true,
+			"enabled": true
 		}
 	]
 }
