@@ -40,7 +40,8 @@ blizzController.getCharData = (req, res) => {
 	}
 
 	// make the request
-	const url = `https://${region}.api.battle.net/wow/character/${realm}/${char}?fields=${fields}&locale=en_GB&apikey=${process.env.BATTLENET_KEY}`;
+	const locale = region === 'eu' ? 'en_GB' : 'en_US';
+	const url = `https://${region}.api.battle.net/wow/character/${realm}/${char}?fields=${fields}&locale=${locale}&apikey=${process.env.BATTLENET_KEY}`;
 
 	request(url, (err, response, body) => {
 		if (err) return res.status(500).send(err);
