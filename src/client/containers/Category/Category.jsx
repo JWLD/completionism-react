@@ -4,6 +4,7 @@ import FaCheck from 'react-icons/lib/fa/check';
 import FaPlus from 'react-icons/lib/fa/plus';
 
 import { fetchCategoryData } from 'redux/actions';
+import { dataSelector } from 'selectors/dataSelector';
 import './Category.scss';
 
 class Category extends Component {
@@ -70,13 +71,9 @@ class Category extends Component {
 	}
 };
 
-const mapStateToProps = (state, ownProps) => {
-	const category = ownProps.match.params.category;
-
-	return {
-		[category]: state[category]
-	}
-};
+const mapStateToProps = (state, ownProps) => ({
+	[ownProps.match.params.category]: dataSelector(state, ownProps)
+});
 
 const mapDispatchToProps = (dispatch) => ({
 	getCategoryData(category) {
