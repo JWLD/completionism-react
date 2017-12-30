@@ -47,6 +47,9 @@ blizzController.getCharData = (req, res) => {
 
 		const data = JSON.parse(body);
 
+		// usually if character not found
+		if (data.status === 'nok') return res.status(500).send(data.reason);
+
 		let sorted = {
 			char: {
 				thumb: data.thumbnail,

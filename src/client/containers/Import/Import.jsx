@@ -23,7 +23,8 @@ class Import extends Component {
 			realm: '',
 			char: '',
 			categories: [],
-			status: 0
+			status: 0,
+			errMsg: ''
 		}
 
 		this.changeRegion = this.changeRegion.bind(this);
@@ -96,6 +97,8 @@ class Import extends Component {
 	}
 
 	fetchCharData() {
+		if (!this.validateFetch()) return false;
+
 		this.setState({ status: 1 });
 
 		const data = querystring.stringify({
@@ -114,9 +117,31 @@ class Import extends Component {
 				this.saveCharData(response.data);
 			})
 			.catch((err) => {
-				this.setState({ status: 3 });
-				return console.log(err);
+				this.setState({
+					status: 3,
+					errMsg: err.response.data
+				});
+
+				return console.log(err.response.data || err);
 			});
+	}
+
+	validateFetch() {
+		let msg = '';
+
+		if (!this.state.char) msg = 'Please enter a character name.';
+		if (this.state.categories.length === 0) msg = 'Please select at least one category.';
+
+		if (msg) {
+			this.setState({
+				status: 3,
+				errMsg: msg
+			});
+
+			return false;
+		}
+
+		return true;
 	}
 
 	saveCharData(data) {
@@ -169,6 +194,8 @@ class Import extends Component {
 
 		const buttonClass = this.state.status === 1 ? 'inactive' : null;
 
+		const errBox = this.state.errMsg ? <span className="import-err">{this.state.errMsg}</span> : null;
+
 		return (
 			<div className="import-page">
 				<section className="cat-sctn">
@@ -200,6 +227,8 @@ class Import extends Component {
 							{symbol}
 						</button>
 					</div>
+
+					{errBox}
 				</section>
 			</div>
 		);
