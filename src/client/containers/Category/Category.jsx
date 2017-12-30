@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import FaCheck from 'react-icons/lib/fa/check';
-import FaPlus from 'react-icons/lib/fa/plus';
 import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left';
 import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right';
 
+import ItemList from 'components/ItemList/ItemList';
 import { fetchCategoryData } from 'redux/actions';
-import { dataSelector } from 'selectors/dataSelector';
 import './Category.scss';
 
 class Category extends Component {
@@ -26,44 +24,7 @@ class Category extends Component {
 		}
 	}
 
-	checkHigherRanks(item, catData, stoData) {
-		const higherRankItems = catData.filter((el) => el.name === item.name && el.rank > item.rank);
-
-		let higherRankObtained = false;
-
-		higherRankItems.map((el) => {
-			if (stoData.includes(el.id)) higherRankObtained = true;
-		});
-
-		return higherRankObtained;
-	}
-
 	render() {
-		const cat = this.state.category;
-		const categoryData = this.props[cat] || [];
-		const storageData = localStorage[cat] ? JSON.parse(localStorage[cat]).ids : [];
-
-		const list = categoryData.map((item) => {
-			const itemNameClass = `q${item.quality}`;
-
-			let checkRanks = false;
-
-			if (item.rank === 1 || item.rank === 2) {
-				checkRanks = this.checkHigherRanks(item, categoryData, storageData);
-			}
-
-			const progBox = storageData.includes(item.id) || checkRanks
-				? <div><FaCheck className="pos" /></div>
-				: <div><FaPlus className="neg rot" /></div>;
-
-			return (
-				<li className="item" key={item.id}>
-					<span className={itemNameClass}>{item.name} {item.rank}</span>
-					{progBox}
-				</li>
-			);
-		});
-
 		const urlBase = this.props.match.url.slice(0, -1);
 		const page = Number(this.props.match.params.content);
 
@@ -78,16 +39,19 @@ class Category extends Component {
 						<FaArrowCircleRight />
 					</Link>
 				</nav>
-				<ul className="item-list">
-					{list}
-				</ul>
+
+				<ItemList
+					category={this.state.category}
+					content={Number(this.props.match.params.content)}
+					categoryData={this.props[this.state.category] || []}
+				/>
 			</div>
 		);
 	}
 };
 
 const mapStateToProps = (state, ownProps) => ({
-	[ownProps.match.params.category]: dataSelector(state, ownProps)
+	[ownProps.match.params.category]: state[ownProps.match.params.category]
 });
 
 const mapDispatchToProps = (dispatch) => ({
