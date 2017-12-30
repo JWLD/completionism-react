@@ -21,6 +21,18 @@ class Category extends Component {
 		}
 	}
 
+	checkHigherRanks(item, catData, stoData) {
+		const higherRankItems = catData.filter((el) => el.name === item.name && el.rank > item.rank);
+
+		let higherRankObtained = false;
+
+		higherRankItems.map((el) => {
+			if (stoData.includes(el.id)) higherRankObtained = true;
+		});
+
+		return higherRankObtained;
+	}
+
 	render() {
 		const cat = this.state.category;
 		const categoryData = this.props[cat] || [];
@@ -29,13 +41,19 @@ class Category extends Component {
 		const list = categoryData.map((item) => {
 			const itemNameClass = `q${item.quality}`;
 
-			const progBox = storageData.includes(item.id)
+			let checkRanks = false;
+
+			if (item.rank === 1 || item.rank === 2) {
+				checkRanks = this.checkHigherRanks(item, categoryData, storageData);
+			}
+
+			const progBox = storageData.includes(item.id) || checkRanks
 				? <div><FaCheck className="pos" /></div>
 				: <div><FaPlus className="neg rot" /></div>;
 
 			return (
 				<li className="item" key={item.id}>
-					<span className={itemNameClass}>{item.name}</span>
+					<span className={itemNameClass}>{item.name} {item.rank}</span>
 					{progBox}
 				</li>
 			);
