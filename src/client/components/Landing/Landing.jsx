@@ -15,7 +15,7 @@ const Landing = () => {
 
 				if (localStorage[cat.key]) {
 					const { region, thumb } = JSON.parse(localStorage[cat.key]).char;
-					const url = `http://render-api-${region}.worldofwarcraft.com/static-render/${region}/${thumb}`;
+					const url = `http://render-${region}.worldofwarcraft.com/character/${thumb}`;
 					portrait = <img src={url} />;
 				}
 
