@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left';
-import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right';
-
 import ItemList from 'components/ItemList/ItemList';
 import { fetchCategoryData } from 'redux/actions';
 import './Category.scss';
@@ -30,16 +27,6 @@ class Category extends Component {
 
 		return (
 			<div className="category-page">
-				<nav>
-					<Link to={`${urlBase}${page - 1}`} className={page === 1 ? 'inactive' : ''}>
-						<FaArrowCircleLeft />
-					</Link>
-					<h1>{this.state.category}</h1>
-					<Link to={`${urlBase}${page + 1}`} className={page === 9 ? 'inactive' : ''}>
-						<FaArrowCircleRight />
-					</Link>
-				</nav>
-
 				<ItemList
 					category={this.state.category}
 					content={Number(this.props.match.params.content)}

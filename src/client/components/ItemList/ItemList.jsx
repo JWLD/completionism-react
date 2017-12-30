@@ -14,7 +14,7 @@ const ItemList = (props) => {
 	let data = props.categoryData;
 	data = filterByField(data, 'content', props.content);
 	data = filterByFaction(data, faction);
-	data = orderByFields(data, ['source', 'quality']);
+	data = orderByFields(data, ['name']);
 
 	// create item list
 	const itemList = data.map((item) => {
@@ -27,7 +27,7 @@ const ItemList = (props) => {
 			? <div><FaCheckCircle className="pos" /></div>
 			: <div><FaTimesCircle className="neg" /></div>;
 
-		const itemIcon = { backgroundImage: `url(${ICON_URLS.large}${item.icon}.jpg)` };
+		const itemIcon = item.icon ? { backgroundImage: `url(${ICON_URLS.large}${item.icon}.jpg)` } : null;
 
 		return (
 			<li className="item" key={item.id}>

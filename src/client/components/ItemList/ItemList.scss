@@ -24,6 +24,11 @@ $iconSize: $itemHeight - ($itemPadding * 2);
 		margin-bottom: 1rem;
 	}
 
+	&:hover {
+		cursor: pointer;
+		background-color: #444;
+	}
+
 	i {
 		height: $iconSize;
 		width: $iconSize;
