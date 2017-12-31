@@ -51,6 +51,7 @@ class Category extends Component {
 					content={Number(this.props.match.params.content)}
 					categoryData={this.props[this.state.category] || []}
 					filterVal={this.state.filter}
+					routeProps={this.props.match.params}
 				/>
 			</div>
 		);

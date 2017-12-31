@@ -1,9 +1,18 @@
 @import 'global';
 
-.item-list {
-	@include itemListWrap;
-
+.item-list-wrap {
 	flex-direction: column;
+
+	.item-list {
+		@include itemListWrap;
+
+		flex-direction: column;
+
+		> span {
+			font: 2.5rem DinRC;
+			color: white;
+		}
+	}
 }
 
 $itemPadding: .5rem;

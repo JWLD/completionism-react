@@ -6,6 +6,8 @@ import './ItemList.scss';
 import { checkHigherRanks, filterByField, filterByFaction, orderByFields } from 'helpers/dataHelpers';
 import { ICON_URLS } from 'constants/urls';
 
+import ProgressBar from 'components/ProgressBar/ProgressBar';
+
 const ItemList = (props) => {
 	const storageData = localStorage[props.category] ? JSON.parse(localStorage[props.category]).ids : [];
 	const { faction } = localStorage[props.category] ? JSON.parse(localStorage[props.category]).char : 2;
@@ -18,28 +20,35 @@ const ItemList = (props) => {
 	data = orderByFields(data, ['name']);
 
 	// create item list
-	const itemList = data.map((item) => {
-		const itemNameClass = `q${item.quality}`;
+	const itemList = data.length === 0
+		? <span>No Items</span>
+		: data.map((item) => {
+			const itemNameClass = `q${item.quality}`;
 
-		let checkRanks = false;
-		if (item.rank === 1 || item.rank === 2) checkRanks = checkHigherRanks(item, props.categoryData, storageData);
+			let checkRanks = false;
+			if (item.rank === 1 || item.rank === 2) checkRanks = checkHigherRanks(item, props.categoryData, storageData);
 
-		const progBox = storageData.includes(item.id) || checkRanks
-			? <div><FaCheckCircle className="pos" /></div>
-			: <div><FaTimesCircle className="neg" /></div>;
+			const progBox = storageData.includes(item.id) || checkRanks
+				? <div><FaCheckCircle className="pos" /></div>
+				: <div><FaTimesCircle className="neg" /></div>;
 
-		const itemIcon = item.icon ? { backgroundImage: `url(${ICON_URLS.large}${item.icon}.jpg)` } : null;
+			const itemIcon = item.icon ? { backgroundImage: `url(${ICON_URLS.large}${item.icon}.jpg)` } : null;
 
-		return (
-			<li className="item" key={item.id}>
-				<i style={itemIcon}/>
- 				<span className={itemNameClass}>{item.name}</span>
-				{progBox}
-			</li>
-		);
-	});
+			return (
+				<li className="item" key={item.id}>
+					<i style={itemIcon}/>
+	 				<span className={itemNameClass}>{item.name}</span>
+					{progBox}
+				</li>
+			);
+		});
 
-	return <ul className="item-list">{itemList}</ul>;
+	return (
+		<div className="item-list-wrap">
+			<ProgressBar data={data} storageData={storageData} routeProps={props.routeProps} />
+			<ul className="item-list">{itemList}</ul>
+		</div>
+	);
 };
 
 export default ItemList;
