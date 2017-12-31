@@ -1,23 +1,22 @@
+@import 'global';
+
 .item-list {
+	@include itemListWrap;
+
 	flex-direction: column;
-
-	width: 75rem;
-	padding: 2rem;
-
-	background-color: #222;
 }
 
-$itemHeight: 5rem;
 $itemPadding: .5rem;
 $iconSize: $itemHeight - ($itemPadding * 2);
 
 .item {
+	@include itemListItem;
+
 	justify-content: space-between;
 
 	height: $itemHeight;
 	padding: $itemPadding;
 
-	border-radius: .3rem;
 	background-color: #333;
 
 	&:not(:last-child) {

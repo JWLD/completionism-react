@@ -12,6 +12,7 @@ const ItemList = (props) => {
 
 	// process data
 	let data = props.categoryData;
+	data = data.filter((item) => item.name.toLowerCase().includes(props.filterVal));
 	data = filterByField(data, 'content', props.content);
 	data = filterByFaction(data, faction);
 	data = orderByFields(data, ['name']);

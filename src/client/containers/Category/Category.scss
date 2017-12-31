@@ -5,3 +5,33 @@
 
 	flex-direction: column;
 }
+
+.filter-box {
+	@include itemListWrap;
+
+	position: relative;
+
+	input {
+		@include itemListItem;
+
+		padding: 1rem;
+
+		background-color: #eee;
+		font: 2.5rem DinMC;
+	}
+
+	svg {
+		position: absolute;
+		right: 0;
+
+		height: $itemHeight * .7;
+		width: $itemHeight * .7;
+		margin-right: $itemListPadding + .8rem;
+
+		color: gray;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
