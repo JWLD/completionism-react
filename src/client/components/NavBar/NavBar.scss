@@ -21,11 +21,15 @@ $navBarPadding: 1.25rem;
 		left: 0;
 
 		padding: $navBarPadding;
+
+		.nav-link:not(:last-child) {
+			margin-right: $navBarPadding;
+		}
 	}
 
 	.nav-link {
 		height: $navBarHeight - ($navBarPadding * 2);
-		margin-right: $navBarPadding;
+		min-width: $navBarHeight - ($navBarPadding * 2);
 		padding: .75rem;
 
 		color: white;
@@ -40,29 +44,14 @@ $navBarPadding: 1.25rem;
 		}
 	}
 
-	.home-btn {
-		width: $navBarHeight - ($navBarPadding * 2);
-	}
-
 	.category-nav {
-		width: 44rem;
+		width: 45rem;
 		justify-content: space-between;
 
 		h1 {
 			color: white;
 			font: 5rem DinMC;
 			text-transform: uppercase;
-		}
-
-		a {
-			height: 4rem;
-			width: 4rem;
-
-			svg {
-				width: 100%;
-				height: 100%;
-				color: white;
-			}
 		}
 	}
 }

@@ -18,13 +18,19 @@ const NavBar = () => {
 
 		titleNav = (
 			<nav className="category-nav">
-				<Link to={`/category/${path[2]}/${page - 1}`} className={page === 1 ? 'inactive' : null}>
+				<Link
+					to={`/category/${path[2]}/${page - 1}`}
+					className={page === 1 ? 'nav-link inactive' : 'nav-link'}
+				>
 					<FaArrowCircleLeft />
 				</Link>
 
 				<h1>{content[path[3]].content}</h1>
 
-				<Link to={`/category/${path[2]}/${page + 1}`} className={page === 9 ? 'inactive' : null}>
+				<Link
+					to={`/category/${path[2]}/${page + 1}`}
+					className={page === 9 ? 'nav-link inactive' : 'nav-link'}
+				>
 					<FaArrowCircleRight />
 				</Link>
 			</nav>
@@ -36,7 +42,7 @@ const NavBar = () => {
 	return (
 		<nav className="main-nav">
 			<div className="nav-left">
-				<Link className="nav-link home-btn" to="/">
+				<Link className="nav-link" to="/">
 					<FaHome />
 				</Link>
 
