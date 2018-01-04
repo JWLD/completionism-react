@@ -20,15 +20,24 @@ const ItemList = (props) => {
 	data = orderByFields(data, ['name']);
 
 	// create item list
-	const itemList = data.length === 0
-		? <span>No Items</span>
-		: data.map((item) => {
-			const itemNameClass = `q${item.quality}`;
+	let itemList = <span>No Items</span>;
 
-			let checkRanks = false;
-			if (item.rank === 1 || item.rank === 2) checkRanks = checkHigherRanks(item, props.categoryData, storageData);
+	if (data.length > 0) {
+		itemList = data.map((item) => {
+			let itemNameClass = `q${item.quality}`;
 
-			const progBox = storageData.includes(item.id) || checkRanks
+			let collected = false;
+
+			if (item.rank === 1 || item.rank === 2) {
+				collected = checkHigherRanks(item, props.categoryData, storageData);
+			} else if (props.category === 'pets') {
+				collected = storageData.find(el => el.id === item.id);
+				itemNameClass = collected ? `q${collected.quality}` : 'q0';
+			} else {
+				collected = storageData.includes(item.id);
+			}
+
+			const progBox = collected
 				? <div><FaCheckCircle className="pos" /></div>
 				: <div><FaTimesCircle className="neg" /></div>;
 
@@ -37,11 +46,12 @@ const ItemList = (props) => {
 			return (
 				<li className="item" key={item.id}>
 					<i style={itemIcon}/>
-	 				<span className={itemNameClass}>{item.name}</span>
+					<span className={itemNameClass}>{item.name}</span>
 					{progBox}
 				</li>
 			);
 		});
+	}
 
 	return (
 		<div className="item-list-wrap">
