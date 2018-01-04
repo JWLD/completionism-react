@@ -15,30 +15,40 @@ $navBarPadding: 1.25rem;
 	background-color: #373e48;
 	box-shadow: 0 0 1.5rem .1rem black;
 
-	.home-btn {
+	.nav-left {
 		position: absolute;
 		top: 0;
 		left: 0;
 
+		padding: $navBarPadding;
+	}
+
+	.nav-link {
 		height: $navBarHeight - ($navBarPadding * 2);
-		width: $navBarHeight - ($navBarPadding * 2);
-		margin: $navBarPadding;
+		margin-right: $navBarPadding;
 		padding: .75rem;
 
+		color: white;
 		background-color: #21252b;
 		border-radius: .4rem;
+		font: 2.5rem DinMC;
+		text-transform: uppercase;
 
 		svg {
 			height: 100%;
 			width: 100%;
-			color: white;
 		}
 	}
 
-	.category-nav {
-		h1 {
-			margin: 0 3rem;
+	.home-btn {
+		width: $navBarHeight - ($navBarPadding * 2);
+	}
 
+	.category-nav {
+		width: 44rem;
+		justify-content: space-between;
+
+		h1 {
 			color: white;
 			font: 5rem DinMC;
 			text-transform: uppercase;

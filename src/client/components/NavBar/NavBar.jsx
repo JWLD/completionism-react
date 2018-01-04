@@ -5,6 +5,7 @@ import FaHome from 'react-icons/lib/fa/home';
 import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left';
 import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right';
 
+import content from 'constants/content';
 import './NavBar.scss';
 
 const NavBar = () => {
@@ -21,7 +22,7 @@ const NavBar = () => {
 					<FaArrowCircleLeft />
 				</Link>
 
-				<h1>{path[2]}</h1>
+				<h1>{content[path[3]].content}</h1>
 
 				<Link to={`/category/${path[2]}/${page + 1}`} className={page === 9 ? 'inactive' : null}>
 					<FaArrowCircleRight />
@@ -30,11 +31,18 @@ const NavBar = () => {
 		);
 	}
 
+	const catBtn = path[1] ? <span className="nav-link">{path[2]}</span> : null;
+
 	return (
 		<nav className="main-nav">
-			<Link className="home-btn" to="/">
-				<FaHome />
-			</Link>
+			<div className="nav-left">
+				<Link className="nav-link home-btn" to="/">
+					<FaHome />
+				</Link>
+
+				{catBtn}
+			</div>
+
 			{titleNav}
 		</nav>
 	);
