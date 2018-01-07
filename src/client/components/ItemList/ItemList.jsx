@@ -5,6 +5,7 @@ import { checkHigherRanks, filterByField, filterByFaction, orderByFields, orderO
 
 import ProgressBar from 'components/ProgressBar/ProgressBar';
 import ItemTile from 'components/ItemTile/ItemTile';
+import Spinner from 'components/Spinner/Spinner';
 
 const filterData = (props) => {
 	let filtered = props.categoryData;
@@ -26,6 +27,10 @@ const organiseData = (data) => {
 };
 
 const createItemLists = (data, props, storageData) => {
+	if (props.categoryData.length === 0) {
+		return <Spinner size="5" />;
+	};
+
 	if (Object.keys(data).length === 0) {
 		return (
 			<div className="item-list">
