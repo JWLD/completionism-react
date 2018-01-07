@@ -28,7 +28,7 @@ export const filterByFaction = (data, faction) => {
 // ORDERING FUNCTIONS
 
 export const orderByFields = (data, fields) => {
-	return _.sortBy(data, [...fields, 'quality', 'name']);
+	return _.sortBy(data, [...fields]);
 };
 
 export const orderObjectByKeys = (obj) => {
