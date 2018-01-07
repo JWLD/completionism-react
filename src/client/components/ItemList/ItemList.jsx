@@ -44,10 +44,10 @@ const createItemLists = (data, props, storageData) => {
 
 		const tiles = data[subCat].map((item) =>
 			<ItemTile
+				key={item.id}
 				{...item}
 				category={props.category}
 				categoryData={props.categoryData}
-				key={item.id}
 				storageData={storageData}
 			/>
 		);
@@ -65,7 +65,6 @@ const ItemList = (props) => {
 	const storageData = localStorage[props.category] ? JSON.parse(localStorage[props.category]).ids : [];
 	const filteredData = filterData(props);
 	const organisedData = organiseData(filteredData);
-
 	const itemLists = createItemLists(organisedData, props, storageData);
 
 	return (
