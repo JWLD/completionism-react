@@ -9,8 +9,17 @@
 		flex-direction: column;
 
 		> span {
-			font: 2.5rem DinRC;
+			justify-content: flex-start;
+
+			margin: -.5rem 0 ($itemListPadding - .5rem) 0;
+
+			font: 3rem DinMC;
 			color: white;
+			text-transform: uppercase;
+		}
+
+		.no-items {
+			margin: 0;
 		}
 	}
 }

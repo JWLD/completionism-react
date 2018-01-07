@@ -41,10 +41,10 @@ class Category extends Component {
 
 		return (
 			<div className="category-page">
-				{/* <div className="filter-box">
+				<div className="filter-box">
 					<input onChange={this.onInputChange} value={this.state.filter} placeholder="Filter" />
 					<FaTimesCircle onClick={this.clearSearch} className={iconClass} />
-				</div> */}
+				</div>
 
 				<ItemList
 					category={this.state.category}

@@ -1,4 +1,5 @@
-import { sortBy } from 'lodash';
+import _ from 'lodash';
+import SOURCES from 'constants/sources';
 
 // DATA PROCESSING
 
@@ -27,5 +28,25 @@ export const filterByFaction = (data, faction) => {
 // ORDERING FUNCTIONS
 
 export const orderByFields = (data, fields) => {
-	return sortBy(data, [...fields, 'quality', 'name']);
+	return _.sortBy(data, [...fields, 'quality', 'name']);
+};
+
+export const orderObjectByKeys = (obj) => {
+	return _(obj).toPairs().sortBy(0).fromPairs().value();
+};
+
+// ORGANISING FUNCTIONS
+
+export const organiseIntoSubcats = (data) => {
+ 	return data.reduce((obj, item) => {
+		const sourceType = SOURCES[item.source];
+
+		if (!obj[sourceType]) {
+			obj[sourceType] = [ item ];
+		} else {
+			obj[sourceType].push(item);
+		}
+
+		return obj;
+	}, {});
 };

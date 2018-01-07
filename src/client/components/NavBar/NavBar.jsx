@@ -37,7 +37,7 @@ const NavBar = () => {
 		);
 	}
 
-	const catBtn = path[1] ? <span className="nav-link">{path[2]}</span> : null;
+	const catBtn = path[1] ? <span className="nav-link cat">{path[2]}</span> : null;
 
 	return (
 		<nav className="main-nav">

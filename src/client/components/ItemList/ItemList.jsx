@@ -1,54 +1,56 @@
 import React from 'react';
-import FaCheckCircle from 'react-icons/lib/fa/check-circle';
-import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
 import './ItemList.scss';
-import { checkHigherRanks, filterByField, filterByFaction, orderByFields } from 'helpers/dataHelpers';
-import { ICON_URLS } from 'constants/urls';
+import { checkHigherRanks, filterByField, filterByFaction, orderByFields, orderObjectByKeys, organiseIntoSubcats } from 'helpers/dataHelpers';
 
 import ProgressBar from 'components/ProgressBar/ProgressBar';
+import ItemTile from 'components/ItemTile/ItemTile';
 
-const ItemList = (props) => {
-	const storageData = localStorage[props.category] ? JSON.parse(localStorage[props.category]).ids : [];
-	const { faction } = localStorage[props.category] ? JSON.parse(localStorage[props.category]).char : 2;
-
-	// process data
+const filterData = (props) => {
 	let data = props.categoryData;
 	data = data.filter((item) => item.name.toLowerCase().includes(props.filterVal));
 	data = filterByField(data, 'content', props.content);
-	data = filterByFaction(data, faction);
-	data = orderByFields(data, ['name']);
 
-	// create item list
-	let itemList = <span>No Items</span>;
+	const { faction } = localStorage[props.category] ? JSON.parse(localStorage[props.category]).char : 2;
+	data = filterByFaction(data, faction);
+
+	return data;
+};
+
+const ItemList = (props) => {
+	const storageData = localStorage[props.category] ? JSON.parse(localStorage[props.category]).ids : [];
+
+	const data = filterData(props);
+
+	let organised = organiseIntoSubcats(data);
+	organised = orderObjectByKeys(organised);
+
+	// create item lists
+	let itemLists = (
+		<div className="item-list">
+			<span className="no-items">No Items</span>
+		</div>
+	);
 
 	if (data.length > 0) {
-		itemList = data.map((item) => {
-			let itemNameClass = `q${item.quality}`;
+		itemLists = Object.keys(organised).map((subCat) => {
+			const subCatHeader = <span>{subCat}</span>;
 
-			let collected = false;
-
-			if (item.rank === 1 || item.rank === 2) {
-				collected = checkHigherRanks(item, props.categoryData, storageData);
-			} else if (props.category === 'pets') {
-				collected = storageData.find(el => el.id === item.id);
-				itemNameClass = collected ? `q${collected.quality}` : 'q0';
-			} else {
-				collected = storageData.includes(item.id);
-			}
-
-			const progBox = collected
-				? <div><FaCheckCircle className="pos" /></div>
-				: <div><FaTimesCircle className="neg" /></div>;
-
-			const itemIcon = item.icon ? { backgroundImage: `url(${ICON_URLS.large}${item.icon}.jpg)` } : null;
+			const tiles = organised[subCat].map((item) =>
+				<ItemTile
+					{...item}
+					category={props.category}
+					categoryData={props.categoryData}
+					key={item.id}
+					storageData={storageData}
+				/>
+			);
 
 			return (
-				<li className="item" key={item.id}>
-					<i style={itemIcon}/>
-					<span className={itemNameClass}>{item.name}</span>
-					{progBox}
-				</li>
+				<ul className="item-list" key={subCat}>
+					{subCatHeader}
+					{tiles}
+				</ul>
 			);
 		});
 	}
@@ -56,7 +58,7 @@ const ItemList = (props) => {
 	return (
 		<div className="item-list-wrap">
 			<ProgressBar data={data} storageData={storageData} routeProps={props.routeProps} />
-			<ul className="item-list">{itemList}</ul>
+			{itemLists}
 		</div>
 	);
 };
