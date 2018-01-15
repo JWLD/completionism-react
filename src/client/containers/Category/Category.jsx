@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
@@ -14,7 +14,7 @@ class Category extends Component {
 		this.state = {
 			category: this.props.match.params.category,
 			filter: ''
-		}
+		};
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.clearSearch = this.clearSearch.bind(this);
@@ -35,8 +35,6 @@ class Category extends Component {
 	}
 
 	render() {
-		const urlBase = this.props.match.url.slice(0, -1);
-		const page = Number(this.props.match.params.content);
 		const iconClass = this.state.filter ? '' : 'hide';
 
 		return (
@@ -56,13 +54,18 @@ class Category extends Component {
 			</div>
 		);
 	}
+}
+
+Category.propTypes = {
+	getCategoryData: PropTypes.func.isRequired,
+	match: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({
 	[ownProps.match.params.category]: state[ownProps.match.params.category]
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
 	getCategoryData(category) {
 		dispatch(fetchCategoryData(category));
 	}

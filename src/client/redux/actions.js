@@ -1,4 +1,4 @@
-import Axios from 'axios'
+import Axios from 'axios';
 
 // ACTION TYPES
 
@@ -11,19 +11,16 @@ export function addCategoryData(categoryData, category) {
 		type: ADD_CATEGORY_DATA,
 		payload: categoryData,
 		category
-	}
-};
+	};
+}
 
 // THUNKS
 
 export function fetchCategoryData(category) {
 	return (dispatch) => {
+		console.log(123);
 		Axios.get(`/api/db-category?q=${category}`)
-			.then((response) => {
-				dispatch(addCategoryData(response.data, category));
-			})
-			.catch((err) => {
-				return console.log(err.response.data || err);
-			});
+			.then(response => dispatch(addCategoryData(response.data, category)))
+			.catch(err => console.log(err.response.data || err));
 	};
-};
+}

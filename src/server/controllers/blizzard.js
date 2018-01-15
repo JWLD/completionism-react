@@ -1,9 +1,8 @@
 const request = require('request');
-const { parallel } = require('async');
 
 const { PRIMARY, SECONDARY } = require('../constants/categories');
 
-const blizzController = module.exports = {};
+const blizzController = {};
 
 // GET REALMS - GET REALM LIST FROM BLIZZARD API
 blizzController.getRealmData = (req, res) => {
@@ -12,29 +11,30 @@ blizzController.getRealmData = (req, res) => {
 	request(url, (err, response, body) => {
 		if (err) return res.status(500).send(err);
 
-		const data = JSON.parse(body).realms.map((realm) => ({
-			'name': realm.name,
-			'slug': realm.slug
+		const data = JSON.parse(body).realms.map(realm => ({
+			name: realm.name,
+			slug: realm.slug
 		}));
 
-		res.send(data);
+		return res.send(data);
 	});
 };
 
 // GET IMPORT - GET CHAR DATA FROM BLIZZARD API
 blizzController.getCharData = (req, res) => {
-	let { region, realm, char, cats } = req.query;
+	const { region, realm, char } = req.query;
+	let { cats } = req.quer;
 
 	// convert cats to array if string (happens when user chooses only one category)
-	if (typeof cats === 'string') cats = [ cats ];
+	if (typeof cats === 'string') cats = [cats];
 
 	// work out what data to request from battle-net
-	let fields = [];
+	const fields = [];
 
 	for (let i = 0; i < cats.length; i++) {
 		if (cats[i] === 'mounts' || cats[i] === 'pets') {
 			fields.push(cats[i]);
-		} else if (!fields.includes('professions')){
+		} else if (!fields.includes('professions')) {
 			fields.push('professions');
 		}
 	}
@@ -51,7 +51,7 @@ blizzController.getCharData = (req, res) => {
 		// usually if character not found
 		if (data.status === 'nok') return res.status(500).send(data.reason);
 
-		let sorted = {
+		const sorted = {
 			char: {
 				thumb: data.thumbnail,
 				faction: data.faction,
@@ -62,11 +62,11 @@ blizzController.getCharData = (req, res) => {
 		// filter data from battle-net
 		cats.forEach((cat) => {
 			if (cat === 'mounts') {
-				sorted.mounts = data.mounts.collected.map((mount) => mount.spellId);
+				sorted.mounts = data.mounts.collected.map(mount => mount.spellId);
 			}
 
 			if (cat === 'pets') {
-				sorted.pets = data.pets.collected.map((pet) => ({
+				sorted.pets = data.pets.collected.map(pet => ({
 					id: pet.creatureId,
 					quality: pet.qualityId
 				}));
@@ -83,6 +83,8 @@ blizzController.getCharData = (req, res) => {
 			}
 		});
 
-		res.send(sorted);
+		return res.send(sorted);
 	});
 };
+
+module.exports = blizzController;

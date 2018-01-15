@@ -6,9 +6,9 @@ import FaSearch from 'react-icons/lib/fa/search';
 import FaCheck from 'react-icons/lib/fa/check';
 import querystring from 'querystring';
 
-import './Import.scss';
 import Spinner from 'components/Spinner/Spinner';
-import categories, { COLLECTIONS, PRIMARY, SECONDARY } from 'constants/categories';
+import categories from 'constants/categories';
+import './Import.scss';
 
 class Import extends Component {
 	constructor(props) {
@@ -16,8 +16,8 @@ class Import extends Component {
 
 		this.state = {
 			realms: {
-				'eu': [],
-				'us': []
+				eu: [],
+				us: []
 			},
 			region: 'eu',
 			realm: '',
@@ -25,7 +25,7 @@ class Import extends Component {
 			categories: [],
 			status: 0,
 			errMsg: ''
-		}
+		};
 
 		this.changeRegion = this.changeRegion.bind(this);
 		this.changeRealm = this.changeRealm.bind(this);
@@ -68,7 +68,7 @@ class Import extends Component {
 	fetchRealmData(region) {
 		axios.get(`/api/realms?q=${region}`)
 			.then((response) => {
-				this.setState((prevState) => ({
+				this.setState(prevState => ({
 					realms: {
 						...prevState.realms,
 						[region]: response.data
@@ -77,9 +77,7 @@ class Import extends Component {
 					status: 0
 				}));
 			})
-			.catch((err) => {
-				return console.log(err.response.data || err);
-			});
+			.catch(err => console.log(err.response.data || err));
 	}
 
 	changeRealm(e) {
@@ -111,13 +109,13 @@ class Import extends Component {
 			cats: this.state.categories
 		});
 
-		axios.get(`/api/import?${data}`)
+		return axios.get(`/api/import?${data}`)
 			.then((response) => {
 				if (response.data.status === 'nok') {
 					return this.setState({ status: 3 });
 				}
 
-				this.saveCharData(response.data);
+				return this.saveCharData(response.data);
 			})
 			.catch((err) => {
 				this.setState({
@@ -148,26 +146,26 @@ class Import extends Component {
 	}
 
 	saveCharData(data) {
-		data.char.region = this.state.region;
+		const charData = Object.assign({}, data, { [data.char.region]: this.state.region });
 
 		// save each data category to localStorage
-		Object.keys(data).map((cat) => {
-			if (cat === 'char') return;
+		Object.keys(charData).map((cat) => {
+			if (cat === 'char') return null;
 
 			localStorage[cat] = JSON.stringify({
-				char: data.char,
-				ids: data[cat]
+				char: charData.char,
+				ids: charData[cat]
 			});
 
-			this.setState({ status: 2 });
+			return this.setState({ status: 2 });
 		});
 	}
 
 	render() {
-		const cats = Object.keys(categories).map((sub) =>
+		const cats = Object.keys(categories).map(sub => (
 			<div key={sub} className="cat-check-wrap">
 				{categories[sub].map((cat) => {
-					if (!cat.battle) return;
+					if (!cat.battle) return null;
 
 					return (
 						<label key={cat.key}>{cat.name}
@@ -179,11 +177,10 @@ class Import extends Component {
 					);
 				})}
 			</div>
-		);
+		));
 
-		const realms = this.state.realms[this.state.region].map((realm) =>
-			<option value={realm.slug} key={realm.slug}>{realm.name}</option>
-		);
+		const realms = this.state.realms[this.state.region].map(realm =>
+			<option value={realm.slug} key={realm.slug}>{realm.name}</option>);
 
 		let symbol = <FaSearch className="neg" />;
 
@@ -236,6 +233,6 @@ class Import extends Component {
 			</div>
 		);
 	}
-};
+}
 
 export default Import;

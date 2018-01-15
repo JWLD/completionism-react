@@ -5,18 +5,18 @@ const initialState = {
 };
 
 const addCategoryData = (state, action) => {
-	return Object.assign({}, state, {
+	Object.assign({}, state, {
 		[action.category]: action.payload
 	});
 };
 
 const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-		case ADD_CATEGORY_DATA:
-			return addCategoryData(state, action);
-    default:
-      return state;
-  }
+	switch (action.type) {
+	case ADD_CATEGORY_DATA:
+		return addCategoryData(state, action);
+	default:
+		return state;
+	}
 };
 
 export default rootReducer;

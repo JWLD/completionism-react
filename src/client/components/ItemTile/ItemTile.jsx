@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
@@ -14,7 +15,6 @@ const isCollected = (props) => {
 		collected = checkHigherRanks(category, categoryData, storageData);
 	} else if (category === 'pets') {
 		collected = storageData.find(el => el.id === id);
-		itemNameClass = collected ? `q${collected.quality}` : 'q0';
 	} else {
 		collected = storageData.includes(id);
 	}
@@ -25,7 +25,7 @@ const isCollected = (props) => {
 const ItemTile = (props) => {
 	const { icon, name, quality } = props;
 
-	let itemNameClass = `q${quality}`;
+	const itemNameClass = `q${quality}`;
 
 	const progBox = isCollected(props)
 		? <div><FaCheckCircle className="pos" /></div>
@@ -33,11 +33,19 @@ const ItemTile = (props) => {
 
 	const itemIcon = icon ? { backgroundImage: `url(${ICON_URLS.large}${icon}.jpg)` } : null;
 
-	return <li className="item">
-		<i style={itemIcon}/>
-		<span className={itemNameClass}>{name}</span>
-		{progBox}
-	</li>
+	return (
+		<li className="item">
+			<i style={itemIcon} />
+			<span className={itemNameClass}>{name}</span>
+			{progBox}
+		</li>
+	);
+};
+
+ItemTile.propTypes = {
+	icon: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	quality: PropTypes.number.isRequired
 };
 
 export default ItemTile;

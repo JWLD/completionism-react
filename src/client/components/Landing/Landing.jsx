@@ -8,19 +8,19 @@ import { ICON_URLS } from 'constants/urls';
 import './Landing.scss';
 
 const Landing = () => {
-	const wraps = Object.keys(categories).map((sub) =>
+	const wraps = Object.keys(categories).map(sub => (
 		<ul key={sub}>
 			{categories[sub].map((cat) => {
-				if (!cat.enabled) return;
+				if (!cat.enabled) return null;
 
-				const catIcon = { backgroundImage: `url(${ICON_URLS.large}${cat.icon}.jpg)`};
+				const catIcon = { backgroundImage: `url(${ICON_URLS.large}${cat.icon}.jpg)` };
 
 				let portrait = null;
 
 				if (localStorage[cat.key]) {
 					const { region, thumb } = JSON.parse(localStorage[cat.key]).char;
-					const portraitIcon = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})`};
-					portrait = <i style={portraitIcon}></i>;
+					const portraitIcon = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})` };
+					portrait = <i style={portraitIcon} />;
 				}
 
 				return (
@@ -30,11 +30,11 @@ const Landing = () => {
 						</button>
 
 						<Link to={`/category/${cat.key.toLowerCase()}/1`} className="cat-link">
-							<i style={catIcon}></i>
+							<i style={catIcon} />
 							<span>{cat.name}</span>
 						</Link>
 
-						<Link to='/import' className="cat-button">
+						<Link to="/import" className="cat-button">
 							<MdPerson />
 							{portrait}
 						</Link>
@@ -42,7 +42,7 @@ const Landing = () => {
 				);
 			})}
 		</ul>
-	);
+	));
 
 	return (
 		<div className="landing-page">

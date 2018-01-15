@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import store from 'redux/store';
 import NavBar from 'components/NavBar/NavBar';
@@ -13,7 +13,7 @@ const App = () => (
 	<BrowserRouter>
 		<Provider store={store}>
 			<div className="app">
-				<Route path="/" component={NavBar}/>
+				<Route path="/" component={NavBar} />
 				<Route exact path="/" component={Landing} />
 				<Route path="/category/:category/:content" component={Category} />
 				<Route path="/import" component={Import} />
