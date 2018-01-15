@@ -4,11 +4,9 @@ const initialState = {
 	categories: {}
 };
 
-const addCategoryData = (state, action) => {
-	Object.assign({}, state, {
-		[action.category]: action.payload
-	});
-};
+const addCategoryData = (state, action) => Object.assign({}, state, {
+	[action.category]: action.payload
+});
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {

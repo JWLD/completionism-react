@@ -42,8 +42,12 @@ const ItemTile = (props) => {
 	);
 };
 
+ItemTile.defaultProps = {
+	icon: null
+};
+
 ItemTile.propTypes = {
-	icon: PropTypes.string.isRequired,
+	icon: PropTypes.string,
 	name: PropTypes.string.isRequired,
 	quality: PropTypes.number.isRequired
 };

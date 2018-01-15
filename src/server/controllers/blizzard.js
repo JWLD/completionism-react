@@ -23,7 +23,7 @@ blizzController.getRealmData = (req, res) => {
 // GET IMPORT - GET CHAR DATA FROM BLIZZARD API
 blizzController.getCharData = (req, res) => {
 	const { region, realm, char } = req.query;
-	let { cats } = req.quer;
+	let { cats } = req.query;
 
 	// convert cats to array if string (happens when user chooses only one category)
 	if (typeof cats === 'string') cats = [cats];

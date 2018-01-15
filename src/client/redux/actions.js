@@ -18,7 +18,6 @@ export function addCategoryData(categoryData, category) {
 
 export function fetchCategoryData(category) {
 	return (dispatch) => {
-		console.log(123);
 		Axios.get(`/api/db-category?q=${category}`)
 			.then(response => dispatch(addCategoryData(response.data, category)))
 			.catch(err => console.log(err.response.data || err));

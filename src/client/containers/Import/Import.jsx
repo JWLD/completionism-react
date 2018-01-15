@@ -55,7 +55,6 @@ class Import extends Component {
 	changeRegion(e) {
 		const region = e ? e.target.value : this.state.region;
 
-		// retrieve realm list from battle-net if necessary
 		if (this.state.realms[region].length === 0) {
 			this.fetchRealmData(region);
 
@@ -146,9 +145,10 @@ class Import extends Component {
 	}
 
 	saveCharData(data) {
-		const charData = Object.assign({}, data, { [data.char.region]: this.state.region });
+		const charData = Object.assign({}, data, {
+			[data.char.region]: this.state.region
+		});
 
-		// save each data category to localStorage
 		Object.keys(charData).map((cat) => {
 			if (cat === 'char') return null;
 
@@ -185,7 +185,7 @@ class Import extends Component {
 		let symbol = <FaSearch className="neg" />;
 
 		if (this.state.status === 1) {
-			symbol = <Spinner size="4.3" />;
+			symbol = <Spinner size={4.3} />;
 		} else if (this.state.status === 2) {
 			symbol = <FaCheckCircle className="pos" />;
 		} else if (this.state.status === 3) {

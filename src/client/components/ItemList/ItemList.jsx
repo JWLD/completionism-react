@@ -31,7 +31,7 @@ const organiseData = (data) => {
 
 const createItemLists = (category, categoryData, data, storageData) => {
 	if (data.length === 0) {
-		return <Spinner size="5" />;
+		return <Spinner size={5} />;
 	}
 
 	if (Object.keys(data).length === 0) {
