@@ -165,7 +165,7 @@ class Import extends Component {
 		const cats = Object.keys(categories).map(sub => (
 			<div key={sub} className="cat-check-wrap">
 				{categories[sub].map((cat) => {
-					if (!cat.battle) return null;
+					if (!cat.battleNet) return null;
 
 					return (
 						<label key={cat.key}>{cat.name}
