@@ -1,6 +1,7 @@
 {
 	"extends": "airbnb",
 	"rules": {
+		"class-methods-use-this": "off",
 		"comma-dangle": "off",
 		"indent": ["error", "tab"],
 		"max-len": "off",

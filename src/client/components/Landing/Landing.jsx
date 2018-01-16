@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import MdAdd from 'react-icons/lib/md/add';
 import MdPerson from 'react-icons/lib/md/person';
@@ -7,48 +7,60 @@ import categories from 'constants/categories';
 import { ICON_URLS } from 'constants/urls';
 import './Landing.scss';
 
-const Landing = () => {
-	const wraps = Object.keys(categories).map(sub => (
-		<ul key={sub}>
-			{categories[sub].map((cat) => {
-				if (!cat.enabled) return null;
+class Landing extends Component {
+	retrievePortraitFromLocalStorage(category) {
+		if (!localStorage[category.key]) return null;
 
-				const catIcon = { backgroundImage: `url(${ICON_URLS.large}${cat.icon}.jpg)` };
+		const { region, thumb } = JSON.parse(localStorage[category.key]).char;
+		const portraitIcon = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})` };
+		const portrait = <i style={portraitIcon} />;
 
-				let portrait = null;
+		return portrait;
+	}
 
-				if (localStorage[cat.key]) {
-					const { region, thumb } = JSON.parse(localStorage[cat.key]).char;
-					const portraitIcon = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})` };
-					portrait = <i style={portraitIcon} />;
-				}
+	setCategoryIcon(category) {
+		return { backgroundImage: `url(${ICON_URLS.large}${category.icon}.jpg)` };
+	}
 
-				return (
-					<li key={cat.key}>
-						<button className="cat-button">
-							<MdAdd />
-						</button>
+	renderCategoryPanels(categoryBlock) {
+		return categoryBlock.map((category) => {
+			if (!category.enabled) return null;
 
-						<Link to={`/category/${cat.key.toLowerCase()}/1`} className="cat-link">
-							<i style={catIcon} />
-							<span>{cat.name}</span>
-						</Link>
+			return (
+				<li key={category.key}>
+					<button className="cat-button">
+						<MdAdd />
+					</button>
 
-						<Link to="/import" className="cat-button">
-							<MdPerson />
-							{portrait}
-						</Link>
-					</li>
-				);
-			})}
-		</ul>
-	));
+					<Link to={`/category/${category.key.toLowerCase()}/1`} className="cat-link">
+						<i style={this.setCategoryIcon(category)} />
+						<span>{category.name}</span>
+					</Link>
 
-	return (
-		<div className="landing-page">
-			{wraps}
-		</div>
-	);
-};
+					<Link to="/import" className="cat-button">
+						<MdPerson />
+						{this.retrievePortraitFromLocalStorage(category)}
+					</Link>
+				</li>
+			);
+		});
+	}
+
+	renderCategoryBlocks() {
+		return Object.keys(categories).map(categoryBlock => (
+			<ul key={categoryBlock}>
+				{this.renderCategoryPanels(categories[categoryBlock])}
+			</ul>
+		));
+	}
+
+	render() {
+		return (
+			<div className="landing-page">
+				{this.renderCategoryBlocks()}
+			</div>
+		);
+	}
+}
 
 export default Landing;
