@@ -43,7 +43,7 @@ $iconSize: $itemHeight - ($itemPadding * 2);
 
 	&:hover {
 		cursor: pointer;
-		background-color: #444;
+		background-color: $cmpGrey;
 	}
 
 	i {

@@ -43,7 +43,7 @@ $wrapWidth: 70rem;
 		width: 100%;
 		padding: .6rem 1rem;
 		border-radius: .4rem;
-		background-color: #444;
+		background-color: $cmpGrey;
 
 		label {
 			position: relative;
@@ -138,7 +138,7 @@ $wrapWidth: 70rem;
 		padding: 2rem;
 
 		border-radius: .4rem;
-		background-color: #444;
+		background-color: $cmpGrey;
 
 		svg {
 			height: 100%;

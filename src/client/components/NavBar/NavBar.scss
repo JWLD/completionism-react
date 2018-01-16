@@ -12,7 +12,7 @@ $navBarPadding: 1.25rem;
 	height: $navBarHeight;
 	padding: $navBarPadding;
 
-	background-color: #373e48;
+	background-color: $cmpBlueL;
 	box-shadow: 0 0 1.5rem .1rem black;
 
 	.nav-left {
@@ -33,7 +33,7 @@ $navBarPadding: 1.25rem;
 		padding: .75rem;
 
 		color: white;
-		background-color: #21252b;
+		background-color: $cmpBlueD;
 		border-radius: .4rem;
 		font: 2.5rem DinMC;
 		text-transform: uppercase;
