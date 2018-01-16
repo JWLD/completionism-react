@@ -11,6 +11,8 @@ import './NavBar.scss';
 
 class NavBar extends Component {
 	renderContentNav() {
+		if (!this.props.match.params.category) return null;
+
 		const { category, content } = this.props.match.params;
 		const prevPage = Number(content) - 1;
 		const nextPage = Number(content) + 1;

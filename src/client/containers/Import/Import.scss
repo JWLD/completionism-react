@@ -2,6 +2,7 @@
 
 $inputHeight: 4rem;
 $boxPadding: 2rem;
+$wrapWidth: 70rem;
 
 .import-page {
 	@include pageWrap;
@@ -17,7 +18,7 @@ $boxPadding: 2rem;
 		}
 
 		> div, .import-err {
-			width: 70rem;
+			width: $wrapWidth;
 			padding: $boxPadding;
 
 			border-radius: .4rem;
@@ -39,6 +40,10 @@ $boxPadding: 2rem;
 	.cat-check-wrap {
 		flex-wrap: wrap;
 		justify-content: flex-start;
+		width: 100%;
+		padding: .6rem 1rem;
+		border-radius: .4rem;
+		background-color: #444;
 
 		label {
 			position: relative;
@@ -46,13 +51,9 @@ $boxPadding: 2rem;
 			justify-content: flex-end;
 
 			height: 3rem;
-			width: 20rem;
+			width: ($wrapWidth - ($boxPadding * 2) - 2rem) / 3;
 			color: white;
 			font: 2.5rem DinMC;
-
-			&:not(:last-child) {
-				margin-right: 2rem;
-			}
 
 			&:hover {
 				cursor: pointer;
