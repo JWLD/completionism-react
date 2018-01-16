@@ -1,35 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 
 import FaHome from 'react-icons/lib/fa/home';
 import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left';
 import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right';
 
-import content from 'constants/content';
+import CONTENT from 'constants/content';
 import './NavBar.scss';
 
-const NavBar = () => {
-	const path = window.location.pathname.split('/');
+class NavBar extends Component {
+	renderContentNav() {
+		const { category, content } = this.props.match.params;
+		const prevPage = Number(content) - 1;
+		const nextPage = Number(content) + 1;
 
-	let titleNav = null;
-
-	if (path[1] === 'category') {
-		const page = Number(path[3]);
-
-		titleNav = (
+		return (
 			<nav className="category-nav">
 				<Link
-					to={`/category/${path[2]}/${page - 1}`}
-					className={page === 1 ? 'nav-link inactive' : 'nav-link'}
+					to={`/category/${category}/${prevPage}`}
+					className={prevPage === 0 ? 'nav-link inactive' : 'nav-link'}
 				>
 					<FaArrowCircleLeft />
 				</Link>
 
-				<h1>{content[path[3]].content}</h1>
+				<h1>{CONTENT[content].content}</h1>
 
 				<Link
-					to={`/category/${path[2]}/${page + 1}`}
-					className={page === 9 ? 'nav-link inactive' : 'nav-link'}
+					to={`/category/${category}/${nextPage}`}
+					className={nextPage === 9 ? 'nav-link inactive' : 'nav-link'}
 				>
 					<FaArrowCircleRight />
 				</Link>
@@ -37,21 +36,31 @@ const NavBar = () => {
 		);
 	}
 
-	const catBtn = path[1] ? <span className="nav-link cat">{path[2]}</span> : null;
+	renderCategorySpan() {
+		const { category } = this.props.match.params;
 
-	return (
-		<nav className="main-nav">
-			<div className="nav-left">
-				<Link className="nav-link" to="/">
-					<FaHome />
-				</Link>
+		return category ? <span className="nav-link cat">{category}</span> : null;
+	}
 
-				{catBtn}
-			</div>
+	render() {
+		return (
+			<nav className="main-nav">
+				<div className="nav-left">
+					<Link className="nav-link" to="/">
+						<FaHome />
+					</Link>
 
-			{titleNav}
-		</nav>
-	);
+					{this.renderCategorySpan()}
+				</div>
+
+				{this.renderContentNav()}
+			</nav>
+		);
+	}
+}
+
+NavBar.propTypes = {
+	match: PropTypes.object.isRequired,
 };
 
-export default NavBar;
+export default withRouter(NavBar);

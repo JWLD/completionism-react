@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import MdAdd from 'react-icons/lib/md/add';
 import MdPerson from 'react-icons/lib/md/person';
 
-import categories from 'constants/categories';
+import NavBar from 'components/NavBar/NavBar';
+import CATEGORIES from 'constants/categories';
 import { ICON_URLS } from 'constants/urls';
 import './Landing.scss';
 
@@ -47,9 +48,9 @@ class Landing extends Component {
 	}
 
 	renderCategoryBlocks() {
-		return Object.keys(categories).map(categoryBlock => (
+		return Object.keys(CATEGORIES).map(categoryBlock => (
 			<ul key={categoryBlock}>
-				{this.renderCategoryPanels(categories[categoryBlock])}
+				{this.renderCategoryPanels(CATEGORIES[categoryBlock])}
 			</ul>
 		));
 	}
@@ -57,6 +58,8 @@ class Landing extends Component {
 	render() {
 		return (
 			<div className="landing-page">
+				<NavBar />
+
 				{this.renderCategoryBlocks()}
 			</div>
 		);

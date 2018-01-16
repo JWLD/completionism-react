@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
+import NavBar from 'components/NavBar/NavBar';
 import ItemList from 'components/ItemList/ItemList';
 import { fetchCategoryData } from 'redux/actions';
 import './Category.scss';
@@ -39,6 +40,8 @@ class Category extends Component {
 
 		return (
 			<div className="category-page">
+				<NavBar />
+
 				<div className="filter-box">
 					<input onChange={this.onInputChange} value={this.state.filter} placeholder="Filter" />
 					<FaTimesCircle onClick={this.clearSearch} className={iconClass} />
