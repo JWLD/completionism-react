@@ -23,7 +23,7 @@ class Category extends Component {
 
 	componentDidMount() {
 		if (!this.props[this.state.category]) {
-			this.props.getCategoryData(this.state.category);
+			this.props.fetchCategoryData(this.state.category);
 		}
 	}
 
@@ -60,7 +60,7 @@ class Category extends Component {
 }
 
 Category.propTypes = {
-	getCategoryData: PropTypes.func.isRequired,
+	fetchCategoryData: PropTypes.func.isRequired,
 	match: PropTypes.object.isRequired
 };
 
@@ -68,10 +68,8 @@ const mapStateToProps = (state, ownProps) => ({
 	[ownProps.match.params.category]: state[ownProps.match.params.category]
 });
 
-const mapDispatchToProps = dispatch => ({
-	getCategoryData(category) {
-		dispatch(fetchCategoryData(category));
-	}
-});
+const mapDispatchToProps = {
+	fetchCategoryData,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Category);

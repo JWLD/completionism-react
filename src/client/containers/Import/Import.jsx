@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import querystring from 'querystring';
+
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 import FaSearch from 'react-icons/lib/fa/search';
 import FaCheck from 'react-icons/lib/fa/check';
-import querystring from 'querystring';
 
 import NavBar from 'components/NavBar/NavBar';
 import Spinner from 'components/Spinner/Spinner';
-import categories from 'constants/categories';
+import CATEGORIES from 'constants/categories';
 import './Import.scss';
 
 class Import extends Component {
@@ -163,9 +164,9 @@ class Import extends Component {
 	}
 
 	render() {
-		const cats = Object.keys(categories).map(sub => (
+		const cats = Object.keys(CATEGORIES).map(sub => (
 			<div key={sub} className="cat-check-wrap">
-				{categories[sub].map((cat) => {
+				{CATEGORIES[sub].map((cat) => {
 					if (!cat.battleNet) return null;
 
 					return (
