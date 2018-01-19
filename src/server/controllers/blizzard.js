@@ -5,18 +5,30 @@ const { PRIMARY, SECONDARY } = require('../constants/categories');
 const blizzController = {};
 
 // GET REALMS - GET REALM LIST FROM BLIZZARD API
+const constructRealmDataUrl = params =>
+	`https://${params.q}.api.battle.net/wow/realm/status
+	?locale=en_GB&apikey=${process.env.BATTLENET_KEY}`;
+
+const extractRealmData = (responseBody) => {
+	const { realms } = JSON.parse(responseBody);
+
+	const realmData = realms.map(realm => ({
+		name: realm.name,
+		slug: realm.slug
+	}));
+
+	return realmData;
+};
+
 blizzController.getRealmData = (req, res) => {
-	const url = `https://${req.query.q}.api.battle.net/wow/realm/status?locale=en_GB&apikey=${process.env.BATTLENET_KEY}`;
+	const url = constructRealmDataUrl(req.query);
 
 	request(url, (err, response, body) => {
 		if (err) return res.status(500).send(err);
 
-		const data = JSON.parse(body).realms.map(realm => ({
-			name: realm.name,
-			slug: realm.slug
-		}));
+		const realmData = extractRealmData(body);
 
-		return res.send(data);
+		return res.send(realmData);
 	});
 };
 
