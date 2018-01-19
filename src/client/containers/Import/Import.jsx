@@ -147,9 +147,8 @@ class Import extends Component {
 	}
 
 	saveCharData(data) {
-		const charData = Object.assign({}, data, {
-			[data.char.region]: this.state.region
-		});
+		const charData = Object.assign({}, data);
+		charData.char.region = this.state.region;
 
 		Object.keys(charData).map((cat) => {
 			if (cat === 'char') return null;
