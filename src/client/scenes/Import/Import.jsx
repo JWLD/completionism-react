@@ -183,7 +183,7 @@ class Import extends Component {
 		const realms = this.state.realms[this.state.region].map(realm =>
 			<option value={realm.slug} key={realm.slug}>{realm.name}</option>);
 
-		let symbol = <FaSearch className="neg" />;
+		let symbol = <FaTimesCircle className="neg" />;
 
 		if (this.state.status === 1) {
 			symbol = <Spinner size={4.3} />;
