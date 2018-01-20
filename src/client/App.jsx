@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import store from 'redux/store';
-import Landing from 'components/Landing/Landing';
+import Landing from 'scenes/Landing/Landing';
 import Category from 'containers/Category/Category';
 import Import from 'scenes/Import/Import';
 
