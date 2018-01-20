@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import ProgressBar from 'components/ProgressBar/ProgressBar';
 import Spinner from 'components/Spinner/Spinner';
-import ItemTile from 'scenes/Browse/ItemTile/ItemTile';
-import { filterByField, filterByFaction, orderByFields, orderObjectByKeys, organiseIntoSubcats } from 'helpers/dataHelpers';
 
+import ItemTile from '../ItemTile/ItemTile';
+import { filterByField, filterByFaction, orderByFields, orderObjectByKeys, organiseIntoSubcats } from '../services/dataHelpers';
 import './ItemList.scss';
 
 const filterData = (props) => {
