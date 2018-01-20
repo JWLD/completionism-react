@@ -82,10 +82,8 @@ const extractProfessionData = (collectionData, blizzData, cat) => {
 	const data = Object.assign({}, collectionData);
 
 	const profType = PRIMARY.includes(cat) ? 'primary' : 'secondary';
-
 	const profIndex = blizzData.professions[profType].findIndex(prof =>
 		prof.name.toLowerCase().split(' ').join('') === cat);
-
 	const charHasThisProfession = profIndex !== -1;
 
 	if (charHasThisProfession) {
@@ -96,9 +94,10 @@ const extractProfessionData = (collectionData, blizzData, cat) => {
 };
 
 const extractCollectionData = (cats, charData, blizzData) => {
+	const catsArray = typeof cats === 'string' ? [cats] : cats;
 	let data = Object.assign({}, charData);
 
-	cats.forEach((cat) => {
+	catsArray.forEach((cat) => {
 		const catIsPrimaryProfession = PRIMARY.includes(cat);
 		const catIsSecondaryProfession = SECONDARY.includes(cat);
 
