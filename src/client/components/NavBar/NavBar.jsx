@@ -20,7 +20,7 @@ class NavBar extends Component {
 		return (
 			<nav className="category-nav">
 				<Link
-					to={`/category/${category}/${prevPage}`}
+					to={`/browse/${category}/${prevPage}`}
 					className={prevPage === 0 ? 'nav-link inactive' : 'nav-link'}
 				>
 					<FaArrowCircleLeft />
@@ -29,7 +29,7 @@ class NavBar extends Component {
 				<h1>{CONTENT[content].content}</h1>
 
 				<Link
-					to={`/category/${category}/${nextPage}`}
+					to={`/browse/${category}/${nextPage}`}
 					className={nextPage === 9 ? 'nav-link inactive' : 'nav-link'}
 				>
 					<FaArrowCircleRight />
