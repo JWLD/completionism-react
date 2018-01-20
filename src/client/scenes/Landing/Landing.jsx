@@ -33,7 +33,7 @@ class Landing extends Component {
 						<MdAdd />
 					</button>
 
-					<Link to={`/category/${category.key.toLowerCase()}/1`} className="cat-link">
+					<Link to={`/browse/${category.key.toLowerCase()}/1`} className="cat-link">
 						<i style={this.setCategoryIcon(category)} />
 						<span>{category.name}</span>
 					</Link>

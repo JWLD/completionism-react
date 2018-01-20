@@ -6,9 +6,9 @@ import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 import NavBar from 'components/NavBar/NavBar';
 import ItemList from 'components/ItemList/ItemList';
 import { fetchCategoryData } from 'redux/actions';
-import './Category.scss';
+import './Browse.scss';
 
-class Category extends Component {
+class Browse extends Component {
 	constructor(props) {
 		super(props);
 
@@ -59,7 +59,7 @@ class Category extends Component {
 	}
 }
 
-Category.propTypes = {
+Browse.propTypes = {
 	fetchCategoryData: PropTypes.func.isRequired,
 	match: PropTypes.object.isRequired
 };
@@ -72,4 +72,4 @@ const mapDispatchToProps = {
 	fetchCategoryData,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default connect(mapStateToProps, mapDispatchToProps)(Browse);
