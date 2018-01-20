@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
 import NavBar from 'components/NavBar/NavBar';
-import ItemList from 'components/ItemList/ItemList';
+import ItemList from 'scenes/Browse``/ItemList/ItemList';
 import { fetchCategoryData } from 'redux/actions';
 import './Browse.scss';
 

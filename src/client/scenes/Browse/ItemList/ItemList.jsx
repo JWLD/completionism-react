@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProgressBar from 'components/ProgressBar/ProgressBar';
-import ItemTile from 'components/ItemTile/ItemTile';
 import Spinner from 'components/Spinner/Spinner';
-
+import ItemTile from 'scenes/Browse/ItemTile/ItemTile';
 import { filterByField, filterByFaction, orderByFields, orderObjectByKeys, organiseIntoSubcats } from 'helpers/dataHelpers';
 
 import './ItemList.scss';
