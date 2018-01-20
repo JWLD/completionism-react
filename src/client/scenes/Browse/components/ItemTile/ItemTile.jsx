@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
-import { ICON_URLS } from 'constants/urls';
+import { ICON_URLS } from 'data/constants/urls';
 
 import { checkHigherRanks } from '../../services/dataHelpers';
 

@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
-import { reducer as browseReducer } from './scenes/Browse/data/reducer';
+import { reducer as browseReducer } from 'scenes/Browse/data/reducer';
 
 const appReducer = combineReducers({
 	browse: browseReducer,

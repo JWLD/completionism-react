@@ -4,12 +4,11 @@ import querystring from 'querystring';
 
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
-import FaSearch from 'react-icons/lib/fa/search';
 import FaCheck from 'react-icons/lib/fa/check';
 
 import NavBar from 'components/NavBar/NavBar';
 import Spinner from 'components/Spinner/Spinner';
-import CATEGORIES from 'constants/categories';
+import CATEGORIES from 'data/constants/categories';
 import './Import.scss';
 
 class Import extends Component {

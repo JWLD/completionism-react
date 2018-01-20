@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import SOURCES from 'constants/sources';
+import { SOURCES } from 'data/constants/sources';
 
 // DATA PROCESSING
 

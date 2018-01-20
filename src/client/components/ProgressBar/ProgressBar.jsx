@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import content from 'constants/content';
+import { CONTENT } from 'data/constants/content';
 import './ProgressBar.scss';
 
 const ProgressBar = (props) => {
-	const title = content[props.routeProps.content].xpac;
+	const title = CONTENT[props.routeProps.content].xpac;
 
 	const total = props.data.length;
 	const collected = props.data.filter(item => props.storageData.includes(item.id)).length;

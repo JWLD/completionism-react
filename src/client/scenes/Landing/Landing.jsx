@@ -4,8 +4,8 @@ import MdAdd from 'react-icons/lib/md/add';
 import MdPerson from 'react-icons/lib/md/person';
 
 import NavBar from 'components/NavBar/NavBar';
-import CATEGORIES from 'constants/categories';
-import { ICON_URLS } from 'constants/urls';
+import CATEGORIES from 'data/constants/categories';
+import { ICON_URLS } from 'data/constants/urls';
 import './Landing.scss';
 
 class Landing extends Component {

@@ -6,7 +6,7 @@ import FaHome from 'react-icons/lib/fa/home';
 import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left';
 import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right';
 
-import CONTENT from 'constants/content';
+import { CONTENT } from 'data/constants/content';
 import './NavBar.scss';
 
 class NavBar extends Component {
