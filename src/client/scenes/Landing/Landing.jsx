@@ -9,42 +9,49 @@ import { ICON_URLS } from 'data/constants/urls';
 import './Landing.scss';
 
 class Landing extends Component {
-	retrievePortraitFromLocalStorage(category) {
+	renderCategoryIcon(category) {
+		const iconStyle = { backgroundImage: `url(${ICON_URLS.large}${category.icon}.jpg)` };
+		const categoryIcon = <i style={iconStyle} />;
+
+		return categoryIcon;
+	}
+
+	renderPortraitIcon(category) {
 		if (!localStorage[category.key]) return null;
 
 		const { region, thumb } = JSON.parse(localStorage[category.key]).char;
-		const portraitIcon = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})` };
-		const portrait = <i style={portraitIcon} />;
+		const iconStyle = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})` };
+		const portraitIcon = <i style={iconStyle} />;
 
-		return portrait;
+		return portraitIcon;
 	}
 
-	setCategoryIcon(category) {
-		return { backgroundImage: `url(${ICON_URLS.large}${category.icon}.jpg)` };
+	renderCategoryPanel(category) {
+		const { key, name } = category;
+
+		return (
+			<li key={key}>
+				<button className="cat-button">
+					<MdAdd />
+				</button>
+
+				<Link to={`/browse/${key.toLowerCase()}/1`} className="cat-link">
+					{this.renderCategoryIcon(category)}
+					<span>{name}</span>
+				</Link>
+
+				<Link to="/import" className="cat-button">
+					<MdPerson />
+					{this.renderPortraitIcon(category)}
+				</Link>
+			</li>
+		);
 	}
 
 	renderCategoryPanels(categoryBlock) {
-		return categoryBlock.map((category) => {
-			if (!category.enabled) return null;
-
-			return (
-				<li key={category.key}>
-					<button className="cat-button">
-						<MdAdd />
-					</button>
-
-					<Link to={`/browse/${category.key.toLowerCase()}/1`} className="cat-link">
-						<i style={this.setCategoryIcon(category)} />
-						<span>{category.name}</span>
-					</Link>
-
-					<Link to="/import" className="cat-button">
-						<MdPerson />
-						{this.retrievePortraitFromLocalStorage(category)}
-					</Link>
-				</li>
-			);
-		});
+		return categoryBlock.map(category => (category.enabled
+			? this.renderCategoryPanel(category)
+			: null));
 	}
 
 	renderCategoryBlocks() {
