@@ -4,11 +4,11 @@ import querystring from 'querystring';
 
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
-import FaCheck from 'react-icons/lib/fa/check';
 
 import NavBar from 'components/NavBar/NavBar';
 import Spinner from 'components/Spinner/Spinner';
-import CATEGORIES from 'data/constants/categories';
+
+import CategoryFields from './components/CategoryFields/CategoryFields';
 import './Import.scss';
 
 class Import extends Component {
@@ -31,26 +31,12 @@ class Import extends Component {
 		this.changeRegion = this.changeRegion.bind(this);
 		this.changeRealm = this.changeRealm.bind(this);
 		this.changeChar = this.changeChar.bind(this);
-		this.changeCats = this.changeCats.bind(this);
 		this.onInputKeyPress = this.onInputKeyPress.bind(this);
 		this.fetchCharData = this.fetchCharData.bind(this);
 	}
 
 	componentDidMount() {
 		this.changeRegion();
-	}
-
-	changeCats(e) {
-		const val = e.target.name;
-		const arr = this.state.categories;
-
-		if (arr.includes(val)) {
-			arr.splice(arr.indexOf(val), 1);
-		} else {
-			arr.push(val);
-		}
-
-		this.setState({ categories: arr });
 	}
 
 	changeRegion(e) {
@@ -162,23 +148,6 @@ class Import extends Component {
 	}
 
 	render() {
-		const cats = Object.keys(CATEGORIES).map(sub => (
-			<div key={sub} className="cat-check-wrap">
-				{CATEGORIES[sub].map((cat) => {
-					if (!cat.battleNet) return null;
-
-					return (
-						<label key={cat.key}>{cat.name}
-							<input type="checkbox" name={cat.key} onChange={this.changeCats} />
-							<span>
-								<FaCheck />
-							</span>
-						</label>
-					);
-				})}
-			</div>
-		));
-
 		const realms = this.state.realms[this.state.region].map(realm =>
 			<option value={realm.slug} key={realm.slug}>{realm.name}</option>);
 
@@ -197,41 +166,38 @@ class Import extends Component {
 		const errBox = this.state.errMsg ? <span className="import-err">{this.state.errMsg}</span> : null;
 
 		return (
-			<div className="import-page">
+			<div>
 				<NavBar />
 
-				<section className="cat-sctn">
-					<h2>Select Categories</h2>
+				<div className="import-page">
 
-					<div>
-						{cats}
-					</div>
-				</section>
+					<CategoryFields />
 
-				<section className="char-sctn">
-					<h2>Select Character</h2>
+					<section className="char-sctn">
+						<h2>Select Character</h2>
 
-					<div>
-						<div className="char-inputs">
-							<select onChange={this.changeRegion} value={this.state.region}>
-								<option value="eu">EU</option>
-								<option value="us">US</option>
-							</select>
+						<div>
+							<div className="char-inputs">
+								<select onChange={this.changeRegion} value={this.state.region}>
+									<option value="eu">EU</option>
+									<option value="us">US</option>
+								</select>
 
-							<select onChange={this.changeRealm} value={this.state.realm}>
-								{realms}
-							</select>
+								<select onChange={this.changeRealm} value={this.state.realm}>
+									{realms}
+								</select>
 
-							<input onChange={this.changeChar} onKeyPress={this.onInputKeyPress} value={this.state.char} placeholder="Name" />
+								<input onChange={this.changeChar} onKeyPress={this.onInputKeyPress} value={this.state.char} placeholder="Name" />
+							</div>
+
+							<button onClick={this.fetchCharData} className={buttonClass}>
+								{symbol}
+							</button>
 						</div>
 
-						<button onClick={this.fetchCharData} className={buttonClass}>
-							{symbol}
-						</button>
-					</div>
-
-					{errBox}
-				</section>
+						{errBox}
+					</section>
+				</div>
 			</div>
 		);
 	}
