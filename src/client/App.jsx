@@ -3,10 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import store from 'redux/store';
-import Landing from 'scenes/Landing/Landing';
-import Browse from 'scenes/Browse/Browse';
-import Import from 'scenes/Import/Import';
+import store from './store';
+
+import Landing from './scenes/Landing/Landing';
+import Browse from './scenes/Browse/Browse';
+import Import from './scenes/Import/Import';
 
 const App = () => (
 	<BrowserRouter>

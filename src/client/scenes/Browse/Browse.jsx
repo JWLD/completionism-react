@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
 import NavBar from 'components/NavBar/NavBar';
-import { fetchCategoryData } from 'redux/actions';
 
 import ItemList from './components/ItemList/ItemList';
+import { fetchCategoryData } from './data/actions';
 import './Browse.scss';
 
 class Browse extends Component {
@@ -66,7 +66,7 @@ Browse.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-	[ownProps.match.params.category]: state[ownProps.match.params.category]
+	[ownProps.match.params.category]: state.browse[ownProps.match.params.category]
 });
 
 const mapDispatchToProps = {
