@@ -33,69 +33,111 @@ blizzController.getRealmData = (req, res) => {
 };
 
 // GET IMPORT - GET CHAR DATA FROM BLIZZARD API
-blizzController.getCharData = (req, res) => {
-	const { region, realm, char } = req.query;
-	let { cats } = req.query;
+const constructFieldsArray = (cats) => {
+	const catsArray = typeof cats === 'string' ? [cats] : cats;
 
-	// convert cats to array if string (happens when user chooses only one category)
-	if (typeof cats === 'string') cats = [cats];
-
-	// work out what data to request from battle-net
 	const fields = [];
 
-	for (let i = 0; i < cats.length; i++) {
-		if (cats[i] === 'mounts' || cats[i] === 'pets') {
-			fields.push(cats[i]);
+	catsArray.forEach((cat) => {
+		if (cat === 'mounts' || cat === 'pets') {
+			fields.push(cat);
 		} else if (!fields.includes('professions')) {
 			fields.push('professions');
 		}
+	});
+
+	return fields;
+};
+
+const constructCharDataUrl = (params, fields) => {
+	const { region, realm, char } = params;
+	const locale = region === 'eu' ? 'en_GB' : 'en_US';
+
+	const url = `https://${region}.api.battle.net/wow/character/${realm}/${char}
+		?fields=${fields}&locale=${locale}&apikey=${process.env.BATTLENET_KEY}`;
+
+	return url;
+};
+
+const constructCharDataObject = data => ({
+	char: {
+		thumb: data.thumbnail,
+		faction: data.faction,
+		class: data.class
+	}
+});
+
+const extractMountCollectionData = blizzData =>
+	blizzData.mounts.collected.map(mount => mount.spellId);
+
+const extractPetCollectionData = blizzData =>
+	blizzData.pets.collected.map(pet => ({
+		id: pet.creatureId,
+		quality: pet.qualityId
+	}));
+
+const extractPrimaryProfessionData = (collectionData, blizzData, cat) => {
+	const data = Object.assign({}, collectionData);
+
+	const profIndex = blizzData.professions.primary.findIndex(prof => prof.name.toLowerCase() === cat);
+	const charHasThisProfession = profIndex !== -1;
+
+	if (charHasThisProfession) {
+		data[cat] = blizzData.professions.primary[profIndex].recipes;
 	}
 
-	// make the request
-	const locale = region === 'eu' ? 'en_GB' : 'en_US';
-	const url = `https://${region}.api.battle.net/wow/character/${realm}/${char}?fields=${fields}&locale=${locale}&apikey=${process.env.BATTLENET_KEY}`;
+	return data;
+};
+
+const extractSecondaryProfessionData = (collectionData, blizzData, cat) => {
+	const data = Object.assign({}, collectionData);
+
+	const profIndex = blizzData.professions.secondary.findIndex(prof => prof.name.toLowerCase() === cat);
+	const charHasThisProfession = profIndex !== -1;
+
+	if (charHasThisProfession) {
+		data[cat] = blizzData.professions.secondary[profIndex].recipes;
+	}
+
+	return data;
+};
+
+const extractCollectionData = (cats, charData, blizzData) => {
+	let data = Object.assign({}, charData);
+
+	cats.forEach((cat) => {
+		const catIsPrimaryProfession = PRIMARY.includes(cat);
+		const catIsSecondaryProfession = SECONDARY.includes(cat);
+
+		if (cat === 'mounts') {
+			data.mounts = extractMountCollectionData(blizzData);
+		} else if (cat === 'pets') {
+			data.pets = extractPetCollectionData(blizzData);
+		}	else if (catIsPrimaryProfession) {
+			data = extractPrimaryProfessionData(data, blizzData, cat);
+		} else if (catIsSecondaryProfession) {
+			data = extractSecondaryProfessionData(data, blizzData, cat);
+		}
+	});
+
+	return data;
+};
+
+blizzController.getCharData = (req, res) => {
+	const fields = constructFieldsArray(req.query.cats);
+	const url = constructCharDataUrl(req.query, fields);
 
 	request(url, (err, response, body) => {
 		if (err) return res.status(500).send(err);
 
 		const data = JSON.parse(body);
 
-		// usually if character not found
 		if (data.status === 'nok') return res.status(500).send(data.reason);
 
-		const sorted = {
-			char: {
-				thumb: data.thumbnail,
-				faction: data.faction,
-				class: data.class
-			}
-		};
+		let charData = constructCharDataObject(data);
+		charData = extractCollectionData(req.query.cats, charData, data);
 
-		// filter data from battle-net
-		cats.forEach((cat) => {
-			if (cat === 'mounts') {
-				sorted.mounts = data.mounts.collected.map(mount => mount.spellId);
-			}
-
-			if (cat === 'pets') {
-				sorted.pets = data.pets.collected.map(pet => ({
-					id: pet.creatureId,
-					quality: pet.qualityId
-				}));
-			}
-
-			if (PRIMARY.includes(cat)) {
-				const index = data.professions.primary.findIndex(prof => prof.name.toLowerCase() === cat);
-				if (index !== -1) sorted[cat] = data.professions.primary[index].recipes;
-			}
-
-			if (SECONDARY.includes(cat)) {
-				const index = data.professions.secondary.findIndex(prof => prof.name.toLowerCase().replace(/\s/g, '') === cat);
-				if (index !== -1) sorted[cat] = data.professions.secondary[index].recipes;
-			}
-		});
-
-		return res.send(sorted);
+		return res.send(charData);
 	});
 };
 
