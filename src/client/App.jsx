@@ -4,10 +4,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import store from 'redux/store';
-import NavBar from 'components/NavBar/NavBar';
 import Landing from 'components/Landing/Landing';
 import Category from 'containers/Category/Category';
-import Import from 'containers/Import/Import';
+import Import from 'scenes/Import/Import';
 
 const App = () => (
 	<BrowserRouter>
