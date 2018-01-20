@@ -5,7 +5,7 @@ import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
 import { ICON_URLS } from 'constants/urls';
 
-import { checkHigherRanks } from '../services/dataHelpers';
+import { checkHigherRanks } from '../../services/dataHelpers';
 
 const isCollected = (props) => {
 	const { category, categoryData, id, rank, storageData } = props;
