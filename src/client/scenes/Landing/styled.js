@@ -56,11 +56,10 @@ export const BrowseLink = styled(Link)`
 
 export const CategoryImg = styled.img`
 	position: absolute;
-	left: 0;
-	top: 0;
-	height: ${panelHeight * 0.7}rem;
-	width: ${panelHeight * 0.7}rem;
-	margin: ${panelHeight * 0.15}rem;
+	left: ${panelPadding}rem;
+	top: ${panelPadding}rem;
+	height: ${panelHeight - (panelPadding * 2)}rem;
+	width: ${panelHeight - (panelPadding * 2)}rem;
 	border: none;
 	border-radius: 0.4rem;
 
