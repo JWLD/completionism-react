@@ -1,32 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Field } from 'redux-form';
 
-import './CharacterFields.scss';
+import { REGIONS } from 'data/constants/blizzard';
 
-const CharacterFields = () => (
-	<section className="sctn char-sctn">
-		<h2 className="sctn__header">Select Character</h2>
+import { InputField, SelectBoxField } from 'components/ReduxFields';
+import { CharacterFieldsWrap, CharacterInputWrap, LoadingIndicator, NameInput, RegionSelect, RealmSelect } from './styled';
 
-		<div className="sctn__input-wrap">
-			<div className="char-inputs">
-				<select>
-					<option value="eu">EU</option>
-					<option value="us">US</option>
-				</select>
+class CharacterFields extends Component {
+	onRegionChange() {
+		console.log('region changed');
+	}
 
-				<select>
-					{/* {realms} */}
-				</select>
+	render() {
+		return (
+			<CharacterFieldsWrap>
+				<CharacterInputWrap>
+					<Field
+						component={SelectBoxField}
+						name="region"
+						onChange={this.onRegionChange}
+						options={REGIONS}
+						StyledComponent={RegionSelect}
+					/>
 
-				<input placeholder="Name" />
-			</div>
+					<Field
+						component={SelectBoxField}
+						name="realm"
+						options={this.props.realmList}
+						StyledComponent={RealmSelect}
+					/>
 
-			<button>
-				{/* {symbol} */}
-			</button>
-		</div>
+					<Field
+						component={InputField}
+						name="name"
+						StyledComponent={NameInput}
+					/>
+				</CharacterInputWrap>
 
-		{/* {errBox} */}
-	</section>
-);
+				<LoadingIndicator />
+			</CharacterFieldsWrap>
+		);
+	}
+}
 
-export default CharacterFields;
+CharacterFields.propTypes = {
+	realmList: PropTypes.array.isRequired
+};
+
+const mapStateToProps = state => ({
+	realmList: state.realms || []
+});
+
+export default connect(mapStateToProps)(CharacterFields);
