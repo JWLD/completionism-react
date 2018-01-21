@@ -1,0 +1,28 @@
+@mixin flex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin pageWrap() {
+	min-width: 100vw;
+	margin-top: $navBarHeight;
+	padding: $pagePadding;
+}
+
+@mixin itemListWrap() {
+	width: 75rem;
+	padding: $itemListPadding;
+	border-radius: .4rem;
+	background-color: #222;
+
+	&:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+}
+
+@mixin itemListItem() {
+	width: 100%;
+	height: $itemHeight;
+	border-radius: .3rem;
+}
