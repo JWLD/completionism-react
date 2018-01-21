@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
 
 import { reducer as browseReducer } from 'scenes/Browse/data/reducer';
+import importReducer from 'scenes/Import/data/reducer';
 
 const rootReducer = combineReducers({
 	browse: browseReducer,
-	form: formReducer
+	form: formReducer,
+	import: importReducer
 });
 
 const store = createStore(
