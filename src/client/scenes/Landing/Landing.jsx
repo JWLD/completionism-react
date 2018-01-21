@@ -1,27 +1,18 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import MdAdd from 'react-icons/lib/md/add';
-import MdPerson from 'react-icons/lib/md/person';
 
-import NavBar from 'components/NavBar/NavBar';
 import CATEGORIES from 'data/constants/categories';
 import { ICON_URLS } from 'data/constants/urls';
-import './Landing.scss';
+
+import NavBar from 'components/NavBar/NavBar';
+import { BrowseLink, CategoryBlock, CategoryIcon, CategoryPanel, CharacterLink, ExpandButton, LandingPage, Portrait } from './style';
 
 class Landing extends Component {
-	renderCategoryIcon(category) {
-		const iconStyle = { backgroundImage: `url(${ICON_URLS.large}${category.icon}.jpg)` };
-		const categoryIcon = <i style={iconStyle} />;
-
-		return categoryIcon;
-	}
-
-	renderPortraitIcon(category) {
+	renderPortrait(category) {
 		if (!localStorage[category.key]) return null;
 
 		const { region, thumb } = JSON.parse(localStorage[category.key]).char;
 		const iconStyle = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})` };
-		const portraitIcon = <i style={iconStyle} />;
+		const portraitIcon = <Portrait style={iconStyle} />;
 
 		return portraitIcon;
 	}
@@ -30,21 +21,19 @@ class Landing extends Component {
 		const { key, name } = category;
 
 		return (
-			<li key={key}>
-				<button className="cat-button">
-					<MdAdd />
-				</button>
+			<CategoryPanel key={key}>
+				<ExpandButton>+</ExpandButton>
 
-				<Link to={`/browse/${key.toLowerCase()}/1`} className="cat-link">
-					{this.renderCategoryIcon(category)}
+				<BrowseLink to={`/browse/${key.toLowerCase()}/1`}>
+					<CategoryIcon src={`${ICON_URLS.large}${category.icon}.jpg`} />
 					<span>{name}</span>
-				</Link>
+				</BrowseLink>
 
-				<Link to="/import" className="cat-button">
-					<MdPerson />
-					{this.renderPortraitIcon(category)}
-				</Link>
-			</li>
+				<CharacterLink to="/import">
+					<i className="fa fa-user" />
+					{this.renderPortrait(category)}
+				</CharacterLink>
+			</CategoryPanel>
 		);
 	}
 
@@ -56,19 +45,19 @@ class Landing extends Component {
 
 	renderCategoryBlocks() {
 		return Object.keys(CATEGORIES).map(categoryBlock => (
-			<ul key={categoryBlock}>
+			<CategoryBlock key={categoryBlock}>
 				{this.renderCategoryPanels(CATEGORIES[categoryBlock])}
-			</ul>
+			</CategoryBlock>
 		));
 	}
 
 	render() {
 		return (
-			<div className="landing-page">
+			<LandingPage>
 				<NavBar />
 
 				{this.renderCategoryBlocks()}
-			</div>
+			</LandingPage>
 		);
 	}
 }
