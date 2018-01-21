@@ -11,16 +11,15 @@ class Landing extends Component {
 		if (!localStorage[category.key]) return null;
 
 		const { region, thumb } = JSON.parse(localStorage[category.key]).char;
-		const iconStyle = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})` };
-		const portraitIcon = <SC.Portrait style={iconStyle} />;
+		const portrait = <SC.Portrait src={`http://render-${region}.worldofwarcraft.com/character/${thumb}`} />;
 
-		return portraitIcon;
+		return portrait;
 	}
 
 	renderCategoryPanel(category) {
 		const { key, name } = category;
 
-		return (
+		const categoryPanel = (
 			<SC.CategoryPanel key={key}>
 				<SC.ExpandButton>+</SC.ExpandButton>
 
@@ -35,20 +34,26 @@ class Landing extends Component {
 				</SC.CharacterLink>
 			</SC.CategoryPanel>
 		);
+
+		return categoryPanel;
 	}
 
 	renderCategoryPanels(categoryBlock) {
-		return categoryBlock.map(category => (category.enabled
+		const categoryPanels = categoryBlock.map(category => (category.enabled
 			? this.renderCategoryPanel(category)
 			: null));
+
+		return categoryPanels;
 	}
 
 	renderCategoryBlocks() {
-		return Object.keys(CATEGORIES).map(categoryBlock => (
+		const categoryBlocks = Object.keys(CATEGORIES).map(categoryBlock => (
 			<SC.CategoryBlock key={categoryBlock}>
 				{this.renderCategoryPanels(CATEGORIES[categoryBlock])}
 			</SC.CategoryBlock>
 		));
+
+		return categoryBlocks;
 	}
 
 	render() {
