@@ -4,7 +4,7 @@ import CATEGORIES from 'data/constants/categories';
 import { ICON_URLS } from 'data/constants/urls';
 
 import NavBar from 'components/NavBar/NavBar';
-import { BrowseLink, CategoryBlock, CategoryIcon, CategoryPanel, CharacterLink, ExpandButton, LandingPage, Portrait } from './style';
+import * as SC from './style';
 
 class Landing extends Component {
 	renderPortrait(category) {
@@ -12,7 +12,7 @@ class Landing extends Component {
 
 		const { region, thumb } = JSON.parse(localStorage[category.key]).char;
 		const iconStyle = { backgroundImage: `url(http://render-${region}.worldofwarcraft.com/character/${thumb})` };
-		const portraitIcon = <Portrait style={iconStyle} />;
+		const portraitIcon = <SC.Portrait style={iconStyle} />;
 
 		return portraitIcon;
 	}
@@ -21,19 +21,19 @@ class Landing extends Component {
 		const { key, name } = category;
 
 		return (
-			<CategoryPanel key={key}>
-				<ExpandButton>+</ExpandButton>
+			<SC.CategoryPanel key={key}>
+				<SC.ExpandButton>+</SC.ExpandButton>
 
-				<BrowseLink to={`/browse/${key.toLowerCase()}/1`}>
-					<CategoryIcon src={`${ICON_URLS.large}${category.icon}.jpg`} />
+				<SC.BrowseLink to={`/browse/${key.toLowerCase()}/1`}>
+					<SC.CategoryIcon src={`${ICON_URLS.large}${category.icon}.jpg`} />
 					<span>{name}</span>
-				</BrowseLink>
+				</SC.BrowseLink>
 
-				<CharacterLink to="/import">
+				<SC.CharacterLink to="/import">
 					<i className="fa fa-user" />
 					{this.renderPortrait(category)}
-				</CharacterLink>
-			</CategoryPanel>
+				</SC.CharacterLink>
+			</SC.CategoryPanel>
 		);
 	}
 
@@ -45,19 +45,19 @@ class Landing extends Component {
 
 	renderCategoryBlocks() {
 		return Object.keys(CATEGORIES).map(categoryBlock => (
-			<CategoryBlock key={categoryBlock}>
+			<SC.CategoryBlock key={categoryBlock}>
 				{this.renderCategoryPanels(CATEGORIES[categoryBlock])}
-			</CategoryBlock>
+			</SC.CategoryBlock>
 		));
 	}
 
 	render() {
 		return (
-			<LandingPage>
+			<SC.LandingPage>
 				<NavBar />
 
 				{this.renderCategoryBlocks()}
-			</LandingPage>
+			</SC.LandingPage>
 		);
 	}
 }
