@@ -75,14 +75,13 @@ export const CharacterLink = ExpandButton.withComponent(Link).extend`
 	font-size: 3rem;
 `;
 
-export const Portrait = styled.div`
+export const Portrait = styled.img`
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: ${panelHeight}rem;
 	width: ${panelHeight}rem;
 	border-radius: 0.4rem;
-	background-size: cover;
 	transform: rotateY(180deg);
 
 	&:hover {
