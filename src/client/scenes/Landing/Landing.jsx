@@ -4,7 +4,7 @@ import CATEGORIES from 'data/constants/categories';
 import { ICON_URLS } from 'data/constants/urls';
 
 import NavBar from 'components/NavBar/NavBar';
-import * as SC from './style';
+import * as SC from './styled';
 
 class Landing extends Component {
 	renderPortrait(category) {
