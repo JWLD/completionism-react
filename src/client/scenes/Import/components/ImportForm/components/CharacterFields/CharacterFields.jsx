@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Field } from 'redux-form';
 
-import { REGIONS } from 'data/constants/blizzard';
+import { REGIONS } from 'constants/blizzard';
 
 import { InputField, SelectBoxField } from 'components/ReduxFields';
 import { CharacterFieldsWrap, CharacterInputWrap, LoadingIndicator, NameInput, RegionSelect, RealmSelect } from './styled';

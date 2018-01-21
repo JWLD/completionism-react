@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CONTENT } from 'data/constants/content';
+import { CONTENT } from 'constants/content';
 import './ProgressBar.scss';
 
 const ProgressBar = (props) => {

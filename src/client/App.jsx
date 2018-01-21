@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import store from './data/store';
+import store from './store';
 
 import Landing from './scenes/Landing/Landing';
 import Browse from './scenes/Browse/Browse';

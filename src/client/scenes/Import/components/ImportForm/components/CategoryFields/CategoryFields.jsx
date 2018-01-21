@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import CATEGORIES from 'data/constants/categories';
+import CATEGORIES from 'constants/categories';
 
 import { CheckboxInput, CheckboxLabel, CheckboxWrap, FakeInput } from './styled';
 

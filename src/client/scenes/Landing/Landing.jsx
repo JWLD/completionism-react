@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import CATEGORIES from 'data/constants/categories';
-import { ICON_URLS } from 'data/constants/urls';
+import CATEGORIES from 'constants/categories';
+import { ICON_URLS } from 'constants/urls';
 
 import NavBar from 'components/NavBar/NavBar';
 import { BrowseLink, CategoryBlock, CategoryImg, CategoryPanel, CharacterLink, ExpandButton, LandingPage, Portrait } from './styled';
