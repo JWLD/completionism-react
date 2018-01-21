@@ -1,0 +1,63 @@
+@import 'global';
+
+$wrapWidth: 70rem;
+$boxPadding: 2rem;
+
+.import-page {
+	.checkbox-wrap {
+		flex-direction: column;
+		flex-grow: 1;
+		flex-basis: 0;
+		justify-content: flex-start;
+		padding: 1.2rem 1.6rem;
+		border-radius: 0.4rem;
+		background-color: $cmpGrey;
+
+		&:not(:last-child) {
+			margin-right: $boxPadding;
+		}
+	}
+
+	.checkbox-wrap__label {
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+		width: 100%;
+		color: white;
+		font: 2.5rem DinMC;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 0.4rem;
+		}
+	}
+
+	.checkbox-wrap__input {
+		position: absolute;
+		opacity: 0;
+
+		&:checked ~ .checkbox-wrap__icon {
+			background-color: $pos;
+		}
+
+		&:checked ~ .checkbox-wrap__icon svg {
+			opacity: 1;
+		}
+	}
+
+	.checkbox-wrap__icon {
+		@include flex;
+		height: 2.2rem;
+		width: 2.2rem;
+		margin-right: 1rem;
+		border-radius: 0.2rem;
+		background-color: #333;
+
+		svg {
+			font-size: 1.8rem;
+			opacity: 0;
+		}
+	}
+}

@@ -8,7 +8,7 @@ import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 import NavBar from 'components/NavBar/NavBar';
 import Spinner from 'components/Spinner/Spinner';
 
-import CategoryFields from './components/CategoryFields/CategoryFields';
+import ImportForm from './components/ImportForm/ImportForm';
 import './Import.scss';
 
 class Import extends Component {
@@ -148,55 +148,29 @@ class Import extends Component {
 	}
 
 	render() {
-		const realms = this.state.realms[this.state.region].map(realm =>
-			<option value={realm.slug} key={realm.slug}>{realm.name}</option>);
+		// const realms = this.state.realms[this.state.region].map(realm =>
+		// 	<option value={realm.slug} key={realm.slug}>{realm.name}</option>);
 
-		let symbol = <FaTimesCircle className="neg" />;
+		// let symbol = <FaTimesCircle className="neg" />;
 
-		if (this.state.status === 1) {
-			symbol = <Spinner size={4.3} />;
-		} else if (this.state.status === 2) {
-			symbol = <FaCheckCircle className="pos" />;
-		} else if (this.state.status === 3) {
-			symbol = <FaTimesCircle className="neg" />;
-		}
+		// if (this.state.status === 1) {
+		// 	symbol = <Spinner size={4.3} />;
+		// } else if (this.state.status === 2) {
+		// 	symbol = <FaCheckCircle className="pos" />;
+		// } else if (this.state.status === 3) {
+		// 	symbol = <FaTimesCircle className="neg" />;
+		// }
 
-		const buttonClass = this.state.status === 1 ? 'inactive' : null;
+		// const buttonClass = this.state.status === 1 ? 'inactive' : null;
 
-		const errBox = this.state.errMsg ? <span className="import-err">{this.state.errMsg}</span> : null;
+		// const errBox = this.state.errMsg ? <span className="import-err">{this.state.errMsg}</span> : null;
 
 		return (
 			<div>
 				<NavBar />
 
 				<div className="import-page">
-
-					<CategoryFields />
-
-					<section className="char-sctn">
-						<h2>Select Character</h2>
-
-						<div>
-							<div className="char-inputs">
-								<select onChange={this.changeRegion} value={this.state.region}>
-									<option value="eu">EU</option>
-									<option value="us">US</option>
-								</select>
-
-								<select onChange={this.changeRealm} value={this.state.realm}>
-									{realms}
-								</select>
-
-								<input onChange={this.changeChar} onKeyPress={this.onInputKeyPress} value={this.state.char} placeholder="Name" />
-							</div>
-
-							<button onClick={this.fetchCharData} className={buttonClass}>
-								{symbol}
-							</button>
-						</div>
-
-						{errBox}
-					</section>
+					<ImportForm />
 				</div>
 			</div>
 		);

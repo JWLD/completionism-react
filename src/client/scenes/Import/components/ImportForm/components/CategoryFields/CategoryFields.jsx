@@ -19,17 +19,22 @@ class CategoryFields extends Component {
 	}
 
 	renderCats() {
+		const styles = {
+			block: 'checkbox-wrap',
+			label: 'checkbox-wrap__label',
+			input: 'checkbox-wrap__input',
+			icon: 'checkbox-wrap__icon'
+		};
+
 		const cats = Object.keys(CATEGORIES).map(sub => (
-			<div key={sub} className="cat-check-wrap">
+			<div key={sub} className={styles.block}>
 				{CATEGORIES[sub].map((cat) => {
 					if (!cat.battleNet) return null;
 
 					return (
-						<label key={cat.key}>{cat.name}
-							<input type="checkbox" name={cat.key} onChange={this.changeCats} />
-							<span>
-								<FaCheck />
-							</span>
+						<label key={cat.key} className={styles.label}>{cat.name}
+							<input type="checkbox" name={cat.key} className={styles.input} />
+							<i className={styles.icon}><FaCheck /></i>
 						</label>
 					);
 				})}
@@ -41,10 +46,10 @@ class CategoryFields extends Component {
 
 	render() {
 		return (
-			<section className="cat-sctn">
-				<h2>Select Categories</h2>
+			<section className="sctn">
+				<h2 className="sctn__header">Select Categories</h2>
 
-				<div>
+				<div className="sctn__input-wrap">
 					{this.renderCats()}
 				</div>
 			</section>
