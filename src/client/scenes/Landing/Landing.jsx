@@ -25,7 +25,7 @@ class Landing extends Component {
 				<SC.ExpandButton>+</SC.ExpandButton>
 
 				<SC.BrowseLink to={`/browse/${key.toLowerCase()}/1`}>
-					<SC.CategoryImg src={`${ICON_URLS.large}${category.icon}.jpg`} />
+					<SC.CategoryImg alt="Category Icon" src={`${ICON_URLS.large}${category.icon}.jpg`} />
 					<span>{name}</span>
 				</SC.BrowseLink>
 
