@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import querystring from 'querystring';
 
-import FaCheckCircle from 'react-icons/lib/fa/check-circle';
-import FaTimesCircle from 'react-icons/lib/fa/times-circle';
-
 import NavBar from 'components/NavBar/NavBar';
-import Spinner from 'components/Spinner/Spinner';
+// import Spinner from 'components/Spinner/Spinner';
 
 import ImportForm from './components/ImportForm/ImportForm';
-import './Import.scss';
+import * as SC from './styled';
 
 class Import extends Component {
 	constructor(props) {
@@ -24,8 +21,8 @@ class Import extends Component {
 			realm: '',
 			char: '',
 			categories: [],
-			status: 0,
-			errMsg: ''
+			// status: 0,
+			// errMsg: ''
 		};
 
 		this.changeRegion = this.changeRegion.bind(this);
@@ -45,7 +42,7 @@ class Import extends Component {
 		if (this.state.realms[region].length === 0) {
 			this.fetchRealmData(region);
 
-			this.setState({ region, status: 1 });
+			// this.setState({ region, status: 1 });
 		} else {
 			this.setState({ region, realm: this.state.realms[region][0].slug });
 		}
@@ -83,10 +80,10 @@ class Import extends Component {
 	fetchCharData() {
 		if (!this.validateFetch()) return false;
 
-		this.setState({
-			status: 1,
-			errMsg: ''
-		});
+		// this.setState({
+		// 	status: 1,
+		// 	errMsg: ''
+		// });
 
 		const data = querystring.stringify({
 			region: this.state.region,
@@ -98,19 +95,19 @@ class Import extends Component {
 		return axios.get(`/api/import?${data}`)
 			.then((response) => {
 				if (response.data.status === 'nok') {
-					return this.setState({ status: 3 });
+					// return this.setState({ status: 3 });
 				}
 
 				return this.saveCharData(response.data);
-			})
-			.catch((err) => {
-				this.setState({
-					status: 3,
-					errMsg: err.response.data
-				});
-
-				return console.log(err.response.data || err);
 			});
+		// .catch((err) => {
+		// 	// this.setState({
+		// 	// 	status: 3,
+		// 	// 	errMsg: err.response.data
+		// 	// });
+
+		// 	return console.log(err.response.data || err);
+		// });
 	}
 
 	validateFetch() {
@@ -120,10 +117,10 @@ class Import extends Component {
 		if (this.state.categories.length === 0) msg = 'Please select at least one category.';
 
 		if (msg) {
-			this.setState({
-				status: 3,
-				errMsg: msg
-			});
+			// this.setState({
+			// 	status: 3,
+			// 	errMsg: msg
+			// });
 
 			return false;
 		}
@@ -142,8 +139,8 @@ class Import extends Component {
 				char: charData.char,
 				ids: charData[cat]
 			});
-
-			return this.setState({ status: 2 });
+			return null;
+			// return this.setState({ status: 2 });
 		});
 	}
 
@@ -169,9 +166,9 @@ class Import extends Component {
 			<div>
 				<NavBar />
 
-				<div className="import-page">
+				<SC.ImportPage>
 					<ImportForm />
-				</div>
+				</SC.ImportPage>
 			</div>
 		);
 	}
