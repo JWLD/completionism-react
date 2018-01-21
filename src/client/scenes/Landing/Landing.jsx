@@ -4,14 +4,14 @@ import CATEGORIES from 'data/constants/categories';
 import { ICON_URLS } from 'data/constants/urls';
 
 import NavBar from 'components/NavBar/NavBar';
-import * as SC from './styled';
+import { BrowseLink, CategoryBlock, CategoryImg, CategoryPanel, CharacterLink, ExpandButton, LandingPage, Portrait } from './styled';
 
 class Landing extends Component {
 	renderPortrait(category) {
 		if (!localStorage[category.key]) return null;
 
 		const { region, thumb } = JSON.parse(localStorage[category.key]).char;
-		const portrait = <SC.Portrait src={`http://render-${region}.worldofwarcraft.com/character/${thumb}`} />;
+		const portrait = <Portrait src={`http://render-${region}.worldofwarcraft.com/character/${thumb}`} />;
 
 		return portrait;
 	}
@@ -20,19 +20,19 @@ class Landing extends Component {
 		const { key, name } = category;
 
 		const categoryPanel = (
-			<SC.CategoryPanel key={key}>
-				<SC.ExpandButton>+</SC.ExpandButton>
+			<CategoryPanel key={key}>
+				<ExpandButton>+</ExpandButton>
 
-				<SC.BrowseLink to={`/browse/${key}/1`}>
-					<SC.CategoryImg alt="Category Icon" src={`${ICON_URLS.large}${category.icon}.jpg`} />
+				<BrowseLink to={`/browse/${key}/1`}>
+					<CategoryImg alt="Category Icon" src={`${ICON_URLS.large}${category.icon}.jpg`} />
 					<span>{name}</span>
-				</SC.BrowseLink>
+				</BrowseLink>
 
-				<SC.CharacterLink to="/import">
+				<CharacterLink to="/import">
 					<i className="fa fa-user" />
 					{this.renderPortrait(category)}
-				</SC.CharacterLink>
-			</SC.CategoryPanel>
+				</CharacterLink>
+			</CategoryPanel>
 		);
 
 		return categoryPanel;
@@ -48,9 +48,9 @@ class Landing extends Component {
 
 	renderCategoryBlocks() {
 		const categoryBlocks = Object.keys(CATEGORIES).map(categoryBlock => (
-			<SC.CategoryBlock key={categoryBlock}>
+			<CategoryBlock key={categoryBlock}>
 				{this.renderCategoryPanels(CATEGORIES[categoryBlock])}
-			</SC.CategoryBlock>
+			</CategoryBlock>
 		));
 
 		return categoryBlocks;
@@ -58,11 +58,11 @@ class Landing extends Component {
 
 	render() {
 		return (
-			<SC.LandingPage>
+			<LandingPage>
 				<NavBar />
 
 				{this.renderCategoryBlocks()}
-			</SC.LandingPage>
+			</LandingPage>
 		);
 	}
 }

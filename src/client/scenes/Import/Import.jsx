@@ -6,7 +6,7 @@ import NavBar from 'components/NavBar/NavBar';
 // import Spinner from 'components/Spinner/Spinner';
 
 import ImportForm from './components/ImportForm/ImportForm';
-import * as SC from './styled';
+import { ImportPage } from './styled';
 
 class Import extends Component {
 	constructor(props) {
@@ -166,9 +166,9 @@ class Import extends Component {
 			<div>
 				<NavBar />
 
-				<SC.ImportPage>
+				<ImportPage>
 					<ImportForm />
-				</SC.ImportPage>
+				</ImportPage>
 			</div>
 		);
 	}

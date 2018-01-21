@@ -3,25 +3,25 @@ import { reduxForm } from 'redux-form';
 
 import CategoryFields from './components/CategoryFields/CategoryFields';
 import CharacterFields from './components/CharacterFields/CharacterFields';
-import * as SC from './styled';
+import { FormHeader, FormSection, InputWrap } from './styled';
 
 const ImportForm = () => (
 	<form className="import-form">
-		<SC.FormSection>
-			<SC.FormHeader>Select Categories</SC.FormHeader>
+		<FormSection>
+			<FormHeader>Select Categories</FormHeader>
 
-			<SC.InputWrap className="sctn__input-wrap">
+			<InputWrap className="sctn__input-wrap">
 				<CategoryFields />
-			</SC.InputWrap>
-		</SC.FormSection>
+			</InputWrap>
+		</FormSection>
 
-		<SC.FormSection>
-			<SC.FormHeader>Select Character</SC.FormHeader>
+		<FormSection>
+			<FormHeader>Select Character</FormHeader>
 
-			<SC.InputWrap className="sctn__input-wrap">
+			<InputWrap className="sctn__input-wrap">
 				<CharacterFields />
-			</SC.InputWrap>
-		</SC.FormSection>
+			</InputWrap>
+		</FormSection>
 	</form>
 );
 
