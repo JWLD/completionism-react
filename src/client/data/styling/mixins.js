@@ -8,7 +8,7 @@ export const flex = `
 
 export const page = `
 	flex-direction: column;
-	min-height: 100vh;
+	min-width: 100vw;
 	margin-top: ${navBarHeight};
 	padding: ${pagePadding};
 `;
