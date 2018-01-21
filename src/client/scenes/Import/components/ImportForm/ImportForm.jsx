@@ -1,28 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 
 import CategoryFields from './components/CategoryFields/CategoryFields';
 import CharacterFields from './components/CharacterFields/CharacterFields';
 import { FormHeader, FormSection, InputWrap } from './styled';
 
-const ImportForm = () => (
-	<form>
-		<FormSection>
-			<FormHeader>Select Categories</FormHeader>
+class ImportForm extends Component {
+	componentDidMount() {
+		this.props.initialize({
+			region: 'eu'
+		});
+	}
 
-			<InputWrap>
-				<CategoryFields />
-			</InputWrap>
-		</FormSection>
+	render() {
+		return (
+			<form>
+				<FormSection>
+					<FormHeader>Select Categories</FormHeader>
 
-		<FormSection>
-			<FormHeader>Select Character</FormHeader>
+					<InputWrap>
+						<CategoryFields />
+					</InputWrap>
+				</FormSection>
 
-			<InputWrap>
-				<CharacterFields />
-			</InputWrap>
-		</FormSection>
-	</form>
-);
+				<FormSection>
+					<FormHeader>Select Character</FormHeader>
+
+					<InputWrap>
+						<CharacterFields />
+					</InputWrap>
+				</FormSection>
+			</form>
+		);
+	}
+}
+
+ImportForm.propTypes = {
+	initialize: PropTypes.func.isRequired
+};
 
 export default reduxForm({ form: 'import' })(ImportForm);
