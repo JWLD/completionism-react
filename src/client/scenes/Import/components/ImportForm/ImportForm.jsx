@@ -6,11 +6,11 @@ import CharacterFields from './components/CharacterFields/CharacterFields';
 import { FormHeader, FormSection, InputWrap } from './styled';
 
 const ImportForm = () => (
-	<form className="import-form">
+	<form>
 		<FormSection>
 			<FormHeader>Select Categories</FormHeader>
 
-			<InputWrap className="sctn__input-wrap">
+			<InputWrap>
 				<CategoryFields />
 			</InputWrap>
 		</FormSection>
@@ -18,7 +18,7 @@ const ImportForm = () => (
 		<FormSection>
 			<FormHeader>Select Character</FormHeader>
 
-			<InputWrap className="sctn__input-wrap">
+			<InputWrap>
 				<CharacterFields />
 			</InputWrap>
 		</FormSection>
