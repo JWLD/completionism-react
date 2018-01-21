@@ -40,7 +40,7 @@ a, body, button, div, h1, h2, i, input, li, nav, select, span, ul {
   border-radius: 0;
   box-sizing: border-box; }
 
-a, div, h2, label, nav, select, span {
+a, div, label, nav, select, span {
   display: flex;
   justify-content: center;
   align-items: center; }
