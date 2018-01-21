@@ -45,7 +45,7 @@ a, div, label, nav, select, span {
   justify-content: center;
   align-items: center; }
 
-a:hover, button:hover {
+a:hover, button:hover, label:hover {
   cursor: pointer; }
 
 a {

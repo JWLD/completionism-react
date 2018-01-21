@@ -14,7 +14,7 @@ a, div, label, nav, select, span {
   @include flex;
 }
 
-a:hover, button:hover {
+a:hover, button:hover, label:hover {
   cursor: pointer;
 }
 
