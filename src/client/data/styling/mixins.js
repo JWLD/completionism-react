@@ -1,4 +1,4 @@
-import { navBarHeight, pagePadding } from './variables';
+import vars from './variables';
 
 export const flex = `
 	display: flex;
@@ -9,8 +9,8 @@ export const flex = `
 export const page = `
 	flex-direction: column;
 	min-width: 100vw;
-	margin-top: ${navBarHeight};
-	padding: ${pagePadding};
+	margin-top: ${vars.sizing.navBarHeight}rem;
+	padding: ${vars.sizing.pagePadding}rem;
 `;
 
 export default {
