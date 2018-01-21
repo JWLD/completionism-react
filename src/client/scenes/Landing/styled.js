@@ -54,7 +54,7 @@ export const BrowseLink = styled(Link)`
 	}
 `;
 
-export const CategoryIcon = styled.img`
+export const CategoryImg = styled.img`
 	position: absolute;
 	left: 0;
 	top: 0;
