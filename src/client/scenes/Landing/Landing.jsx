@@ -4,14 +4,14 @@ import CATEGORIES from 'constants/categories';
 import { ICON_URLS } from 'constants/urls';
 
 import NavBar from 'components/NavBar/NavBar';
-import { BrowseLink, CategoryBlock, CategoryImg, CategoryPanel, CharacterLink, ExpandButton, LandingPage, Portrait } from './styled';
+import * as SC from './styled';
 
 class Landing extends Component {
 	renderPortrait(category) {
 		if (!localStorage[category.key]) return null;
 
 		const { region, thumb } = JSON.parse(localStorage[category.key]).char;
-		const portrait = <Portrait src={`http://render-${region}.worldofwarcraft.com/character/${thumb}`} />;
+		const portrait = <SC.Portrait src={`http://render-${region}.worldofwarcraft.com/character/${thumb}`} />;
 
 		return portrait;
 	}
@@ -20,19 +20,19 @@ class Landing extends Component {
 		const { key, name } = category;
 
 		const categoryPanel = (
-			<CategoryPanel key={key}>
-				<ExpandButton>+</ExpandButton>
+			<SC.CategoryPanel key={key}>
+				<SC.ExpandButton>+</SC.ExpandButton>
 
-				<BrowseLink to={`/browse/${key}/1`}>
-					<CategoryImg alt="Category Icon" src={`${ICON_URLS.large}${category.icon}.jpg`} />
+				<SC.BrowseLink to={`/browse/${key}/1`}>
+					<SC.CategoryImg alt="Category Icon" src={`${ICON_URLS.large}${category.icon}.jpg`} />
 					<span>{name}</span>
-				</BrowseLink>
+				</SC.BrowseLink>
 
-				<CharacterLink to="/import">
+				<SC.CharacterLink to="/import">
 					<i className="fa fa-user" />
 					{this.renderPortrait(category)}
-				</CharacterLink>
-			</CategoryPanel>
+				</SC.CharacterLink>
+			</SC.CategoryPanel>
 		);
 
 		return categoryPanel;
@@ -48,9 +48,9 @@ class Landing extends Component {
 
 	renderCategoryBlocks() {
 		const categoryBlocks = Object.keys(CATEGORIES).map(categoryBlock => (
-			<CategoryBlock key={categoryBlock}>
+			<SC.CategoryBlock key={categoryBlock}>
 				{this.renderCategoryPanels(CATEGORIES[categoryBlock])}
-			</CategoryBlock>
+			</SC.CategoryBlock>
 		));
 
 		return categoryBlocks;
@@ -58,11 +58,11 @@ class Landing extends Component {
 
 	render() {
 		return (
-			<LandingPage>
+			<SC.LandingPage>
 				<NavBar />
 
 				{this.renderCategoryBlocks()}
-			</LandingPage>
+			</SC.LandingPage>
 		);
 	}
 }

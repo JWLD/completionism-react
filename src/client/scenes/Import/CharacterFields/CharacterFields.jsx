@@ -7,7 +7,7 @@ import { REGIONS } from 'constants/blizzard';
 import { fetchRealmData } from 'scenes/Import/actions';
 
 import { InputField, SelectBoxField } from 'components/ReduxFields';
-import { CharacterFieldsWrap, CharacterInputWrap, LoadingIndicator, NameInput, RegionSelect, RealmSelect } from './styled';
+import * as SC from './styled';
 
 class CharacterFields extends Component {
 	constructor(props) {
@@ -44,33 +44,33 @@ class CharacterFields extends Component {
 
 	render() {
 		return (
-			<CharacterFieldsWrap>
-				<CharacterInputWrap>
+			<SC.CharacterFieldsWrap>
+				<SC.CharacterInputWrap>
 					<Field
 						component={SelectBoxField}
 						name="region"
 						onChange={this.onRegionChange}
 						options={REGIONS}
-						StyledComponent={RegionSelect}
+						StyledComponent={SC.RegionSelect}
 					/>
 
 					<Field
 						component={SelectBoxField}
 						name="realm"
 						options={this.formatRealmDataForSelect()}
-						StyledComponent={RealmSelect}
+						StyledComponent={SC.RealmSelect}
 					/>
 
 					<Field
 						component={InputField}
 						name="name"
 						placeholder="Name"
-						StyledComponent={NameInput}
+						StyledComponent={SC.NameInput}
 					/>
-				</CharacterInputWrap>
+				</SC.CharacterInputWrap>
 
-				<LoadingIndicator />
-			</CharacterFieldsWrap>
+				<SC.LoadingIndicator />
+			</SC.CharacterFieldsWrap>
 		);
 	}
 }

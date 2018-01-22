@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form';
 
 import CategoryFields from 'scenes/Import/CategoryFields/CategoryFields';
 import CharacterFields from 'scenes/Import/CharacterFields/CharacterFields';
-import { FormHeader, FormSection, InputWrap } from './styled';
+import * as SC from './styled';
 
 class ImportForm extends Component {
 	componentDidMount() {
@@ -16,21 +16,21 @@ class ImportForm extends Component {
 	render() {
 		return (
 			<form>
-				<FormSection>
-					<FormHeader>Select Categories</FormHeader>
+				<SC.FormSection>
+					<SC.FormHeader>Select Categories</SC.FormHeader>
 
-					<InputWrap>
+					<SC.InputWrap>
 						<CategoryFields />
-					</InputWrap>
-				</FormSection>
+					</SC.InputWrap>
+				</SC.FormSection>
 
-				<FormSection>
-					<FormHeader>Select Character</FormHeader>
+				<SC.FormSection>
+					<SC.FormHeader>Select Character</SC.FormHeader>
 
-					<InputWrap>
+					<SC.InputWrap>
 						<CharacterFields />
-					</InputWrap>
-				</FormSection>
+					</SC.InputWrap>
+				</SC.FormSection>
 			</form>
 		);
 	}

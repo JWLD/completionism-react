@@ -5,7 +5,7 @@ import querystring from 'querystring';
 import NavBar from 'components/NavBar/NavBar';
 
 import ImportForm from 'scenes/Import/ImportForm/ImportForm';
-import { ImportPage } from './styled';
+import * as SC from './styled';
 
 class Import extends Component {
 	constructor(props) {
@@ -165,9 +165,9 @@ class Import extends Component {
 			<div>
 				<NavBar />
 
-				<ImportPage>
+				<SC.ImportPage>
 					<ImportForm />
-				</ImportPage>
+				</SC.ImportPage>
 			</div>
 		);
 	}
