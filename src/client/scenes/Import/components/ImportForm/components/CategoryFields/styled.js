@@ -27,6 +27,11 @@ export const CheckboxLabel = styled.label`
 	}
 `;
 
+export const CheckboxInput = styled.input`
+	position: absolute;
+	opacity: 0;
+`;
+
 export const FakeInput = styled.div`
 	${mixins.flex};
 	height: 2.2rem;
@@ -36,13 +41,8 @@ export const FakeInput = styled.div`
 	background-color: #333;
 	color: #333;
 	font-size: 1.8rem;
-`;
 
-export const CheckboxInput = styled.input`
-	position: absolute;
-	opacity: 0;
-
-	:checked ~ ${FakeInput} {
+	${CheckboxInput}:checked ~ & {
 		background-color: ${vars.colours.pos};
 		color: white;
 	}
