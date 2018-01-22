@@ -5,39 +5,27 @@ import CATEGORIES from 'constants/categories';
 import { CheckboxInput, CheckboxLabel, CheckboxWrap, FakeInput } from './styled';
 
 class CategoryFields extends Component {
-	renderInputRow({ key, name }) {
-		const inputRow = (
-			<CheckboxLabel key={key}>{name}
-				<CheckboxInput type="checkbox" name={key} />
-				<FakeInput className="fa fa-check" />
-			</CheckboxLabel>
-		);
-
-		return inputRow;
-	}
-
 	renderInputRows(categories) {
-		const inputRows = categories.map(category => (category.battleNet
-			? this.renderInputRow(category)
-			: null));
+		const inputRows = categories.map(({ battleNet, key, name }) => {
+			if (!battleNet) return null;
+
+			return (
+				<CheckboxLabel key={key}>{name}
+					<CheckboxInput type="checkbox" name={key} />
+					<FakeInput className="fa fa-check" />
+				</CheckboxLabel>
+			);
+		});
 
 		return inputRows;
 	}
 
-	renderCheckboxColumn(type) {
-		const typeCategories = CATEGORIES[type];
-
-		const checkboxColumn = (
-			<CheckboxWrap key={type}>
-				{this.renderInputRows(typeCategories)}
-			</CheckboxWrap>
-		);
-
-		return checkboxColumn;
-	}
-
 	renderCheckboxColumns() {
-		const checkboxColumns = Object.keys(CATEGORIES).map(type => this.renderCheckboxColumn(type));
+		const checkboxColumns = Object.keys(CATEGORIES).map(category => (
+			<CheckboxWrap key={category}>
+				{this.renderInputRows(CATEGORIES[category])}
+			</CheckboxWrap>
+		));
 
 		return checkboxColumns;
 	}
