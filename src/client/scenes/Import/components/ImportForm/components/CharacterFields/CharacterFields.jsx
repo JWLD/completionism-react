@@ -1,16 +1,45 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Field } from 'redux-form';
+import { Field, formValueSelector } from 'redux-form';
 
 import { REGIONS } from 'constants/blizzard';
+import { fetchRealmData } from 'scenes/Import/actions';
 
 import { InputField, SelectBoxField } from 'components/ReduxFields';
 import { CharacterFieldsWrap, CharacterInputWrap, LoadingIndicator, NameInput, RegionSelect, RealmSelect } from './styled';
 
 class CharacterFields extends Component {
-	onRegionChange() {
-		console.log('region changed');
+	constructor(props) {
+		super(props);
+
+		this.onRegionChange = this.onRegionChange.bind(this);
+	}
+
+	componentDidUpdate() {
+		this.getRealmData(this.props.region);
+	}
+
+	getRealmData(region) {
+		if (!this.props.realmList[region]) {
+			this.props.fetchRealmData(region);
+		}
+	}
+
+	onRegionChange(changeEvent) {
+		const newRegion = changeEvent.target.value;
+		this.getRealmData(newRegion);
+	}
+
+	formatRealmDataForSelect() {
+		const apiData = this.props.realmList[this.props.region] || [];
+
+		const realmList = apiData.reduce((acc, current) => {
+			acc[current.slug] = current.name;
+			return acc;
+		}, {});
+
+		return realmList;
 	}
 
 	render() {
@@ -28,13 +57,14 @@ class CharacterFields extends Component {
 					<Field
 						component={SelectBoxField}
 						name="realm"
-						options={this.props.realmList}
+						options={this.formatRealmDataForSelect()}
 						StyledComponent={RealmSelect}
 					/>
 
 					<Field
 						component={InputField}
 						name="name"
+						placeholder="Name"
 						StyledComponent={NameInput}
 					/>
 				</CharacterInputWrap>
@@ -46,11 +76,27 @@ class CharacterFields extends Component {
 }
 
 CharacterFields.propTypes = {
-	realmList: PropTypes.array.isRequired
+	fetchRealmData: PropTypes.func.isRequired,
+	realmList: PropTypes.object,
+	region: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-	realmList: state.realms || []
-});
+CharacterFields.defaultProps = {
+	realmList: {},
+	region: ''
+};
 
-export default connect(mapStateToProps)(CharacterFields);
+const mapStateToProps = (state) => {
+	const formSelector = formValueSelector('import');
+
+	return {
+		realmList: state.import.realms,
+		region: formSelector(state, 'region')
+	};
+};
+
+const mapDispatchToProps = {
+	fetchRealmData
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CharacterFields);

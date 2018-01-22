@@ -19,10 +19,10 @@ export const FACTIONS = {
 	2: 'Neutral'
 };
 
-export const REGIONS = [
-	'eu',
-	'us'
-];
+export const REGIONS = {
+	eu: 'EU',
+	us: 'US'
+};
 
 export default {
 	CLASSES,
