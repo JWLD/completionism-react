@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 
-import CategoryFields from './components/CategoryFields/CategoryFields';
-import CharacterFields from './components/CharacterFields/CharacterFields';
+import CategoryFields from 'scenes/Import/CategoryFields/CategoryFields';
+import CharacterFields from 'scenes/Import/CharacterFields/CharacterFields';
 import { FormHeader, FormSection, InputWrap } from './styled';
 
 class ImportForm extends Component {

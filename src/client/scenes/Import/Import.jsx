@@ -3,9 +3,8 @@ import axios from 'axios';
 import querystring from 'querystring';
 
 import NavBar from 'components/NavBar/NavBar';
-// import Spinner from 'components/Spinner/Spinner';
 
-import ImportForm from './components/ImportForm/ImportForm';
+import ImportForm from 'scenes/Import/ImportForm/ImportForm';
 import { ImportPage } from './styled';
 
 class Import extends Component {
