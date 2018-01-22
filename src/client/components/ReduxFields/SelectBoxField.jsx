@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 
 const SelectBoxField = ({ input, options, StyledComponent }) => (
 	<StyledComponent {...input}>
-		{options.map(item => <option key={item} value={item}>{item.toUpperCase()}</option>)}
+		{Object.keys(options).map(key => (
+			<option key={key} value={key}>
+				{options[key]}
+			</option>
+		))}
 	</StyledComponent>
 );
 
 SelectBoxField.propTypes = {
 	input: PropTypes.object.isRequired,
-	options: PropTypes.array.isRequired,
+	options: PropTypes.object.isRequired,
 	StyledComponent: PropTypes.func.isRequired
 };
 
