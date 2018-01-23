@@ -11,7 +11,9 @@ const ImportForm = () => (
 			<SC.FormHeader>Select Categories</SC.FormHeader>
 
 			<SC.InputWrap>
-				<FormSection component={CategoryFields} name="categories" />
+				<FormSection name="categories">
+					<CategoryFields />
+				</FormSection>
 			</SC.InputWrap>
 		</SC.FormSection>
 
@@ -19,7 +21,9 @@ const ImportForm = () => (
 			<SC.FormHeader>Select Character</SC.FormHeader>
 
 			<SC.InputWrap>
-				<CharacterFields />
+				<FormSection name="character">
+					<CharacterFields />
+				</FormSection>
 			</SC.InputWrap>
 		</SC.FormSection>
 	</form>
@@ -28,7 +32,9 @@ const ImportForm = () => (
 const ReduxForm = reduxForm({
 	form: 'import',
 	initialValues: {
-		region: 'eu'
+		character: {
+			region: 'eu'
+		}
 	}
 });
 
