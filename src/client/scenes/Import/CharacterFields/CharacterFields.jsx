@@ -34,8 +34,8 @@ class CharacterFields extends Component {
 	formatRealmDataForSelectBox() {
 		const apiData = this.props.realmList[this.props.region] || [];
 
-		const realmList = apiData.reduce((acc, current) => {
-			acc[current.slug] = current.name;
+		const realmList = apiData.reduce((acc, realm) => {
+			acc[realm.slug] = realm.name;
 			return acc;
 		}, {});
 
