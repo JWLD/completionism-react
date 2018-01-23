@@ -1,3 +1,3 @@
-export { default as GenericField } from './GenericField';
+export { default as CheckboxField } from './CheckboxField';
 export { default as InputField } from './InputField';
 export { default as SelectBoxField } from './SelectBoxField';

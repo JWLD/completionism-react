@@ -3,7 +3,7 @@ import { Field } from 'redux-form';
 
 import CATEGORIES from 'constants/categories';
 
-import { GenericField } from 'components/ReduxFields';
+import { CheckboxField } from 'components/ReduxFields';
 import * as SC from './styled';
 
 class CategoryFields extends Component {
@@ -14,10 +14,9 @@ class CategoryFields extends Component {
 			return (
 				<SC.CheckboxLabel key={key}>{name}
 					<Field
-						component={GenericField}
+						component={CheckboxField}
 						name={key}
 						StyledComponent={SC.CheckboxInput}
-						type="checkbox"
 					/>
 					<SC.FakeInput className="fa fa-check" />
 				</SC.CheckboxLabel>
