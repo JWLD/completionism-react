@@ -61,11 +61,12 @@ const constructCharDataUrl = (params) => {
 	return url;
 };
 
-const constructCharDataObject = data => ({
+const constructCharDataObject = (data, region) => ({
 	char: {
-		thumb: data.thumbnail,
+		class: data.class,
 		faction: data.faction,
-		class: data.class
+		region,
+		thumb: data.thumbnail
 	}
 });
 
@@ -87,24 +88,26 @@ const extractProfessionData = (collectionData, blizzData, cat) => {
 	const charHasThisProfession = profIndex !== -1;
 
 	if (charHasThisProfession) {
-		data[cat] = blizzData.professions[profType][profIndex].recipes;
+		data.collections[cat] = blizzData.professions[profType][profIndex].recipes;
 	}
 
 	return data;
 };
 
 const extractCollectionData = (cats, charData, blizzData) => {
-	const catsArray = typeof cats === 'string' ? [cats] : cats;
 	let data = Object.assign({}, charData);
+	data.collections = {};
+
+	const catsArray = typeof cats === 'string' ? [cats] : cats;
 
 	catsArray.forEach((cat) => {
 		const catIsPrimaryProfession = PRIMARY.includes(cat);
 		const catIsSecondaryProfession = SECONDARY.includes(cat);
 
 		if (cat === 'mounts') {
-			data.mounts = extractMountCollectionData(blizzData);
+			data.collections.mounts = extractMountCollectionData(blizzData);
 		} else if (cat === 'pets') {
-			data.pets = extractPetCollectionData(blizzData);
+			data.collections.pets = extractPetCollectionData(blizzData);
 		}	else if (catIsPrimaryProfession) {
 			data = extractProfessionData(data, blizzData, cat);
 		} else if (catIsSecondaryProfession) {
@@ -125,7 +128,7 @@ blizzController.getCharData = (req, res) => {
 
 		if (blizzData.status === 'nok') return res.status(500).send(blizzData.reason);
 
-		let charData = constructCharDataObject(blizzData);
+		let charData = constructCharDataObject(blizzData, req.query.region);
 		charData = extractCollectionData(req.query.cats, charData, blizzData);
 
 		return res.send(charData);
