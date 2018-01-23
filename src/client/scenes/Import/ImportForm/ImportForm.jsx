@@ -4,7 +4,7 @@ import { FormSection, reduxForm } from 'redux-form';
 
 import CategoryFields from 'scenes/Import/CategoryFields/CategoryFields';
 import CharacterFields from 'scenes/Import/CharacterFields/CharacterFields';
-import { fetchCharData } from 'scenes/Import/utils';
+import { fetchCharData } from './utils';
 import * as SC from './styled';
 
 const ImportForm = props => (
