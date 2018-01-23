@@ -1,5 +1,5 @@
 import React from 'react';
-import { FieldArray, reduxForm } from 'redux-form';
+import { FormSection, reduxForm } from 'redux-form';
 
 import CategoryFields from 'scenes/Import/CategoryFields/CategoryFields';
 import CharacterFields from 'scenes/Import/CharacterFields/CharacterFields';
@@ -11,7 +11,7 @@ const ImportForm = () => (
 			<SC.FormHeader>Select Categories</SC.FormHeader>
 
 			<SC.InputWrap>
-				<CategoryFields />
+				<FormSection component={CategoryFields} name="categories" />
 			</SC.InputWrap>
 		</SC.FormSection>
 
@@ -19,7 +19,7 @@ const ImportForm = () => (
 			<SC.FormHeader>Select Character</SC.FormHeader>
 
 			<SC.InputWrap>
-				<FieldArray component={CharacterFields} name="categories" />
+				<CharacterFields />
 			</SC.InputWrap>
 		</SC.FormSection>
 	</form>
