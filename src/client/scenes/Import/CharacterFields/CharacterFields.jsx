@@ -64,7 +64,7 @@ class CharacterFields extends Component {
 
 					<Field
 						component={InputField}
-						name="name"
+						name="character"
 						placeholder="Name"
 						StyledComponent={SC.NameInput}
 					/>
@@ -92,7 +92,7 @@ const mapStateToProps = (state) => {
 
 	return {
 		realmList: state.import.realms,
-		region: formSelector(state, 'character.region')
+		region: formSelector(state, 'region')
 	};
 };
 

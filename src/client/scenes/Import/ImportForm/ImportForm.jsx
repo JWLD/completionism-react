@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FormSection, reduxForm } from 'redux-form';
 
 import CategoryFields from 'scenes/Import/CategoryFields/CategoryFields';
 import CharacterFields from 'scenes/Import/CharacterFields/CharacterFields';
+import { fetchCharData } from './utils';
 import * as SC from './styled';
 
-const ImportForm = () => (
-	<form>
+const ImportForm = props => (
+	<form onSubmit={props.handleSubmit(fetchCharData)}>
 		<SC.FormSection>
 			<SC.FormHeader>Select Categories</SC.FormHeader>
 
@@ -21,20 +23,20 @@ const ImportForm = () => (
 			<SC.FormHeader>Select Character</SC.FormHeader>
 
 			<SC.InputWrap>
-				<FormSection name="character">
-					<CharacterFields />
-				</FormSection>
+				<CharacterFields />
 			</SC.InputWrap>
 		</SC.FormSection>
 	</form>
 );
 
+ImportForm.propTypes = {
+	handleSubmit: PropTypes.func.isRequired
+};
+
 const ReduxForm = reduxForm({
 	form: 'import',
 	initialValues: {
-		character: {
-			region: 'eu'
-		}
+		region: 'eu'
 	}
 });
 
