@@ -16,7 +16,7 @@ class CharacterFields extends Component {
 		this.onRegionChange = this.onRegionChange.bind(this);
 	}
 
-	componentDidUpdate() {
+	componentDidMount() {
 		this.getRealmData(this.props.region);
 	}
 
@@ -31,7 +31,7 @@ class CharacterFields extends Component {
 		this.getRealmData(newRegion);
 	}
 
-	formatRealmDataForSelect() {
+	formatRealmDataForSelectBox() {
 		const apiData = this.props.realmList[this.props.region] || [];
 
 		const realmList = apiData.reduce((acc, current) => {
@@ -57,7 +57,8 @@ class CharacterFields extends Component {
 					<Field
 						component={SelectBoxField}
 						name="realm"
-						options={this.formatRealmDataForSelect()}
+						options={this.formatRealmDataForSelectBox()}
+						placeholder="Select Realm"
 						StyledComponent={SC.RealmSelect}
 					/>
 
@@ -91,7 +92,7 @@ const mapStateToProps = (state) => {
 
 	return {
 		realmList: state.import.realms,
-		region: formSelector(state, 'region')
+		region: formSelector(state, 'character.region')
 	};
 };
 
