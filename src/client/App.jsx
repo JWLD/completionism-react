@@ -5,9 +5,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import store from './store';
 
-import Landing from './scenes/Landing/Landing';
-import Browse from './scenes/Browse/Browse';
-import Import from './scenes/Import/Import';
+import Landing from './scenes/Landing';
+import Browse from './scenes/Browse';
+import Import from './scenes/Import';
 
 const App = () => (
 	<BrowserRouter>
