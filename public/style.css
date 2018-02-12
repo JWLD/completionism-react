@@ -1,99 +1,107 @@
-@font-face {
-  font-family: DinBC;
-  src: url("../fonts/DinBoldC.otf"); }
-
-@font-face {
-  font-family: DinMC;
-  src: url("../fonts/DinMediumC.otf"); }
-
-@font-face {
-  font-family: DinRC;
-  src: url("../fonts/DinRegularC.otf"); }
-
-@font-face {
-  font-family: DinLC;
-  src: url("../fonts/DinLightC.otf"); }
-
-@font-face {
-  font-family: DinB;
-  src: url("../fonts/DinBold.otf"); }
-
-@font-face {
-  font-family: DinM;
-  src: url("../fonts/DinMedium.otf"); }
-
-@font-face {
-  font-family: DinR;
-  src: url("../fonts/DinRegular.otf"); }
-
-@font-face {
-  font-family: DinL;
-  src: url("../fonts/DinLight.otf"); }
+/* RESET */
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
-a, body, button, div, h1, h2, i, input, li, nav, select, span, ul {
+a,
+body,
+button,
+div,
+h1,
+h2,
+i,
+input,
+li,
+nav,
+select,
+span,
+ul {
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
-  box-sizing: border-box; }
-
-a, div, label, nav, select, span {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-a:hover, button:hover, label:hover {
-  cursor: pointer; }
+  box-sizing: border-box;
+}
 
 a {
-  text-decoration: none; }
-  a:hover {
-    text-decoration: none; }
+  text-decoration: none;
+}
 
-button:focus {
-  outline: none; }
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
 
 body {
   min-height: 100vh;
-  background-color: #21252b; }
+  background-color: #21252b;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+/* UTILITY CLASSES */
 
 .hide {
-  display: none; }
+  display: none;
+}
 
 .inactive {
-  pointer-events: none; }
-  .inactive:hover {
-    cursor: default; }
+  pointer-events: none;
+}
 
-.q0 {
-  color: #9d9d9d; }
+.inactive:hover {
+  cursor: default;
+}
 
-.q1 {
-  color: #ffffff; }
+/* FONTS */
 
-.q2 {
-  color: #a5ff99; }
+@font-face {
+  font-family: DinBC;
+  src: url('../fonts/DinBoldC.otf');
+}
 
-.q3 {
-  color: #4980f8; }
+@font-face {
+  font-family: DinMC;
+  src: url('../fonts/DinMediumC.otf');
+}
 
-.q4 {
-  color: #bf72f3; }
+@font-face {
+  font-family: DinRC;
+  src: url('../fonts/DinRegularC.otf');
+}
 
-.q5 {
-  color: #ffa64d; }
+@font-face {
+  font-family: DinLC;
+  src: url('../fonts/DinLightC.otf');
+}
 
-.q6 {
-  color: #99ebff; }
+@font-face {
+  font-family: DinB;
+  src: url('../fonts/DinBold.otf');
+}
 
-.q7 {
-  color: #ffcc00; }
+@font-face {
+  font-family: DinM;
+  src: url('../fonts/DinMedium.otf');
+}
 
-.neg {
-  color: #ff6347; }
+@font-face {
+  font-family: DinR;
+  src: url('../fonts/DinRegular.otf');
+}
 
-.pos {
-  color: #00cc66; }
+@font-face {
+  font-family: DinL;
+  src: url('../fonts/DinLight.otf');
+}
