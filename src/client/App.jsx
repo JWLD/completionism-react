@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import store from 'store'
 
@@ -12,11 +12,11 @@ import Import from 'scenes/Import'
 const App = () => (
   <BrowserRouter>
     <Provider store={store}>
-      <div className="app">
+      <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/browse/:category/:content" component={Browse} />
         <Route path="/import" component={Import} />
-      </div>
+      </Switch>
     </Provider>
   </BrowserRouter>
 )
