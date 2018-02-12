@@ -9,7 +9,7 @@ const colours = {
   q4: '#bf72f3',
   q5: '#ffa64d',
   q6: '#99ebff',
-  q7: 'ffcc00'
+  q7: '#ffcc00'
 }
 
 const sizing = {
