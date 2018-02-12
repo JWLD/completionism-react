@@ -5,16 +5,12 @@ import FaTimesCircle from 'react-icons/lib/fa/times-circle';
 
 import { ICON_URLS } from 'constants/urls';
 
-import { checkHigherRanks } from '../../services/dataHelpers';
-
 const isCollected = (props) => {
 	const { category, categoryData, id, rank, storageData } = props;
 
 	let collected = false;
 
-	if (rank === 1 || rank === 2) {
-		collected = checkHigherRanks(category, categoryData, storageData);
-	} else if (category === 'pets') {
+	if (category === 'pets') {
 		collected = storageData.find(el => el.id === id);
 	} else {
 		collected = storageData.includes(id);
@@ -28,11 +24,19 @@ const ItemTile = (props) => {
 
 	const itemNameClass = `q${quality}`;
 
-	const progBox = isCollected(props)
-		? <div><FaCheckCircle className="pos" /></div>
-		: <div><FaTimesCircle className="neg" /></div>;
+	const progBox = isCollected(props) ? (
+		<div>
+			<FaCheckCircle className="pos" />
+		</div>
+	) : (
+		<div>
+			<FaTimesCircle className="neg" />
+		</div>
+	);
 
-	const itemIcon = icon ? { backgroundImage: `url(${ICON_URLS.large}${icon}.jpg)` } : null;
+	const itemIcon = icon
+		? { backgroundImage: `url(${ICON_URLS.large}${icon}.jpg)` }
+		: null;
 
 	return (
 		<li className="item">

@@ -1,20 +1,6 @@
 import _ from 'lodash';
 import { SOURCES } from 'constants/sources';
 
-// DATA PROCESSING
-
-export const checkHigherRanks = (item, categoryData, storageData) => {
-	const higherRankItems = categoryData.filter(el => el.name === item.name && el.rank > item.rank);
-
-	let higherRankObtained = false;
-
-	higherRankItems.forEach((el) => {
-		if (storageData.includes(el.id)) higherRankObtained = true;
-	});
-
-	return higherRankObtained;
-};
-
 // FILTER FUNCTIONS
 
 export const filterByField = (data, field, value) =>
@@ -25,11 +11,13 @@ export const filterByFaction = (data, faction) =>
 
 // ORDERING FUNCTIONS
 
-export const orderByFields = (data, fields) =>
-	_.sortBy(data, [...fields]);
+export const orderByFields = (data, fields) => _.sortBy(data, [...fields]);
 
 export const orderObjectByKeys = obj =>
-	_(obj).toPairs().sortBy(0).fromPairs()
+	_(obj)
+		.toPairs()
+		.sortBy(0)
+		.fromPairs()
 		.value();
 
 // ORGANISING FUNCTIONS
