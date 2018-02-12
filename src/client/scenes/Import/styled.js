@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { mixins } from 'data/styling';
+import styled from 'styled-components'
+import { mixins } from 'style'
 
 export const ImportPage = styled.div`
-	${mixins.page};
-`;
+  ${mixins.page};
+`
 
-export default ImportPage;
+export default ImportPage

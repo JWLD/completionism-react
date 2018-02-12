@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mixins, vars } from 'data/styling';
+import { mixins, vars } from 'style';
 
 export const CheckboxWrap = styled.div`
 	flex-direction: column;
