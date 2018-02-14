@@ -13,10 +13,12 @@ const colours = {
 
   mainLight: '#373e48',
   mainDark: '#21252b',
-  mainGrey: '#444'
+  mainGrey: '#333'
 }
 
 const sizing = {
+  itemListPadding: 2,
+  itemHeight: 5,
   navBarHeight: 7.5,
   pagePadding: 5
 }

@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import FaTimesCircle from 'react-icons/lib/fa/times-circle'
 
-import NavBar from 'components/NavBar/NavBar'
-
-import ItemList from './components/ItemList/ItemList'
 import { fetchCategoryData } from './actions'
+
+import * as SC from './styled'
+import NavBar from 'components/NavBar/NavBar'
+import ItemList from './components/ItemList/ItemList'
 
 class Browse extends Component {
   constructor(props) {
@@ -36,20 +37,21 @@ class Browse extends Component {
   }
 
   render() {
-    const iconClass = this.state.filter ? '' : 'hide'
-
     return (
-      <div className="category-page">
+      <SC.BrowsePage>
         <NavBar />
 
-        <div className="filter-box">
-          <input
+        <SC.FilterWrap>
+          <SC.FilterInput
             onChange={this.onInputChange}
             value={this.state.filter}
             placeholder="Filter"
           />
-          <FaTimesCircle onClick={this.clearSearch} className={iconClass} />
-        </div>
+          <SC.ClearInputBtn
+            onClick={this.clearSearch}
+            className="fa fa-times-circle"
+          />
+        </SC.FilterWrap>
 
         <ItemList
           category={this.state.category}
@@ -58,7 +60,7 @@ class Browse extends Component {
           filterVal={this.state.filter}
           routeProps={this.props.match.params}
         />
-      </div>
+      </SC.BrowsePage>
     )
   }
 }
