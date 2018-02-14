@@ -9,7 +9,11 @@ const colours = {
   q4: '#bf72f3',
   q5: '#ffa64d',
   q6: '#99ebff',
-  q7: '#ffcc00'
+  q7: '#ffcc00',
+
+  mainLight: '#373e48',
+  mainDark: '#21252b',
+  mainGrey: '#444'
 }
 
 const sizing = {
@@ -17,7 +21,12 @@ const sizing = {
   pagePadding: 5
 }
 
+const zIndex = {
+  navBar: 1
+}
+
 export default {
   colours,
-  sizing
+  sizing,
+  zIndex
 }

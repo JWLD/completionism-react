@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 
-import FaHome from 'react-icons/lib/fa/home'
-import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left'
-import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right'
-
 import { CONTENT } from 'constants/content'
+import * as SC from './styled'
 
 class NavBar extends Component {
   renderContentNav() {
@@ -17,45 +14,39 @@ class NavBar extends Component {
     const nextPage = Number(content) + 1
 
     return (
-      <nav className="category-nav">
-        <Link
+      <SC.CentreWrap>
+        <SC.NavLink
           to={`/browse/${category}/${prevPage}`}
-          className={prevPage === 0 ? 'nav-link inactive' : 'nav-link'}
-        >
-          <FaArrowCircleLeft />
-        </Link>
+          className="fa fa-arrow-circle-left"
+        />
 
-        <h1>{CONTENT[content].content}</h1>
+        <SC.MainTitle>{CONTENT[content].content}</SC.MainTitle>
 
-        <Link
+        <SC.NavLink
           to={`/browse/${category}/${nextPage}`}
-          className={nextPage === 9 ? 'nav-link inactive' : 'nav-link'}
-        >
-          <FaArrowCircleRight />
-        </Link>
-      </nav>
+          className="fa fa-arrow-circle-right"
+        />
+      </SC.CentreWrap>
     )
   }
 
   renderCategorySpan() {
     const { category } = this.props.match.params
 
-    return category ? <span className="nav-link cat">{category}</span> : null
+    return category && <SC.NavSpan>{category}</SC.NavSpan>
   }
 
   render() {
     return (
-      <nav className="main-nav">
-        <div className="nav-left">
-          <Link className="nav-link" to="/">
-            <FaHome />
-          </Link>
+      <SC.NavBar>
+        <SC.LeftWrap>
+          <SC.NavLink className="fa fa-home" to="/" />
 
           {this.renderCategorySpan()}
-        </div>
+        </SC.LeftWrap>
 
         {this.renderContentNav()}
-      </nav>
+      </SC.NavBar>
     )
   }
 }
