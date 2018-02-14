@@ -15,7 +15,7 @@ module.exports = {
       }
     }
   },
-  devtool: 'cheap-eval-source-map',
+  devtool: 'eval-source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     modules: [path.resolve('./src/client'), path.resolve('./node_modules')]
