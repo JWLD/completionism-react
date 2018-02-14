@@ -24,6 +24,8 @@ export const CategoryPanel = styled.li`
 `
 
 export const ExpandButton = styled.button`
+  ${mixins.flex};
+
   height: ${panelHeight}rem;
   width: ${panelHeight}rem;
   padding-bottom: 0.5rem;
@@ -39,6 +41,8 @@ export const ExpandButton = styled.button`
 `
 
 export const BrowseLink = styled(Link)`
+  ${mixins.flex};
+
   position: relative;
   width: 50rem;
   height: ${panelHeight}rem;
