@@ -1,44 +1,41 @@
-import React, { Component } from 'react';
-import { Field } from 'redux-form';
+import React, { Component } from 'react'
+import { Field } from 'redux-form'
 
-import CATEGORIES from 'constants/categories';
+import CATEGORIES from 'constants/categories'
 
-import { CheckboxField } from 'components/ReduxFields';
-import * as SC from './styled';
+import { CheckboxField } from 'components/ReduxFields'
+import * as SC from './styled'
 
 class CategoryFields extends Component {
-	renderInputRows(categories) {
-		const inputRows = categories.map(({ battleNet, key, name }) => {
-			if (!battleNet) return null;
+  renderInputRows(categories) {
+    return categories.map(({ battleNet, key, name }) => {
+      if (!battleNet) return null
 
-			return (
-				<SC.CheckboxLabel key={key}>{name}
-					<Field
-						component={CheckboxField}
-						name={key}
-						StyledComponent={SC.CheckboxInput}
-					/>
-					<SC.FakeInput className="fa fa-check" />
-				</SC.CheckboxLabel>
-			);
-		});
+      return (
+        <SC.CheckboxLabel key={key}>
+          {name}
+          <Field
+            component={CheckboxField}
+            name={key}
+            StyledComponent={SC.CheckboxInput}
+          />
+          <SC.FakeInput className="fa fa-check" />
+        </SC.CheckboxLabel>
+      )
+    })
+  }
 
-		return inputRows;
-	}
+  renderCheckboxColumns() {
+    return Object.keys(CATEGORIES).map(category => (
+      <SC.CheckboxWrap key={category}>
+        {this.renderInputRows(CATEGORIES[category])}
+      </SC.CheckboxWrap>
+    ))
+  }
 
-	renderCheckboxColumns() {
-		const checkboxColumns = Object.keys(CATEGORIES).map(category => (
-			<SC.CheckboxWrap key={category}>
-				{this.renderInputRows(CATEGORIES[category])}
-			</SC.CheckboxWrap>
-		));
-
-		return checkboxColumns;
-	}
-
-	render() {
-		return this.renderCheckboxColumns();
-	}
+  render() {
+    return this.renderCheckboxColumns()
+  }
 }
 
-export default CategoryFields;
+export default CategoryFields
