@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { CONTENT } from 'constants/content'
+import * as SC from './styled'
 
 const ProgressBar = props => {
   const title = CONTENT[props.routeProps.content].xpac
@@ -14,18 +15,18 @@ const ProgressBar = props => {
   const progStyle = { width: `${percentage}%` }
 
   return (
-    <div className="prog-bar-wrap">
-      <div>
-        <h2>{title}</h2>
-        <span>
+    <SC.ProgressBarWrap>
+      <SC.TextWrap>
+        <SC.ProgressText>{title}</SC.ProgressText>
+        <SC.ProgressText>
           {collected} / {total}
-        </span>
-      </div>
+        </SC.ProgressText>
+      </SC.TextWrap>
 
-      <div className="prog-bar">
-        <div style={progStyle} />
-      </div>
-    </div>
+      <SC.ProgressBar>
+        <SC.BarFill style={progStyle} />
+      </SC.ProgressBar>
+    </SC.ProgressBarWrap>
   )
 }
 
