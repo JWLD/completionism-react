@@ -42,6 +42,7 @@ const itemListWrap = `
 `
 
 const itemListItem = `
+  ${flex}
   width: 100%;
   height: ${vars.sizing.itemHeight}rem;
   border-radius: 0.3rem;

@@ -12,6 +12,7 @@ import {
   orderObjectByKeys,
   organiseIntoSubcats
 } from '../../services/dataHelpers'
+import * as SC from './styled'
 
 const filterData = props => {
   let filtered = props.categoryData
@@ -44,14 +45,14 @@ const createItemLists = (category, categoryData, data, storageData) => {
 
   if (Object.keys(data).length === 0) {
     return (
-      <div className="item-list">
-        <span className="no-items">No Items</span>
-      </div>
+      <SC.ItemListBlock>
+        <SC.BlockTitle>No Items</SC.BlockTitle>
+      </SC.ItemListBlock>
     )
   }
 
   return Object.keys(data).map(subCat => {
-    const subCatHeader = <span>{subCat}</span>
+    const subCatHeader = <SC.BlockTitle>{subCat}</SC.BlockTitle>
 
     const tiles = data[subCat].map(item => (
       <ItemTile
@@ -64,10 +65,10 @@ const createItemLists = (category, categoryData, data, storageData) => {
     ))
 
     return (
-      <ul className="item-list" key={subCat}>
+      <SC.ItemListBlock key={subCat}>
         {subCatHeader}
         {tiles}
-      </ul>
+      </SC.ItemListBlock>
     )
   })
 }
@@ -86,14 +87,14 @@ const ItemList = props => {
   )
 
   return (
-    <div className="item-list-wrap">
+    <SC.ItemList>
       <ProgressBar
         data={filteredData}
         storageData={storageData}
         routeProps={props.routeProps}
       />
       {itemLists}
-    </div>
+    </SC.ItemList>
   )
 }
 
