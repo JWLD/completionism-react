@@ -6,7 +6,7 @@ import FaTimesCircle from 'react-icons/lib/fa/times-circle'
 import { fetchCategoryData } from './actions'
 
 import * as SC from './styled'
-import NavBar from 'components/NavBar/NavBar'
+import NavBar from 'components/NavBar'
 import ItemList from './components/ItemList/ItemList'
 
 class Browse extends Component {

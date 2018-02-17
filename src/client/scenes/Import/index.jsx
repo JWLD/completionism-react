@@ -3,7 +3,7 @@ import axios from 'axios'
 import querystring from 'querystring'
 
 import * as SC from './styled'
-import NavBar from 'components/NavBar/NavBar'
+import NavBar from 'components/NavBar'
 import ImportForm from 'scenes/Import/ImportForm/ImportForm'
 
 class Import extends Component {

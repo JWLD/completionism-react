@@ -4,7 +4,7 @@ import CATEGORIES from 'constants/categories'
 import { ICON_URLS } from 'constants/urls'
 
 import * as SC from './styled'
-import NavBar from 'components/NavBar/NavBar'
+import NavBar from 'components/NavBar'
 
 const Landing = () => {
   const renderPortrait = category => {
