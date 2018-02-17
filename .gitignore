@@ -1,4 +1,5 @@
-node_modules/
-bundle.js
-.env
+coverage/
 dev/
+node_modules/
+.env
+bundle.js
