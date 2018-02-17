@@ -7,25 +7,25 @@ import * as SC from './styled'
 
 export const NavBar = props => {
   const renderCentreNav = () => {
-    if (props.match.params.category) {
-      const { category, content } = props.match.params
-      const prevPage = Number(content) - 1
-      const nextPage = Number(content) + 1
+    if (!props.match.params.category) return null
 
-      return (
-        <SC.CentreWrap>
-          <SC.NavLink to={`/browse/${category}/${prevPage}`}>
-            <SC.CircleLeftIcon />
-          </SC.NavLink>
+    const { category, content } = props.match.params
+    const prevPage = Number(content) - 1
+    const nextPage = Number(content) + 1
 
-          <SC.MainTitle>{CONTENT[content].content}</SC.MainTitle>
+    return (
+      <SC.CentreWrap>
+        <SC.NavLink to={`/browse/${category}/${prevPage}`}>
+          <SC.CircleLeftIcon />
+        </SC.NavLink>
 
-          <SC.NavLink to={`/browse/${category}/${nextPage}`}>
-            <SC.CircleRightIcon />
-          </SC.NavLink>
-        </SC.CentreWrap>
-      )
-    }
+        <SC.MainTitle>{CONTENT[content].content}</SC.MainTitle>
+
+        <SC.NavLink to={`/browse/${category}/${nextPage}`}>
+          <SC.CircleRightIcon />
+        </SC.NavLink>
+      </SC.CentreWrap>
+    )
   }
 
   const renderCategorySpan = () => {

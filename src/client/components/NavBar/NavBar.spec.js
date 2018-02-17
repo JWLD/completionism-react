@@ -21,4 +21,12 @@ describe('<NavBar />', () => {
 
     expect(component).toMatchSnapshot()
   })
+
+  test('renders when [match.params.category] prop is null', () => {
+    mockProps.match.params.category = null
+
+    const component = shallow(<NavBar {...mockProps} />)
+
+    expect(component).toMatchSnapshot()
+  })
 })
