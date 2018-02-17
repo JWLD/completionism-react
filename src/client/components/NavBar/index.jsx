@@ -5,11 +5,11 @@ import { Link, withRouter } from 'react-router-dom'
 import { CONTENT } from 'constants/content'
 import * as SC from './styled'
 
-class NavBar extends Component {
-  renderContentNav() {
-    if (!this.props.match.params.category) return null
+const NavBar = props => {
+  const renderContentNav = () => {
+    if (!props.match.params.category) return null
 
-    const { category, content } = this.props.match.params
+    const { category, content } = props.match.params
     const prevPage = Number(content) - 1
     const nextPage = Number(content) + 1
 
@@ -30,25 +30,23 @@ class NavBar extends Component {
     )
   }
 
-  renderCategorySpan() {
-    const { category } = this.props.match.params
+  const renderCategorySpan = () => {
+    const { category } = props.match.params
 
     return category && <SC.NavSpan>{category}</SC.NavSpan>
   }
 
-  render() {
-    return (
-      <SC.NavBar>
-        <SC.LeftWrap>
-          <SC.NavLink className="fa fa-home" to="/" />
+  return (
+    <SC.NavBar>
+      <SC.LeftWrap>
+        <SC.NavLink className="fa fa-home" to="/" />
 
-          {this.renderCategorySpan()}
-        </SC.LeftWrap>
+        {renderCategorySpan()}
+      </SC.LeftWrap>
 
-        {this.renderContentNav()}
-      </SC.NavBar>
-    )
-  }
+      {renderContentNav()}
+    </SC.NavBar>
+  )
 }
 
 NavBar.propTypes = {
