@@ -5,27 +5,27 @@ import { Link, withRouter } from 'react-router-dom'
 import { CONTENT } from 'constants/content'
 import * as SC from './styled'
 
-const NavBar = props => {
+export const NavBar = props => {
   const renderCentreNav = () => {
-    if (!props.match.params.category) return null
+    if (props.match.params.category) {
+      const { category, content } = props.match.params
+      const prevPage = Number(content) - 1
+      const nextPage = Number(content) + 1
 
-    const { category, content } = props.match.params
-    const prevPage = Number(content) - 1
-    const nextPage = Number(content) + 1
+      return (
+        <SC.CentreWrap>
+          <SC.NavLink to={`/browse/${category}/${prevPage}`}>
+            <SC.CircleLeftIcon />
+          </SC.NavLink>
 
-    return (
-      <SC.CentreWrap>
-        <SC.NavLink to={`/browse/${category}/${prevPage}`}>
-          <SC.CircleLeftIcon />
-        </SC.NavLink>
+          <SC.MainTitle>{CONTENT[content].content}</SC.MainTitle>
 
-        <SC.MainTitle>{CONTENT[content].content}</SC.MainTitle>
-
-        <SC.NavLink to={`/browse/${category}/${nextPage}`}>
-          <SC.CircleRightIcon />
-        </SC.NavLink>
-      </SC.CentreWrap>
-    )
+          <SC.NavLink to={`/browse/${category}/${nextPage}`}>
+            <SC.CircleRightIcon />
+          </SC.NavLink>
+        </SC.CentreWrap>
+      )
+    }
   }
 
   const renderCategorySpan = () => {
