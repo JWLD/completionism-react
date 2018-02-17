@@ -6,16 +6,20 @@ import { NavBar } from 'components/NavBar'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-const mockProps = {
-  match: {
-    params: {
-      category: 'mounts',
-      content: 1
-    }
-  }
-}
-
 describe('<NavBar />', () => {
+  let mockProps = {}
+
+  beforeEach(() => {
+    mockProps = {
+      match: {
+        params: {
+          category: 'mounts',
+          content: 1
+        }
+      }
+    }
+  })
+
   test('renders correctly', () => {
     const component = shallow(<NavBar {...mockProps} />)
 
