@@ -58,7 +58,7 @@
     "webpack-dev-server": "^2.9.7"
   },
   "jest": {
-    "modulePaths": ["src/client"],
+    "modulePaths": ["src/client", "src/tests"],
     "setupFiles": ["jest-localstorage-mock"],
     "verbose": true
   }
