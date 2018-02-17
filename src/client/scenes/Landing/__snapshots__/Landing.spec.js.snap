@@ -38,6 +38,9 @@ ShallowWrapper {
                 to="/import"
               >
                 <UserIcon />
+                <Portrait
+                  src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                />
               </Styled(Link)>
             </CategoryPanel>
             <CategoryPanel>
@@ -329,6 +332,9 @@ ShallowWrapper {
                 to="/import"
               >
                 <UserIcon />
+                <Portrait
+                  src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                />
               </Styled(Link)>
             </CategoryPanel>,
             <CategoryPanel>
@@ -395,6 +401,9 @@ ShallowWrapper {
                   to="/import"
                 >
                   <UserIcon />
+                  <Portrait
+                    src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                  />
                 </Styled(Link)>,
               ],
             },
@@ -450,7 +459,9 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <UserIcon />,
-                    null,
+                    <Portrait
+                      src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                    />,
                   ],
                   "to": "/import",
                 },
@@ -465,7 +476,17 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
-                  null,
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "src": "http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
                 ],
                 "type": [Function],
               },
@@ -2029,6 +2050,9 @@ ShallowWrapper {
                   to="/import"
                 >
                   <UserIcon />
+                  <Portrait
+                    src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                  />
                 </Styled(Link)>
               </CategoryPanel>
               <CategoryPanel>
@@ -2320,6 +2344,9 @@ ShallowWrapper {
                   to="/import"
                 >
                   <UserIcon />
+                  <Portrait
+                    src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                  />
                 </Styled(Link)>
               </CategoryPanel>,
               <CategoryPanel>
@@ -2386,6 +2413,9 @@ ShallowWrapper {
                     to="/import"
                   >
                     <UserIcon />
+                    <Portrait
+                      src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                    />
                   </Styled(Link)>,
                 ],
               },
@@ -2441,7 +2471,9 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       <UserIcon />,
-                      null,
+                      <Portrait
+                        src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                      />,
                     ],
                     "to": "/import",
                   },
@@ -2456,7 +2488,17 @@ ShallowWrapper {
                       "rendered": null,
                       "type": [Function],
                     },
-                    null,
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "src": "http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
                   ],
                   "type": [Function],
                 },
