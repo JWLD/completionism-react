@@ -76,13 +76,13 @@ export const CategoryImg = styled.img`
 
 export const ImportPageLink = ExpandButton.withComponent(Link).extend`
 	position: relative;
-	padding: 0;
+	padding: 1.75rem;
 	font-size: 3rem;
 `
 
 export const UserIcon = styled(FaUser)`
-  height: 55%;
-  width: 55%;
+  height: 100%;
+  width: 100%;
 `
 
 export const Portrait = styled.img`
