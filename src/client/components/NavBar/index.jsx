@@ -6,7 +6,7 @@ import { CONTENT } from 'constants/content'
 import * as SC from './styled'
 
 const NavBar = props => {
-  const renderContentNav = () => {
+  const renderCentreNav = () => {
     if (!props.match.params.category) return null
 
     const { category, content } = props.match.params
@@ -15,17 +15,15 @@ const NavBar = props => {
 
     return (
       <SC.CentreWrap>
-        <SC.NavLink
-          to={`/browse/${category}/${prevPage}`}
-          className="fa fa-arrow-circle-left"
-        />
+        <SC.NavLink to={`/browse/${category}/${prevPage}`}>
+          <SC.CircleLeftIcon />
+        </SC.NavLink>
 
         <SC.MainTitle>{CONTENT[content].content}</SC.MainTitle>
 
-        <SC.NavLink
-          to={`/browse/${category}/${nextPage}`}
-          className="fa fa-arrow-circle-right"
-        />
+        <SC.NavLink to={`/browse/${category}/${nextPage}`}>
+          <SC.CircleRightIcon />
+        </SC.NavLink>
       </SC.CentreWrap>
     )
   }
@@ -39,12 +37,14 @@ const NavBar = props => {
   return (
     <SC.NavBar>
       <SC.LeftWrap>
-        <SC.NavLink className="fa fa-home" to="/" />
+        <SC.NavLink to="/">
+          <SC.HomeIcon />
+        </SC.NavLink>
 
         {renderCategorySpan()}
       </SC.LeftWrap>
 
-      {renderContentNav()}
+      {renderCentreNav()}
     </SC.NavBar>
   )
 }

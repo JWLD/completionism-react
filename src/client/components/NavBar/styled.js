@@ -1,10 +1,16 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import {
+  FaHome,
+  FaArrowCircleLeft,
+  FaArrowCircleRight
+} from 'react-icons/lib/fa'
 
 import { mixins, vars } from 'style'
 
 const navBarPadding = 1.25
 const linkSize = vars.sizing.navBarHeight - navBarPadding * 2
+const iconSize = 3.5
 
 export const NavBar = styled.nav`
   ${mixins.flex};
@@ -62,3 +68,12 @@ export const NavSpan = NavLink.withComponent('span').extend`
   font: 2.5rem DinMC;
   text-transform: uppercase;
 `
+
+export const HomeIcon = styled(FaHome)`
+  height: ${iconSize}rem;
+  width: ${iconSize}rem;
+`
+
+export const CircleLeftIcon = HomeIcon.withComponent(FaArrowCircleLeft)
+
+export const CircleRightIcon = HomeIcon.withComponent(FaArrowCircleRight)
