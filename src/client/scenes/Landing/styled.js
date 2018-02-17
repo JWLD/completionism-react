@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import FaUser from 'react-icons/lib/fa/user'
+
 import { mixins } from 'style'
 
 const panelHeight = 7
@@ -72,10 +74,15 @@ export const CategoryImg = styled.img`
   }
 `
 
-export const CharacterLink = ExpandButton.withComponent(Link).extend`
+export const ImportPageLink = ExpandButton.withComponent(Link).extend`
 	position: relative;
 	padding: 0;
 	font-size: 3rem;
+`
+
+export const UserIcon = styled(FaUser)`
+  height: 55%;
+  width: 55%;
 `
 
 export const Portrait = styled.img`
