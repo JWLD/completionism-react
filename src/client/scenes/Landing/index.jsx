@@ -6,8 +6,8 @@ import { ICON_URLS } from 'constants/urls'
 import * as SC from './styled'
 import NavBar from 'components/NavBar/NavBar'
 
-class Landing extends Component {
-  renderPortrait(category) {
+const Landing = () => {
+  const renderPortrait = category => {
     if (!localStorage[category.key]) return null
 
     const { region, thumb } = JSON.parse(localStorage[category.key]).char
@@ -19,7 +19,7 @@ class Landing extends Component {
     )
   }
 
-  renderCategoryPanels(categoryBlock) {
+  const renderCategoryPanels = categoryBlock => {
     return categoryBlock.map(category => {
       if (!category.enabled) return
 
@@ -39,30 +39,28 @@ class Landing extends Component {
 
           <SC.ImportPageLink to="/import">
             <SC.UserIcon />
-            {this.renderPortrait(category)}
+            {renderPortrait(category)}
           </SC.ImportPageLink>
         </SC.CategoryPanel>
       )
     })
   }
 
-  renderCategoryBlocks() {
+  const renderCategoryBlocks = () => {
     return Object.keys(CATEGORIES).map(categoryBlock => (
       <SC.CategoryBlock key={categoryBlock}>
-        {this.renderCategoryPanels(CATEGORIES[categoryBlock])}
+        {renderCategoryPanels(CATEGORIES[categoryBlock])}
       </SC.CategoryBlock>
     ))
   }
 
-  render() {
-    return (
-      <SC.LandingPage>
-        <NavBar />
+  return (
+    <SC.LandingPage>
+      <NavBar />
 
-        {this.renderCategoryBlocks()}
-      </SC.LandingPage>
-    )
-  }
+      {renderCategoryBlocks()}
+    </SC.LandingPage>
+  )
 }
 
 export default Landing
