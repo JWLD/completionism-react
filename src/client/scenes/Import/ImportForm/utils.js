@@ -1,50 +1,50 @@
-import querystring from 'querystring';
-import axios from 'axios';
+import querystring from 'querystring'
+import axios from 'axios'
 
 // pre-fetchCharData
 
-const extractCategoriesArray = (categories) => {
-	const categoriesArray = Object.keys(categories).reduce((acc, key) => {
-		if (categories[key]) acc.push(key);
-		return acc;
-	}, []);
+const extractCategoriesArray = categories => {
+  const categoriesArray = Object.keys(categories).reduce((acc, key) => {
+    if (categories[key]) acc.push(key)
+    return acc
+  }, [])
 
-	return categoriesArray;
-};
+  return categoriesArray
+}
 
-const constructUrlParams = (values) => {
-	const { categories, character, realm, region } = values;
+const constructUrlParams = values => {
+  const { categories, character, realm, region } = values
 
-	const urlParams = querystring.stringify({
-		cats: extractCategoriesArray(categories),
-		char: character,
-		realm,
-		region
-	});
+  const urlParams = querystring.stringify({
+    cats: extractCategoriesArray(categories),
+    name,
+    realm,
+    region
+  })
 
-	return urlParams;
-};
+  return urlParams
+}
 
 const saveCharDataToLocalStorage = ({ char, collections }) => {
-	Object.keys(collections).map((key) => {
-		localStorage[key] = JSON.stringify({
-			char,
-			ids: collections[key]
-		});
-	});
-};
+  Object.keys(collections).map(key => {
+    localStorage[key] = JSON.stringify({
+      char,
+      ids: collections[key]
+    })
+  })
+}
 
 // fetchCharData
 
-export const fetchCharData = (values) => {
-	const urlParams = constructUrlParams(values);
+export const fetchCharData = values => {
+  const urlParams = constructUrlParams(values)
 
-	return axios
-		.get(`/api/import?${urlParams}`)
-		.then((response) => {
-			saveCharDataToLocalStorage(response.data);
-		})
-		.catch(err => console.log(err));
-};
+  return axios
+    .get(`/api/import?${urlParams}`)
+    .then(response => {
+      saveCharDataToLocalStorage(response.data)
+    })
+    .catch(err => console.log(err))
+}
 
-export default fetchCharData;
+export default fetchCharData

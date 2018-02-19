@@ -12,6 +12,7 @@ export const FormHeader = styled.h2`
   margin-bottom: 1rem;
   color: white;
   font: 4rem DinRC;
+  text-transform: capitalize;
 `
 
 export const InputWrap = styled.div`

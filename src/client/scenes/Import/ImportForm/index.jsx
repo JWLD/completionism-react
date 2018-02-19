@@ -2,30 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FormSection, reduxForm } from 'redux-form'
 
+import { fetchCharData } from './utils'
+
+import FormBlock from 'scenes/Import/FormBlock'
 import CategoryFields from 'scenes/Import/CategoryFields'
 import CharacterFields from 'scenes/Import/CharacterFields'
-import { fetchCharData } from './utils'
-import * as SC from './styled'
 
-const ImportForm = props => (
+export const ImportForm = props => (
   <form onSubmit={props.handleSubmit(fetchCharData)}>
-    <SC.FormSection>
-      <SC.FormHeader>Select Categories</SC.FormHeader>
-
-      <SC.InputWrap>
-        <FormSection name="categories">
-          <CategoryFields />
-        </FormSection>
-      </SC.InputWrap>
-    </SC.FormSection>
-
-    <SC.FormSection>
-      <SC.FormHeader>Select Character</SC.FormHeader>
-
-      <SC.InputWrap>
-        <CharacterFields />
-      </SC.InputWrap>
-    </SC.FormSection>
+    <FormBlock
+      header="Select Categories"
+      name="categories"
+      fieldsComponent={<CategoryFields />}
+    />
+    <FormBlock
+      header="Select Character"
+      name="character"
+      fieldsComponent={<CharacterFields />}
+    />
   </form>
 )
 
@@ -33,11 +27,13 @@ ImportForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired
 }
 
-const ReduxForm = reduxForm({
+const importReduxForm = reduxForm({
   form: 'import',
   initialValues: {
-    region: 'eu'
+    character: {
+      region: 'eu'
+    }
   }
 })
 
-export default ReduxForm(ImportForm)
+export default importReduxForm(ImportForm)
