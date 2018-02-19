@@ -64,7 +64,7 @@ class CharacterFields extends Component {
 
           <Field
             component={InputField}
-            name="character"
+            name="name"
             placeholder="Name"
             StyledComponent={SC.NameInput}
           />
