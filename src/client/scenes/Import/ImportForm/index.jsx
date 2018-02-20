@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormSection, reduxForm } from 'redux-form'
+import { reduxForm } from 'redux-form'
 
 import { fetchCharData } from './utils'
 
@@ -27,7 +27,7 @@ ImportForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired
 }
 
-const importReduxForm = reduxForm({
+const FormWrapper = reduxForm({
   form: 'import',
   initialValues: {
     character: {
@@ -36,4 +36,4 @@ const importReduxForm = reduxForm({
   }
 })
 
-export default importReduxForm(ImportForm)
+export default FormWrapper(ImportForm)
