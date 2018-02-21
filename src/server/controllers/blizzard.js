@@ -56,12 +56,12 @@ const constructFieldsArray = cats => {
 }
 
 const constructCharDataUrl = params => {
-  const { cats, region, realm, char } = params
+  const { cats, name, region, realm } = params
 
   const fields = constructFieldsArray(cats)
   const locale = region === 'eu' ? 'en_GB' : 'en_US'
 
-  const url = `https://${region}.api.battle.net/wow/character/${realm}/${char}
+  const url = `https://${region}.api.battle.net/wow/character/${realm}/${name}
 		?fields=${fields}&locale=${locale}&apikey=${process.env.BATTLENET_KEY}`
 
   return url
@@ -103,18 +103,12 @@ const findMissingIds = (recipeIds, rankedData) => {
     const rank2Recipe = rankedData.two.find(item => item.id === recipeId)
 
     if (rank3Recipe) {
-      const rank1Id = rankedData.one.find(
-        item => item.name === rank3Recipe.name
-      ).id
-      const rank2Id = rankedData.two.find(
-        item => item.name === rank3Recipe.name
-      ).id
+      const rank1Id = rankedData.one.find(item => item.name === rank3Recipe.name).id
+      const rank2Id = rankedData.two.find(item => item.name === rank3Recipe.name).id
 
       missingIds.push(rank1Id, rank2Id)
     } else if (rank2Recipe) {
-      const rank1Id = rankedData.one.find(
-        item => item.name === rank2Recipe.name
-      ).id
+      const rank1Id = rankedData.one.find(item => item.name === rank2Recipe.name).id
 
       missingIds.push(rank1Id)
     }
