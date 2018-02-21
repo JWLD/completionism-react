@@ -1,0 +1,3 @@
+// IMPORT
+
+export const ADD_REALM_DATA = 'ADD_REALM_DATA'
