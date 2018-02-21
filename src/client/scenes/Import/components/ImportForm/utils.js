@@ -1,4 +1,4 @@
-import { getBattleNetCharacterData } from 'services/api'
+import { fetchBattleNetCharacterData } from 'services/api'
 
 const extractCategoriesArray = categories => {
   return Object.keys(categories).reduce((categoryNamesArray, key) => {
@@ -31,7 +31,7 @@ const saveCharDataToLocalStorage = ({ char, collections }) => {
 export const fetchCharData = values => {
   const urlParams = constructUrlParams(values)
 
-  getBattleNetCharacterData(urlParams).then(characterData => {
+  fetchBattleNetCharacterData(urlParams).then(characterData => {
     saveCharDataToLocalStorage(characterData)
   })
 }
