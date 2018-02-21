@@ -6,8 +6,8 @@ import CATEGORIES from 'constants/categories'
 import { CheckboxField } from 'components/ReduxFields'
 import * as SC from './styled'
 
-class CategoryFields extends Component {
-  renderInputRows(categories) {
+const CategoryFields = () => {
+  const renderInputRows = categories => {
     return categories.map(({ battleNet, key, name }) => {
       if (!battleNet) return null
 
@@ -25,17 +25,15 @@ class CategoryFields extends Component {
     })
   }
 
-  renderCheckboxColumns() {
+  const renderCheckboxColumns = () => {
     return Object.keys(CATEGORIES).map(category => (
       <SC.CheckboxWrap key={category}>
-        {this.renderInputRows(CATEGORIES[category])}
+        {renderInputRows(CATEGORIES[category])}
       </SC.CheckboxWrap>
     ))
   }
 
-  render() {
-    return this.renderCheckboxColumns()
-  }
+  return renderCheckboxColumns()
 }
 
 export default CategoryFields
