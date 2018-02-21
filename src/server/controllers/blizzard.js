@@ -11,7 +11,7 @@ const blizzController = {}
 // GET REALMS - GET REALM LIST FROM BLIZZARD API
 
 const constructRealmDataUrl = params =>
-  `https://${params.q}.api.battle.net/wow/realm/status
+  `https://${params.region}.api.battle.net/wow/realm/status
 	?locale=en_GB&apikey=${process.env.BATTLENET_KEY}`
 
 const extractRealmData = responseBody => {
