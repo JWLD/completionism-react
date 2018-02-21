@@ -1,3 +1,7 @@
+// BROWSE
+
+export const ADD_CATEGORY_DATA = 'ADD_CATEGORY_DATA'
+
 // IMPORT
 
 export const ADD_REALM_DATA = 'ADD_REALM_DATA'

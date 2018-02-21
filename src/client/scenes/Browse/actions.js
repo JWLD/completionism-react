@@ -1,25 +1,16 @@
-import Axios from 'axios';
+import axios from 'axios'
 
-// ACTION TYPES
+import { ADD_CATEGORY_DATA } from 'constants/action_types'
 
-export const ADD_CATEGORY_DATA = 'ADD_CATEGORY_DATA';
+const addCategoryData = (categoryData, category) => ({
+  type: ADD_CATEGORY_DATA,
+  payload: categoryData,
+  category
+})
 
-// ACTION CREATORS
-
-export function addCategoryData(categoryData, category) {
-	return {
-		type: ADD_CATEGORY_DATA,
-		payload: categoryData,
-		category
-	};
-}
-
-// THUNKS
-
-export function fetchCategoryData(category) {
-	return (dispatch) => {
-		Axios.get(`/api/db-category?q=${category}`)
-			.then(response => dispatch(addCategoryData(response.data, category)))
-			.catch(err => console.log(err.response.data || err));
-	};
+export const fetchCategoryData = category => dispatch => {
+  axios
+    .get(`/api/db-category?q=${category}`)
+    .then(response => dispatch(addCategoryData(response.data, category)))
+    .catch(err => console.log(err.response.data || err))
 }
