@@ -1,9 +1,29 @@
 import axios from 'axios'
 
-export const getBattleNetCharacterData = params =>
-  new Promise((resolve, reject) =>
+export const fetchBattleNetCharacterData = params => {
+  return new Promise((resolve, reject) =>
     axios
-      .get('/api/import', { params })
+      .get('/api/import', {
+        params
+      })
       .then(res => resolve(res.data))
-      .catch(err => console.log(`Error getting character data from BattleNet: ${err}`))
+      .catch(err =>
+        console.log(`Error fetching character data from BattleNet: ${err}`)
+      )
   )
+}
+
+export const fetchBattleNetRealmData = region => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get('/api/realms', {
+        params: {
+          region
+        }
+      })
+      .then(res => resolve(res.data))
+      .catch(err =>
+        console.log(`Error fetching realm data from BattleNet: ${err}`)
+      )
+  })
+}
