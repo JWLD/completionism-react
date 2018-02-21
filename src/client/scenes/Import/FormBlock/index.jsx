@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { FormSection } from 'redux-form'
 
 import * as SC from './styled'
@@ -12,5 +13,11 @@ const FormBlock = props => (
     </SC.InputWrap>
   </SC.FormSection>
 )
+
+FormBlock.propTypes = {
+  fieldsComponent: PropTypes.object.isRequired,
+  header: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+}
 
 export default FormBlock
