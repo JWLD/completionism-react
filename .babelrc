@@ -1,4 +1,10 @@
 {
-  "presets": ["env", "react"],
-  "plugins": ["transform-object-rest-spread", "styled-components-named"]
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "styled-components-named"
+  ]
 }
