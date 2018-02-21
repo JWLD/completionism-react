@@ -78,13 +78,8 @@ class CharacterFields extends Component {
 
 CharacterFields.propTypes = {
   fetchRealmData: PropTypes.func.isRequired,
-  realmList: PropTypes.object,
-  region: PropTypes.string
-}
-
-CharacterFields.defaultProps = {
-  realmList: {},
-  region: ''
+  realmList: PropTypes.object.isRequired,
+  region: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => {
