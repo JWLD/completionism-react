@@ -1,32 +1,26 @@
-import querystring from 'querystring'
-import axios from 'axios'
-
-// pre-fetchCharData
+import { getBattleNetCharacterData } from 'services/api'
 
 const extractCategoriesArray = categories => {
-  const categoriesArray = Object.keys(categories).reduce((acc, key) => {
-    if (categories[key]) acc.push(key)
-    return acc
+  return Object.keys(categories).reduce((categoryNamesArray, key) => {
+    const categoryIsSetToTrue = categories[key]
+
+    if (categoryIsSetToTrue) {
+      categoryNamesArray.push(key)
+    }
+
+    return categoryNamesArray
   }, [])
-
-  return categoriesArray
 }
 
-const constructUrlParams = values => {
-  const { categories, character, realm, region } = values
-
-  const urlParams = querystring.stringify({
-    cats: extractCategoriesArray(categories),
-    name,
-    realm,
-    region
-  })
-
-  return urlParams
-}
+const constructUrlParams = ({ categories, character }) => ({
+  cats: extractCategoriesArray(categories),
+  name: character.name,
+  realm: character.realm,
+  region: character.region
+})
 
 const saveCharDataToLocalStorage = ({ char, collections }) => {
-  Object.keys(collections).map(key => {
+  return Object.keys(collections).map(key => {
     localStorage[key] = JSON.stringify({
       char,
       ids: collections[key]
@@ -34,17 +28,10 @@ const saveCharDataToLocalStorage = ({ char, collections }) => {
   })
 }
 
-// fetchCharData
-
 export const fetchCharData = values => {
   const urlParams = constructUrlParams(values)
 
-  return axios
-    .get(`/api/import?${urlParams}`)
-    .then(response => {
-      saveCharDataToLocalStorage(response.data)
-    })
-    .catch(err => console.log(err))
+  getBattleNetCharacterData(urlParams).then(characterData => {
+    saveCharDataToLocalStorage(characterData)
+  })
 }
-
-export default fetchCharData
