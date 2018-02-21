@@ -2,7 +2,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import { ImportForm } from 'scenes/Import/ImportForm'
+import { ImportForm } from 'scenes/Import/components/ImportForm'
 
 Enzyme.configure({ adapter: new Adapter() })
 

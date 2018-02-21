@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as SC from './styled'
 import NavBar from 'components/NavBar'
-import ImportForm from 'scenes/Import/ImportForm'
+import ImportForm from 'scenes/Import/components/ImportForm'
 
 const Import = () => (
   <SC.ImportPage>

@@ -4,9 +4,9 @@ import { reduxForm } from 'redux-form'
 
 import { fetchCharData } from './utils'
 
-import FormBlock from 'scenes/Import/FormBlock'
-import CategoryFields from 'scenes/Import/CategoryFields'
-import CharacterFields from 'scenes/Import/CharacterFields'
+import FormBlock from 'scenes/Import/components/FormBlock'
+import CategoryFields from 'scenes/Import/components/CategoryFields'
+import CharacterFields from 'scenes/Import/components/CharacterFields'
 
 export const ImportForm = props => (
   <form onSubmit={props.handleSubmit(fetchCharData)}>

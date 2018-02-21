@@ -1,7 +1,7 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 
-import { fetchCharData } from 'scenes/Import/ImportForm/utils'
+import { fetchCharData } from 'scenes/Import/components/ImportForm/utils'
 import * as mocks from 'fixtures'
 
 const mock = new MockAdapter(axios)
