@@ -92,7 +92,7 @@ const mapStateToProps = state => {
 
   return {
     realmList: state.import.realms,
-    region: formSelector(state, 'region')
+    region: formSelector(state, 'character.region')
   }
 }
 
