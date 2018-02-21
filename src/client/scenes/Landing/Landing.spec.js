@@ -3,11 +3,11 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import Landing from 'scenes/Landing'
-import { mockMounts } from 'fixtures/local_storage'
+import * as mocks from 'fixtures'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-localStorage.mounts = mockMounts
+localStorage.mounts = mocks.localStorageItem
 
 describe('<Landing />', () => {
   test('renders correctly', () => {
