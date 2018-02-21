@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoryFields /> renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CategoryFields />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Array [
+    <CheckboxWrap>
+      <CheckboxLabel>
+        Mounts
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="mounts"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Pets
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="pets"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+    </CheckboxWrap>,
+    <CheckboxWrap>
+      <CheckboxLabel>
+        Alchemy
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="alchemy"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Blacksmithing
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="blacksmithing"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Enchanting
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="enchanting"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Engineering
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="engineering"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Inscription
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="inscription"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Jewelcrafting
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="jewelcrafting"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Leatherworking
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="leatherworking"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Tailoring
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="tailoring"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+    </CheckboxWrap>,
+    <CheckboxWrap>
+      <CheckboxLabel>
+        Cooking
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="cooking"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        First Aid
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="firstaid"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+      <CheckboxLabel>
+        Mining
+        <Field
+          StyledComponent={[Function]}
+          component={[Function]}
+          name="mining"
+        />
+        <FakeInput
+          className="fa fa-check"
+        />
+      </CheckboxLabel>
+    </CheckboxWrap>,
+  ],
+  Symbol(enzyme.__nodes__): Array [
+    Array [
+      <CheckboxWrap>
+        <CheckboxLabel>
+          Mounts
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="mounts"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Pets
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="pets"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+      </CheckboxWrap>,
+      <CheckboxWrap>
+        <CheckboxLabel>
+          Alchemy
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="alchemy"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Blacksmithing
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="blacksmithing"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Enchanting
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="enchanting"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Engineering
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="engineering"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Inscription
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="inscription"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Jewelcrafting
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="jewelcrafting"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Leatherworking
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="leatherworking"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Tailoring
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="tailoring"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+      </CheckboxWrap>,
+      <CheckboxWrap>
+        <CheckboxLabel>
+          Cooking
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="cooking"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          First Aid
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="firstaid"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Mining
+          <Field
+            StyledComponent={[Function]}
+            component={[Function]}
+            name="mining"
+          />
+          <FakeInput
+            className="fa fa-check"
+          />
+        </CheckboxLabel>
+      </CheckboxWrap>,
+    ],
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
