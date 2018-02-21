@@ -3,8 +3,8 @@ import { Field } from 'redux-form'
 
 import CATEGORIES from 'constants/categories'
 
-import { CheckboxField } from 'components/ReduxFields'
 import * as SC from './styled'
+import { CheckboxField } from 'components/ReduxFields'
 
 const CategoryFields = () => {
   const renderInputRows = categories => {
