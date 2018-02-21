@@ -103,12 +103,18 @@ const findMissingIds = (recipeIds, rankedData) => {
     const rank2Recipe = rankedData.two.find(item => item.id === recipeId)
 
     if (rank3Recipe) {
-      const rank1Id = rankedData.one.find(item => item.name === rank3Recipe.name).id
-      const rank2Id = rankedData.two.find(item => item.name === rank3Recipe.name).id
+      const rank1Id = rankedData.one.find(
+        item => item.name === rank3Recipe.name
+      ).id
+      const rank2Id = rankedData.two.find(
+        item => item.name === rank3Recipe.name
+      ).id
 
       missingIds.push(rank1Id, rank2Id)
     } else if (rank2Recipe) {
-      const rank1Id = rankedData.one.find(item => item.name === rank2Recipe.name).id
+      const rank1Id = rankedData.one.find(
+        item => item.name === rank2Recipe.name
+      ).id
 
       missingIds.push(rank1Id)
     }
