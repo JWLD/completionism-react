@@ -15,7 +15,7 @@ class CharacterFields extends Component {
     this.getRealmData(this.props.region)
   }
 
-  onRegionChange = (changeEvent) => {
+  onRegionChange = changeEvent => {
     const newRegion = changeEvent.target.value
 
     this.getRealmData(newRegion)
@@ -46,7 +46,12 @@ class CharacterFields extends Component {
           StyledComponent={SC.RealmSelect}
         />
 
-        <Field component={InputField} name="name" placeholder="Name" StyledComponent={SC.NameInput} />
+        <Field
+          component={InputField}
+          name="name"
+          placeholder="Name"
+          StyledComponent={SC.NameInput}
+        />
       </SC.CharacterFieldsWrap>
     )
   }

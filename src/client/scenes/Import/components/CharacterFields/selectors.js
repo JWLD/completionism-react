@@ -5,7 +5,8 @@ const importFormSelector = formValueSelector('import')
 
 const realmListSelector = state => state.import.realms
 
-export const regionSelector = state => importFormSelector(state, 'character.region')
+export const regionSelector = state =>
+  importFormSelector(state, 'character.region')
 
 const regionRealmsSelector = createSelector(
   [realmListSelector, regionSelector],
@@ -13,10 +14,11 @@ const regionRealmsSelector = createSelector(
 )
 
 export const realmDataSelector = createSelector(
-  regionRealmsSelector,
-  (realms) => realms.reduce((realmList, realm) => {
-    realmList[realm.slug] = realm.name
+  [regionRealmsSelector],
+  realms =>
+    realms.reduce((realmList, realm) => {
+      realmList[realm.slug] = realm.name
 
-    return realmList
-  }, {})
+      return realmList
+    }, {})
 )
