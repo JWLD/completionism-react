@@ -1,4 +1,4 @@
-import { LOAD_REALM_DATA } from 'constants/action_types'
+import { ADD_REALM_DATA } from 'constants/action_types'
 
 const initialState = {
   realms: {}
@@ -6,7 +6,7 @@ const initialState = {
 
 const importReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_REALM_DATA:
+    case ADD_REALM_DATA:
       return {
         ...state,
         realms: { ...state.realms, [action.region]: action.payload }
