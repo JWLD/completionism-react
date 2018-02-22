@@ -1,23 +1,24 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Field, formValueSelector } from 'redux-form'
+import { Field } from 'redux-form'
 
+import { realmDataSelector, regionSelector } from './selectors'
 import { REGIONS } from 'constants/blizzard'
 import { fetchRealmData } from 'scenes/Import/actions'
 
-import { InputField, SelectBoxField } from 'components/ReduxFields'
 import * as SC from './styled'
+import { InputField, SelectBoxField } from 'components/ReduxFields'
 
 class CharacterFields extends Component {
-  constructor(props) {
-    super(props)
-
-    this.onRegionChange = this.onRegionChange.bind(this)
-  }
-
   componentDidMount() {
     this.getRealmData(this.props.region)
+  }
+
+  onRegionChange = (changeEvent) => {
+    const newRegion = changeEvent.target.value
+
+    this.getRealmData(newRegion)
   }
 
   getRealmData(region) {
@@ -26,51 +27,26 @@ class CharacterFields extends Component {
     }
   }
 
-  onRegionChange(changeEvent) {
-    const newRegion = changeEvent.target.value
-    this.getRealmData(newRegion)
-  }
-
-  formatRealmDataForSelectBox() {
-    const apiData = this.props.realmList[this.props.region] || []
-
-    const realmList = apiData.reduce((acc, realm) => {
-      acc[realm.slug] = realm.name
-      return acc
-    }, {})
-
-    return realmList
-  }
-
   render() {
     return (
       <SC.CharacterFieldsWrap>
-        <SC.CharacterInputWrap>
-          <Field
-            component={SelectBoxField}
-            name="region"
-            onChange={this.onRegionChange}
-            options={REGIONS}
-            StyledComponent={SC.RegionSelect}
-          />
+        <Field
+          component={SelectBoxField}
+          name="region"
+          onChange={this.onRegionChange}
+          options={REGIONS}
+          StyledComponent={SC.RegionSelect}
+        />
 
-          <Field
-            component={SelectBoxField}
-            name="realm"
-            options={this.formatRealmDataForSelectBox()}
-            placeholder="Select Realm"
-            StyledComponent={SC.RealmSelect}
-          />
+        <Field
+          component={SelectBoxField}
+          name="realm"
+          options={this.props.realmData}
+          placeholder="Select Realm"
+          StyledComponent={SC.RealmSelect}
+        />
 
-          <Field
-            component={InputField}
-            name="name"
-            placeholder="Name"
-            StyledComponent={SC.NameInput}
-          />
-        </SC.CharacterInputWrap>
-
-        <SC.LoadingIndicator />
+        <Field component={InputField} name="name" placeholder="Name" StyledComponent={SC.NameInput} />
       </SC.CharacterFieldsWrap>
     )
   }
@@ -78,18 +54,16 @@ class CharacterFields extends Component {
 
 CharacterFields.propTypes = {
   fetchRealmData: PropTypes.func.isRequired,
+  realmData: PropTypes.object.isRequired,
   realmList: PropTypes.object.isRequired,
   region: PropTypes.string.isRequired
 }
 
-const mapStateToProps = state => {
-  const formSelector = formValueSelector('import')
-
-  return {
-    realmList: state.import.realms,
-    region: formSelector(state, 'character.region')
-  }
-}
+const mapStateToProps = state => ({
+  realmData: realmDataSelector(state),
+  realmList: state.import.realms,
+  region: regionSelector(state)
+})
 
 const mapDispatchToProps = {
   fetchRealmData

@@ -10,12 +10,6 @@ const indicatorSize = inputHeight * 2 + inputSpacing
 export const CharacterFieldsWrap = styled.div`
   ${mixins.flex};
 
-  width: 100%;
-`
-
-export const CharacterInputWrap = styled.div`
-  ${mixins.flex};
-
   flex-wrap: wrap;
   width: 100%;
 `
@@ -40,12 +34,4 @@ export const NameInput = styled.input`
   border-radius: 0.4rem;
   font: ${inputFont};
   text-transform: capitalize;
-`
-
-export const LoadingIndicator = styled.div`
-  min-height: ${indicatorSize}rem;
-  min-width: ${indicatorSize}rem;
-  margin-left: 2rem;
-  border-radius: 0.4rem;
-  background-color: #444;
 `
