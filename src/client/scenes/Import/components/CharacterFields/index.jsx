@@ -8,7 +8,7 @@ import { REGIONS } from 'constants/blizzard'
 import { fetchRealmData } from 'scenes/Import/actions'
 
 import * as SC from './styled'
-import { InputField, SelectBoxField } from 'components/ReduxFields'
+import { InputField, SelectBoxField } from 'components/formFields'
 
 class CharacterFields extends Component {
   componentDidMount() {

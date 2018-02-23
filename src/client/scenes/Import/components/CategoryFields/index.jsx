@@ -4,7 +4,7 @@ import { Field } from 'redux-form'
 import CATEGORIES from 'constants/categories'
 
 import * as SC from './styled'
-import { CheckboxField } from 'components/ReduxFields'
+import { CheckboxField } from 'components/formFields'
 
 const CategoryFields = () => {
   const renderInputRows = categories => {
