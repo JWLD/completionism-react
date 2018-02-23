@@ -4,6 +4,11 @@
     "react"
   ],
   "rules": {
-    "react/prop-types": [2]
+    "react/default-props-match-prop-types": [2],
+    "react/no-unused-prop-types": [2],
+    "react/prop-types": [2],
+    "react/sort-prop-types": [2, {
+      "ignoreCase": true
+    }]
   }
 }
