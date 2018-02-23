@@ -10,7 +10,7 @@ import { fetchRealmData } from 'scenes/Import/actions'
 import * as SC from './styled'
 import { InputField, SelectBoxField } from 'components/formFields'
 
-class CharacterFields extends Component {
+export class CharacterFields extends Component {
   componentDidMount() {
     this.getRealmData(this.props.region)
   }
