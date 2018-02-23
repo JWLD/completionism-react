@@ -68,7 +68,6 @@
     ],
     "setupFiles": [
       "jest-localstorage-mock"
-    ],
-    "verbose": true
+    ]
   }
 }
