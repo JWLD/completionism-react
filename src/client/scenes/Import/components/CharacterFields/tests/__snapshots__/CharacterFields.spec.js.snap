@@ -5,17 +5,13 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CharacterFields
-    fetchRealmData={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "",
-          ],
-        ],
+    fetchRealmData={[MockFunction]}
+    realmData={Object {}}
+    realmList={
+      Object {
+        "eu": Array [],
       }
     }
-    realmData={Object {}}
-    realmList={Object {}}
     region=""
   />,
   Symbol(enzyme.__renderer__): Object {

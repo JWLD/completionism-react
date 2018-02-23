@@ -64,7 +64,7 @@ CharacterFields.propTypes = {
   region: PropTypes.string.isRequired
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   realmData: realmDataSelector(state),
   realmList: state.import.realms,
   region: regionSelector(state)
