@@ -4,10 +4,15 @@
     "react"
   ],
   "rules": {
-    "react/default-props-match-prop-types": [2],
-    "react/no-unused-prop-types": [2],
-    "react/prop-types": [2],
-    "react/sort-prop-types": [2, {
+    "no-unused-vars": ["error", {
+      "argsIgnorePattern": "next"
+    }],
+    "react/default-props-match-prop-types": ["error"],
+    "react/jsx-uses-react": ["error"],
+    "react/jsx-uses-vars": ["error"],
+    "react/no-unused-prop-types": ["error"],
+    "react/prop-types": ["error"],
+    "react/sort-prop-types": ["error", {
       "ignoreCase": true
     }]
   }
