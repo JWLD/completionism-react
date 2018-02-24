@@ -2,20 +2,19 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { fetchCategoryData, resetFilter, setFilter } from './actions'
+import { fetchCategoryData } from './actions'
 import { categoryParamSelector, categoryDataSelector } from './selectors'
 
 import * as SC from './styled'
 import NavBar from 'components/NavBar'
 // import ItemList from './components/ItemList/ItemList'
+import FilterBox from './components/FilterBox'
 
 class Browse extends Component {
-  state = {
-    filter: ''
-  }
-
   componentDidMount() {
-    if (this.props.categoryData.length === 0) {
+    const categoryDataExists = this.props.categoryData.length > 0
+
+    if (!categoryDataExists) {
       this.props.fetchCategoryData(this.props.category)
     }
   }
@@ -25,17 +24,7 @@ class Browse extends Component {
       <SC.BrowsePage>
         <NavBar />
 
-        <SC.FilterWrap>
-          <SC.FilterInput
-            onChange={e => this.props.setFilter(e.target.value)}
-            value={this.props.filter}
-            placeholder="Filter"
-          />
-          <SC.ClearInputBtn
-            onClick={() => this.props.resetFilter()}
-            className="fa fa-times-circle"
-          />
-        </SC.FilterWrap>
+        <FilterBox />
 
         {/* <ItemList
           category={this.props.category}
@@ -52,22 +41,16 @@ class Browse extends Component {
 Browse.propTypes = {
   category: PropTypes.string.isRequired,
   categoryData: PropTypes.array.isRequired,
-  fetchCategoryData: PropTypes.func.isRequired,
-  filter: PropTypes.string.isRequired,
-  resetFilter: PropTypes.func.isRequired,
-  setFilter: PropTypes.func.isRequired
+  fetchCategoryData: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => ({
   category: categoryParamSelector(state, ownProps),
-  categoryData: categoryDataSelector(state, ownProps),
-  filter: state.browse.filter
+  categoryData: categoryDataSelector(state, ownProps)
 })
 
 const mapDispatchToProps = {
-  fetchCategoryData,
-  resetFilter,
-  setFilter
+  fetchCategoryData
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Browse)
