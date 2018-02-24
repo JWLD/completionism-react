@@ -8,7 +8,7 @@ export const addRealmData = (realmData, region) => ({
 })
 
 export const fetchRealmData = region => dispatch => {
-  fetchBattleNetRealmData(region).then(realmData => {
-    dispatch(addRealmData(realmData, region))
+  return fetchBattleNetRealmData(region).then(realmData => {
+    return dispatch(addRealmData(realmData, region))
   })
 }
