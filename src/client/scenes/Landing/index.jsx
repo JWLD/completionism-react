@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import CATEGORIES from 'constants/categories'
 import { ICON_URLS } from 'constants/urls'

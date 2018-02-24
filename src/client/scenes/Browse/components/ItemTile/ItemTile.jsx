@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FaCheckCircle from 'react-icons/lib/fa/check-circle'
-import FaTimesCircle from 'react-icons/lib/fa/times-circle'
 
 import { ICON_URLS } from 'constants/urls'
 import * as SC from './styled'
 
 const isCollected = props => {
-  const { category, categoryData, id, rank, storageData } = props
+  const { category, id, storageData } = props
 
   let collected = false
 

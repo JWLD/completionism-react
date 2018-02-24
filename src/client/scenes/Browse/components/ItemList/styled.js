@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { mixins, vars } from 'style'
+import { mixins } from 'style'
 
 export const ItemList = styled.div`
   flex-direction: column;

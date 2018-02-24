@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 import { ADD_REALM_DATA } from 'constants/action_types'
 import { fetchBattleNetRealmData } from 'services/api'
 

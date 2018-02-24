@@ -5,7 +5,6 @@ import { mixins } from 'style'
 const inputFont = '2.4rem DinMC'
 const inputHeight = 4
 const inputSpacing = 1
-const indicatorSize = inputHeight * 2 + inputSpacing
 
 export const CharacterFieldsWrap = styled.div`
   ${mixins.flex};

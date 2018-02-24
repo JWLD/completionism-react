@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const fetchBattleNetCharacterData = params => {
-  return new Promise((resolve, reject) =>
+  return new Promise(resolve =>
     axios
       .get('/api/import', {
         params
@@ -14,7 +14,7 @@ export const fetchBattleNetCharacterData = params => {
 }
 
 export const fetchBattleNetRealmData = region => {
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     axios
       .get('/api/realms', {
         params: {
