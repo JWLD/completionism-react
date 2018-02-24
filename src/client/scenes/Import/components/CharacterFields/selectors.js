@@ -1,12 +1,8 @@
 import { createSelector } from 'reselect'
-import { formValueSelector } from 'redux-form'
-
-const importFormSelector = formValueSelector('import')
 
 const realmListSelector = state => state.import.realms
 
-export const regionSelector = state =>
-  importFormSelector(state, 'character.region')
+export const regionSelector = state => state.form.import.values.character.region
 
 const regionRealmsSelector = createSelector(
   [realmListSelector, regionSelector],
