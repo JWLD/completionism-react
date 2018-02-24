@@ -7,30 +7,35 @@ const flex = `
 `
 
 const flexRight = `
-  ${flex}
+  display: flex;
   justify-content: flex-end;
+  align-items: center;
 `
 
 const flexVertical = `
-  ${flex}
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 `
 
-const flexMixins = {
+const flexBox = {
   flex,
   flexRight,
   flexVertical
 }
 
-const page = `
-  ${flexVertical}
+const pageWrap = `
+  ${flexVertical};
+
 	min-width: 100vw;
 	margin-top: ${vars.sizing.navBarHeight}rem;
 	padding: ${vars.sizing.pagePadding}rem;
 `
 
-const itemListWrap = `
-  ${flex}
+const browseBlock = `
+  ${flex};
+
   width: 75rem;
   padding: ${vars.sizing.itemListPadding}rem;
   border-radius: 0.4rem;
@@ -41,20 +46,21 @@ const itemListWrap = `
   }
 `
 
-const itemListItem = `
-  ${flex}
+const browseItem = `
+  ${flex};
+
   width: 100%;
   height: ${vars.sizing.itemHeight}rem;
   border-radius: 0.3rem;
 `
 
 const wrapMixins = {
-  itemListItem,
-  itemListWrap,
-  page
+  browseBlock,
+  browseItem,
+  pageWrap
 }
 
 export default {
-  ...flexMixins,
+  ...flexBox,
   ...wrapMixins
 }

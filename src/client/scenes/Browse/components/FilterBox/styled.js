@@ -4,13 +4,13 @@ import { FaTimesCircle } from 'react-icons/lib/fa'
 import { mixins, vars } from 'style'
 
 export const FilterWrap = styled.div`
-  ${mixins.itemListWrap};
+  ${mixins.browseBlock};
 
   position: relative;
 `
 
 export const FilterInput = styled.input`
-  ${mixins.itemListItem};
+  ${mixins.browseItem};
 
   padding: 1rem;
   background-color: #eee;

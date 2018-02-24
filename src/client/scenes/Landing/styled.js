@@ -8,7 +8,7 @@ const panelHeight = 7
 const panelPadding = 1
 
 export const LandingPage = styled.div`
-  ${mixins.page};
+  ${mixins.pageWrap};
 `
 
 export const CategoryBlock = styled.ul`
