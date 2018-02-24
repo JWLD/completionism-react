@@ -7,8 +7,9 @@ import { categoryParamSelector, categoryDataSelector } from './selectors'
 
 import * as SC from './styled'
 import NavBar from 'components/NavBar'
-// import ItemList from './components/ItemList/ItemList'
+import ItemList from './components/ItemList'
 import FilterBox from './components/FilterBox'
+import ProgressBar from 'components/ProgressBar'
 
 class Browse extends Component {
   componentDidMount() {
@@ -25,14 +26,8 @@ class Browse extends Component {
         <NavBar />
 
         <FilterBox />
-
-        {/* <ItemList
-          category={this.props.category}
-          content={Number(this.props.match.params.content)}
-          categoryData={this.props.categoryData}
-          filterVal={this.state.filter}
-          routeProps={this.props.match.params}
-        /> */}
+        <ProgressBar count={3} total={4} />
+        <ItemList />
       </SC.BrowsePage>
     )
   }
