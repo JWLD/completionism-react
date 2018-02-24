@@ -1,22 +1,10 @@
-import {
-  regionSelector,
-  realmDataSelector
-} from 'scenes/Import/components/CharacterFields/selectors'
+import { realmDataSelector } from 'scenes/Import/components/CharacterFields/selectors'
 import { MOCK_INITIAL_STATE, MOCK_REALM_DATA } from 'fixtures'
 
 let mockState
 
 beforeEach(() => {
   mockState = JSON.parse(JSON.stringify(MOCK_INITIAL_STATE))
-})
-
-describe('#regionSelector', () => {
-  test('selects correct region from state', () => {
-    const expected = mockState.form.import.values.character.region
-    const result = regionSelector(mockState)
-
-    expect(result).toBe(expected)
-  })
 })
 
 describe('#realmDataSelector', () => {
