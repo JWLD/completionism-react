@@ -1,9 +1,11 @@
 import axios from 'axios'
 
+import * as URLS from 'constants/api_urls'
+
 export const fetchBattleNetCharacterData = params => {
   return new Promise(resolve =>
     axios
-      .get('/api/import', {
+      .get(URLS.IMPORT_URL, {
         params
       })
       .then(res => resolve(res.data))
@@ -16,7 +18,7 @@ export const fetchBattleNetCharacterData = params => {
 export const fetchBattleNetRealmData = region => {
   return new Promise(resolve => {
     axios
-      .get('/api/realms', {
+      .get(URLS.REALM_URL, {
         params: {
           region
         }
