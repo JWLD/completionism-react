@@ -5,7 +5,7 @@ import { mixins, vars } from 'style'
 const barHeight = 1.5
 
 export const ProgressBarWrap = styled.div`
-  ${mixins.itemListWrap};
+  ${mixins.browseBlock};
 
   flex-direction: column;
 `
@@ -39,7 +39,7 @@ export const BarFill = styled.div`
   top: 0;
   left: 0;
   height: ${barHeight}rem;
-  width: 4rem;
+  width: ${props => props.fill}%;
   background-color: ${vars.colours.pos};
   border-radius: 0.3rem;
 `
