@@ -1,4 +1,4 @@
-export const localStorageItem = JSON.stringify({
+export const LOCAL_STORAGE_ITEM = JSON.stringify({
   char: {
     class: 3,
     faction: 0,
@@ -8,7 +8,7 @@ export const localStorageItem = JSON.stringify({
   ids: [1, 2, 3]
 })
 
-export const localStorageObject = {
-  mounts: localStorageItem,
-  pets: localStorageItem
+export const LOCAL_STORAGE = {
+  mounts: LOCAL_STORAGE_ITEM,
+  pets: LOCAL_STORAGE_ITEM
 }

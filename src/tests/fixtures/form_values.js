@@ -1,4 +1,4 @@
-export const importFormValues = {
+export const IMPORT_FORM_VALUES = {
   categories: {
     mounts: true,
     pets: false,

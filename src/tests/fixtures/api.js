@@ -1,4 +1,4 @@
-export const battleNetCharacterData = {
+export const BNET_CHARACTER_DATA = {
   char: {
     class: 3,
     faction: 0,
@@ -11,7 +11,7 @@ export const battleNetCharacterData = {
   }
 }
 
-export const MOCK_REALM_DATA = [
+export const REALM_DATA = [
   {
     name: 'Aegwynn',
     slug: 'aegwynn'

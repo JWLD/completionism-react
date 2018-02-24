@@ -1,16 +1,16 @@
 import { realmDataSelector } from 'scenes/Import/components/CharacterFields/selectors'
-import { MOCK_INITIAL_STATE, MOCK_REALM_DATA } from 'fixtures'
+import * as MOCKS from 'fixtures'
 
 let mockState
 
 beforeEach(() => {
-  mockState = JSON.parse(JSON.stringify(MOCK_INITIAL_STATE))
+  mockState = JSON.parse(JSON.stringify(MOCKS.INITIAL_STATE))
 })
 
 describe('#realmDataSelector', () => {
   it('selects and formats realm data from state', () => {
     mockState.import.realms = {
-      eu: MOCK_REALM_DATA
+      eu: MOCKS.REALM_DATA
     }
 
     const expected = {

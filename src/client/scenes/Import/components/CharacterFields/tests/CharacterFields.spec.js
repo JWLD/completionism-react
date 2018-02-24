@@ -6,7 +6,7 @@ import {
   CharacterFields,
   mapStateToProps
 } from 'scenes/Import/components/CharacterFields'
-import { MOCK_INITIAL_STATE } from 'fixtures'
+import * as MOCKS from 'fixtures'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -62,7 +62,7 @@ describe('#getRealmData', () => {
 
 describe('#mapStateToProps', () => {
   it('extracts the required data from state', () => {
-    const result = mapStateToProps(MOCK_INITIAL_STATE)
+    const result = mapStateToProps(MOCKS.INITIAL_STATE)
 
     expect(Object.keys(result)).toHaveLength(3)
     expect(result).toHaveProperty('realmData')

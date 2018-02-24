@@ -2,19 +2,19 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 
 import { fetchCharData } from 'scenes/Import/components/ImportForm/utils'
-import * as mocks from 'fixtures'
+import * as MOCKS from 'fixtures'
 import { IMPORT_URL } from 'constants/api_urls'
 
 const mock = new MockAdapter(axios)
 
 describe('#fetchCharData', () => {
   it('fetches data from BattleNet and saves it to localStorage', () => {
-    mock.onGet(IMPORT_URL).reply(200, mocks.battleNetCharacterData)
+    mock.onGet(IMPORT_URL).reply(200, MOCKS.BNET_CHARACTER_DATA)
 
-    fetchCharData(mocks.importFormValues)
+    fetchCharData(MOCKS.IMPORT_FORM_VALUES)
 
     setTimeout(() => {
-      expect(localStorage).toEqual(mocks.localStorageObject)
+      expect(localStorage).toEqual(MOCKS.LOCAL_STORAGE)
     }, 1)
   })
 })

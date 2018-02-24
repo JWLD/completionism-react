@@ -1,4 +1,4 @@
-export const MOCK_INITIAL_STATE = {
+export const INITIAL_STATE = {
   browse: {},
   form: {
     import: {
