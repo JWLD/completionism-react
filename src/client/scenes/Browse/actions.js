@@ -1,11 +1,20 @@
 import axios from 'axios'
 
-import { ADD_CATEGORY_DATA } from 'constants/action_types'
+import * as ACTIONS from 'constants/action_types'
 
 const addCategoryData = (categoryData, category) => ({
-  type: ADD_CATEGORY_DATA,
+  type: ACTIONS.ADD_CATEGORY_DATA,
   payload: categoryData,
   category
+})
+
+export const resetFilter = () => ({
+  type: ACTIONS.RESET_FILTER
+})
+
+export const setFilter = value => ({
+  type: ACTIONS.SET_FILTER,
+  payload: value
 })
 
 export const fetchCategoryData = category => dispatch => {

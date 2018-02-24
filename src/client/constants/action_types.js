@@ -1,6 +1,8 @@
 // BROWSE
 
 export const ADD_CATEGORY_DATA = 'ADD_CATEGORY_DATA'
+export const RESET_FILTER = 'RESET_FILTER'
+export const SET_FILTER = 'SET_FILTER'
 
 // IMPORT
 
