@@ -10,3 +10,18 @@ export const battleNetCharacterData = {
     pets: [1, 2, 3]
   }
 }
+
+export const MOCK_REALM_DATA = [
+  {
+    name: 'Aegwynn',
+    slug: 'aegwynn'
+  },
+  {
+    name: 'Aerie Peak',
+    slug: 'aerie-peak'
+  },
+  {
+    name: 'Agamaggan',
+    slug: 'agamaggan'
+  }
+]
