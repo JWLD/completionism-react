@@ -16,7 +16,7 @@ const mockProps = {
 }
 
 describe('<SelectBoxField />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const component = shallow(<SelectBoxField {...mockProps} />)
 
     expect(component).toMatchSnapshot()

@@ -13,7 +13,7 @@ const mockProps = {
 }
 
 describe('<InputField />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const component = shallow(<InputField {...mockProps} />)
 
     expect(component).toMatchSnapshot()

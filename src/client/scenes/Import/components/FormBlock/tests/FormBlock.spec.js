@@ -13,7 +13,7 @@ const mockProps = {
 }
 
 describe('<FormBlock />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const component = shallow(<FormBlock {...mockProps} />)
 
     expect(component).toMatchSnapshot()

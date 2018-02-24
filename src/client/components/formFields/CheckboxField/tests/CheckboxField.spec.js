@@ -12,7 +12,7 @@ const mockProps = {
 }
 
 describe('<CheckboxField />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const component = shallow(<CheckboxField {...mockProps} />)
 
     expect(component).toMatchSnapshot()

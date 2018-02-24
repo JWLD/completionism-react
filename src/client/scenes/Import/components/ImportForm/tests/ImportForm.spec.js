@@ -11,7 +11,7 @@ const mockProps = {
 }
 
 describe('<ImportForm />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const component = shallow(<ImportForm {...mockProps} />)
 
     expect(component).toMatchSnapshot()

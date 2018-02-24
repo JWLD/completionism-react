@@ -28,13 +28,13 @@ beforeEach(() => {
 })
 
 describe('<CharacterFields />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     expect(component).toMatchSnapshot()
   })
 })
 
 describe('#onRegionChange', () => {
-  test('calls [getRealmData]', () => {
+  it('calls [getRealmData]', () => {
     const getRealmDataSpy = jest.spyOn(
       CharacterFields.prototype,
       'getRealmData'
@@ -47,13 +47,13 @@ describe('#onRegionChange', () => {
 })
 
 describe('#getRealmData', () => {
-  test('calls [fetchRealmData] when state doesnt contain relevant realm data', () => {
+  it('calls [fetchRealmData] when state doesnt contain relevant realm data', () => {
     component.instance().getRealmData('us')
 
     expect(mockFetchRealmDataFunc).toHaveBeenCalledTimes(1)
   })
 
-  test('doesnt call [fetchRealmData] when state contains relevant realm data', () => {
+  it('doesnt call [fetchRealmData] when state contains relevant realm data', () => {
     component.instance().getRealmData('eu')
 
     expect(mockFetchRealmDataFunc).not.toHaveBeenCalled()
@@ -61,7 +61,7 @@ describe('#getRealmData', () => {
 })
 
 describe('#mapStateToProps', () => {
-  test('extracts the required data from state', () => {
+  it('extracts the required data from state', () => {
     const result = mapStateToProps(MOCK_INITIAL_STATE)
 
     expect(Object.keys(result)).toHaveLength(3)

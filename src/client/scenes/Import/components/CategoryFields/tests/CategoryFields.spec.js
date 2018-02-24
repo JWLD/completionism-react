@@ -7,7 +7,7 @@ import CategoryFields from 'scenes/Import/components/CategoryFields'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('<CategoryFields />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const component = shallow(<CategoryFields />)
 
     expect(component).toMatchSnapshot()

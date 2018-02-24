@@ -8,7 +8,7 @@ beforeEach(() => {
 })
 
 describe('#realmDataSelector', () => {
-  test('selects and formats realm data from state', () => {
+  it('selects and formats realm data from state', () => {
     mockState.import.realms = {
       eu: MOCK_REALM_DATA
     }
@@ -23,7 +23,7 @@ describe('#realmDataSelector', () => {
     expect(result).toEqual(expected)
   })
 
-  test('returns an empty object if the relevant realm data doesnt exist', () => {
+  it('returns an empty object if the relevant realm data doesnt exist', () => {
     const result = realmDataSelector(mockState)
 
     expect(result).toEqual({})

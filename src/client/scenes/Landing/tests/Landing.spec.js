@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() })
 localStorage.mounts = mocks.localStorageItem
 
 describe('<Landing />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const component = shallow(<Landing />)
 
     expect(component).toMatchSnapshot()

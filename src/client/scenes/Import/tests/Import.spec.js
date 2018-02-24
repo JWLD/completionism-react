@@ -7,7 +7,7 @@ import Import from 'scenes/Import'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('<Import />', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const component = shallow(<Import />)
 
     expect(component).toMatchSnapshot()
