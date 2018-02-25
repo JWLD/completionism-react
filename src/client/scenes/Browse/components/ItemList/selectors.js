@@ -21,6 +21,15 @@ const filterByFaction = (data, faction) => {
   })
 }
 
+const filterByUserFilter = (data, filterValue) => {
+  return data.filter(item => {
+    const normalisedName = item.name.toLowerCase()
+    const normalisedFilterValue = filterValue.toLowerCase()
+
+    return normalisedName.includes(normalisedFilterValue)
+  })
+}
+
 // ORGANISE FUNCTIONS
 
 const organiseIntoSubCategories = data => {
@@ -84,6 +93,8 @@ const factionSelector = createSelector([categoryParamSelector], category => {
 
 // REGULAR SELECTORS
 
+const filterValueSelector = state => state.browse.filter
+
 const contentParamSelector = (state, props) =>
   Number(props.match.params.content)
 
@@ -92,11 +103,13 @@ const itemsSelector = createSelector(
     categoryDataSelector,
     contentParamSelector,
     factionSelector,
+    filterValueSelector,
     collectedIdsSelector
   ],
-  (data, content, faction, collectedIds) => {
+  (data, content, faction, filterValue, collectedIds) => {
     data = filterByContent(data, content)
     data = filterByFaction(data, faction)
+    data = filterByUserFilter(data, filterValue)
     data = sortItems(data)
     data = addCollectedInfo(data, collectedIds)
 
