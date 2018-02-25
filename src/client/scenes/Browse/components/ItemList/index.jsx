@@ -14,14 +14,12 @@ const ItemList = props => {
   }
 
   const renderListBlocks = () => {
-    return props.data.map(subCategory => {
-      return (
-        <SC.ItemListBlock key={subCategory.name}>
-          <SC.BlockTitle>{subCategory.name}</SC.BlockTitle>
-          {renderBlockTiles(subCategory.items)}
-        </SC.ItemListBlock>
-      )
-    })
+    return props.data.map(subCategory => (
+      <SC.ItemListBlock key={subCategory.name}>
+        <SC.BlockTitle>{subCategory.name}</SC.BlockTitle>
+        {renderBlockTiles(subCategory.items)}
+      </SC.ItemListBlock>
+    ))
   }
 
   return renderListBlocks()
