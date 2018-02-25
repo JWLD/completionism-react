@@ -87,7 +87,7 @@ const factionSelector = createSelector([categoryParamSelector], category => {
 const contentParamSelector = (state, props) =>
   Number(props.match.params.content)
 
-const itemsSelectors = createSelector(
+const itemsSelector = createSelector(
   [
     categoryDataSelector,
     contentParamSelector,
@@ -104,9 +104,18 @@ const itemsSelectors = createSelector(
   }
 )
 
-export const itemBlocksSelector = createSelector([itemsSelectors], items => {
+export const itemBlocksSelector = createSelector([itemsSelector], items => {
   let blocks = organiseIntoSubCategories(items)
   blocks = sortItemBlocks(blocks)
 
   return blocks
+})
+
+export const progressDataSelector = createSelector([itemsSelector], items => {
+  const collectedItems = items.filter(item => item.collected)
+
+  return {
+    count: collectedItems.length,
+    total: items.length
+  }
 })
