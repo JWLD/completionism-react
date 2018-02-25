@@ -53,10 +53,28 @@ const sortItemBlocks = data => {
   return _.sortBy(data, 'name')
 }
 
-// SELECTORS
+// DATA FUNCTIONS
 
-const contentParamSelector = (state, props) =>
-  Number(props.match.params.content)
+const addCollectedInfo = (data, collectedIds) => {
+  return data.map(item => {
+    if (collectedIds.includes(item.id)) {
+      item.collected = true
+    } else {
+      item.collected = false
+    }
+
+    return item
+  })
+}
+
+// LOCAL STORAGE SELECTORS
+
+const collectedIdsSelector = createSelector(
+  [categoryParamSelector],
+  category => {
+    return localStorage[category] ? JSON.parse(localStorage[category]).ids : []
+  }
+)
 
 const factionSelector = createSelector([categoryParamSelector], category => {
   return localStorage[category]
@@ -64,22 +82,31 @@ const factionSelector = createSelector([categoryParamSelector], category => {
     : 2
 })
 
+// REGULAR SELECTORS
+
+const contentParamSelector = (state, props) =>
+  Number(props.match.params.content)
+
 const itemsSelectors = createSelector(
-  [categoryDataSelector, contentParamSelector, factionSelector],
-  (data, content, faction) => {
+  [
+    categoryDataSelector,
+    contentParamSelector,
+    factionSelector,
+    collectedIdsSelector
+  ],
+  (data, content, faction, collectedIds) => {
     data = filterByContent(data, content)
     data = filterByFaction(data, faction)
     data = sortItems(data)
+    data = addCollectedInfo(data, collectedIds)
 
     return data
   }
 )
 
-const itemBlocksSelector = createSelector([itemsSelectors], items => {
+export const itemBlocksSelector = createSelector([itemsSelectors], items => {
   let blocks = organiseIntoSubCategories(items)
   blocks = sortItemBlocks(blocks)
 
   return blocks
 })
-
-export const dataSelector = createSelector([itemBlocksSelector], data => data)
