@@ -43,7 +43,7 @@ const organiseIntoSubCategories = data => {
   }, [])
 }
 
-// SORTING FUNCTIONS
+// SORT FUNCTIONS
 
 const sortItems = data => {
   return _.sortBy(data, ['skill', 'quality', 'name'])
