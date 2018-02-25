@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { dataSelector } from './selectors'
+import { itemBlocksSelector } from './selectors'
 
 import * as SC from './styled'
 import ItemTile from 'scenes/Browse/components/ItemTile/ItemTile'
@@ -14,7 +14,7 @@ const ItemList = props => {
   }
 
   const renderListBlocks = () => {
-    return props.data.map(subCategory => (
+    return props.blocks.map(subCategory => (
       <SC.ItemListBlock key={subCategory.name}>
         <SC.BlockTitle>{subCategory.name}</SC.BlockTitle>
         {renderBlockTiles(subCategory.items)}
@@ -26,11 +26,11 @@ const ItemList = props => {
 }
 
 ItemList.propTypes = {
-  data: PropTypes.array.isRequired
+  blocks: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  data: dataSelector(state, ownProps)
+  blocks: itemBlocksSelector(state, ownProps)
 })
 
 export default withRouter(connect(mapStateToProps)(ItemList))
