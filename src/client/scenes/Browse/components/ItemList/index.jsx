@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { itemBlocksSelector, progressDataSelector } from './selectors'
 
 import * as SC from './styled'
-import ProgressBar from 'components/ProgressBar'
+import ProgressBar from 'scenes/Browse/components/ProgressBar'
 import ItemTile from 'scenes/Browse/components/ItemTile/ItemTile'
 
 const ItemList = props => {
