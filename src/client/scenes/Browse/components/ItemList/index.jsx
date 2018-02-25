@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { itemBlocksSelector } from './selectors'
 
 import * as SC from './styled'
+import ProgressBar from 'components/ProgressBar'
 import ItemTile from 'scenes/Browse/components/ItemTile/ItemTile'
 
 const ItemList = props => {
@@ -22,7 +23,12 @@ const ItemList = props => {
     ))
   }
 
-  return renderListBlocks()
+  return (
+    <div>
+      <ProgressBar count={3} total={4} />
+      {renderListBlocks()}
+    </div>
+  )
 }
 
 ItemList.propTypes = {

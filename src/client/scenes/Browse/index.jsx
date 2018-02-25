@@ -9,7 +9,6 @@ import * as SC from './styled'
 import NavBar from 'components/NavBar'
 import ItemList from './components/ItemList'
 import FilterBox from './components/FilterBox'
-import ProgressBar from 'components/ProgressBar'
 
 class Browse extends Component {
   componentDidMount() {
@@ -26,7 +25,6 @@ class Browse extends Component {
         <NavBar />
 
         <FilterBox />
-        <ProgressBar count={3} total={4} />
         <ItemList />
       </SC.BrowsePage>
     )
