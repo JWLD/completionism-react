@@ -2,34 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_URLS } from 'constants/urls'
+
 import * as SC from './styled'
 
-const isCollected = props => {
-  const { category, id, storageData } = props
-
-  let collected = false
-
-  if (category === 'pets') {
-    collected = storageData.find(el => el.id === id)
-  } else {
-    collected = storageData.includes(id)
-  }
-
-  return collected
-}
-
 const ItemTile = props => {
-  const { icon, name, quality } = props
+  const { collected, icon, name, quality } = props
 
-  const itemIcon = icon
-    ? { backgroundImage: `url(${ICON_URLS.large}${icon}.jpg)` }
-    : null
+  const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
+  const progressIcon = collected ? <SC.CheckIcon /> : <SC.CrossIcon />
 
   return (
     <SC.ItemTile>
-      <SC.ItemIcon style={itemIcon} />
+      <SC.ItemIcon iconUrl={iconUrl} />
       <SC.ItemTitle quality={quality}>{name}</SC.ItemTitle>
-      <SC.CrossIcon />
+      {progressIcon}
     </SC.ItemTile>
   )
 }
@@ -39,6 +25,7 @@ ItemTile.defaultProps = {
 }
 
 ItemTile.propTypes = {
+  collected: PropTypes.bool.isRequired,
   icon: PropTypes.string,
   name: PropTypes.string.isRequired,
   quality: PropTypes.number.isRequired
