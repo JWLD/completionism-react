@@ -1,5 +1,372 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<NavBar /> correctly sets prevPage and nextPage to loop content 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NavBar
+    match={
+      Object {
+        "params": Object {
+          "category": "mounts",
+          "content": 9,
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <LeftWrap>
+          <NavLink
+            to="/"
+          >
+            <HomeIcon />
+          </NavLink>
+          <styled.span>
+            mounts
+          </styled.span>
+        </LeftWrap>,
+        <CentreWrap>
+          <NavLink
+            to="/browse/mounts/8"
+          >
+            <Styled(FaArrowCircleLeft) />
+          </NavLink>
+          <MainTitle>
+            Bonus
+          </MainTitle>
+          <NavLink
+            to="/browse/mounts/1"
+          >
+            <Styled(FaArrowCircleRight) />
+          </NavLink>
+        </CentreWrap>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              to="/"
+            >
+              <HomeIcon />
+            </NavLink>,
+            <styled.span>
+              mounts
+            </styled.span>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <HomeIcon />,
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "mounts",
+            },
+            "ref": null,
+            "rendered": "mounts",
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              to="/browse/mounts/8"
+            >
+              <Styled(FaArrowCircleLeft) />
+            </NavLink>,
+            <MainTitle>
+              Bonus
+            </MainTitle>,
+            <NavLink
+              to="/browse/mounts/1"
+            >
+              <Styled(FaArrowCircleRight) />
+            </NavLink>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Styled(FaArrowCircleLeft) />,
+              "to": "/browse/mounts/8",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Bonus",
+            },
+            "ref": null,
+            "rendered": "Bonus",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Styled(FaArrowCircleRight) />,
+              "to": "/browse/mounts/1",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <LeftWrap>
+            <NavLink
+              to="/"
+            >
+              <HomeIcon />
+            </NavLink>
+            <styled.span>
+              mounts
+            </styled.span>
+          </LeftWrap>,
+          <CentreWrap>
+            <NavLink
+              to="/browse/mounts/8"
+            >
+              <Styled(FaArrowCircleLeft) />
+            </NavLink>
+            <MainTitle>
+              Bonus
+            </MainTitle>
+            <NavLink
+              to="/browse/mounts/1"
+            >
+              <Styled(FaArrowCircleRight) />
+            </NavLink>
+          </CentreWrap>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <NavLink
+                to="/"
+              >
+                <HomeIcon />
+              </NavLink>,
+              <styled.span>
+                mounts
+              </styled.span>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <HomeIcon />,
+                "to": "/",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "mounts",
+              },
+              "ref": null,
+              "rendered": "mounts",
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <NavLink
+                to="/browse/mounts/8"
+              >
+                <Styled(FaArrowCircleLeft) />
+              </NavLink>,
+              <MainTitle>
+                Bonus
+              </MainTitle>,
+              <NavLink
+                to="/browse/mounts/1"
+              >
+                <Styled(FaArrowCircleRight) />
+              </NavLink>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <Styled(FaArrowCircleLeft) />,
+                "to": "/browse/mounts/8",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Bonus",
+              },
+              "ref": null,
+              "rendered": "Bonus",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <Styled(FaArrowCircleRight) />,
+                "to": "/browse/mounts/1",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
 exports[`<NavBar /> renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,

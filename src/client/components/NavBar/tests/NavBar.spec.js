@@ -33,4 +33,12 @@ describe('<NavBar />', () => {
 
     expect(component).toMatchSnapshot()
   })
+
+  it('correctly sets prevPage and nextPage to loop content', () => {
+    mockProps.match.params.content = 9
+
+    const component = shallow(<NavBar {...mockProps} />)
+
+    expect(component).toMatchSnapshot()
+  })
 })
