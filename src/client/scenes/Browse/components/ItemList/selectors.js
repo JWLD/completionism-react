@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+import _ from 'lodash'
 
 import {
   categoryParamSelector,
@@ -22,18 +23,34 @@ const filterByFaction = (data, faction) => {
 
 // ORGANISE FUNCTIONS
 
-export const organiseIntoSubcats = data => {
+const organiseIntoSubCategories = data => {
   return data.reduce((acc, item) => {
     const sourceType = SOURCES[item.source]
+    const entry = acc.find(subCategory => subCategory.name === sourceType)
 
-    if (!acc[sourceType]) {
-      acc[sourceType] = [item]
+    if (!entry) {
+      acc.push({
+        name: sourceType,
+        items: [item]
+      })
     } else {
-      acc[sourceType].push(item)
+      const entryIndex = acc.indexOf(entry)
+
+      acc[entryIndex].items.push(item)
     }
 
     return acc
-  }, {})
+  }, [])
+}
+
+// SORTING FUNCTIONS
+
+const sortItems = data => {
+  return _.sortBy(data, ['skill', 'quality', 'name'])
+}
+
+const sortItemBlocks = data => {
+  return _.sortBy(data, 'name')
 }
 
 // SELECTORS
@@ -47,30 +64,22 @@ const factionSelector = createSelector([categoryParamSelector], category => {
     : 2
 })
 
-const filteredDataSelector = createSelector(
+const itemsSelectors = createSelector(
   [categoryDataSelector, contentParamSelector, factionSelector],
-  (categoryData, content, faction) => {
-    let filteredData = categoryData
+  (data, content, faction) => {
+    data = filterByContent(data, content)
+    data = filterByFaction(data, faction)
+    data = sortItems(data)
 
-    filteredData = filterByContent(filteredData, content)
-    filteredData = filterByFaction(filteredData, faction)
-
-    return filteredData
+    return data
   }
 )
 
-const subCategoriesSelector = createSelector(
-  [filteredDataSelector],
-  filteredData => {
-    let organisedData = filteredData
+const itemBlocksSelector = createSelector([itemsSelectors], items => {
+  let blocks = organiseIntoSubCategories(items)
+  blocks = sortItemBlocks(blocks)
 
-    organisedData = organiseIntoSubcats(organisedData)
+  return blocks
+})
 
-    return organisedData
-  }
-)
-
-export const dataSelector = createSelector(
-  [subCategoriesSelector],
-  data => data
-)
+export const dataSelector = createSelector([itemBlocksSelector], data => data)

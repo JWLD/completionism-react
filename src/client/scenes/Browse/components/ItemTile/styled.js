@@ -8,7 +8,7 @@ const itemTilePadding = 0.5
 const iconSize = vars.sizing.itemHeight - itemTilePadding * 2
 
 export const ItemTile = styled.li`
-  ${mixins.itemListItem};
+  ${mixins.browseItem};
 
   justify-content: space-between;
   height: ${vars.sizing.itemHeight}rem;

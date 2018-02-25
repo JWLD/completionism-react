@@ -14,13 +14,11 @@ const ItemList = props => {
   }
 
   const renderListBlocks = () => {
-    return Object.keys(props.data).map(subCategory => {
-      const subCategoryData = props.data[subCategory]
-
+    return props.data.map(subCategory => {
       return (
-        <SC.ItemListBlock key={subCategory}>
-          <SC.BlockTitle>{subCategory}</SC.BlockTitle>
-          {renderBlockTiles(subCategoryData)}
+        <SC.ItemListBlock key={subCategory.name}>
+          <SC.BlockTitle>{subCategory.name}</SC.BlockTitle>
+          {renderBlockTiles(subCategory.items)}
         </SC.ItemListBlock>
       )
     })
@@ -30,7 +28,7 @@ const ItemList = props => {
 }
 
 ItemList.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => ({

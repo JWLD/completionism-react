@@ -29,7 +29,7 @@ const ItemTile = props => {
     <SC.ItemTile>
       <SC.ItemIcon style={itemIcon} />
       <SC.ItemTitle quality={quality}>{name}</SC.ItemTitle>
-      {isCollected(props) ? <SC.CheckIcon /> : <SC.CrossIcon />}
+      <SC.CrossIcon />
     </SC.ItemTile>
   )
 }
