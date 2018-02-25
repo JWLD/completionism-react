@@ -16,7 +16,7 @@ const ProgressBar = props => {
       </SC.TextWrap>
 
       <SC.ProgressBar>
-        <SC.BarFill fill={fillPercent} />
+        <SC.BarFill fill={isNaN(fillPercent) ? 0 : fillPercent} />
       </SC.ProgressBar>
     </SC.ProgressBarWrap>
   )
