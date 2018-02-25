@@ -10,8 +10,8 @@ export const NavBar = props => {
     if (!props.match.params.category) return null
 
     const { category, content } = props.match.params
-    const prevPage = Number(content) - 1
-    const nextPage = Number(content) + 1
+    const prevPage = Number(content) - 1 === 0 ? 9 : Number(content) - 1
+    const nextPage = Number(content) + 1 === 10 ? 1 : Number(content) + 1
 
     return (
       <SC.CentreWrap>
