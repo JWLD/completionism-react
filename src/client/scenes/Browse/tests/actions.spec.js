@@ -4,7 +4,7 @@ import MockAdapter from 'axios-mock-adapter'
 import axios from 'axios'
 
 import { CATEGORY_DATA_URL } from 'constants/api_urls'
-import { CATEGORY_DATA } from 'fixtures'
+import * as MOCKS from 'fixtures'
 import * as actions from 'scenes/Browse/actions'
 
 const mock = new MockAdapter(axios)
@@ -23,9 +23,11 @@ describe('#fetchRealmData', () => {
 
     mock
       .onGet(CATEGORY_DATA_URL, { params: { category } })
-      .reply(200, CATEGORY_DATA)
+      .reply(200, MOCKS.CATEGORY_DATA)
 
-    const expectedActions = [actions.addCategoryData(CATEGORY_DATA, category)]
+    const expectedActions = [
+      actions.addCategoryData(MOCKS.CATEGORY_DATA, category)
+    ]
     await store.dispatch(actions.fetchCategoryData(category))
 
     expect(store.getActions()).toEqual(expectedActions)

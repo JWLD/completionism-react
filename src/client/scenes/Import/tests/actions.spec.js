@@ -4,7 +4,7 @@ import MockAdapter from 'axios-mock-adapter'
 import axios from 'axios'
 
 import { REALM_URL } from 'constants/api_urls'
-import { REALM_DATA } from 'fixtures'
+import * as MOCKS from 'fixtures'
 import * as actions from 'scenes/Import/actions'
 
 const mock = new MockAdapter(axios)
@@ -21,9 +21,9 @@ describe('#fetchRealmData', () => {
   it('dispatches correct action after a successful request', async () => {
     const region = 'eu'
 
-    mock.onGet(REALM_URL, { params: { region } }).reply(200, REALM_DATA)
+    mock.onGet(REALM_URL, { params: { region } }).reply(200, MOCKS.REALM_DATA)
 
-    const expectedActions = [actions.addRealmData(REALM_DATA, region)]
+    const expectedActions = [actions.addRealmData(MOCKS.REALM_DATA, region)]
     await store.dispatch(actions.fetchRealmData(region))
 
     expect(store.getActions()).toEqual(expectedActions)
