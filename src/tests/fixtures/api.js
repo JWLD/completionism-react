@@ -11,6 +11,21 @@ export const BNET_CHARACTER_DATA = {
   }
 }
 
+export const BROWSE_ITEM = {
+  id: 232519,
+  name: 'Abyss Worm',
+  source: 109,
+  content: 7,
+  sub1: null,
+  sub2: null,
+  added: 7,
+  quality: 4,
+  faction: 2,
+  bmah: null,
+  class: null,
+  icon: 'inv_serpentmount_green'
+}
+
 export const REALM_DATA = [
   {
     name: 'Aegwynn',
