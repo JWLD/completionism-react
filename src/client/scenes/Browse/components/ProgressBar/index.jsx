@@ -5,6 +5,7 @@ import * as SC from './styled'
 
 const ProgressBar = props => {
   const fillPercent = props.count / props.total * 100
+  const fillProp = isNaN(fillPercent) ? 0 : fillPercent
 
   return (
     <SC.ProgressBarWrap>
@@ -16,7 +17,7 @@ const ProgressBar = props => {
       </SC.TextWrap>
 
       <SC.ProgressBar>
-        <SC.BarFill fill={isNaN(fillPercent) ? 0 : fillPercent} />
+        <SC.BarFill fill={fillProp} />
       </SC.ProgressBar>
     </SC.ProgressBarWrap>
   )
