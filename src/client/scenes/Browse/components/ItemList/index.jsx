@@ -14,7 +14,7 @@ import { CONTENT } from 'constants/content'
 import ProgressBar from 'scenes/Browse/components/ProgressBar'
 import ItemTile from 'scenes/Browse/components/ItemTile'
 
-const ItemList = props => {
+export const ItemList = props => {
   const renderBlockTiles = data => {
     return data.map(item => <ItemTile {...item} key={item.id} />)
   }
