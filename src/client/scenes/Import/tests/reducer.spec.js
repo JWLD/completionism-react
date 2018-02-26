@@ -3,9 +3,15 @@ import * as actions from 'scenes/Import/actions'
 
 import * as MOCKS from 'fixtures'
 
+let mockState
+
+beforeEach(() => {
+  mockState = initialState
+})
+
 describe('#importReducer', () => {
   it('returns initialState when passed undefined', () => {
-    expect(reducer(undefined, {})).toEqual(initialState)
+    expect(reducer(undefined, {})).toEqual(mockState)
   })
 })
 
@@ -14,13 +20,14 @@ describe('ADD_REALM_DATA', () => {
     const region = 'eu'
 
     const expectedNewState = {
+      ...mockState,
       realms: {
         [region]: MOCKS.REALM_DATA
       }
     }
 
     const action = actions.addRealmData(MOCKS.REALM_DATA, region)
-    const newState = reducer(initialState, action)
+    const newState = reducer(mockState, action)
 
     expect(newState).toEqual(expectedNewState)
   })
