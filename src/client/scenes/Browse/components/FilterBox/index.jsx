@@ -6,7 +6,7 @@ import { resetFilter, setFilter } from 'scenes/Browse/actions'
 
 import * as SC from './styled'
 
-const FilterBox = props => (
+export const FilterBox = props => (
   <SC.FilterWrap>
     <SC.FilterInput
       onChange={e => props.setFilter(e.target.value)}
@@ -26,7 +26,7 @@ FilterBox.propTypes = {
   setFilter: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   filterValue: state.browse.filter
 })
 
