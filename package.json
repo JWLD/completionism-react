@@ -8,9 +8,9 @@
     "dev": "NODE_ENV=dev webpack-dev-server & npm run server",
     "build": "webpack",
     "server": "NODE_ENV=dev nodemon --watch ./src/server/ ./src/server/start.js",
-    "test": "NODE_END=test jest",
-    "test:watch": "NODE_END=test jest --watch",
-    "test:coverage": "NODE_END=test jest --coverage",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "NODE_ENV=test jest --watch",
+    "test:coverage": "NODE_ENV=test jest --coverage",
     "lint": "eslint . --ext .js,.jsx"
   },
   "repository": {
