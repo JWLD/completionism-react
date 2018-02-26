@@ -1,7 +1,7 @@
 import * as ACTIONS from 'constants/action_types'
 import { fetchDBCategoryData } from 'services/api'
 
-const addCategoryData = (categoryData, category) => ({
+export const addCategoryData = (categoryData, category) => ({
   type: ACTIONS.ADD_CATEGORY_DATA,
   payload: categoryData,
   category

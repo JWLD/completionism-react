@@ -1,10 +1,10 @@
 import * as ACTIONS from 'constants/action_types'
 
-const initialState = {
+export const initialState = {
   filter: ''
 }
 
-export const reducer = (state = initialState, action) => {
+const browseReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIONS.ADD_CATEGORY_DATA:
       return { ...state, [action.category]: action.payload }
@@ -16,3 +16,5 @@ export const reducer = (state = initialState, action) => {
       return state
   }
 }
+
+export default browseReducer
