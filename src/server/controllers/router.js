@@ -7,8 +7,6 @@ const blizzController = require('./blizzard')
 // DATABASE
 router.route('/db-category').get(dbController.getCategoryData)
 
-router.route('/db-ranked').get(dbController.getRankedData)
-
 // BLIZZARD
 router.route('/realms').get(blizzController.getRealmData)
 

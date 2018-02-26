@@ -12,13 +12,4 @@ dbController.getCategoryData = (req, res) => {
   })
 }
 
-// GET DB-RANKED - GET ALL RECIPES WITH RANKS FROM DB
-dbController.getRankedData = (req, res) => {
-  dbQueries.getRankedData(dbConnect, req.query.q, (err, dbRes) => {
-    if (err) return res.status(500).send(err)
-
-    return res.send(dbRes)
-  })
-}
-
 module.exports = dbController
