@@ -17,6 +17,7 @@ const colours = {
 }
 
 const sizing = {
+  browsePadding: 3,
   itemListPadding: 2,
   itemHeight: 5,
   navBarHeight: 7.5,

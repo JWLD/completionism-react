@@ -7,8 +7,9 @@ import { categoryParamSelector, categoryDataSelector } from './selectors'
 
 import * as SC from './styled'
 import NavBar from 'components/NavBar'
-import ItemList from './components/ItemList'
 import FilterBox from './components/FilterBox'
+import ItemList from './components/ItemList'
+import DetailPanel from './components/DetailPanel'
 
 class Browse extends Component {
   componentDidMount() {
@@ -24,8 +25,11 @@ class Browse extends Component {
       <SC.BrowsePage>
         <NavBar />
 
-        <FilterBox />
-        <ItemList />
+        <SC.ListWrap>
+          <FilterBox />
+          <ItemList />
+        </SC.ListWrap>
+        <DetailPanel />
       </SC.BrowsePage>
     )
   }

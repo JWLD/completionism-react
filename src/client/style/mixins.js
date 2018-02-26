@@ -36,7 +36,7 @@ const pageWrap = `
 const browseBlock = `
   ${flex};
 
-  width: 75rem;
+  width: 100%;
   padding: ${vars.sizing.itemListPadding}rem;
   border-radius: 0.4rem;
   background-color: ${vars.colours.mainGrey};

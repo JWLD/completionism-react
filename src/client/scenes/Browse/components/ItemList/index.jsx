@@ -31,14 +31,14 @@ const ItemList = props => {
   const progressBarTitle = CONTENT[props.content].xpac
 
   return (
-    <div>
+    <SC.ListWrap>
       <ProgressBar
         count={props.progress.count}
         title={progressBarTitle}
         total={props.progress.total}
       />
       {renderListBlocks()}
-    </div>
+    </SC.ListWrap>
   )
 }
 
