@@ -2,7 +2,8 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import { Browse } from 'scenes/Browse'
+import { Browse, mapStateToProps } from 'scenes/Browse'
+import * as MOCKS from 'fixtures'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -13,7 +14,8 @@ beforeEach(() => {
   mockProps = {
     category: '',
     categoryDataExists: false,
-    fetchCategoryData: mockFetchCategoryData
+    fetchCategoryData: mockFetchCategoryData,
+    ...MOCKS.BROWSE_ROUTER_PROPS
   }
 
   jest.resetAllMocks()
@@ -39,5 +41,15 @@ describe('#componentDidMount', () => {
     shallow(<Browse {...mockProps} />)
 
     expect(mockFetchCategoryData).toHaveBeenCalledTimes(0)
+  })
+})
+
+describe('#mapStateToProps', () => {
+  it('extracts the required data from state', () => {
+    const result = mapStateToProps(MOCKS.INITIAL_STATE, mockProps)
+
+    expect(Object.keys(result)).toHaveLength(2)
+    expect(result).toHaveProperty('category')
+    expect(result).toHaveProperty('categoryDataExists')
   })
 })

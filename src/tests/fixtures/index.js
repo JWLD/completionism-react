@@ -1,4 +1,5 @@
 export * from './api'
 export * from './form_values'
 export * from './local_storage'
+export * from './props'
 export * from './redux_state'

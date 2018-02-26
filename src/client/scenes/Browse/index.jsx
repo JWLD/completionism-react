@@ -39,7 +39,7 @@ Browse.propTypes = {
   fetchCategoryData: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state, ownProps) => ({
+export const mapStateToProps = (state, ownProps) => ({
   category: categoryParamSelector(state, ownProps),
   categoryDataExists: categoryDataExistsSelector(state, ownProps)
 })
