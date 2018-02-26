@@ -81,7 +81,13 @@ const addCollectedInfo = (data, collectedIds) => {
 const collectedIdsSelector = createSelector(
   [categoryParamSelector],
   category => {
-    return localStorage[category] ? JSON.parse(localStorage[category]).ids : []
+    const data = localStorage[category] && JSON.parse(localStorage[category])
+
+    if (!data) return []
+
+    const ids = category === 'pets' ? data.ids.map(item => item.id) : data.ids
+
+    return ids
   }
 )
 
