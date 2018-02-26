@@ -125,7 +125,7 @@ const factionSelector = createSelector([categoryParamSelector], category => {
 
 const filterValueSelector = state => state.browse.filter
 
-const contentParamSelector = (state, props) =>
+export const contentParamSelector = (state, props) =>
   Number(props.match.params.content)
 
 const itemsSelector = createSelector(

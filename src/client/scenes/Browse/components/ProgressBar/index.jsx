@@ -9,7 +9,7 @@ const ProgressBar = props => {
   return (
     <SC.ProgressBarWrap>
       <SC.TextWrap>
-        <SC.ProgressText>Temp Title</SC.ProgressText>
+        <SC.ProgressText>{props.title}</SC.ProgressText>
         <SC.ProgressText>
           {props.count} / {props.total}
         </SC.ProgressText>
@@ -24,6 +24,7 @@ const ProgressBar = props => {
 
 ProgressBar.propTypes = {
   count: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
   total: PropTypes.number.isRequired
 }
 
