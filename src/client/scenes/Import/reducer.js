@@ -1,6 +1,6 @@
 import { ADD_REALM_DATA } from 'constants/action_types'
 
-const initialState = {
+export const initialState = {
   realms: {}
 }
 
