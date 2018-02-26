@@ -5,7 +5,7 @@ export const categoryParamSelector = (state, props) =>
 
 const browseStateSelector = state => state.browse
 
-export const categoryDataSelector = createSelector(
+export const categoryDataExistsSelector = createSelector(
   [browseStateSelector, categoryParamSelector],
-  (browseState, categoryParam) => browseState[categoryParam] || []
+  (browseState, categoryParam) => (browseState[categoryParam] ? true : false)
 )

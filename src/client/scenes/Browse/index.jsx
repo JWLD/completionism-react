@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { fetchCategoryData } from './actions'
-import { categoryParamSelector, categoryDataSelector } from './selectors'
+import { categoryParamSelector, categoryDataExistsSelector } from './selectors'
 
 import * as SC from './styled'
 import NavBar from 'components/NavBar'
@@ -13,9 +13,7 @@ import DetailPanel from './components/DetailPanel'
 
 export class Browse extends Component {
   componentDidMount() {
-    const categoryDataExists = this.props.categoryData.length > 0
-
-    if (!categoryDataExists) {
+    if (!this.props.categoryDataExists) {
       this.props.fetchCategoryData(this.props.category)
     }
   }
@@ -37,13 +35,13 @@ export class Browse extends Component {
 
 Browse.propTypes = {
   category: PropTypes.string.isRequired,
-  categoryData: PropTypes.array.isRequired,
+  categoryDataExists: PropTypes.bool.isRequired,
   fetchCategoryData: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => ({
   category: categoryParamSelector(state, ownProps),
-  categoryData: categoryDataSelector(state, ownProps)
+  categoryDataExists: categoryDataExistsSelector(state, ownProps)
 })
 
 const mapDispatchToProps = {
