@@ -30,6 +30,14 @@ ShallowWrapper {
       ]
     }
     content={1}
+    match={
+      Object {
+        "params": Object {
+          "category": "mounts",
+          "content": 1,
+        },
+      }
+    }
     progress={
       Object {
         "count": 1,

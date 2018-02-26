@@ -48,7 +48,7 @@ ItemList.propTypes = {
   progress: PropTypes.object.isRequired
 }
 
-const mapStateToProps = (state, ownProps) => ({
+export const mapStateToProps = (state, ownProps) => ({
   blocks: itemBlocksSelector(state, ownProps),
   content: contentParamSelector(state, ownProps),
   progress: progressDataSelector(state, ownProps)
