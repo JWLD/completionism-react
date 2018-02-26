@@ -25,14 +25,17 @@ export const ItemTile = styled.li`
   }
 `
 
-export const ItemIcon = styled.i`
+export const ItemIcon = styled.i.attrs({
+  style: ({ iconUrl }) => ({
+    backgroundImage: iconUrl
+  })
+})`
   height: ${iconSize}rem;
   width: ${iconSize}rem;
   margin-right: ${itemTilePadding * 2}rem;
   border-radius: 0.4rem;
   background-size: cover;
   background-color: #222;
-  background-image: ${props => props.iconUrl};
 `
 
 export const ItemTitle = styled.span`
