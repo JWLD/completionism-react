@@ -11,7 +11,7 @@ import FilterBox from './components/FilterBox'
 import ItemList from './components/ItemList'
 import DetailPanel from './components/DetailPanel'
 
-class Browse extends Component {
+export class Browse extends Component {
   componentDidMount() {
     const categoryDataExists = this.props.categoryData.length > 0
 
