@@ -5,7 +5,7 @@ const dbController = {}
 
 // GET DB-CATEGORY - GET ALL CATEGORY DATA FROM DB
 dbController.getCategoryData = (req, res) => {
-  dbQueries.getCategoryData(dbConnect, req.query.q, (err, dbRes) => {
+  dbQueries.getCategoryData(dbConnect, req.query.category, (err, dbRes) => {
     if (err) return res.status(500).send(err)
 
     return res.send(dbRes)

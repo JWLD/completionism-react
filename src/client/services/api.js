@@ -31,3 +31,16 @@ export const fetchBattleNetRealmData = region => {
       console.log(`Error fetching realm data from BattleNet: ${err}`)
     )
 }
+
+export const fetchDBCategoryData = category => {
+  return axios
+    .get(URLS.CATEGORY_DATA_URL, { params: { category } })
+    .then(res => {
+      if (process.NODE_ENV === 'dev') {
+        console.log('Success fetching character data from DB!')
+      }
+
+      return res.data
+    })
+    .catch(err => console.log(`Error fetching character data from DB: ${err}`))
+}

@@ -1,6 +1,5 @@
-import axios from 'axios'
-
 import * as ACTIONS from 'constants/action_types'
+import { fetchDBCategoryData } from 'services/api'
 
 const addCategoryData = (categoryData, category) => ({
   type: ACTIONS.ADD_CATEGORY_DATA,
@@ -18,8 +17,7 @@ export const setFilter = value => ({
 })
 
 export const fetchCategoryData = category => dispatch => {
-  axios
-    .get(`/api/db-category?q=${category}`)
-    .then(response => dispatch(addCategoryData(response.data, category)))
-    .catch(err => console.log(err.response.data || err))
+  return fetchDBCategoryData(category).then(categoryData => {
+    return dispatch(addCategoryData(categoryData, category))
+  })
 }
