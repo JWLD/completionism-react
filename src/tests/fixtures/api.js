@@ -26,6 +26,8 @@ export const BROWSE_ITEM = {
   icon: 'inv_serpentmount_green'
 }
 
+export const CATEGORY_DATA = [BROWSE_ITEM]
+
 export const REALM_DATA = [
   {
     name: 'Aegwynn',
