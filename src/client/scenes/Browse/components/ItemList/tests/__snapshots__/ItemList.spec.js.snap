@@ -5,7 +5,30 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ItemList
-    blocks={Array []}
+    blocks={
+      Array [
+        Object {
+          "items": Array [
+            Object {
+              "added": 7,
+              "bmah": null,
+              "class": null,
+              "collected": true,
+              "content": 7,
+              "faction": 2,
+              "icon": "inv_serpentmount_green",
+              "id": 232519,
+              "name": "Abyss Worm",
+              "quality": 4,
+              "source": 109,
+              "sub1": null,
+              "sub2": null,
+            },
+          ],
+          "name": "Drop",
+        },
+      ]
+    }
     content={1}
     progress={
       Object {
@@ -32,7 +55,28 @@ ShallowWrapper {
           title="Classic"
           total={2}
         />,
-        Array [],
+        Array [
+          <ItemListBlock>
+            <BlockTitle>
+              Drop
+            </BlockTitle>
+            <ItemTile
+              added={7}
+              bmah={null}
+              class={null}
+              collected={true}
+              content={7}
+              faction={2}
+              icon="inv_serpentmount_green"
+              id={232519}
+              name="Abyss Worm"
+              quality={4}
+              source={109}
+              sub1={null}
+              sub2={null}
+            />
+          </ItemListBlock>,
+        ],
       ],
     },
     "ref": null,
@@ -50,6 +94,73 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": "Drop",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <BlockTitle>
+              Drop
+            </BlockTitle>,
+            Array [
+              <ItemTile
+                added={7}
+                bmah={null}
+                class={null}
+                collected={true}
+                content={7}
+                faction={2}
+                icon="inv_serpentmount_green"
+                id={232519}
+                name="Abyss Worm"
+                quality={4}
+                source={109}
+                sub1={null}
+                sub2={null}
+              />,
+            ],
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Drop",
+            },
+            "ref": null,
+            "rendered": "Drop",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "232519",
+            "nodeType": "function",
+            "props": Object {
+              "added": 7,
+              "bmah": null,
+              "class": null,
+              "collected": true,
+              "content": 7,
+              "faction": 2,
+              "icon": "inv_serpentmount_green",
+              "id": 232519,
+              "name": "Abyss Worm",
+              "quality": 4,
+              "source": 109,
+              "sub1": null,
+              "sub2": null,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
     ],
     "type": [Function],
   },
@@ -65,7 +176,28 @@ ShallowWrapper {
             title="Classic"
             total={2}
           />,
-          Array [],
+          Array [
+            <ItemListBlock>
+              <BlockTitle>
+                Drop
+              </BlockTitle>
+              <ItemTile
+                added={7}
+                bmah={null}
+                class={null}
+                collected={true}
+                content={7}
+                faction={2}
+                icon="inv_serpentmount_green"
+                id={232519}
+                name="Abyss Worm"
+                quality={4}
+                source={109}
+                sub1={null}
+                sub2={null}
+              />
+            </ItemListBlock>,
+          ],
         ],
       },
       "ref": null,
@@ -81,6 +213,73 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "Drop",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <BlockTitle>
+                Drop
+              </BlockTitle>,
+              Array [
+                <ItemTile
+                  added={7}
+                  bmah={null}
+                  class={null}
+                  collected={true}
+                  content={7}
+                  faction={2}
+                  icon="inv_serpentmount_green"
+                  id={232519}
+                  name="Abyss Worm"
+                  quality={4}
+                  source={109}
+                  sub1={null}
+                  sub2={null}
+                />,
+              ],
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Drop",
+              },
+              "ref": null,
+              "rendered": "Drop",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "232519",
+              "nodeType": "function",
+              "props": Object {
+                "added": 7,
+                "bmah": null,
+                "class": null,
+                "collected": true,
+                "content": 7,
+                "faction": 2,
+                "icon": "inv_serpentmount_green",
+                "id": 232519,
+                "name": "Abyss Worm",
+                "quality": 4,
+                "source": 109,
+                "sub1": null,
+                "sub2": null,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": [Function],
         },
       ],

@@ -2,12 +2,18 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
+import * as MOCKS from 'fixtures'
 import { ItemList } from 'scenes/Browse/components/ItemList'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 const mockProps = {
-  blocks: [],
+  blocks: [
+    {
+      name: 'Drop',
+      items: [{ ...MOCKS.BROWSE_ITEM, collected: true }]
+    }
+  ],
   content: 1,
   progress: {
     count: 1,
