@@ -76,7 +76,31 @@ const addCollectedInfo = (data, collectedIds) => {
   })
 }
 
+const updateItemQuality = (data, petQualityById) => {
+  return data.map(item => {
+    const quality = petQualityById[item.id]
+
+    if (quality) {
+      item.quality = quality
+    }
+
+    return item
+  })
+}
+
 // LOCAL STORAGE SELECTORS
+
+const petQualitySelector = createSelector([categoryParamSelector], category => {
+  const data = localStorage[category]
+    ? JSON.parse(localStorage[category]).ids
+    : []
+
+  return data.reduce((acc, item) => {
+    acc[item.id] = item.quality
+
+    return acc
+  }, {})
+})
 
 const collectedIdsSelector = createSelector(
   [categoryParamSelector],
@@ -107,17 +131,31 @@ const contentParamSelector = (state, props) =>
 const itemsSelector = createSelector(
   [
     categoryDataSelector,
+    categoryParamSelector,
     contentParamSelector,
     factionSelector,
     filterValueSelector,
-    collectedIdsSelector
+    collectedIdsSelector,
+    petQualitySelector
   ],
-  (data, content, faction, filterValue, collectedIds) => {
+  (
+    data,
+    category,
+    content,
+    faction,
+    filterValue,
+    collectedIds,
+    petQualityById
+  ) => {
     data = filterByContent(data, content)
     data = filterByFaction(data, faction)
     data = filterByUserFilter(data, filterValue)
     data = sortItems(data)
     data = addCollectedInfo(data, collectedIds)
+
+    if (category === 'pets') {
+      data = updateItemQuality(data, petQualityById)
+    }
 
     return data
   }
