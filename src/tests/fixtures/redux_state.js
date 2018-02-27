@@ -1,5 +1,7 @@
 export const INITIAL_STATE = {
-  browse: {},
+  browse: {
+    filter: ''
+  },
   form: {
     import: {
       values: {

@@ -11,23 +11,6 @@ export const BNET_CHARACTER_DATA = {
   }
 }
 
-export const BROWSE_ITEM = {
-  id: 232519,
-  name: 'Abyss Worm',
-  source: 109,
-  content: 7,
-  sub1: null,
-  sub2: null,
-  added: 7,
-  quality: 4,
-  faction: 2,
-  bmah: null,
-  class: null,
-  icon: 'inv_serpentmount_green'
-}
-
-export const CATEGORY_DATA = [BROWSE_ITEM]
-
 export const REALM_DATA = [
   {
     name: 'Aegwynn',
@@ -40,5 +23,30 @@ export const REALM_DATA = [
   {
     name: 'Agamaggan',
     slug: 'agamaggan'
+  }
+]
+
+export const MOUNT_ENTRY = {
+  id: 1,
+  name: 'Black Horse',
+  source: 102,
+  content: 1,
+  sub1: 'Dungeon',
+  sub2: null,
+  added: 1,
+  quality: 4,
+  faction: 2,
+  bmah: null,
+  class: null,
+  icon: 'inv_horse'
+}
+
+export const CATEGORY_DATA = [
+  MOUNT_ENTRY,
+  MOUNT_ENTRY,
+  {
+    ...MOUNT_ENTRY,
+    id: 100,
+    source: 103
   }
 ]

@@ -39,7 +39,7 @@ ShallowWrapper {
               >
                 <UserIcon />
                 <Portrait
-                  src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                  src="http://render-undefined.worldofwarcraft.com/character/undefined"
                 />
               </Styled(Link)>
             </CategoryPanel>
@@ -333,7 +333,7 @@ ShallowWrapper {
               >
                 <UserIcon />
                 <Portrait
-                  src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                  src="http://render-undefined.worldofwarcraft.com/character/undefined"
                 />
               </Styled(Link)>
             </CategoryPanel>,
@@ -402,7 +402,7 @@ ShallowWrapper {
                 >
                   <UserIcon />
                   <Portrait
-                    src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                    src="http://render-undefined.worldofwarcraft.com/character/undefined"
                   />
                 </Styled(Link)>,
               ],
@@ -460,7 +460,7 @@ ShallowWrapper {
                   "children": Array [
                     <UserIcon />,
                     <Portrait
-                      src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                      src="http://render-undefined.worldofwarcraft.com/character/undefined"
                     />,
                   ],
                   "to": "/import",
@@ -481,7 +481,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "src": "http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg",
+                      "src": "http://render-undefined.worldofwarcraft.com/character/undefined",
                     },
                     "ref": null,
                     "rendered": null,
@@ -2051,7 +2051,7 @@ ShallowWrapper {
                 >
                   <UserIcon />
                   <Portrait
-                    src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                    src="http://render-undefined.worldofwarcraft.com/character/undefined"
                   />
                 </Styled(Link)>
               </CategoryPanel>
@@ -2345,7 +2345,7 @@ ShallowWrapper {
                 >
                   <UserIcon />
                   <Portrait
-                    src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                    src="http://render-undefined.worldofwarcraft.com/character/undefined"
                   />
                 </Styled(Link)>
               </CategoryPanel>,
@@ -2414,7 +2414,7 @@ ShallowWrapper {
                   >
                     <UserIcon />
                     <Portrait
-                      src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                      src="http://render-undefined.worldofwarcraft.com/character/undefined"
                     />
                   </Styled(Link)>,
                 ],
@@ -2472,7 +2472,7 @@ ShallowWrapper {
                     "children": Array [
                       <UserIcon />,
                       <Portrait
-                        src="http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg"
+                        src="http://render-undefined.worldofwarcraft.com/character/undefined"
                       />,
                     ],
                     "to": "/import",
@@ -2493,7 +2493,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "class",
                       "props": Object {
-                        "src": "http://render-eu.worldofwarcraft.com/character/sylvanas/92/99597404-avatar.jpg",
+                        "src": "http://render-undefined.worldofwarcraft.com/character/undefined",
                       },
                       "ref": null,
                       "rendered": null,
