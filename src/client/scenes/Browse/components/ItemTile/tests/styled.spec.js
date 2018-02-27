@@ -7,24 +7,16 @@ import { ItemIcon, ItemTitle } from 'scenes/Browse/components/ItemTile/styled'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('<ItemIcon />', () => {
-  const mockProps = {
-    iconUrl: 'foo'
-  }
-
   it('handles [iconUrl] prop correctly', () => {
-    const component = shallow(<ItemIcon {...mockProps} />)
+    const component = shallow(<ItemIcon iconUrl="foo" />)
 
     expect(component).toMatchSnapshot()
   })
 })
 
 describe('<ItemTitle />', () => {
-  const mockProps = {
-    quality: 1
-  }
-
   it('handles [quality] prop correctly', () => {
-    const component = shallow(<ItemTitle {...mockProps} />)
+    const component = shallow(<ItemTitle quality="1" />)
 
     expect(component).toMatchSnapshot()
   })
