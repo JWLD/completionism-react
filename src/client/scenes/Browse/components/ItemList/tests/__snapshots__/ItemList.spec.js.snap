@@ -10,18 +10,18 @@ ShallowWrapper {
         Object {
           "items": Array [
             Object {
-              "added": 7,
+              "added": 1,
               "bmah": null,
               "class": null,
               "collected": true,
-              "content": 7,
+              "content": 1,
               "faction": 2,
-              "icon": "inv_serpentmount_green",
-              "id": 232519,
-              "name": "Abyss Worm",
+              "icon": "inv_horse",
+              "id": 1,
+              "name": "Black Horse",
               "quality": 4,
-              "source": 109,
-              "sub1": null,
+              "source": 102,
+              "sub1": "Dungeon",
               "sub2": null,
             },
           ],
@@ -69,18 +69,18 @@ ShallowWrapper {
               Drop
             </BlockTitle>
             <ItemTile
-              added={7}
+              added={1}
               bmah={null}
               class={null}
               collected={true}
-              content={7}
+              content={1}
               faction={2}
-              icon="inv_serpentmount_green"
-              id={232519}
-              name="Abyss Worm"
+              icon="inv_horse"
+              id={1}
+              name="Black Horse"
               quality={4}
-              source={109}
-              sub1={null}
+              source={102}
+              sub1="Dungeon"
               sub2={null}
             />
           </ItemListBlock>,
@@ -113,18 +113,18 @@ ShallowWrapper {
             </BlockTitle>,
             Array [
               <ItemTile
-                added={7}
+                added={1}
                 bmah={null}
                 class={null}
                 collected={true}
-                content={7}
+                content={1}
                 faction={2}
-                icon="inv_serpentmount_green"
-                id={232519}
-                name="Abyss Worm"
+                icon="inv_horse"
+                id={1}
+                name="Black Horse"
                 quality={4}
-                source={109}
-                sub1={null}
+                source={102}
+                sub1="Dungeon"
                 sub2={null}
               />,
             ],
@@ -145,21 +145,21 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": "232519",
+            "key": "1",
             "nodeType": "function",
             "props": Object {
-              "added": 7,
+              "added": 1,
               "bmah": null,
               "class": null,
               "collected": true,
-              "content": 7,
+              "content": 1,
               "faction": 2,
-              "icon": "inv_serpentmount_green",
-              "id": 232519,
-              "name": "Abyss Worm",
+              "icon": "inv_horse",
+              "id": 1,
+              "name": "Black Horse",
               "quality": 4,
-              "source": 109,
-              "sub1": null,
+              "source": 102,
+              "sub1": "Dungeon",
               "sub2": null,
             },
             "ref": null,
@@ -190,18 +190,18 @@ ShallowWrapper {
                 Drop
               </BlockTitle>
               <ItemTile
-                added={7}
+                added={1}
                 bmah={null}
                 class={null}
                 collected={true}
-                content={7}
+                content={1}
                 faction={2}
-                icon="inv_serpentmount_green"
-                id={232519}
-                name="Abyss Worm"
+                icon="inv_horse"
+                id={1}
+                name="Black Horse"
                 quality={4}
-                source={109}
-                sub1={null}
+                source={102}
+                sub1="Dungeon"
                 sub2={null}
               />
             </ItemListBlock>,
@@ -234,18 +234,18 @@ ShallowWrapper {
               </BlockTitle>,
               Array [
                 <ItemTile
-                  added={7}
+                  added={1}
                   bmah={null}
                   class={null}
                   collected={true}
-                  content={7}
+                  content={1}
                   faction={2}
-                  icon="inv_serpentmount_green"
-                  id={232519}
-                  name="Abyss Worm"
+                  icon="inv_horse"
+                  id={1}
+                  name="Black Horse"
                   quality={4}
-                  source={109}
-                  sub1={null}
+                  source={102}
+                  sub1="Dungeon"
                   sub2={null}
                 />,
               ],
@@ -266,21 +266,21 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": "232519",
+              "key": "1",
               "nodeType": "function",
               "props": Object {
-                "added": 7,
+                "added": 1,
                 "bmah": null,
                 "class": null,
                 "collected": true,
-                "content": 7,
+                "content": 1,
                 "faction": 2,
-                "icon": "inv_serpentmount_green",
-                "id": 232519,
-                "name": "Abyss Worm",
+                "icon": "inv_horse",
+                "id": 1,
+                "name": "Black Horse",
                 "quality": 4,
-                "source": 109,
-                "sub1": null,
+                "source": 102,
+                "sub1": "Dungeon",
                 "sub2": null,
               },
               "ref": null,

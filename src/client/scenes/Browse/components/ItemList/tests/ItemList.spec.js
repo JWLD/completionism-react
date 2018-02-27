@@ -11,7 +11,7 @@ const mockProps = {
   blocks: [
     {
       name: 'Drop',
-      items: [{ ...MOCKS.BROWSE_ITEM, collected: true }]
+      items: [{ ...MOCKS.MOUNT_ENTRY, collected: true }]
     }
   ],
   content: 1,
