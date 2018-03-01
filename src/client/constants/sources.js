@@ -22,6 +22,6 @@ export const SOURCES = {
   303: 'Garrison',
   304: 'Order Hall',
   305: 'Pet Battle',
-  306: '',
+  306: 'Unassigned',
   307: 'Treasure'
 }
