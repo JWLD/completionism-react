@@ -7,6 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <ItemTile
     collected={true}
     icon={null}
+    id={1}
     name="foo"
     quality={1}
     setActiveItem={[MockFunction]}
@@ -147,6 +148,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <ItemTile
     collected={false}
     icon={null}
+    id={1}
     name="foo"
     quality={1}
     setActiveItem={[MockFunction]}
@@ -287,6 +289,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <ItemTile
     collected={true}
     icon="foo"
+    id={1}
     name="foo"
     quality={1}
     setActiveItem={[MockFunction]}

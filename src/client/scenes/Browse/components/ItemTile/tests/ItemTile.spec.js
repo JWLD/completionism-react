@@ -11,6 +11,7 @@ let mockProps = {}
 beforeEach(() => {
   mockProps = {
     collected: true,
+    id: 1,
     name: 'foo',
     quality: 1,
     setActiveItem: jest.fn()

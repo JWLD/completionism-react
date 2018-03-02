@@ -29,6 +29,7 @@ ItemTile.defaultProps = {
 ItemTile.propTypes = {
   collected: PropTypes.bool.isRequired,
   icon: PropTypes.string,
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   quality: PropTypes.number.isRequired,
   setActiveItem: PropTypes.func.isRequired
