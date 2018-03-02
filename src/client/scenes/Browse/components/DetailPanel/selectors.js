@@ -9,6 +9,6 @@ export const itemDataSelector = createSelector(
   (activeItemId, categoryData) => {
     const itemData = categoryData.find(item => item.id === activeItemId)
 
-    return itemData
+    return itemData || {}
   }
 )

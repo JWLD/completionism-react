@@ -16,3 +16,15 @@ export const DetailPanel = styled.div`
   border-radius: 0.4rem;
   background-color: ${vars.colours.mainGrey};
 `
+
+export const ItemImage = styled.div.attrs({
+  style: ({ imageUrl }) => ({
+    backgroundImage: `url(${imageUrl})`
+  })
+})`
+  width: 40rem;
+  height: 40rem;
+  border-radius: 0.4rem;
+  background-color: #444;
+  background-size: cover;
+`
