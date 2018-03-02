@@ -1,18 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import { ICON_URLS } from 'constants/urls'
+import { setActiveItem } from 'scenes/Browse/actions'
 
 import * as SC from './styled'
 
 const ItemTile = props => {
-  const { collected, icon, name, quality } = props
+  const { collected, icon, id, name, quality } = props
 
   const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
   const progressIcon = collected ? <SC.CheckIcon /> : <SC.CrossIcon />
 
   return (
-    <SC.ItemTile>
+    <SC.ItemTile onClick={() => props.setActiveItem(id)}>
       <SC.ItemIcon iconUrl={iconUrl} />
       <SC.ItemTitle quality={quality}>{name}</SC.ItemTitle>
       {progressIcon}
@@ -28,7 +30,12 @@ ItemTile.propTypes = {
   collected: PropTypes.bool.isRequired,
   icon: PropTypes.string,
   name: PropTypes.string.isRequired,
-  quality: PropTypes.number.isRequired
+  quality: PropTypes.number.isRequired,
+  setActiveItem: PropTypes.func.isRequired
 }
 
-export default ItemTile
+const mapDispatchToProps = {
+  setActiveItem
+}
+
+export default connect(null, mapDispatchToProps)(ItemTile)

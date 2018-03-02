@@ -11,6 +11,11 @@ export const resetFilter = () => ({
   type: ACTIONS.RESET_FILTER
 })
 
+export const setActiveItem = itemId => ({
+  type: ACTIONS.SET_ACTIVE_ITEM,
+  payload: itemId
+})
+
 export const setFilter = value => ({
   type: ACTIONS.SET_FILTER,
   payload: value
