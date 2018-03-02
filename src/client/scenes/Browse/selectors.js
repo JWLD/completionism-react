@@ -11,3 +11,8 @@ export const categoryDataExistsSelector = createSelector(
     return browseState[categoryParam] ? true : false
   }
 )
+
+export const categoryDataSelector = createSelector(
+  [browseStateSelector, categoryParamSelector],
+  (browseState, categoryParam) => browseState[categoryParam] || []
+)

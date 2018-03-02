@@ -1,7 +1,10 @@
 import { createSelector } from 'reselect'
 import _ from 'lodash'
 
-import { categoryParamSelector } from 'scenes/Browse/selectors'
+import {
+  categoryDataSelector,
+  categoryParamSelector
+} from 'scenes/Browse/selectors'
 import { SOURCES } from 'constants/sources'
 
 // FILTER FUNCTIONS
@@ -120,17 +123,10 @@ const factionSelector = createSelector([categoryParamSelector], category => {
 
 // REGULAR SELECTORS
 
-const browseStateSelector = state => state.browse
-
 const filterValueSelector = state => state.browse.filter
 
 export const contentParamSelector = (state, props) =>
   Number(props.match.params.content)
-
-const categoryDataSelector = createSelector(
-  [browseStateSelector, categoryParamSelector],
-  (browseState, categoryParam) => browseState[categoryParam] || []
-)
 
 const itemsSelector = createSelector(
   [

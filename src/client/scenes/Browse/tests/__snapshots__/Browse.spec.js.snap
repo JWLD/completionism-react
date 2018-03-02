@@ -43,7 +43,7 @@ ShallowWrapper {
           <Connect(FilterBox) />
           <withRouter(Connect(ItemList)) />
         </ListWrap>,
-        <DetailPanel />,
+        <withRouter(Connect(DetailPanel)) />,
       ],
     },
     "ref": null,
@@ -114,7 +114,7 @@ ShallowWrapper {
             <Connect(FilterBox) />
             <withRouter(Connect(ItemList)) />
           </ListWrap>,
-          <DetailPanel />,
+          <withRouter(Connect(DetailPanel)) />,
         ],
       },
       "ref": null,
