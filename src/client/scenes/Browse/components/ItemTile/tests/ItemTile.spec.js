@@ -2,7 +2,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import ItemTile from 'scenes/Browse/components/ItemTile'
+import { ItemTile } from 'scenes/Browse/components/ItemTile'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -12,7 +12,8 @@ beforeEach(() => {
   mockProps = {
     collected: true,
     name: 'foo',
-    quality: 1
+    quality: 1,
+    setActiveItem: jest.fn()
   }
 })
 

@@ -9,6 +9,7 @@ ShallowWrapper {
     icon={null}
     name="foo"
     quality={1}
+    setActiveItem={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -33,6 +34,7 @@ ShallowWrapper {
         </ItemTitle>,
         <Styled(FaCheckCircle) />,
       ],
+      "onClick": [Function],
     },
     "ref": null,
     "rendered": Array [
@@ -88,6 +90,7 @@ ShallowWrapper {
           </ItemTitle>,
           <Styled(FaCheckCircle) />,
         ],
+        "onClick": [Function],
       },
       "ref": null,
       "rendered": Array [
@@ -146,6 +149,7 @@ ShallowWrapper {
     icon={null}
     name="foo"
     quality={1}
+    setActiveItem={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -170,6 +174,7 @@ ShallowWrapper {
         </ItemTitle>,
         <Styled(FaTimesCircle) />,
       ],
+      "onClick": [Function],
     },
     "ref": null,
     "rendered": Array [
@@ -225,6 +230,7 @@ ShallowWrapper {
           </ItemTitle>,
           <Styled(FaTimesCircle) />,
         ],
+        "onClick": [Function],
       },
       "ref": null,
       "rendered": Array [
@@ -283,6 +289,7 @@ ShallowWrapper {
     icon="foo"
     name="foo"
     quality={1}
+    setActiveItem={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -307,6 +314,7 @@ ShallowWrapper {
         </ItemTitle>,
         <Styled(FaCheckCircle) />,
       ],
+      "onClick": [Function],
     },
     "ref": null,
     "rendered": Array [
@@ -362,6 +370,7 @@ ShallowWrapper {
           </ItemTitle>,
           <Styled(FaCheckCircle) />,
         ],
+        "onClick": [Function],
       },
       "ref": null,
       "rendered": Array [

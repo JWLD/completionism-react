@@ -7,7 +7,7 @@ import { setActiveItem } from 'scenes/Browse/actions'
 
 import * as SC from './styled'
 
-const ItemTile = props => {
+export const ItemTile = props => {
   const { collected, icon, id, name, quality } = props
 
   const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'

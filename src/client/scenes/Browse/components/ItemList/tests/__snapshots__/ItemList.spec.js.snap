@@ -68,7 +68,7 @@ ShallowWrapper {
             <BlockTitle>
               Drop
             </BlockTitle>
-            <ItemTile
+            <Connect(ItemTile)
               added={1}
               bmah={null}
               class={null}
@@ -112,7 +112,7 @@ ShallowWrapper {
               Drop
             </BlockTitle>,
             Array [
-              <ItemTile
+              <Connect(ItemTile)
                 added={1}
                 bmah={null}
                 class={null}
@@ -146,7 +146,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": "1",
-            "nodeType": "function",
+            "nodeType": "class",
             "props": Object {
               "added": 1,
               "bmah": null,
@@ -189,7 +189,7 @@ ShallowWrapper {
               <BlockTitle>
                 Drop
               </BlockTitle>
-              <ItemTile
+              <Connect(ItemTile)
                 added={1}
                 bmah={null}
                 class={null}
@@ -233,7 +233,7 @@ ShallowWrapper {
                 Drop
               </BlockTitle>,
               Array [
-                <ItemTile
+                <Connect(ItemTile)
                   added={1}
                   bmah={null}
                   class={null}
@@ -267,7 +267,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": "1",
-              "nodeType": "function",
+              "nodeType": "class",
               "props": Object {
                 "added": 1,
                 "bmah": null,
