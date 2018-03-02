@@ -1,7 +1,7 @@
 import * as ACTIONS from 'constants/action_types'
 
 export const initialState = {
-  activeItem: 0,
+  activeItemId: 0,
   filter: ''
 }
 
@@ -12,7 +12,7 @@ const browseReducer = (state = initialState, action) => {
     case ACTIONS.RESET_FILTER:
       return { ...state, filter: '' }
     case ACTIONS.SET_ACTIVE_ITEM:
-      return { ...state, activeItem: action.payload }
+      return { ...state, activeItemId: action.payload }
     case ACTIONS.SET_FILTER:
       return { ...state, filter: action.payload }
     default:
