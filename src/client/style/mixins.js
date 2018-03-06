@@ -29,17 +29,17 @@ const pageWrap = `
   ${flexVertical};
 
 	min-width: 100vw;
-	margin-top: ${vars.sizing.navBarHeight}rem;
-	padding: ${vars.sizing.pagePadding}rem;
+	margin-top: ${vars.navBarHeight}rem;
+	padding: ${vars.pagePadding}rem;
 `
 
 const browseBlock = `
   ${flex};
 
   width: 100%;
-  padding: ${vars.sizing.itemListPadding}rem;
+  padding: ${vars.itemListPadding}rem;
   border-radius: 0.4rem;
-  background-color: ${vars.colours.mainGrey};
+  background-color: ${vars.mainGrey};
 
   &:not(:last-child) {
     margin-bottom: 2rem;
@@ -50,7 +50,7 @@ const browseItem = `
   ${flex};
 
   width: 100%;
-  height: ${vars.sizing.itemHeight}rem;
+  height: ${vars.itemHeight}rem;
   border-radius: 0.3rem;
 `
 

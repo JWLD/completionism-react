@@ -9,19 +9,19 @@ import {
 import { mixins, vars } from 'style'
 
 const navBarPadding = 1.25
-const linkSize = vars.sizing.navBarHeight - navBarPadding * 2
+const linkSize = vars.navBarHeight - navBarPadding * 2
 const iconSize = 3.5
 
 export const NavBar = styled.nav`
   ${mixins.flex};
 
-  z-index: ${vars.zIndex.navBar};
+  z-index: ${vars.navBar};
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: ${vars.sizing.navBarHeight}rem;
-  background-color: ${vars.colours.mainLight};
+  height: ${vars.navBarHeight}rem;
+  background-color: ${vars.mainLight};
   box-shadow: 0 0 1.5rem 0.1rem black;
 `
 
@@ -55,7 +55,7 @@ export const NavLink = styled(Link)`
   padding: 0.75rem;
   border-radius: 0.4rem;
   color: white;
-  background-color: ${vars.colours.mainDark};
+  background-color: ${vars.mainDark};
   font-size: 3.25rem;
 
   :not(:last-child) {

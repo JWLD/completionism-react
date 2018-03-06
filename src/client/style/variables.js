@@ -17,8 +17,8 @@ const colours = {
 }
 
 const sizing = {
-  browsePadding: 3,
-  itemListPadding: 2,
+  browsePadding: 4,
+  itemListPadding: 1.5,
   itemHeight: 5,
   navBarHeight: 7.5,
   pagePadding: 5
@@ -29,7 +29,7 @@ const zIndex = {
 }
 
 export default {
-  colours,
-  sizing,
-  zIndex
+  ...colours,
+  ...sizing,
+  ...zIndex
 }

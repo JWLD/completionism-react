@@ -7,12 +7,12 @@ export const BrowsePage = styled.div`
 
   flex-direction: row;
   align-items: stretch;
-  padding: ${vars.sizing.browsePadding}rem;
+  padding: ${vars.browsePadding}rem;
 `
 
 export const ListWrap = styled.div`
   ${mixins.flexVertical};
 
   width: 100%;
-  margin-right: calc(50vw - ${vars.sizing.browsePadding * 0.5}rem);
+  margin-right: calc(50vw - ${vars.browsePadding * 0.5}rem);
 `

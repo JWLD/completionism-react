@@ -21,9 +21,9 @@ export const ClearInputBtn = styled(FaTimesCircle)`
   display: ${props => !props.active && 'none'};
   position: absolute;
   right: 0;
-  height: ${vars.sizing.itemHeight}rem;
-  width: ${vars.sizing.itemHeight}rem;
-  margin-right: ${vars.sizing.itemListPadding}rem;
+  height: ${vars.itemHeight}rem;
+  width: ${vars.itemHeight}rem;
+  margin-right: ${vars.itemListPadding}rem;
   padding: 0.75rem;
   color: gray;
   background-color: transparent;

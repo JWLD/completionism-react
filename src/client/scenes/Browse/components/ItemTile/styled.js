@@ -5,13 +5,13 @@ import FaTimesCircle from 'react-icons/lib/fa/times-circle'
 import { mixins, vars } from 'style'
 
 const itemTilePadding = 0.5
-const iconSize = vars.sizing.itemHeight - itemTilePadding * 2
+const iconSize = vars.itemHeight - itemTilePadding * 2
 
 export const ItemTile = styled.li`
   ${mixins.browseItem};
 
   justify-content: space-between;
-  height: ${vars.sizing.itemHeight}rem;
+  height: ${vars.itemHeight}rem;
   padding: ${itemTilePadding}rem;
   background-color: #444;
 
@@ -40,7 +40,7 @@ export const ItemIcon = styled.i.attrs({
 
 export const ItemTitle = styled.span`
   flex-grow: 1;
-  color: ${props => vars.colours[`q${props.quality}`]};
+  color: ${props => vars[`q${props.quality}`]};
   font: 2.25rem DinRC;
   text-align: center;
 `
@@ -54,9 +54,9 @@ export const ProgressIconWrap = styled.div`
 `
 
 export const CheckIcon = ProgressIconWrap.withComponent(FaCheckCircle).extend`
-  color: ${vars.colours.pos};
+  color: ${vars.pos};
 `
 
 export const CrossIcon = ProgressIconWrap.withComponent(FaTimesCircle).extend`
-  color: ${vars.colours.neg};
+  color: ${vars.neg};
 `

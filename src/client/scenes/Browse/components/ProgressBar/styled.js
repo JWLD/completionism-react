@@ -29,7 +29,7 @@ export const ProgressBar = styled.div`
   overflow: hidden;
   height: ${barHeight}rem;
   width: 100%;
-  margin-top: ${vars.sizing.itemListPadding}rem;
+  margin-top: ${vars.itemListPadding}rem;
   background-color: #444;
   border-radius: 0.3rem;
 `
@@ -40,6 +40,6 @@ export const BarFill = styled.div`
   left: 0;
   height: ${barHeight}rem;
   width: ${props => props.fill}%;
-  background-color: ${vars.colours.pos};
+  background-color: ${vars.pos};
   border-radius: 0.3rem;
 `

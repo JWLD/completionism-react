@@ -44,7 +44,7 @@ export const FakeInput = styled.div`
   font-size: 1.8rem;
 
   ${CheckboxInput}:checked ~ & {
-    background-color: ${vars.colours.pos};
+    background-color: ${vars.pos};
     color: white;
   }
 `
