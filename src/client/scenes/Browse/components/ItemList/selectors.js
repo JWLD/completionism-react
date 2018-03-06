@@ -58,6 +58,10 @@ const sortItems = data => {
   return _.sortBy(data, ['skill', 'quality', 'name'])
 }
 
+const sortPets = data => {
+  return _.sortBy(data, ['name'])
+}
+
 const sortItemBlocks = data => {
   return _.sortBy(data, 'name')
 }
@@ -150,7 +154,13 @@ const itemsSelector = createSelector(
     data = filterByContent(data, content)
     data = filterByFaction(data, faction)
     data = filterByUserFilter(data, filterValue)
-    data = sortItems(data)
+
+    if (category === 'pets') {
+      data = sortPets(data)
+    } else {
+      data = sortItems(data)
+    }
+
     data = addCollectedInfo(data, collectedIds)
 
     if (category === 'pets') {
