@@ -8,7 +8,7 @@ import {
   itemDataSelector
 } from 'scenes/Browse/components/DetailPanel/selectors'
 import { NPC_RENDER_URLS } from 'constants/urls'
-import { toggleControlPanel } from 'scenes/Browse/actions'
+import { toggleControlPanel } from './actions'
 
 import * as SC from './styled'
 

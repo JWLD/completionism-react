@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { ICON_URLS } from 'constants/urls'
-import { setActiveItem } from 'scenes/Browse/actions'
+import { setActiveItem } from './actions'
 
 import * as SC from './styled'
 

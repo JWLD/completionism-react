@@ -7,15 +7,6 @@ export const loadCategoryData = (categoryData, category) => ({
   category
 })
 
-export const setActiveItem = itemId => ({
-  type: ACTIONS.SET_ACTIVE_ITEM,
-  payload: itemId
-})
-
-export const toggleControlPanel = () => ({
-  type: ACTIONS.TOGGLE_CONTROL_PANEL
-})
-
 export const fetchCategoryData = category => dispatch => {
   return fetchDBCategoryData(category).then(categoryData => {
     return dispatch(loadCategoryData(categoryData, category))
