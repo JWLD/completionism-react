@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Field } from 'redux-form'
 
-import { realmDataSelector, regionSelector } from './selectors'
+import { realmDataSelector, regionSelector } from 'CharacterFields/selectors'
 import { REGIONS } from 'constants/blizzard'
-import { fetchRealmData } from 'scenes/Import/actions'
+import { fetchRealmData } from 'Import/actions'
 
-import * as SC from './styled'
-import { InputField, SelectBoxField } from 'components/formFields'
+import * as SC from 'CharacterFields/styled'
+import { InputField, SelectBoxField } from 'formFields'
 
 export class CharacterFields extends Component {
   componentDidMount() {

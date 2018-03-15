@@ -2,10 +2,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import {
-  CharacterFields,
-  mapStateToProps
-} from 'scenes/Import/components/CharacterFields'
+import { CharacterFields, mapStateToProps } from 'CharacterFields'
 import * as MOCKS from 'fixtures'
 
 Enzyme.configure({ adapter: new Adapter() })

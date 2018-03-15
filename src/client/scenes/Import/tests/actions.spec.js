@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import { REALM_URL } from 'constants/api_urls'
 import * as MOCKS from 'fixtures'
-import * as actions from 'scenes/Import/actions'
+import * as actions from 'Import/actions'
 
 const mock = new MockAdapter(axios)
 const middleware = [reduxThunk]

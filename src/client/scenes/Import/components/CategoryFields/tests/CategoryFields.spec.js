@@ -2,7 +2,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import CategoryFields from 'scenes/Import/components/CategoryFields'
+import CategoryFields from 'CategoryFields'
 
 Enzyme.configure({ adapter: new Adapter() })
 

@@ -1,4 +1,4 @@
-import { realmDataSelector } from 'scenes/Import/components/CharacterFields/selectors'
+import { realmDataSelector } from 'CharacterFields/selectors'
 import * as MOCKS from 'fixtures'
 
 let mockState

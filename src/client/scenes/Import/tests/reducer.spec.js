@@ -1,5 +1,5 @@
-import reducer, { initialState } from 'scenes/Import/reducer'
-import * as actions from 'scenes/Import/actions'
+import reducer, { initialState } from 'Import/reducer'
+import * as actions from 'Import/actions'
 
 import * as MOCKS from 'fixtures'
 

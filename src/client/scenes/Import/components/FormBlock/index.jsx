@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FormSection } from 'redux-form'
 
-import * as SC from './styled'
+import * as SC from 'FormBlock/styled'
 
 const FormBlock = props => (
   <SC.FormSection>
