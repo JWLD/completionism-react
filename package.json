@@ -65,8 +65,13 @@
   },
   "jest": {
     "modulePaths": [
+      "src/tests",
       "src/client",
-      "src/tests"
+      "src/client/components",
+      "src/client/scenes",
+      "src/client/scenes/Browse/components",
+      "src/client/scenes/Import/components",
+      "src/client/scenes/Landing/components"
     ],
     "setupFiles": [
       "jest-localstorage-mock"
