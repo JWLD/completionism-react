@@ -1,4 +1,4 @@
-import vars from './variables'
+import vars from 'style/variables'
 
 const flex = `
 	display: flex;
