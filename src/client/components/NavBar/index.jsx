@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
 import { CONTENT } from 'constants/content'
-import * as SC from './styled'
+import * as SC from 'NavBar/styled'
 
 export const NavBar = props => {
   const renderCentreNav = () => {
