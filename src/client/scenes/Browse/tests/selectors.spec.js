@@ -1,7 +1,7 @@
 import {
   categoryParamSelector,
   categoryDataExistsSelector
-} from 'scenes/Browse/selectors'
+} from 'Browse/selectors'
 import * as MOCKS from 'fixtures'
 
 let mockProps = {}

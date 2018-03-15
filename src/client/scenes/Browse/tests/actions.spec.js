@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import { CATEGORY_DATA_URL } from 'constants/api_urls'
 import * as MOCKS from 'fixtures'
-import * as actions from 'scenes/Browse/actions'
+import * as actions from 'Browse/actions'
 
 const mock = new MockAdapter(axios)
 const middleware = [reduxThunk]

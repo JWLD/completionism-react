@@ -1,4 +1,4 @@
-import { itemBlocksSelector, progressDataSelector } from '../selectors'
+import { itemBlocksSelector, progressDataSelector } from 'ItemList/selectors'
 import * as MOCKS from 'fixtures'
 
 localStorage = MOCKS.LOCAL_STORAGE

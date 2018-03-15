@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import * as MOCKS from 'fixtures'
-import { ItemList, mapStateToProps } from 'scenes/Browse/components/ItemList'
+import { ItemList, mapStateToProps } from 'ItemList'
 
 Enzyme.configure({ adapter: new Adapter() })
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import { BarFill } from 'scenes/Browse/components/ProgressBar/styled'
+import { BarFill } from 'ProgressBar/styled'
 
 Enzyme.configure({ adapter: new Adapter() })
 

@@ -1,9 +1,6 @@
-import reducer, { initialState } from 'scenes/Browse/reducer'
-import * as actions from 'scenes/Browse/actions'
-import {
-  resetFilter,
-  setFilter
-} from 'scenes/Browse/components/FilterBox/actions'
+import reducer, { initialState } from 'Browse/reducer'
+import * as actions from 'Browse/actions'
+import { resetFilter, setFilter } from 'FilterBox/actions'
 import * as MOCKS from 'fixtures'
 
 let mockState
