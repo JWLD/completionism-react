@@ -3,8 +3,12 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import { itemDataSelector } from 'scenes/Browse/components/DetailPanel/selectors'
+import {
+  controlPanelSelector,
+  itemDataSelector
+} from 'scenes/Browse/components/DetailPanel/selectors'
 import { NPC_RENDER_URLS } from 'constants/urls'
+import { toggleControlPanel } from 'scenes/Browse/actions'
 
 import * as SC from './styled'
 
@@ -13,21 +17,43 @@ export const DetailPanel = props => {
     ? `${NPC_RENDER_URLS.zoom}${props.itemData.displayId}.jpg`
     : null
 
+  const title = props.controlPanelIsActive
+    ? 'Control Panel'
+    : props.itemData.name || 'Select An Item'
+
+  const content = props.controlPanelIsActive ? null : (
+    <SC.ItemImage imageUrl={imageUrl} />
+  )
+
   return (
     <SC.DetailPanel>
-      <SC.ItemImage imageUrl={imageUrl} />
+      <SC.TopBar>
+        <SC.Title>{title}</SC.Title>
+        <SC.ToggleWrap onClick={() => props.toggleControlPanel()}>
+          <SC.CogIcon active={props.controlPanelIsActive} />
+          <SC.InfoIcon active={!props.controlPanelIsActive} />
+        </SC.ToggleWrap>
+      </SC.TopBar>
+      {content}
     </SC.DetailPanel>
   )
 }
 
 DetailPanel.propTypes = {
-  itemData: PropTypes.object.isRequired
+  controlPanelIsActive: PropTypes.bool.isRequired,
+  itemData: PropTypes.object.isRequired,
+  toggleControlPanel: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state, props) => ({
+  controlPanelIsActive: controlPanelSelector(state),
   itemData: itemDataSelector(state, props)
 })
 
-const reduxComponent = connect(mapStateToProps)(DetailPanel)
+const mapDispatchToProps = {
+  toggleControlPanel
+}
+
+const reduxComponent = connect(mapStateToProps, mapDispatchToProps)(DetailPanel)
 
 export default withRouter(reduxComponent)

@@ -21,6 +21,10 @@ export const setFilter = value => ({
   payload: value
 })
 
+export const toggleControlPanel = () => ({
+  type: ACTIONS.TOGGLE_CONTROL_PANEL
+})
+
 export const fetchCategoryData = category => dispatch => {
   return fetchDBCategoryData(category).then(categoryData => {
     return dispatch(addCategoryData(categoryData, category))

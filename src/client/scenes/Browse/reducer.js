@@ -2,6 +2,7 @@ import * as ACTIONS from 'constants/action_types'
 
 export const initialState = {
   activeItemId: 0,
+  controlPanelIsActive: false,
   filter: ''
 }
 
@@ -15,6 +16,8 @@ const browseReducer = (state = initialState, action) => {
       return { ...state, activeItemId: action.payload }
     case ACTIONS.SET_FILTER:
       return { ...state, filter: action.payload }
+    case ACTIONS.TOGGLE_CONTROL_PANEL:
+      return { ...state, controlPanelIsActive: !state.controlPanelIsActive }
     default:
       return state
   }

@@ -19,10 +19,18 @@ const flexVertical = `
   flex-direction: column;
 `
 
+const flexVerticalTop = `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`
+
 const flexBox = {
   flex,
   flexRight,
-  flexVertical
+  flexVertical,
+  flexVerticalTop
 }
 
 const pageWrap = `

@@ -4,6 +4,8 @@ import { categoryDataSelector } from 'scenes/Browse/selectors'
 
 const activeItemIdSelector = state => state.browse.activeItemId
 
+export const controlPanelSelector = state => state.browse.controlPanelIsActive
+
 export const itemDataSelector = createSelector(
   [activeItemIdSelector, categoryDataSelector],
   (activeItemId, categoryData) => {
