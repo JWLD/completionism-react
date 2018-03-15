@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { resetFilter, setFilter } from './actions'
+import { resetFilter, setFilter } from 'FilterBox/actions'
 
-import * as SC from './styled'
+import * as SC from 'FilterBox/styled'
 
 export const FilterBox = props => (
   <SC.FilterWrap>

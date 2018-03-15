@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import { categoryDataSelector } from 'scenes/Browse/selectors'
+import { categoryDataSelector } from 'Browse/selectors'
 
 const activeItemIdSelector = state => state.browse.activeItemId
 

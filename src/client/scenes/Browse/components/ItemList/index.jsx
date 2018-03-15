@@ -7,12 +7,12 @@ import {
   contentParamSelector,
   itemBlocksSelector,
   progressDataSelector
-} from './selectors'
+} from 'ItemList/selectors'
 
-import * as SC from './styled'
+import * as SC from 'ItemList/styled'
 import { CONTENT } from 'constants/content'
-import ProgressBar from 'scenes/Browse/components/ProgressBar'
-import ItemTile from 'scenes/Browse/components/ItemTile'
+import ProgressBar from 'ProgressBar'
+import ItemTile from 'ItemTile'
 
 export const ItemList = props => {
   const renderBlockTiles = data => {

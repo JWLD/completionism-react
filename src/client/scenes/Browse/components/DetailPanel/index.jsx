@@ -3,14 +3,11 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import {
-  controlPanelSelector,
-  itemDataSelector
-} from 'scenes/Browse/components/DetailPanel/selectors'
+import { controlPanelSelector, itemDataSelector } from 'DetailPanel/selectors'
 import { NPC_RENDER_URLS } from 'constants/urls'
-import { toggleControlPanel } from './actions'
+import { toggleControlPanel } from 'DetailPanel/actions'
 
-import * as SC from './styled'
+import * as SC from 'DetailPanel/styled'
 
 export const DetailPanel = props => {
   const imageUrl = props.itemData.displayId

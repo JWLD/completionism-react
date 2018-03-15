@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import * as SC from './styled'
+import * as SC from 'ProgressBar/styled'
 
 const ProgressBar = props => {
   const fillPercent = props.count / props.total * 100

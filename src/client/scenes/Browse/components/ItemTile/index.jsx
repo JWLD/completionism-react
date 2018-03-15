@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { ICON_URLS } from 'constants/urls'
-import { setActiveItem } from './actions'
+import { setActiveItem } from 'ItemTile/actions'
 
-import * as SC from './styled'
+import * as SC from 'ItemTile/styled'
 
 export const ItemTile = props => {
   const { collected, icon, id, name, quality } = props

@@ -1,10 +1,7 @@
 import { createSelector } from 'reselect'
 import _ from 'lodash'
 
-import {
-  categoryDataSelector,
-  categoryParamSelector
-} from 'scenes/Browse/selectors'
+import { categoryDataSelector, categoryParamSelector } from 'Browse/selectors'
 import { SOURCES } from 'constants/sources'
 
 // FILTER FUNCTIONS

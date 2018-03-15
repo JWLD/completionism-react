@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { fetchCategoryData } from './actions'
-import { categoryParamSelector, categoryDataExistsSelector } from './selectors'
+import { fetchCategoryData } from 'Browse/actions'
+import {
+  categoryParamSelector,
+  categoryDataExistsSelector
+} from 'Browse/selectors'
 
-import * as SC from './styled'
-import NavBar from 'components/NavBar'
-import FilterBox from './components/FilterBox'
-import ItemList from './components/ItemList'
-import DetailPanel from './components/DetailPanel'
+import * as SC from 'Browse/styled'
+import NavBar from 'NavBar'
+import FilterBox from 'FilterBox'
+import ItemList from 'ItemList'
+import DetailPanel from 'DetailPanel'
 
 export class Browse extends Component {
   componentDidMount() {
