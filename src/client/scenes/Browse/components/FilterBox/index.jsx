@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { resetFilter, setFilter } from 'scenes/Browse/actions'
+import { resetFilter, setFilter } from './actions'
 
 import * as SC from './styled'
 

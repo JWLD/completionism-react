@@ -26,7 +26,7 @@ describe('#fetchRealmData', () => {
       .reply(200, MOCKS.CATEGORY_DATA)
 
     const expectedActions = [
-      actions.addCategoryData(MOCKS.CATEGORY_DATA, category)
+      actions.loadCategoryData(MOCKS.CATEGORY_DATA, category)
     ]
     await store.dispatch(actions.fetchCategoryData(category))
 
