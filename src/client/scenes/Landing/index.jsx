@@ -3,8 +3,8 @@ import React from 'react'
 import CATEGORIES from 'constants/categories'
 import { ICON_URLS } from 'constants/urls'
 
-import * as SC from './styled'
-import NavBar from 'components/NavBar'
+import * as SC from 'Landing/styled'
+import NavBar from 'NavBar'
 
 const Landing = () => {
   const renderPortrait = category => {

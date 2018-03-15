@@ -2,7 +2,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import Landing from 'scenes/Landing'
+import Landing from 'Landing'
 import * as MOCKS from 'fixtures'
 
 Enzyme.configure({ adapter: new Adapter() })
