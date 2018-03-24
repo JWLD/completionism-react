@@ -6,6 +6,11 @@ export const changeActiveCategory = category => ({
   category
 })
 
+export const changeActiveContent = content => ({
+  type: ACTIONS.UPDATE_ACTIVE_CONTENT,
+  content
+})
+
 export const loadCategoryData = (categoryData, category) => ({
   type: ACTIONS.LOAD_CATEGORY_DATA,
   payload: categoryData,

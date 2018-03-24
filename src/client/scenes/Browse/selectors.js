@@ -7,6 +7,9 @@ export const activeContentSelector = state => state.browse.activeContent
 export const categoryParamSelector = (state, props) =>
   props.match.params.category
 
+export const contentParamSelector = (state, props) =>
+  Number(props.match.params.content)
+
 const browseStateSelector = state => state.browse
 
 export const categoryDataExistsSelector = createSelector(

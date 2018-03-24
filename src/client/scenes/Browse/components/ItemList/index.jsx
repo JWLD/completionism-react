@@ -3,18 +3,15 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import {
-  contentParamSelector,
-  itemBlocksSelector,
-  progressDataSelector
-} from 'ItemList/selectors'
+import { itemBlocksSelector, progressDataSelector } from 'ItemList/selectors'
+import { contentParamSelector } from 'Browse/selectors'
 import { CONTENT } from 'constants/content'
 
 import * as SC from 'ItemList/styled'
 import ProgressBar from 'ProgressBar'
 import ItemTile from 'ItemTile'
 
-export const ItemList = props => {
+const ItemList = props => {
   const renderBlockTiles = data => {
     return data.map(item => <ItemTile {...item} key={item.id} />)
   }
@@ -54,4 +51,6 @@ export const mapStateToProps = (state, ownProps) => ({
   progress: progressDataSelector(state, ownProps)
 })
 
-export default withRouter(connect(mapStateToProps)(ItemList))
+const ReduxComponent = connect(mapStateToProps)(ItemList)
+
+export default withRouter(ReduxComponent)
