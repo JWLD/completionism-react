@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const InputField = ({ input, placeholder, StyledComponent }) => (
-  <StyledComponent {...input} placeholder={placeholder} />
+  <StyledComponent {...input} autoComplete="off" placeholder={placeholder} />
 )
 
 InputField.propTypes = {
