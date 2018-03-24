@@ -60,6 +60,6 @@ export const PetLevel = styled(TileIcon)`
   ${mixins.flex};
 
   margin-right: ${itemTilePadding}rem;
-  color: ${vars.q7};
+  color: ${props => (props.level === 25 ? vars.q7 : 'white')};
   font: 2rem DinM;
 `

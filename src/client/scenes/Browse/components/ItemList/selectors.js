@@ -126,6 +126,24 @@ const factionSelector = createSelector([categoryParamSelector], category => {
     : 2
 })
 
+const addPetLevel = data => {
+  const localPetData = JSON.parse(localStorage.getItem('pets'))
+
+  const petLevelById = localPetData.ids.reduce((acc, pet) => {
+    acc[pet.id] = pet.level
+
+    return acc
+  }, {})
+
+  const newData = data.map(item => {
+    item.level = petLevelById[item.id]
+
+    return item
+  })
+
+  return newData
+}
+
 // REGULAR SELECTORS
 
 const filterValueSelector = state => state.browse.filter
@@ -163,6 +181,7 @@ const itemsSelector = createSelector(
 
     if (category === 'pets') {
       data = updateItemQuality(data, petQualityById)
+      data = addPetLevel(data)
     }
 
     return data

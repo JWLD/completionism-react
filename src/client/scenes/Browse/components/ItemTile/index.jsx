@@ -13,13 +13,16 @@ export const ItemTile = ({
   collected,
   icon,
   id,
+  level,
   name,
   quality,
   setActiveItem
 }) => {
   const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
   const progressIcon = collected ? <SC.CheckIcon /> : <SC.CrossIcon />
-  const petLevel = category === 'pets' && <SC.PetLevel>20</SC.PetLevel>
+  const petLevel = category === 'pets' && (
+    <SC.PetLevel level={level}>{level}</SC.PetLevel>
+  )
 
   return (
     <SC.ItemTile onClick={() => setActiveItem(id)}>
@@ -31,18 +34,20 @@ export const ItemTile = ({
   )
 }
 
-ItemTile.defaultProps = {
-  icon: null
-}
-
 ItemTile.propTypes = {
   category: PropTypes.string.isRequired,
   collected: PropTypes.bool.isRequired,
   icon: PropTypes.string,
   id: PropTypes.number.isRequired,
+  level: PropTypes.number,
   name: PropTypes.string.isRequired,
   quality: PropTypes.number.isRequired,
   setActiveItem: PropTypes.func.isRequired
+}
+
+ItemTile.defaultProps = {
+  icon: null,
+  level: 0
 }
 
 const mapStateToProps = state => ({
