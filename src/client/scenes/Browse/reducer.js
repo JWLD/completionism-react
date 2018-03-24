@@ -1,6 +1,7 @@
 import * as ACTIONS from 'constants/action_types'
 
 export const initialState = {
+  activeCategory: '',
   activeItemId: 0,
   controlPanelIsActive: false,
   filter: ''
@@ -18,6 +19,8 @@ const browseReducer = (state = initialState, action) => {
       return { ...state, filter: action.value }
     case ACTIONS.TOGGLE_CONTROL_PANEL:
       return { ...state, controlPanelIsActive: !state.controlPanelIsActive }
+    case ACTIONS.UPDATE_ACTIVE_CATEGORY:
+      return { ...state, activeCategory: action.category }
     default:
       return state
   }
