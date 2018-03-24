@@ -66,16 +66,3 @@ export const InfoIcon = CogIcon.withComponent(FaInfoCircle).extend`
   right: auto;
   left: 0;
 `
-
-export const ItemImage = styled.div.attrs({
-  style: ({ imageUrl }) => ({
-    backgroundImage: `url(${imageUrl})`
-  })
-})`
-  width: 100%;
-  height: 100%;
-  border-radius: 0.4rem;
-  background-color: #444;
-  background-size: cover;
-  background-position: center;
-`

@@ -4,34 +4,28 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { controlPanelSelector, itemDataSelector } from 'DetailPanel/selectors'
-import { NPC_RENDER_URLS } from 'constants/urls'
 import { toggleControlPanel } from 'DetailPanel/actions'
 
 import * as SC from 'DetailPanel/styled'
+import ControlPanel from 'ControlPanel'
+import InfoPanel from 'InfoPanel'
 
 export const DetailPanel = props => {
-  const imageUrl = props.itemData.displayId
-    ? `${NPC_RENDER_URLS.zoom}${props.itemData.displayId}.jpg`
-    : null
-
   const title = props.controlPanelIsActive
     ? 'Control Panel'
     : props.itemData.name || 'Select An Item'
-
-  const content = props.controlPanelIsActive ? null : (
-    <SC.ItemImage imageUrl={imageUrl} />
-  )
 
   return (
     <SC.DetailPanel>
       <SC.TopBar>
         <SC.Title>{title}</SC.Title>
         <SC.ToggleWrap onClick={() => props.toggleControlPanel()}>
-          <SC.CogIcon active={props.controlPanelIsActive} />
-          <SC.InfoIcon active={!props.controlPanelIsActive} />
+          <SC.CogIcon active={props.controlPanelIsActive ? 1 : 0} />
+          <SC.InfoIcon active={!props.controlPanelIsActive ? 1 : 0} />
         </SC.ToggleWrap>
       </SC.TopBar>
-      {content}
+
+      {props.controlPanelIsActive ? <ControlPanel /> : <InfoPanel />}
     </SC.DetailPanel>
   )
 }
@@ -51,6 +45,6 @@ const mapDispatchToProps = {
   toggleControlPanel
 }
 
-const reduxComponent = connect(mapStateToProps, mapDispatchToProps)(DetailPanel)
+const ReduxComponent = connect(mapStateToProps, mapDispatchToProps)(DetailPanel)
 
-export default withRouter(reduxComponent)
+export default withRouter(ReduxComponent)
