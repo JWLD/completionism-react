@@ -7,13 +7,16 @@ import * as MOCKS from 'fixtures'
 
 Enzyme.configure({ adapter: new Adapter() })
 
+const mockChangeActiveCategory = jest.fn()
 const mockFetchCategoryData = jest.fn()
+
 let mockProps = {}
 
 beforeEach(() => {
   mockProps = {
     category: '',
     categoryDataExists: false,
+    changeActiveCategory: mockChangeActiveCategory,
     fetchCategoryData: mockFetchCategoryData,
     ...MOCKS.BROWSE_ROUTER_PROPS
   }

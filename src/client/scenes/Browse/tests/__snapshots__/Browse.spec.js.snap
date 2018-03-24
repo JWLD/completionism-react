@@ -7,6 +7,15 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Browse
     category=""
     categoryDataExists={false}
+    changeActiveCategory={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "",
+          ],
+        ],
+      }
+    }
     fetchCategoryData={
       [MockFunction] {
         "calls": Array [
