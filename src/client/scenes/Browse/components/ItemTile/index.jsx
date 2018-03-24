@@ -19,16 +19,21 @@ export const ItemTile = ({
   setActiveItem
 }) => {
   const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
-  const progressIcon = collected ? <SC.CheckIcon /> : <SC.CrossIcon />
-  const petLevel = category === 'pets' && (
-    <SC.PetLevel level={level}>{level}</SC.PetLevel>
-  )
+
+  let progressIcon = null
+
+  if (collected && category === 'pets') {
+    progressIcon = <SC.PetLevel level={level}>{level}</SC.PetLevel>
+  } else if (collected) {
+    progressIcon = <SC.CheckIcon />
+  } else {
+    progressIcon = <SC.CrossIcon />
+  }
 
   return (
     <SC.ItemTile onClick={() => setActiveItem(id)}>
       <SC.ItemIcon iconUrl={iconUrl} />
       <SC.ItemTitle quality={quality}>{name}</SC.ItemTitle>
-      {petLevel}
       {progressIcon}
     </SC.ItemTile>
   )
