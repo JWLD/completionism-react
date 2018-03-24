@@ -2,6 +2,7 @@ import * as ACTIONS from 'constants/action_types'
 
 export const initialState = {
   activeCategory: '',
+  activeContent: 0,
   activeItemId: 0,
   controlPanelIsActive: false,
   filter: ''
@@ -21,6 +22,8 @@ const browseReducer = (state = initialState, action) => {
       return { ...state, controlPanelIsActive: !state.controlPanelIsActive }
     case ACTIONS.UPDATE_ACTIVE_CATEGORY:
       return { ...state, activeCategory: action.category }
+    case ACTIONS.UPDATE_ACTIVE_CONTENT:
+      return { ...state, activeContent: action.content }
     default:
       return state
   }

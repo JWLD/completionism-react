@@ -8,9 +8,9 @@ import {
   itemBlocksSelector,
   progressDataSelector
 } from 'ItemList/selectors'
+import { CONTENT } from 'constants/content'
 
 import * as SC from 'ItemList/styled'
-import { CONTENT } from 'constants/content'
 import ProgressBar from 'ProgressBar'
 import ItemTile from 'ItemTile'
 

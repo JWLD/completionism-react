@@ -1,5 +1,9 @@
 import { createSelector } from 'reselect'
 
+export const activeCategorySelector = state => state.browse.activeCategory
+
+export const activeContentSelector = state => state.browse.activeContent
+
 export const categoryParamSelector = (state, props) =>
   props.match.params.category
 
