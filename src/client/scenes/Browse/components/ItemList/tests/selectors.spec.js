@@ -1,7 +1,8 @@
 import { itemBlocksSelector, progressDataSelector } from 'ItemList/selectors'
 import * as MOCKS from 'fixtures'
+import { initialiseLocalStorage } from 'fixtures'
 
-localStorage = MOCKS.LOCAL_STORAGE
+initialiseLocalStorage()
 
 let mockProps
 let mockState

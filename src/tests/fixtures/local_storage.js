@@ -30,7 +30,7 @@ const LOCAL_STORAGE_PETS = JSON.stringify({
   ]
 })
 
-export const LOCAL_STORAGE = {
-  mounts: LOCAL_STORAGE_ITEM,
-  pets: LOCAL_STORAGE_PETS
+export const initialiseLocalStorage = () => {
+  localStorage.setItem('mounts', LOCAL_STORAGE_ITEM)
+  localStorage.setItem('pets', LOCAL_STORAGE_PETS)
 }
