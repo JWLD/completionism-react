@@ -25,19 +25,6 @@ export const ItemTile = styled.li`
   }
 `
 
-export const ItemIcon = styled.i.attrs({
-  style: ({ iconUrl }) => ({
-    backgroundImage: iconUrl
-  })
-})`
-  height: ${iconSize}rem;
-  width: ${iconSize}rem;
-  margin-right: ${itemTilePadding * 2}rem;
-  border-radius: 0.4rem;
-  background-size: cover;
-  background-color: #222;
-`
-
 export const ItemTitle = styled.span`
   flex-grow: 1;
   color: ${props => vars[`q${props.quality}`]};
@@ -45,7 +32,7 @@ export const ItemTitle = styled.span`
   text-align: center;
 `
 
-export const ProgressIconWrap = styled.div`
+const TileIcon = styled.div`
   height: ${iconSize}rem;
   width: ${iconSize}rem;
   padding: 0.5rem;
@@ -53,10 +40,26 @@ export const ProgressIconWrap = styled.div`
   background-color: #333;
 `
 
-export const CheckIcon = ProgressIconWrap.withComponent(FaCheckCircle).extend`
+export const ItemIcon = styled(TileIcon.withComponent('i')).attrs({
+  style: ({ iconUrl }) => ({
+    backgroundImage: iconUrl
+  })
+})`
+  background-size: cover;
+`
+
+export const CheckIcon = styled(TileIcon.withComponent(FaCheckCircle))`
   color: ${vars.pos};
 `
 
-export const CrossIcon = ProgressIconWrap.withComponent(FaTimesCircle).extend`
+export const CrossIcon = styled(TileIcon.withComponent(FaTimesCircle))`
   color: ${vars.neg};
+`
+
+export const PetLevel = styled(TileIcon)`
+  ${mixins.flex};
+
+  margin-right: ${itemTilePadding}rem;
+  color: ${vars.q7};
+  font: 2rem DinM;
 `
