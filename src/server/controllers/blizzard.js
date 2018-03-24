@@ -82,6 +82,7 @@ const extractMountCollectionData = blizzData =>
 const extractPetCollectionData = blizzData =>
   blizzData.pets.collected.map(pet => ({
     id: pet.creatureId,
+    level: pet.stats.level,
     quality: pet.qualityId
   }))
 

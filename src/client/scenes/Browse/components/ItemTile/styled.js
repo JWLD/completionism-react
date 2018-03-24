@@ -37,7 +37,7 @@ const TileIcon = styled.div`
   width: ${iconSize}rem;
   padding: 0.5rem;
   border-radius: 0.4rem;
-  background-color: #333;
+  background-color: ${vars.mainGrey};
 `
 
 export const ItemIcon = styled(TileIcon.withComponent('i')).attrs({
