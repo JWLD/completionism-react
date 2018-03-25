@@ -10,14 +10,14 @@ export const ItemList = styled.div`
   flex-direction: column;
 `
 
-export const ItemListBlock = styled.div`
+export const SourceBlock = styled.div`
   ${mixins.browseBlock};
 
   flex-direction: column;
 `
 
-export const BlockTitle = styled.span`
-  margin: -0.5rem 0 1.2rem 0;
+export const SourceTitle = styled.span`
+  margin-top: -0.5rem;
   font: 3rem DinMC;
   color: white;
   text-transform: uppercase;
@@ -25,4 +25,12 @@ export const BlockTitle = styled.span`
   :only-child {
     margin: 0;
   }
+`
+
+export const SubTitle = styled.span`
+  width: 100%;
+  margin: 0.25rem 0 0.5rem 0;
+  color: white;
+  font: 2.5rem DinMC;
+  text-transform: uppercase;
 `

@@ -226,7 +226,7 @@ export const itemBlocksSelector = createSelector([itemsSelector], items => {
   let blocks = organiseIntoSources(items)
   blocks = sortItemBlocks(blocks)
   blocks = organiseIntoSubs(blocks)
-  console.log(blocks)
+
   return blocks
 })
 

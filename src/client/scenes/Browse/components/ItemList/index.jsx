@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
@@ -16,12 +16,22 @@ const ItemList = props => {
     return data.map(item => <ItemTile {...item} key={item.id} />)
   }
 
-  const renderListBlocks = () => {
+  const renderSubBlocks = subs => {
+    return subs.map(subCat => (
+      <Fragment key={subCat.name}>
+        <SC.SubTitle>{subCat.name}</SC.SubTitle>
+        {renderBlockTiles(subCat.items)}
+      </Fragment>
+    ))
+  }
+
+  const renderSourceBlocks = () => {
+    console.log(props.blocks)
     return props.blocks.map(subCategory => (
-      <SC.ItemListBlock key={subCategory.name}>
-        <SC.BlockTitle>{subCategory.name}</SC.BlockTitle>
-        {renderBlockTiles(subCategory.items)}
-      </SC.ItemListBlock>
+      <SC.SourceBlock key={subCategory.name}>
+        <SC.SourceTitle>{subCategory.name}</SC.SourceTitle>
+        {renderSubBlocks(subCategory.subs)}
+      </SC.SourceBlock>
     ))
   }
 
@@ -34,7 +44,7 @@ const ItemList = props => {
         title={progressBarTitle}
         total={props.progress.total}
       />
-      {renderListBlocks()}
+      {renderSourceBlocks()}
     </SC.ListWrap>
   )
 }
