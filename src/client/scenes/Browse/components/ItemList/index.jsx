@@ -10,23 +10,26 @@ import { CONTENT } from 'constants/content'
 import * as SC from 'ItemList/styled'
 import ProgressBar from 'ProgressBar'
 import ItemBar from 'ItemBar'
+import ItemTile from 'ItemTile'
 
 const ItemList = props => {
-  const renderItemPanels = data => {
+  const renderItemBars = data => {
     return data.map(item => <ItemBar {...item} key={item.id} />)
   }
 
-  const renderBlockTiles = data => {
-    console.log(data)
-  }
+  const renderItemTiles = data => (
+    <SC.TileGrid>
+      {data.map(item => <ItemTile {...item} key={item.id} />)}
+    </SC.TileGrid>
+  )
 
   const renderSubBlocks = subs => {
     return subs.map(subCat => (
       <Fragment key={subCat.name}>
         <SC.SubTitle>{subCat.name}</SC.SubTitle>
         {props.listView
-          ? renderItemPanels(subCat.items)
-          : renderBlockTiles(subCat.items)}
+          ? renderItemBars(subCat.items)
+          : renderItemTiles(subCat.items)}
       </Fragment>
     ))
   }

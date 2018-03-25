@@ -31,6 +31,17 @@ export const SubTitle = styled.span`
   width: 100%;
   margin: 0.25rem 0 0.5rem 0;
   color: white;
-  font: 2.5rem DinMC;
+  font: 2.25rem DinMC;
   text-transform: uppercase;
+`
+
+export const TileGrid = styled.div`
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(10, 1fr);
+  width: 100%;
+
+  :not(:last-child) {
+    margin-bottom: 1rem;
+  }
 `

@@ -6,7 +6,7 @@ export const initialState = {
   activeItemId: 0,
   controlPanelIsActive: true,
   filter: '',
-  viewModeList: true
+  viewModeList: false
 }
 
 const browseReducer = (state = initialState, action) => {
