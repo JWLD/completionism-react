@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import { itemBlocksSelector, progressDataSelector } from 'ItemList/selectors'
-import { contentParamSelector } from 'Browse/selectors'
+import { contentParamSelector, viewModeListSelector } from 'Browse/selectors'
 import { CONTENT } from 'constants/content'
 
 import * as SC from 'ItemList/styled'
@@ -12,21 +12,26 @@ import ProgressBar from 'ProgressBar'
 import ItemTile from 'ItemTile'
 
 const ItemList = props => {
-  const renderBlockTiles = data => {
+  const renderItemPanels = data => {
     return data.map(item => <ItemTile {...item} key={item.id} />)
+  }
+
+  const renderBlockTiles = data => {
+    console.log(data)
   }
 
   const renderSubBlocks = subs => {
     return subs.map(subCat => (
       <Fragment key={subCat.name}>
         <SC.SubTitle>{subCat.name}</SC.SubTitle>
-        {renderBlockTiles(subCat.items)}
+        {props.listView
+          ? renderItemPanels(subCat.items)
+          : renderBlockTiles(subCat.items)}
       </Fragment>
     ))
   }
 
   const renderSourceBlocks = () => {
-    console.log(props.blocks)
     return props.blocks.map(subCategory => (
       <SC.SourceBlock key={subCategory.name}>
         <SC.SourceTitle>{subCategory.name}</SC.SourceTitle>
@@ -52,12 +57,14 @@ const ItemList = props => {
 ItemList.propTypes = {
   blocks: PropTypes.array.isRequired,
   content: PropTypes.number.isRequired,
+  listView: PropTypes.bool.isRequired,
   progress: PropTypes.object.isRequired
 }
 
 export const mapStateToProps = (state, ownProps) => ({
   blocks: itemBlocksSelector(state, ownProps),
   content: contentParamSelector(state, ownProps),
+  listView: viewModeListSelector(state),
   progress: progressDataSelector(state, ownProps)
 })
 
