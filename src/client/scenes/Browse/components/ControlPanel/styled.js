@@ -9,12 +9,12 @@ export const SettingRow = styled.div`
   height: ${vars.itemHeight}rem;
   min-height: ${vars.itemHeight}rem;
   width: 100%;
-  padding: 1.5rem;
   border-radius: 0.4rem;
   background-color: ${vars.barGrey};
 `
 
 export const SettingTitle = styled.span`
+  margin-left: 1.5rem;
   margin-right: auto;
   color: white;
   font: 2.5rem DinMC;
