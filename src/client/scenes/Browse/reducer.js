@@ -5,7 +5,8 @@ export const initialState = {
   activeContent: 0,
   activeItemId: 0,
   controlPanelIsActive: true,
-  filter: ''
+  filter: '',
+  viewModeList: true
 }
 
 const browseReducer = (state = initialState, action) => {
@@ -20,6 +21,8 @@ const browseReducer = (state = initialState, action) => {
       return { ...state, filter: action.value }
     case ACTIONS.TOGGLE_CONTROL_PANEL:
       return { ...state, controlPanelIsActive: !state.controlPanelIsActive }
+    case ACTIONS.TOGGLE_VIEW_MODE:
+      return { ...state, viewModeList: !state.viewModeList }
     case ACTIONS.UPDATE_ACTIVE_CATEGORY:
       return { ...state, activeCategory: action.category }
     case ACTIONS.UPDATE_ACTIVE_CONTENT:
