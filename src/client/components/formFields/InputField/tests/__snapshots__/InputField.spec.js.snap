@@ -21,6 +21,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
+      "autoComplete": "off",
       "placeholder": "",
     },
     "ref": null,
@@ -33,6 +34,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
+        "autoComplete": "off",
         "placeholder": "",
       },
       "ref": null,

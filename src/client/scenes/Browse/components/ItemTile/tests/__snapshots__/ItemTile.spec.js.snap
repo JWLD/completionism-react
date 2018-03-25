@@ -8,6 +8,7 @@ ShallowWrapper {
     collected={true}
     icon={null}
     id={1}
+    level={0}
     name="foo"
     quality={1}
     setActiveItem={[MockFunction]}
@@ -25,7 +26,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <styled.i
+        <Styled(styled.i)
           iconUrl="none"
         />,
         <ItemTitle
@@ -33,7 +34,7 @@ ShallowWrapper {
         >
           foo
         </ItemTitle>,
-        <Styled(FaCheckCircle) />,
+        <CheckIcon />,
       ],
       "onClick": [Function],
     },
@@ -81,7 +82,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <styled.i
+          <Styled(styled.i)
             iconUrl="none"
           />,
           <ItemTitle
@@ -89,7 +90,7 @@ ShallowWrapper {
           >
             foo
           </ItemTitle>,
-          <Styled(FaCheckCircle) />,
+          <CheckIcon />,
         ],
         "onClick": [Function],
       },
@@ -149,6 +150,7 @@ ShallowWrapper {
     collected={false}
     icon={null}
     id={1}
+    level={0}
     name="foo"
     quality={1}
     setActiveItem={[MockFunction]}
@@ -166,7 +168,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <styled.i
+        <Styled(styled.i)
           iconUrl="none"
         />,
         <ItemTitle
@@ -174,7 +176,7 @@ ShallowWrapper {
         >
           foo
         </ItemTitle>,
-        <Styled(FaTimesCircle) />,
+        <CrossIcon />,
       ],
       "onClick": [Function],
     },
@@ -222,7 +224,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <styled.i
+          <Styled(styled.i)
             iconUrl="none"
           />,
           <ItemTitle
@@ -230,7 +232,7 @@ ShallowWrapper {
           >
             foo
           </ItemTitle>,
-          <Styled(FaTimesCircle) />,
+          <CrossIcon />,
         ],
         "onClick": [Function],
       },
@@ -290,6 +292,7 @@ ShallowWrapper {
     collected={true}
     icon="foo"
     id={1}
+    level={0}
     name="foo"
     quality={1}
     setActiveItem={[MockFunction]}
@@ -307,7 +310,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <styled.i
+        <Styled(styled.i)
           iconUrl="url(http://wow.zamimg.com/images/wow/icons/large/foo.jpg)"
         />,
         <ItemTitle
@@ -315,7 +318,7 @@ ShallowWrapper {
         >
           foo
         </ItemTitle>,
-        <Styled(FaCheckCircle) />,
+        <CheckIcon />,
       ],
       "onClick": [Function],
     },
@@ -363,7 +366,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <styled.i
+          <Styled(styled.i)
             iconUrl="url(http://wow.zamimg.com/images/wow/icons/large/foo.jpg)"
           />,
           <ItemTitle
@@ -371,7 +374,7 @@ ShallowWrapper {
           >
             foo
           </ItemTitle>,
-          <Styled(FaCheckCircle) />,
+          <CheckIcon />,
         ],
         "onClick": [Function],
       },
