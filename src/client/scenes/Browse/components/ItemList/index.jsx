@@ -9,11 +9,11 @@ import { CONTENT } from 'constants/content'
 
 import * as SC from 'ItemList/styled'
 import ProgressBar from 'ProgressBar'
-import ItemTile from 'ItemTile'
+import ItemBar from 'ItemBar'
 
 const ItemList = props => {
   const renderItemPanels = data => {
-    return data.map(item => <ItemTile {...item} key={item.id} />)
+    return data.map(item => <ItemBar {...item} key={item.id} />)
   }
 
   const renderBlockTiles = data => {

@@ -68,7 +68,7 @@ ShallowWrapper {
             <BlockTitle>
               Drop
             </BlockTitle>
-            <Connect(ItemTile)
+            <Connect(ItemBar)
               added={1}
               bmah={null}
               class={null}
@@ -112,7 +112,7 @@ ShallowWrapper {
               Drop
             </BlockTitle>,
             Array [
-              <Connect(ItemTile)
+              <Connect(ItemBar)
                 added={1}
                 bmah={null}
                 class={null}
@@ -189,7 +189,7 @@ ShallowWrapper {
               <BlockTitle>
                 Drop
               </BlockTitle>
-              <Connect(ItemTile)
+              <Connect(ItemBar)
                 added={1}
                 bmah={null}
                 class={null}
@@ -233,7 +233,7 @@ ShallowWrapper {
                 Drop
               </BlockTitle>,
               Array [
-                <Connect(ItemTile)
+                <Connect(ItemBar)
                   added={1}
                   bmah={null}
                   class={null}

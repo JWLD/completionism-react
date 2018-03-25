@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { ICON_URLS } from 'constants/urls'
-import { setActiveItem } from 'ItemTile/actions'
+import { setActiveItem } from 'ItemBar/actions'
 import { activeCategorySelector } from 'Browse/selectors'
 
-import * as SC from 'ItemTile/styled'
+import * as SC from 'ItemBar/styled'
 
-export const ItemTile = ({
+export const ItemBar = ({
   category,
   collected,
   icon,
@@ -31,15 +31,15 @@ export const ItemTile = ({
   }
 
   return (
-    <SC.ItemTile onClick={() => setActiveItem(id)}>
+    <SC.ItemBar onClick={() => setActiveItem(id)}>
       <SC.ItemIcon iconUrl={iconUrl} />
       <SC.ItemTitle quality={quality}>{name}</SC.ItemTitle>
       {progressIcon}
-    </SC.ItemTile>
+    </SC.ItemBar>
   )
 }
 
-ItemTile.propTypes = {
+ItemBar.propTypes = {
   category: PropTypes.string.isRequired,
   collected: PropTypes.bool.isRequired,
   icon: PropTypes.string,
@@ -50,7 +50,7 @@ ItemTile.propTypes = {
   setActiveItem: PropTypes.func.isRequired
 }
 
-ItemTile.defaultProps = {
+ItemBar.defaultProps = {
   icon: null,
   level: 0
 }
@@ -63,4 +63,4 @@ const mapDispatchToProps = {
   setActiveItem
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemTile)
+export default connect(mapStateToProps, mapDispatchToProps)(ItemBar)

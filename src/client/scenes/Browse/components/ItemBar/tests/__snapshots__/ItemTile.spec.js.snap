@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ItemTile /> renders correctly 1`] = `
+exports[`<ItemBar /> renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <ItemTile
+  Symbol(enzyme.__unrendered__): <ItemBar
     collected={true}
     icon={null}
     id={1}
@@ -142,11 +142,11 @@ ShallowWrapper {
 }
 `;
 
-exports[`<ItemTile /> renders when [collected] prop is false 1`] = `
+exports[`<ItemBar /> renders when [collected] prop is false 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <ItemTile
+  Symbol(enzyme.__unrendered__): <ItemBar
     collected={false}
     icon={null}
     id={1}
@@ -284,11 +284,11 @@ ShallowWrapper {
 }
 `;
 
-exports[`<ItemTile /> renders when passed an [icon] prop 1`] = `
+exports[`<ItemBar /> renders when passed an [icon] prop 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <ItemTile
+  Symbol(enzyme.__unrendered__): <ItemBar
     collected={true}
     icon="foo"
     id={1}

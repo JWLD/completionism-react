@@ -7,7 +7,7 @@ import { mixins, vars } from 'style'
 const itemTilePadding = 0.5
 const iconSize = vars.itemHeight - itemTilePadding * 2
 
-export const ItemTile = styled.li`
+export const ItemBar = styled.li`
   ${mixins.browseItem};
 
   justify-content: space-between;
