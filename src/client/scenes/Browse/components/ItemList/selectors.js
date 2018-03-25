@@ -33,10 +33,10 @@ const filterByUserFilter = (data, filterValue) => {
 
 // ORGANISE FUNCTIONS
 
-const organiseIntoSubCategories = data => {
+const organiseIntoSources = data => {
   return data.reduce((acc, item) => {
     const sourceType = SOURCES[item.source]
-    const entry = acc.find(subCategory => subCategory.name === sourceType)
+    const entry = acc.find(sources => sources.name === sourceType)
 
     if (!entry) {
       acc.push({
@@ -48,6 +48,40 @@ const organiseIntoSubCategories = data => {
 
       acc[entryIndex].items.push(item)
     }
+
+    return acc
+  }, [])
+}
+
+const setSubs = items => {
+  let subs = items.reduce((acc, item) => {
+    const subType = item.sub1
+    const entry = acc.find(subs => subs.name === subType)
+
+    if (!entry) {
+      acc.push({
+        name: subType,
+        items: [item]
+      })
+    } else {
+      const entryIndex = acc.indexOf(entry)
+      acc[entryIndex].items.push(item)
+    }
+
+    return acc
+  }, [])
+
+  subs = sortItemBlocks(subs)
+
+  return subs
+}
+
+const organiseIntoSubs = data => {
+  return data.reduce((acc, block) => {
+    const newBlock = { ...block, subs: setSubs(block.items) }
+    delete newBlock.items
+
+    acc.push(newBlock)
 
     return acc
   }, [])
@@ -189,9 +223,10 @@ const itemsSelector = createSelector(
 )
 
 export const itemBlocksSelector = createSelector([itemsSelector], items => {
-  let blocks = organiseIntoSubCategories(items)
+  let blocks = organiseIntoSources(items)
   blocks = sortItemBlocks(blocks)
-
+  blocks = organiseIntoSubs(blocks)
+  console.log(blocks)
   return blocks
 })
 
