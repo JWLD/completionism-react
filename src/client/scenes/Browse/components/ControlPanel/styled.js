@@ -32,6 +32,10 @@ const SettingIcon = styled.i`
   }
 `
 
-export const ListIcon = SettingIcon.withComponent(FaAlignJustify)
+export const ListIcon = styled(SettingIcon.withComponent(FaAlignJustify))`
+  color: ${props => (props.active ? 'white' : 'grey')};
+`
 
-export const SquaresIcon = SettingIcon.withComponent(FaTh)
+export const SquaresIcon = styled(SettingIcon.withComponent(FaTh))`
+  color: ${props => (props.active ? 'white' : 'grey')};
+`
