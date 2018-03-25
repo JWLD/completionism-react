@@ -1,5 +1,13 @@
 import React from 'react'
 
-const ControlPanel = () => <h1>I am a control panel yay!</h1>
+import * as SC from 'ControlPanel/styled'
+
+const ControlPanel = () => (
+  <SC.SettingRow>
+    <SC.SettingTitle>View Mode</SC.SettingTitle>
+    <SC.ListIcon />
+    <SC.SquaresIcon />
+  </SC.SettingRow>
+)
 
 export default ControlPanel

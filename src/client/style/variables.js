@@ -13,7 +13,8 @@ const colours = {
 
   mainLight: '#373e48',
   mainDark: '#21252b',
-  mainGrey: '#333'
+  mainGrey: '#333',
+  barGrey: '#444'
 }
 
 const sizing = {

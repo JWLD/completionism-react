@@ -4,7 +4,7 @@ export const initialState = {
   activeCategory: '',
   activeContent: 0,
   activeItemId: 0,
-  controlPanelIsActive: false,
+  controlPanelIsActive: true,
   filter: ''
 }
 

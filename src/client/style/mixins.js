@@ -6,6 +6,12 @@ const flex = `
 	align-items: center;
 `
 
+const flexLeft = `
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`
+
 const flexRight = `
   display: flex;
   justify-content: flex-end;
@@ -28,6 +34,7 @@ const flexVerticalTop = `
 
 const flexBox = {
   flex,
+  flexLeft,
   flexRight,
   flexVertical,
   flexVerticalTop
