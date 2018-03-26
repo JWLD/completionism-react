@@ -1,5 +1,3 @@
-import vars from 'style/variables'
-
 const flex = `
 	display: flex;
 	justify-content: center;
@@ -32,27 +30,10 @@ const flexVerticalTop = `
   justify-content: flex-start;
 `
 
-const flexBox = {
+export default {
   flex,
   flexLeft,
   flexRight,
   flexVertical,
   flexVerticalTop
-}
-
-const browseItem = `
-  ${flex};
-
-  width: 100%;
-  height: ${vars.itemHeight}rem;
-  border-radius: 0.3rem;
-`
-
-const wrapMixins = {
-  browseItem
-}
-
-export default {
-  ...flexBox,
-  ...wrapMixins
 }

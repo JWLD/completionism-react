@@ -3,13 +3,12 @@ import FaCheckCircle from 'react-icons/lib/fa/check-circle'
 import FaTimesCircle from 'react-icons/lib/fa/times-circle'
 
 import { mixins, vars } from 'style'
+import { BrowseItem } from 'style/components'
 
 const itemTilePadding = 0.5
 const iconSize = vars.itemHeight - itemTilePadding * 2
 
-export const ItemBar = styled.li`
-  ${mixins.browseItem};
-
+export const ItemBar = styled(BrowseItem)`
   justify-content: space-between;
   height: ${vars.itemHeight}rem;
   padding: ${itemTilePadding}rem;

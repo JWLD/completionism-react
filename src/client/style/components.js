@@ -24,3 +24,11 @@ export const BrowseBlock = styled.div`
     margin-bottom: 2rem;
   }
 `
+
+export const BrowseItem = styled.div`
+  ${mixins.flex};
+
+  width: 100%;
+  height: ${vars.itemHeight}rem;
+  border-radius: 0.3rem;
+`
