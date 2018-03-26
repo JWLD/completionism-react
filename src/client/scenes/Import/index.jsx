@@ -1,15 +1,16 @@
 import React from 'react'
 
-import * as SC from 'Import/styled'
+import { PageWrap } from 'style/components'
+
 import NavBar from 'NavBar'
 import ImportForm from 'ImportForm'
 
 const Import = () => (
-  <SC.ImportPage>
+  <PageWrap>
     <NavBar />
 
     <ImportForm />
-  </SC.ImportPage>
+  </PageWrap>
 )
 
 export default Import

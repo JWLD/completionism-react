@@ -4,6 +4,8 @@ import CATEGORIES from 'constants/categories'
 import { ICON_URLS } from 'constants/urls'
 
 import * as SC from 'Landing/styled'
+import { PageWrap } from 'style/components'
+
 import NavBar from 'NavBar'
 
 const Landing = () => {
@@ -55,11 +57,11 @@ const Landing = () => {
   }
 
   return (
-    <SC.LandingPage>
+    <PageWrap>
       <NavBar />
 
       {renderCategoryBlocks()}
-    </SC.LandingPage>
+    </PageWrap>
   )
 }
 

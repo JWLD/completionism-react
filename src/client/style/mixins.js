@@ -40,14 +40,6 @@ const flexBox = {
   flexVerticalTop
 }
 
-const pageWrap = `
-  ${flexVertical};
-
-	min-width: 100vw;
-	margin-top: ${vars.navBarHeight}rem;
-	padding: ${vars.pagePadding}rem;
-`
-
 const browseBlock = `
   ${flex};
 
@@ -71,8 +63,7 @@ const browseItem = `
 
 const wrapMixins = {
   browseBlock,
-  browseItem,
-  pageWrap
+  browseItem
 }
 
 export default {

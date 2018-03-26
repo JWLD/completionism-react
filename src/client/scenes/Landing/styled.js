@@ -7,10 +7,6 @@ import { mixins } from 'style'
 const panelHeight = 7
 const panelPadding = 1
 
-export const LandingPage = styled.div`
-  ${mixins.pageWrap};
-`
-
 export const CategoryBlock = styled.ul`
   :not(:last-child) {
     margin-bottom: ${panelPadding * 3}rem;
