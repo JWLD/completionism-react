@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
 import { mixins, vars } from 'style'
+import { BrowseBlock } from 'style/components'
 
 const barHeight = 1.5
 
-export const ProgressBarWrap = styled.div`
-  ${mixins.browseBlock};
-
+export const ProgressBarWrap = styled(BrowseBlock)`
   flex-direction: column;
 `
 

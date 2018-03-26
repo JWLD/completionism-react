@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 import { resetFilter, setFilter } from 'FilterBox/actions'
 
 import * as SC from 'FilterBox/styled'
+import { BrowseBlock } from 'style/components'
 
 export const FilterBox = props => (
-  <SC.FilterWrap>
+  <BrowseBlock>
     <SC.FilterInput
       onChange={e => props.setFilter(e.target.value)}
       value={props.filterValue}
@@ -17,7 +18,7 @@ export const FilterBox = props => (
       active={props.filterValue}
       onClick={() => props.resetFilter()}
     />
-  </SC.FilterWrap>
+  </BrowseBlock>
 )
 
 FilterBox.propTypes = {

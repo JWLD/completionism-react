@@ -1,18 +1,10 @@
 import styled from 'styled-components'
 
-import { mixins } from 'style'
-
 export const ListWrap = styled.div`
   width: 100%;
 `
 
 export const ItemList = styled.div`
-  flex-direction: column;
-`
-
-export const SourceBlock = styled.div`
-  ${mixins.browseBlock};
-
   flex-direction: column;
 `
 

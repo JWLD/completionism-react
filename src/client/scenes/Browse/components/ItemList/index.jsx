@@ -8,6 +8,8 @@ import { contentParamSelector, viewModeListSelector } from 'Browse/selectors'
 import { CONTENT } from 'constants/content'
 
 import * as SC from 'ItemList/styled'
+import { BrowseBlock } from 'style/components'
+
 import ProgressBar from 'ProgressBar'
 import ItemBar from 'ItemBar'
 import ItemTile from 'ItemTile'
@@ -36,10 +38,10 @@ const ItemList = props => {
 
   const renderSourceBlocks = () => {
     return props.blocks.map(subCategory => (
-      <SC.SourceBlock key={subCategory.name}>
+      <BrowseBlock key={subCategory.name}>
         <SC.SourceTitle>{subCategory.name}</SC.SourceTitle>
         {renderSubBlocks(subCategory.subs)}
-      </SC.SourceBlock>
+      </BrowseBlock>
     ))
   }
 

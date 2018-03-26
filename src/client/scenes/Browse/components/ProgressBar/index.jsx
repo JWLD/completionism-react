@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import * as SC from 'ProgressBar/styled'
+import { BrowseBlock } from 'style/components'
 
 const ProgressBar = props => {
   const fillPercent = props.count / props.total * 100
   const fillProp = isNaN(fillPercent) ? 0 : fillPercent
 
   return (
-    <SC.ProgressBarWrap>
+    <BrowseBlock>
       <SC.TextWrap>
         <SC.ProgressText>{props.title}</SC.ProgressText>
         <SC.ProgressText>
@@ -19,7 +20,7 @@ const ProgressBar = props => {
       <SC.ProgressBar>
         <SC.BarFill fill={fillProp} />
       </SC.ProgressBar>
-    </SC.ProgressBarWrap>
+    </BrowseBlock>
   )
 }
 
