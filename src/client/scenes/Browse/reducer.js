@@ -4,9 +4,9 @@ export const initialState = {
   activeCategory: '',
   activeContent: 0,
   activeItemId: 0,
-  controlPanelIsActive: true,
+  controlPanelIsActive: false,
   filter: '',
-  viewModeList: false
+  viewModeList: true
 }
 
 const browseReducer = (state = initialState, action) => {
