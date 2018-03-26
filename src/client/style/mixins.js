@@ -40,19 +40,6 @@ const flexBox = {
   flexVerticalTop
 }
 
-const browseBlock = `
-  ${flex};
-
-  width: 100%;
-  padding: ${vars.itemListPadding}rem;
-  border-radius: 0.4rem;
-  background-color: ${vars.mainGrey};
-
-  &:not(:last-child) {
-    margin-bottom: 2rem;
-  }
-`
-
 const browseItem = `
   ${flex};
 
@@ -62,7 +49,6 @@ const browseItem = `
 `
 
 const wrapMixins = {
-  browseBlock,
   browseItem
 }
 
