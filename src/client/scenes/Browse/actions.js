@@ -22,9 +22,11 @@ export const loadCategoryData = (categoryData, category) => ({
 
 // THUNKS
 
-export const changeBrowsePage = ({ next }) => (dispatch, getState) => {
-  const category = activeCategorySelector(getState())
-  const content = activeContentSelector(getState())
+export const changeBrowsePage = ({ next }) => (_, getState) => {
+  const state = getState()
+  const category = activeCategorySelector(state)
+  const content = activeContentSelector(state)
+
   const contentCount = CONTENT_ARR.length
 
   const newPage = next
