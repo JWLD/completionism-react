@@ -1,5 +1,8 @@
 import * as ACTIONS from 'constants/action_types'
+import { CONTENT_ARR } from 'constants/content'
 import { fetchDBCategoryData } from 'services/api'
+import history from 'lib/history'
+import { activeCategorySelector, activeContentSelector } from 'Browse/selectors'
 
 export const changeActiveCategory = category => ({
   type: ACTIONS.UPDATE_ACTIVE_CATEGORY,
@@ -18,6 +21,18 @@ export const loadCategoryData = (categoryData, category) => ({
 })
 
 // THUNKS
+
+export const changeBrowsePage = ({ next }) => (dispatch, getState) => {
+  const category = activeCategorySelector(getState())
+  const content = activeContentSelector(getState())
+  const contentCount = CONTENT_ARR.length
+
+  const newPage = next
+    ? content === contentCount ? 1 : content + 1
+    : content === 1 ? contentCount : content - 1
+
+  history.push(`/browse/${category}/${newPage}`)
+}
 
 export const fetchCategoryData = category => dispatch => {
   return fetchDBCategoryData(category).then(categoryData => {

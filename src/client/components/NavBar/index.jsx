@@ -1,35 +1,36 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
-import { CONTENT } from 'constants/content'
 import * as SC from 'NavBar/styled'
 
-export const NavBar = props => {
-  const renderCentreNav = () => {
-    if (!props.match.params.category) return null
+import { CONTENT } from 'constants/content'
+import { changeBrowsePage } from 'Browse/actions'
 
-    const { category, content } = props.match.params
-    const prevPage = Number(content) - 1 === 0 ? 9 : Number(content) - 1
-    const nextPage = Number(content) + 1 === 10 ? 1 : Number(content) + 1
+export const NavBar = ({ changeBrowsePage, match }) => {
+  const renderCentreNav = () => {
+    if (!match.params.category) return null
+
+    const { content } = match.params
 
     return (
       <SC.CentreWrap>
-        <SC.NavLink to={`/browse/${category}/${prevPage}`}>
+        <SC.NavButton onClick={() => changeBrowsePage({ next: false })}>
           <SC.CircleLeftIcon />
-        </SC.NavLink>
+        </SC.NavButton>
 
         <SC.MainTitle>{CONTENT[content].content}</SC.MainTitle>
 
-        <SC.NavLink to={`/browse/${category}/${nextPage}`}>
+        <SC.NavButton onClick={() => changeBrowsePage({ next: true })}>
           <SC.CircleRightIcon />
-        </SC.NavLink>
+        </SC.NavButton>
       </SC.CentreWrap>
     )
   }
 
   const renderCategorySpan = () => {
-    const { category } = props.match.params
+    const { category } = match.params
 
     return category && <SC.NavSpan>{category}</SC.NavSpan>
   }
@@ -50,7 +51,14 @@ export const NavBar = props => {
 }
 
 NavBar.propTypes = {
+  changeBrowsePage: PropTypes.func.isRequired,
   match: PropTypes.object.isRequired
 }
 
-export default withRouter(NavBar)
+const mapDispatchToProps = {
+  changeBrowsePage
+}
+
+const ReduxComponent = connect(null, mapDispatchToProps)(NavBar)
+
+export default withRouter(ReduxComponent)

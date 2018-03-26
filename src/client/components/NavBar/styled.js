@@ -63,6 +63,8 @@ export const NavLink = styled(Link)`
   }
 `
 
+export const NavButton = NavLink.withComponent('button')
+
 export const NavSpan = NavLink.withComponent('span').extend`
   padding: 0.75rem 1rem;
   font: 2.5rem DinMC;
