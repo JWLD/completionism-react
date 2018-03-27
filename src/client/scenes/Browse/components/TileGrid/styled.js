@@ -5,6 +5,17 @@ import { mixins, vars } from 'style'
 const itemTilePadding = 0.36
 const iconSize = vars.itemHeight - itemTilePadding * 2
 
+export const TileGrid = styled.div`
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(10, 1fr);
+  width: 100%;
+
+  :not(:last-child) {
+    margin-bottom: 1rem;
+  }
+`
+
 export const Tile = styled.div`
   ${mixins.flex};
 

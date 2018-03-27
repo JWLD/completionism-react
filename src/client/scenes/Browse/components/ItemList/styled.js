@@ -26,14 +26,3 @@ export const SubTitle = styled.span`
   font: 2.25rem DinMC;
   text-transform: uppercase;
 `
-
-export const TileGrid = styled.div`
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(10, 1fr);
-  width: 100%;
-
-  :not(:last-child) {
-    margin-bottom: 1rem;
-  }
-`

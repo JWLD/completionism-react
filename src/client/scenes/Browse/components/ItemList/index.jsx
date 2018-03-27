@@ -12,18 +12,14 @@ import { BrowseBlock } from 'style/components'
 
 import ProgressBar from 'ProgressBar'
 import ItemBar from 'ItemBar'
-import ItemTile from 'ItemTile'
+import TileGrid from 'TileGrid'
 
 const ItemList = props => {
   const renderItemBars = data => {
     return data.map(item => <ItemBar {...item} key={item.id} />)
   }
 
-  const renderItemTiles = data => (
-    <SC.TileGrid>
-      {data.map(item => <ItemTile {...item} key={item.id} />)}
-    </SC.TileGrid>
-  )
+  const renderTileGrid = items => <TileGrid items={items} />
 
   const renderSubBlocks = subs => {
     return subs.map(subCat => (
@@ -31,7 +27,7 @@ const ItemList = props => {
         <SC.SubTitle>{subCat.name}</SC.SubTitle>
         {props.listView
           ? renderItemBars(subCat.items)
-          : renderItemTiles(subCat.items)}
+          : renderTileGrid(subCat.items)}
       </Fragment>
     ))
   }
