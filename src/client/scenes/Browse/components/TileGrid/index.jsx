@@ -1,17 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { ICON_URLS } from 'constants/urls'
+import { setActiveItem } from 'Browse/actions'
 
 import * as SC from 'TileGrid/styled'
 
-const TileGrid = ({ items }) => {
+const TileGrid = ({ items, setActiveItem }) => {
   const renderTiles = () => {
     return items.map(({ collected, icon, id }) => {
       const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
 
       return (
-        <SC.Tile collected={collected} key={id}>
+        <SC.Tile
+          collected={collected}
+          key={id}
+          onClick={() => setActiveItem(id)}
+        >
           <SC.TileIcon iconUrl={iconUrl} />
         </SC.Tile>
       )
@@ -22,7 +28,12 @@ const TileGrid = ({ items }) => {
 }
 
 TileGrid.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  setActiveItem: PropTypes.func.isRequired
 }
 
-export default TileGrid
+const mapDispatchToProps = {
+  setActiveItem
+}
+
+export default connect(null, mapDispatchToProps)(TileGrid)

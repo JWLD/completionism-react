@@ -17,7 +17,7 @@ export const TileGrid = styled.div`
   }
 `
 
-export const Tile = styled.div`
+export const Tile = styled.button`
   ${mixins.flex};
 
   position: relative;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { ICON_URLS } from 'constants/urls'
-import { setActiveItem } from 'ItemBar/actions'
+import { setActiveItem } from 'Browse/actions'
 import { activeCategorySelector } from 'Browse/selectors'
 
 import * as SC from 'ItemBar/styled'

@@ -20,6 +20,11 @@ export const loadCategoryData = (categoryData, category) => ({
   category
 })
 
+export const setActiveItem = itemId => ({
+  type: ACTIONS.SET_ACTIVE_ITEM,
+  payload: itemId
+})
+
 // THUNKS
 
 export const changeBrowsePage = ({ next }) => (_, getState) => {
