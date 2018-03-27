@@ -15,7 +15,7 @@ const browseReducer = (state = initialState, action) => {
       return { ...state, [action.category]: action.payload }
     case ACTIONS.RESET_FILTER:
       return { ...state, filter: '' }
-    case ACTIONS.SET_ACTIVE_ITEM:
+    case ACTIONS.SET_ACTIVE_ITEM_ID:
       return { ...state, activeItemId: action.payload }
     case ACTIONS.SET_FILTER:
       return { ...state, filter: action.value }

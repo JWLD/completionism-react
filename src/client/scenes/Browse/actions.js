@@ -21,7 +21,7 @@ export const loadCategoryData = (categoryData, category) => ({
 })
 
 export const setActiveItem = itemId => ({
-  type: ACTIONS.SET_ACTIVE_ITEM,
+  type: ACTIONS.SET_ACTIVE_ITEM_ID,
   payload: itemId
 })
 
