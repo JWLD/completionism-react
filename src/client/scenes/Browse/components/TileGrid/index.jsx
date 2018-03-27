@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { ICON_URLS } from 'constants/urls'
-import { setActiveItem } from 'Browse/actions'
+import { setActiveItemId } from 'Browse/actions'
 
 import * as SC from 'TileGrid/styled'
 
-const TileGrid = ({ items, setActiveItem }) => {
+const TileGrid = ({ items, setActiveItemId }) => {
   const renderTiles = () => {
     return items.map(({ collected, icon, id }) => {
       const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
@@ -16,7 +16,7 @@ const TileGrid = ({ items, setActiveItem }) => {
         <SC.Tile
           collected={collected}
           key={id}
-          onClick={() => setActiveItem(id)}
+          onClick={() => setActiveItemId(id)}
         >
           <SC.TileIcon iconUrl={iconUrl} />
         </SC.Tile>
@@ -29,11 +29,11 @@ const TileGrid = ({ items, setActiveItem }) => {
 
 TileGrid.propTypes = {
   items: PropTypes.array.isRequired,
-  setActiveItem: PropTypes.func.isRequired
+  setActiveItemId: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = {
-  setActiveItem
+  setActiveItemId
 }
 
 export default connect(null, mapDispatchToProps)(TileGrid)

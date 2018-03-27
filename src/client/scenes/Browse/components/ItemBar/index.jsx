@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { ICON_URLS } from 'constants/urls'
-import { setActiveItem } from 'Browse/actions'
+import { setActiveItemId } from 'Browse/actions'
 import { activeCategorySelector } from 'Browse/selectors'
 
 import * as SC from 'ItemBar/styled'
@@ -16,7 +16,7 @@ export const ItemBar = ({
   level,
   name,
   quality,
-  setActiveItem
+  setActiveItemId
 }) => {
   const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
 
@@ -31,7 +31,7 @@ export const ItemBar = ({
   }
 
   return (
-    <SC.ItemBar onClick={() => setActiveItem(id)}>
+    <SC.ItemBar onClick={() => setActiveItemId(id)}>
       <SC.ItemIcon iconUrl={iconUrl} />
       <SC.ItemTitle quality={quality}>{name}</SC.ItemTitle>
       {progressIcon}
@@ -47,7 +47,7 @@ ItemBar.propTypes = {
   level: PropTypes.number,
   name: PropTypes.string.isRequired,
   quality: PropTypes.number.isRequired,
-  setActiveItem: PropTypes.func.isRequired
+  setActiveItemId: PropTypes.func.isRequired
 }
 
 ItemBar.defaultProps = {
@@ -60,7 +60,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  setActiveItem
+  setActiveItemId
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemBar)

@@ -14,7 +14,7 @@ beforeEach(() => {
     id: 1,
     name: 'foo',
     quality: 1,
-    setActiveItem: jest.fn()
+    setActiveItemId: jest.fn()
   }
 })
 

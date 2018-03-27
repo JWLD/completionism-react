@@ -20,7 +20,7 @@ export const loadCategoryData = (categoryData, category) => ({
   category
 })
 
-export const setActiveItem = itemId => ({
+export const setActiveItemId = itemId => ({
   type: ACTIONS.SET_ACTIVE_ITEM_ID,
   payload: itemId
 })
