@@ -25,13 +25,13 @@ export const loadCategoryData = (categoryData, category) => ({
 export const changeBrowsePage = ({ next }) => (_, getState) => {
   const state = getState()
   const category = activeCategorySelector(state)
-  const content = activeContentSelector(state)
+  const currentPage = activeContentSelector(state)
 
-  const contentCount = CONTENT_ARR.length
+  const lastPage = CONTENT_ARR.length
 
   const newPage = next
-    ? content === contentCount ? 1 : content + 1
-    : content === 1 ? contentCount : content - 1
+    ? currentPage === lastPage ? 1 : currentPage + 1
+    : currentPage === 1 ? lastPage : currentPage - 1
 
   history.push(`/browse/${category}/${newPage}`)
 }
