@@ -1,19 +1,10 @@
-const url = require('url')
 const mysql = require('mysql')
 
 if (!process.env.DATABASE_URL) {
   throw new Error('Environment variable JAWSDB_URL must be set')
 }
 
-const params = url.parse(process.env.DATABASE_URL)
-const [user, password] = params.auth.split(':')
-
-const con = mysql.createConnection({
-  host: params.hostname,
-  user,
-  password,
-  database: params.path.slice(1)
-})
+const con = mysql.createConnection(process.env.DATABASE_URL)
 
 con.connect(err => {
   if (err) throw err
