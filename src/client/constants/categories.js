@@ -101,7 +101,7 @@ const SECONDARY = [
 		name: 'First Aid',
 		icon: 'spell_holy_sealofsacrifice',
 		battleNet: true,
-		enabled: true
+		enabled: false
 	},
 	{
 		key: 'mining',
