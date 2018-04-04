@@ -3,8 +3,8 @@ const async = require('async')
 
 const { PRIMARY, SECONDARY } = require('../constants/categories')
 
-const dbConnect = require('../dbConnect')
-const dbQueries = require('../dbQueries')
+const db_connect = require('../db_connect')
+const db_queries = require('../db_queries')
 
 const blizzController = {}
 
@@ -125,7 +125,7 @@ const findMissingIds = (recipeIds, rankedData) => {
 }
 
 const checkForRankedRecipes = (recipeIds, cat, blizzData, callback) => {
-  dbQueries.getRankedData(dbConnect, cat, (err, res) => {
+  db_queries.getRankedData(db_connect, cat, (err, res) => {
     if (err) return console.log(err)
 
     const rankedData = processRankedDataFromDB(res)
