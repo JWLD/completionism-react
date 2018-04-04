@@ -1,7 +1,7 @@
 export const CONTENT = {
   1: {
     xpac: 'Classic',
-    content: 'Mainland',
+    content: 'Classic',
     level: '1-60'
   },
   2: {
