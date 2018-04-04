@@ -2,12 +2,12 @@ import styled from 'styled-components'
 
 import { mixins, vars } from 'style'
 
-const minIconSize = 5.5
+const minIconSize = vars.itemHeight
 const tilePadding = 0.4
 
 export const TileGrid = styled.div`
   display: grid;
-  grid-gap: 1.25rem;
+  grid-gap: 1.1rem;
   grid-template-columns: repeat(auto-fill, minmax(${minIconSize}rem, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(${minIconSize}rem, 1fr));
   width: 100%;
