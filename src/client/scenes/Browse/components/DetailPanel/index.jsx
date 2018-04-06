@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import { controlPanelSelector, itemDataSelector } from 'DetailPanel/selectors'
+import { controlPanelIsActiveSelector } from 'Browse/selectors'
 import { toggleControlPanel } from 'DetailPanel/actions'
 
 import * as SC from 'DetailPanel/styled'
@@ -13,7 +13,7 @@ import InfoPanel from 'InfoPanel'
 export const DetailPanel = props => {
   const title = props.controlPanelIsActive
     ? 'Control Panel'
-    : props.itemData.name || 'Select An Item'
+    : 'Item Info'
 
   return (
     <SC.DetailPanel>
@@ -32,13 +32,11 @@ export const DetailPanel = props => {
 
 DetailPanel.propTypes = {
   controlPanelIsActive: PropTypes.bool.isRequired,
-  itemData: PropTypes.object.isRequired,
   toggleControlPanel: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state, props) => ({
-  controlPanelIsActive: controlPanelSelector(state),
-  itemData: itemDataSelector(state, props)
+const mapStateToProps = state => ({
+  controlPanelIsActive: controlPanelIsActiveSelector(state)
 })
 
 const mapDispatchToProps = {

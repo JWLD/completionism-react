@@ -4,7 +4,8 @@ import _ from 'lodash'
 import {
   categoryDataSelector,
   categoryParamSelector,
-  contentParamSelector
+  contentParamSelector,
+  filterSelector
 } from 'Browse/selectors'
 import { SOURCES } from 'constants/sources'
 
@@ -180,15 +181,13 @@ const addPetLevel = data => {
 
 // REGULAR SELECTORS
 
-const filterValueSelector = state => state.browse.filter
-
 const itemsSelector = createSelector(
   [
     categoryDataSelector,
     categoryParamSelector,
     contentParamSelector,
     factionSelector,
-    filterValueSelector,
+    filterSelector,
     collectedIdsSelector,
     petQualitySelector
   ],

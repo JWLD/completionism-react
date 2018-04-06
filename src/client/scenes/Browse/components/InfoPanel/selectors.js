@@ -1,10 +1,6 @@
 import { createSelector } from 'reselect'
 
-import { categoryDataSelector } from 'Browse/selectors'
-
-const activeItemIdSelector = state => state.browse.activeItemId
-
-export const controlPanelSelector = state => state.browse.controlPanelIsActive
+import { activeItemIdSelector, categoryDataSelector } from 'Browse/selectors'
 
 export const itemDataSelector = createSelector(
   [activeItemIdSelector, categoryDataSelector],
