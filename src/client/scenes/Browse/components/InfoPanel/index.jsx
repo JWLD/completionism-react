@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -12,7 +12,15 @@ const InfoPanel = ({ itemData }) => {
   const imageUrl =
     itemData.displayId && `${NPC_RENDER_URLS.zoom}${itemData.displayId}.jpg`
 
-  return <SC.ItemImage imageUrl={imageUrl} />
+  return (
+    <Fragment>
+      <SC.ItemName>{itemData.name || 'Select An Item'}</SC.ItemName>
+      <SC.ItemImage imageUrl={imageUrl} />
+      <SC.WowheadLink href={`http://www.wowhead.com/item=${itemData.id}`} target="_blank">
+        View on Wowhead
+      </SC.WowheadLink>
+    </Fragment>
+  )
 }
 
 InfoPanel.propTypes = {

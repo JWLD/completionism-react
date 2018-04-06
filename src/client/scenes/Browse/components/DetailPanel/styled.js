@@ -16,6 +16,12 @@ export const DetailPanel = styled.div`
   padding: ${vars.itemListPadding}rem;
   border-radius: 0.4rem;
   background-color: ${vars.mainGrey};
+
+  > * {
+    :not(:last-child) {
+      margin-bottom: ${vars.itemListPadding}rem;
+    }
+  }
 `
 
 export const TopBar = styled.div`
@@ -24,7 +30,6 @@ export const TopBar = styled.div`
   height: ${vars.itemHeight}rem;
   min-height: ${vars.itemHeight}rem;
   width: 100%;
-  margin-bottom: ${vars.itemListPadding}rem;
 `
 
 export const Title = styled.span`
