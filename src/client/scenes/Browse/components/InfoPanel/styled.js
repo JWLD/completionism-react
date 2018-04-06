@@ -6,7 +6,7 @@ export const ItemImage = styled.div.attrs({
   })
 })`
   width: 100%;
-  height: 100%;
+  padding-bottom: 100%;
   border-radius: 0.4rem;
   background-color: #444;
   background-size: cover;

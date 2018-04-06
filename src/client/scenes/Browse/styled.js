@@ -13,5 +13,5 @@ export const ListWrap = styled.div`
   ${mixins.flexVertical};
 
   width: 100%;
-  margin-right: calc(50vw - ${vars.browsePadding * 0.5}rem);
+  margin-right: ${vars.pagePadding}rem;
 `
