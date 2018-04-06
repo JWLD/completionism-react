@@ -1,12 +1,8 @@
 import styled from 'styled-components'
 
 export const ListWrap = styled.div`
+  flex-grow: 1;
   width: 100%;
-  height: 100%;
-`
-
-export const ItemList = styled.div`
-  flex-direction: column;
 `
 
 export const SourceTitle = styled.span`
