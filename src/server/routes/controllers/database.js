@@ -1,11 +1,11 @@
-const dbQueries = require('../../database/queries/db_queries')
+const { getCategoryData, getRankedData } = require('../../database/queries')
 
 const dbController = {}
 
-// GET DB-CATEGORY - GET ALL CATEGORY DATA FROM DB
+// GET DB-CATEGORY - GET DATA FOR A SPECIFIC CATEGORY FROM DB
 
 dbController.getCategoryData = (req, res) => {
-  dbQueries.getCategoryData(req.query.category, (err, dbRes) => {
+  getCategoryData(req.query.category, (err, dbRes) => {
     if (err) return res.status(500).send(err)
 
     return res.send(dbRes)
@@ -15,7 +15,7 @@ dbController.getCategoryData = (req, res) => {
 // GET DB-RANKED - GET ALL RECIPES WITH RANKS FROM DB
 
 dbController.getRankedData = (req, res) => {
-  dbQueries.getRankedData(req.query.q, (err, dbRes) => {
+  getRankedData(req.query.q, (err, dbRes) => {
     if (err) return res.status(500).send(err)
 
     return res.send(dbRes)
