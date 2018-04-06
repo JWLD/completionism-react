@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, Switch } from 'react-router-dom'
 
 import store from 'store'
-import history from 'lib/history'
+import history from 'services/history'
 
 import Landing from 'Landing'
 import Browse from 'Browse'
