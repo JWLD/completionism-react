@@ -1,14 +1,16 @@
+const dbConnect = require('../connect')
+
 const dbQueries = {}
 
-dbQueries.getCategoryData = (con, category, callback) => {
-  con.query(
+dbQueries.getCategoryData = (category, callback) => {
+  dbConnect.query(
     `SELECT * FROM ${category} WHERE source != 300 ORDER BY name, id`,
     callback
   )
 }
 
-dbQueries.getRankedData = (con, category, callback) => {
-  con.query(
+dbQueries.getRankedData = (category, callback) => {
+  dbConnect.query(
     `SELECT id, name, rank FROM ${category} WHERE rank IS NOT NULL`,
     callback
   )

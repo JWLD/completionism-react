@@ -1,4 +1,3 @@
-const dbConnect = require('../../database/db_connect')
 const dbQueries = require('../../database/queries/db_queries')
 
 const dbController = {}
@@ -6,7 +5,7 @@ const dbController = {}
 // GET DB-CATEGORY - GET ALL CATEGORY DATA FROM DB
 
 dbController.getCategoryData = (req, res) => {
-  dbQueries.getCategoryData(dbConnect, req.query.category, (err, dbRes) => {
+  dbQueries.getCategoryData(req.query.category, (err, dbRes) => {
     if (err) return res.status(500).send(err)
 
     return res.send(dbRes)
@@ -16,7 +15,7 @@ dbController.getCategoryData = (req, res) => {
 // GET DB-RANKED - GET ALL RECIPES WITH RANKS FROM DB
 
 dbController.getRankedData = (req, res) => {
-  dbQueries.getRankedData(dbConnect, req.query.q, (err, dbRes) => {
+  dbQueries.getRankedData(req.query.q, (err, dbRes) => {
     if (err) return res.status(500).send(err)
 
     return res.send(dbRes)
