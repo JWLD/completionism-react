@@ -5,10 +5,13 @@ import { Router, Route, Switch } from 'react-router-dom'
 
 import store from 'store'
 import history from 'services/history'
+import initialiseApp from 'services/app_initialiser'
 
 import Landing from 'Landing'
 import Browse from 'Browse'
 import Import from 'Import'
+
+initialiseApp()
 
 const App = () => (
   <Router history={history}>
