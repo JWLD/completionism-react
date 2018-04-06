@@ -5,8 +5,9 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "node src/server/start.js",
-    "dev": "NODE_ENV=dev webpack-dev-server --progress & npm run server",
+    "dev": "npm run build:dev & npm run server",
     "build": "webpack --progress",
+    "build:dev": "NODE_ENV=dev webpack-dev-server --progress",
     "server": "NODE_ENV=dev nodemon --watch ./src/server/ ./src/server/start.js",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
