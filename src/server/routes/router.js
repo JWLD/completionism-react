@@ -1,8 +1,8 @@
 const router = require('express').Router()
 
 // controllers
-const dbController = require('./database')
-const blizzController = require('./blizzard')
+const dbController = require('./controllers/database')
+const blizzController = require('./controllers/blizzard')
 
 // DATABASE
 router.route('/db-category').get(dbController.getCategoryData)

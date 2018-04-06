@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 
-const router = require('./controllers/router.js')
+const router = require('./routes/router.js')
 
 const app = express()
 

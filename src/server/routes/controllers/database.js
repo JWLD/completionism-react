@@ -1,5 +1,5 @@
-const dbConnect = require('../db_connect')
-const dbQueries = require('../db_queries')
+const dbConnect = require('../../database/db_connect')
+const dbQueries = require('../../database/queries/db_queries')
 
 const dbController = {}
 
