@@ -32,3 +32,19 @@ export const BrowseItem = styled.div`
   height: ${vars.itemHeight}rem;
   border-radius: 0.3rem;
 `
+
+export const Spinner = styled.div`
+  height: ${props => props.size}rem;
+  width: ${props => props.size}rem;
+  border-width: ${props => props.size * 0.175}rem;
+  border-style: solid;
+  border-color: ${vars.neg};
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`
