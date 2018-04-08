@@ -107,14 +107,6 @@ const CATEGORIES = [
 		section: 'secondary'
 	},
 	{
-		key: 'firstaid',
-		name: 'First Aid',
-		icon: 'spell_holy_sealofsacrifice',
-		battleNet: true,
-		enabled: false,
-		section: 'secondary'
-	},
-	{
 		key: 'mining',
 		name: 'Mining',
 		icon: 'trade_mining',
