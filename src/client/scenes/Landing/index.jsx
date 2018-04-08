@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CATEGORIES from 'constants/categories'
+import { BY_SECTION as CATEGORIES } from 'constants/categories'
 import { ICON_URLS } from 'constants/urls'
 
 import * as SC from 'Landing/styled'

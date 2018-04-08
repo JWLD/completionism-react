@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field } from 'redux-form'
 
-import CATEGORIES from 'constants/categories'
+import { BY_SECTION as CATEGORIES } from 'constants/categories'
 
 import * as SC from 'CategoryFields/styled'
 import { CheckboxField } from 'formFields'
