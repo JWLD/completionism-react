@@ -2,10 +2,12 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import { reducer as formReducer } from 'redux-form'
 
-import browseReducer from 'scenes/Browse/reducer'
-import importReducer from 'scenes/Import/reducer'
+import appReducer from 'redux/reducer'
+import browseReducer from 'Browse/reducer'
+import importReducer from 'Import/reducer'
 
 const rootReducer = combineReducers({
+  app: appReducer,
   browse: browseReducer,
   form: formReducer,
   import: importReducer
