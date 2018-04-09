@@ -1,4 +1,4 @@
-const CATEGORIES = [
+const ALL_CATEGORIES = [
 	// collections
 	{
 		key: 'mounts',
@@ -116,9 +116,9 @@ const CATEGORIES = [
 	}
 ]
 
-const ENABLED_CATEGORIES = CATEGORIES.filter(category => category.enabled)
+const CATEGORIES = ALL_CATEGORIES.filter(category => category.enabled)
 
-export const BY_SECTION = ENABLED_CATEGORIES.reduce((acc, category) => {
+export const BY_SECTION = CATEGORIES.reduce((acc, category) => {
 	const categorySection = category.section
 
 	if (!acc[categorySection]) {
@@ -130,4 +130,4 @@ export const BY_SECTION = ENABLED_CATEGORIES.reduce((acc, category) => {
 	return acc
 }, {})
 
-export default ENABLED_CATEGORIES
+export default CATEGORIES
