@@ -116,7 +116,9 @@ const CATEGORIES = [
 	}
 ]
 
-export const BY_SECTION = CATEGORIES.reduce((acc, category) => {
+const ENABLED_CATEGORIES = CATEGORIES.filter(category => category.enabled)
+
+export const BY_SECTION = ENABLED_CATEGORIES.reduce((acc, category) => {
 	const categorySection = category.section
 
 	if (!acc[categorySection]) {
@@ -128,4 +130,4 @@ export const BY_SECTION = CATEGORIES.reduce((acc, category) => {
 	return acc
 }, {})
 
-export default CATEGORIES
+export default ENABLED_CATEGORIES

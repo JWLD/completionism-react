@@ -1,12 +1,12 @@
 import * as ACTIONS from 'constants/action_types'
 import CATEGORIES from 'constants/categories'
 
-const categoryState = CATEGORIES.reduce((acc, category) => {
+const categoriesInitialState = CATEGORIES.reduce((acc, category) => {
   return { ...acc, [category.key]: [] }
 }, {})
 
 const initialState = {
-  ...categoryState
+  categoryData: categoriesInitialState
 }
 
 const appReducer = (state = initialState, action) => {
