@@ -12,7 +12,10 @@ const initialState = {
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIONS.LOAD_CATEGORY_DATA:
-      return { ...state, [action.category]: action.payload }
+      return {
+        ...state, categoryData: {
+          ...state.categoryData, [action.category]: action.payload }
+        }
     default:
       return state
   }
