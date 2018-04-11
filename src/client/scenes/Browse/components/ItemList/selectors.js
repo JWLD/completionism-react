@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 import _ from 'lodash'
 
 import {
-  categoryDataSelector,
+  activeCategoryDataSelector,
   categoryParamSelector,
   contentParamSelector,
   filterSelector
@@ -183,7 +183,7 @@ const addPetLevel = data => {
 
 const itemsSelector = createSelector(
   [
-    categoryDataSelector,
+    activeCategoryDataSelector,
     categoryParamSelector,
     contentParamSelector,
     factionSelector,

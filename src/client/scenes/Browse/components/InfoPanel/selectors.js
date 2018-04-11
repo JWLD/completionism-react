@@ -1,9 +1,12 @@
 import { createSelector } from 'reselect'
 
-import { activeItemIdSelector, categoryDataSelector } from 'Browse/selectors'
+import {
+  activeItemIdSelector,
+  activeCategoryDataSelector
+} from 'Browse/selectors'
 
 export const itemDataSelector = createSelector(
-  [activeItemIdSelector, categoryDataSelector],
+  [activeItemIdSelector, activeCategoryDataSelector],
   (activeItemId, categoryData) => {
     const itemData = categoryData.find(item => item.id === activeItemId)
 
