@@ -16,7 +16,7 @@ const appReducer = (state = initialState, action) => {
         ...state,
         categoryData: {
           ...state.categoryData,
-          [action.category]: action.payload
+          [action.category]: action.data
         }
       }
     default:
