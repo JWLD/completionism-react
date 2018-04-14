@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import {
-  FaHome,
-  FaArrowCircleLeft,
-  FaArrowCircleRight
-} from 'react-icons/lib/fa'
+import FaHome from 'react-icons/lib/fa/home'
+import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left'
+import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right'
 
 import { mixins, vars } from 'style'
 

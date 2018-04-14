@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { FaCog, FaInfoCircle } from 'react-icons/lib/fa'
+import FaInfoCircle from 'react-icons/lib/fa/times-circle'
+import FaCog from 'react-icons/lib/fa/cog'
 
 import { mixins, vars } from 'style'
 

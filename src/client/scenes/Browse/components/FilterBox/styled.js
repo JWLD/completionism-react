@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { FaTimesCircle } from 'react-icons/lib/fa'
+import FaTimesCircle from 'react-icons/lib/fa/times-circle'
 
 import { vars } from 'style'
 import { BrowseItem } from 'style/components'

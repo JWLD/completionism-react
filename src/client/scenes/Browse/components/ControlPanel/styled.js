@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { FaAlignJustify, FaTh } from 'react-icons/lib/fa'
+import FaAlignJustify from 'react-icons/lib/fa/align-justify'
+import FaTh from 'react-icons/lib/fa/th'
 
 import { mixins, vars } from 'style'
 
