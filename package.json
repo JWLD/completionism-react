@@ -7,7 +7,7 @@
     "start": "node src/server/start.js",
     "dev": "npm run build:dev & npm run server",
     "build": "webpack --progress",
-    "build:dev": "NODE_ENV=dev webpack-dev-server --hot --progress",
+    "build:dev": "NODE_ENV=dev webpack-dev-server --hot",
     "server": "NODE_ENV=dev nodemon --watch ./src/server/ ./src/server/start.js",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
