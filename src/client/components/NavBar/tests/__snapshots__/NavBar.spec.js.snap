@@ -38,19 +38,19 @@ ShallowWrapper {
           </styled.span>
         </LeftWrap>,
         <CentreWrap>
-          <NavLink
-            to="/browse/mounts/8"
+          <styled.button
+            onClick={[Function]}
           >
             <Styled(FaArrowCircleLeft) />
-          </NavLink>
+          </styled.button>
           <MainTitle>
             Bonus
           </MainTitle>
-          <NavLink
-            to="/browse/mounts/1"
+          <styled.button
+            onClick={[Function]}
           >
             <Styled(FaArrowCircleRight) />
-          </NavLink>
+          </styled.button>
         </CentreWrap>,
       ],
     },
@@ -114,19 +114,19 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": Array [
-            <NavLink
-              to="/browse/mounts/8"
+            <styled.button
+              onClick={[Function]}
             >
               <Styled(FaArrowCircleLeft) />
-            </NavLink>,
+            </styled.button>,
             <MainTitle>
               Bonus
             </MainTitle>,
-            <NavLink
-              to="/browse/mounts/1"
+            <styled.button
+              onClick={[Function]}
             >
               <Styled(FaArrowCircleRight) />
-            </NavLink>,
+            </styled.button>,
           ],
         },
         "ref": null,
@@ -137,7 +137,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": <Styled(FaArrowCircleLeft) />,
-              "to": "/browse/mounts/8",
+              "onClick": [Function],
             },
             "ref": null,
             "rendered": Object {
@@ -168,7 +168,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": <Styled(FaArrowCircleRight) />,
-              "to": "/browse/mounts/1",
+              "onClick": [Function],
             },
             "ref": null,
             "rendered": Object {
@@ -206,19 +206,19 @@ ShallowWrapper {
             </styled.span>
           </LeftWrap>,
           <CentreWrap>
-            <NavLink
-              to="/browse/mounts/8"
+            <styled.button
+              onClick={[Function]}
             >
               <Styled(FaArrowCircleLeft) />
-            </NavLink>
+            </styled.button>
             <MainTitle>
               Bonus
             </MainTitle>
-            <NavLink
-              to="/browse/mounts/1"
+            <styled.button
+              onClick={[Function]}
             >
               <Styled(FaArrowCircleRight) />
-            </NavLink>
+            </styled.button>
           </CentreWrap>,
         ],
       },
@@ -282,19 +282,19 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              <NavLink
-                to="/browse/mounts/8"
+              <styled.button
+                onClick={[Function]}
               >
                 <Styled(FaArrowCircleLeft) />
-              </NavLink>,
+              </styled.button>,
               <MainTitle>
                 Bonus
               </MainTitle>,
-              <NavLink
-                to="/browse/mounts/1"
+              <styled.button
+                onClick={[Function]}
               >
                 <Styled(FaArrowCircleRight) />
-              </NavLink>,
+              </styled.button>,
             ],
           },
           "ref": null,
@@ -305,7 +305,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": <Styled(FaArrowCircleLeft) />,
-                "to": "/browse/mounts/8",
+                "onClick": [Function],
               },
               "ref": null,
               "rendered": Object {
@@ -336,7 +336,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": <Styled(FaArrowCircleRight) />,
-                "to": "/browse/mounts/1",
+                "onClick": [Function],
               },
               "ref": null,
               "rendered": Object {
@@ -405,19 +405,19 @@ ShallowWrapper {
           </styled.span>
         </LeftWrap>,
         <CentreWrap>
-          <NavLink
-            to="/browse/mounts/9"
+          <styled.button
+            onClick={[Function]}
           >
             <Styled(FaArrowCircleLeft) />
-          </NavLink>
+          </styled.button>
           <MainTitle>
-            Mainland
+            Classic
           </MainTitle>
-          <NavLink
-            to="/browse/mounts/2"
+          <styled.button
+            onClick={[Function]}
           >
             <Styled(FaArrowCircleRight) />
-          </NavLink>
+          </styled.button>
         </CentreWrap>,
       ],
     },
@@ -481,19 +481,19 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": Array [
-            <NavLink
-              to="/browse/mounts/9"
+            <styled.button
+              onClick={[Function]}
             >
               <Styled(FaArrowCircleLeft) />
-            </NavLink>,
+            </styled.button>,
             <MainTitle>
-              Mainland
+              Classic
             </MainTitle>,
-            <NavLink
-              to="/browse/mounts/2"
+            <styled.button
+              onClick={[Function]}
             >
               <Styled(FaArrowCircleRight) />
-            </NavLink>,
+            </styled.button>,
           ],
         },
         "ref": null,
@@ -504,7 +504,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": <Styled(FaArrowCircleLeft) />,
-              "to": "/browse/mounts/9",
+              "onClick": [Function],
             },
             "ref": null,
             "rendered": Object {
@@ -523,10 +523,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "Mainland",
+              "children": "Classic",
             },
             "ref": null,
-            "rendered": "Mainland",
+            "rendered": "Classic",
             "type": [Function],
           },
           Object {
@@ -535,7 +535,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": <Styled(FaArrowCircleRight) />,
-              "to": "/browse/mounts/2",
+              "onClick": [Function],
             },
             "ref": null,
             "rendered": Object {
@@ -573,19 +573,19 @@ ShallowWrapper {
             </styled.span>
           </LeftWrap>,
           <CentreWrap>
-            <NavLink
-              to="/browse/mounts/9"
+            <styled.button
+              onClick={[Function]}
             >
               <Styled(FaArrowCircleLeft) />
-            </NavLink>
+            </styled.button>
             <MainTitle>
-              Mainland
+              Classic
             </MainTitle>
-            <NavLink
-              to="/browse/mounts/2"
+            <styled.button
+              onClick={[Function]}
             >
               <Styled(FaArrowCircleRight) />
-            </NavLink>
+            </styled.button>
           </CentreWrap>,
         ],
       },
@@ -649,19 +649,19 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              <NavLink
-                to="/browse/mounts/9"
+              <styled.button
+                onClick={[Function]}
               >
                 <Styled(FaArrowCircleLeft) />
-              </NavLink>,
+              </styled.button>,
               <MainTitle>
-                Mainland
+                Classic
               </MainTitle>,
-              <NavLink
-                to="/browse/mounts/2"
+              <styled.button
+                onClick={[Function]}
               >
                 <Styled(FaArrowCircleRight) />
-              </NavLink>,
+              </styled.button>,
             ],
           },
           "ref": null,
@@ -672,7 +672,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": <Styled(FaArrowCircleLeft) />,
-                "to": "/browse/mounts/9",
+                "onClick": [Function],
               },
               "ref": null,
               "rendered": Object {
@@ -691,10 +691,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Mainland",
+                "children": "Classic",
               },
               "ref": null,
-              "rendered": "Mainland",
+              "rendered": "Classic",
               "type": [Function],
             },
             Object {
@@ -703,7 +703,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": <Styled(FaArrowCircleRight) />,
-                "to": "/browse/mounts/2",
+                "onClick": [Function],
               },
               "ref": null,
               "rendered": Object {

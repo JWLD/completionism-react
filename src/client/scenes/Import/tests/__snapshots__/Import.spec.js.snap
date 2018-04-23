@@ -18,7 +18,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <withRouter(NavBar) />,
+        <withRouter(Connect(NavBar)) />,
         <ReduxForm />,
       ],
     },
@@ -52,7 +52,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <withRouter(NavBar) />,
+          <withRouter(Connect(NavBar)) />,
           <ReduxForm />,
         ],
       },

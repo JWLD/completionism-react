@@ -140,17 +140,6 @@ ShallowWrapper {
         />
       </CheckboxLabel>
       <CheckboxLabel>
-        First Aid
-        <Field
-          StyledComponent={[Function]}
-          component={[Function]}
-          name="firstaid"
-        />
-        <FakeInput
-          className="fa fa-check"
-        />
-      </CheckboxLabel>
-      <CheckboxLabel>
         Mining
         <Field
           StyledComponent={[Function]}
@@ -286,17 +275,6 @@ ShallowWrapper {
             StyledComponent={[Function]}
             component={[Function]}
             name="cooking"
-          />
-          <FakeInput
-            className="fa fa-check"
-          />
-        </CheckboxLabel>
-        <CheckboxLabel>
-          First Aid
-          <Field
-            StyledComponent={[Function]}
-            component={[Function]}
-            name="firstaid"
           />
           <FakeInput
             className="fa fa-check"

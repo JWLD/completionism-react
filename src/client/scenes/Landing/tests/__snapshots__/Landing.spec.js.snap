@@ -18,7 +18,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <withRouter(NavBar) />,
+        <withRouter(Connect(NavBar)) />,
         Array [
           <CategoryBlock>
             <CategoryPanel>
@@ -261,25 +261,6 @@ ShallowWrapper {
                 +
               </ExpandButton>
               <BrowseLink
-                to="/browse/firstaid/1"
-              >
-                <CategoryImg
-                  alt="Category Icon"
-                  src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg"
-                />
-                First Aid
-              </BrowseLink>
-              <Styled(Link)
-                to="/import"
-              >
-                <UserIcon />
-              </Styled(Link)>
-            </CategoryPanel>
-            <CategoryPanel>
-              <ExpandButton>
-                +
-              </ExpandButton>
-              <BrowseLink
                 to="/browse/mining/1"
               >
                 <CategoryImg
@@ -311,7 +292,7 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "COLLECTIONS",
+        "key": "collections",
         "nodeType": "class",
         "props": Object {
           "children": Array [
@@ -696,7 +677,7 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "PRIMARY",
+        "key": "primary",
         "nodeType": "class",
         "props": Object {
           "children": Array [
@@ -1653,11 +1634,10 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "SECONDARY",
+        "key": "secondary",
         "nodeType": "class",
         "props": Object {
           "children": Array [
-            undefined,
             <CategoryPanel>
               <ExpandButton>
                 +
@@ -1670,25 +1650,6 @@ ShallowWrapper {
                   src="http://wow.zamimg.com/images/wow/icons/large/inv_misc_food_15.jpg"
                 />
                 Cooking
-              </BrowseLink>
-              <Styled(Link)
-                to="/import"
-              >
-                <UserIcon />
-              </Styled(Link)>
-            </CategoryPanel>,
-            <CategoryPanel>
-              <ExpandButton>
-                +
-              </ExpandButton>
-              <BrowseLink
-                to="/browse/firstaid/1"
-              >
-                <CategoryImg
-                  alt="Category Icon"
-                  src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg"
-                />
-                First Aid
               </BrowseLink>
               <Styled(Link)
                 to="/import"
@@ -1719,7 +1680,6 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
-          undefined,
           Object {
             "instance": null,
             "key": "cooking",
@@ -1787,105 +1747,6 @@ ShallowWrapper {
                     "type": [Function],
                   },
                   "Cooking",
-                ],
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": Array [
-                    <UserIcon />,
-                    null,
-                  ],
-                  "to": "/import",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {},
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                  null,
-                ],
-                "type": [Function],
-              },
-            ],
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": "firstaid",
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
-                <ExpandButton>
-                  +
-                </ExpandButton>,
-                <BrowseLink
-                  to="/browse/firstaid/1"
-                >
-                  <CategoryImg
-                    alt="Category Icon"
-                    src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg"
-                  />
-                  First Aid
-                </BrowseLink>,
-                <Styled(Link)
-                  to="/import"
-                >
-                  <UserIcon />
-                </Styled(Link)>,
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": "+",
-                },
-                "ref": null,
-                "rendered": "+",
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": Array [
-                    <CategoryImg
-                      alt="Category Icon"
-                      src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg"
-                    />,
-                    "First Aid",
-                  ],
-                  "to": "/browse/firstaid/1",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "alt": "Category Icon",
-                      "src": "http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg",
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                  "First Aid",
                 ],
                 "type": [Function],
               },
@@ -2030,7 +1891,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <withRouter(NavBar) />,
+          <withRouter(Connect(NavBar)) />,
           Array [
             <CategoryBlock>
               <CategoryPanel>
@@ -2273,25 +2134,6 @@ ShallowWrapper {
                   +
                 </ExpandButton>
                 <BrowseLink
-                  to="/browse/firstaid/1"
-                >
-                  <CategoryImg
-                    alt="Category Icon"
-                    src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg"
-                  />
-                  First Aid
-                </BrowseLink>
-                <Styled(Link)
-                  to="/import"
-                >
-                  <UserIcon />
-                </Styled(Link)>
-              </CategoryPanel>
-              <CategoryPanel>
-                <ExpandButton>
-                  +
-                </ExpandButton>
-                <BrowseLink
                   to="/browse/mining/1"
                 >
                   <CategoryImg
@@ -2323,7 +2165,7 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "COLLECTIONS",
+          "key": "collections",
           "nodeType": "class",
           "props": Object {
             "children": Array [
@@ -2708,7 +2550,7 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "PRIMARY",
+          "key": "primary",
           "nodeType": "class",
           "props": Object {
             "children": Array [
@@ -3665,11 +3507,10 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "SECONDARY",
+          "key": "secondary",
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              undefined,
               <CategoryPanel>
                 <ExpandButton>
                   +
@@ -3682,25 +3523,6 @@ ShallowWrapper {
                     src="http://wow.zamimg.com/images/wow/icons/large/inv_misc_food_15.jpg"
                   />
                   Cooking
-                </BrowseLink>
-                <Styled(Link)
-                  to="/import"
-                >
-                  <UserIcon />
-                </Styled(Link)>
-              </CategoryPanel>,
-              <CategoryPanel>
-                <ExpandButton>
-                  +
-                </ExpandButton>
-                <BrowseLink
-                  to="/browse/firstaid/1"
-                >
-                  <CategoryImg
-                    alt="Category Icon"
-                    src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg"
-                  />
-                  First Aid
                 </BrowseLink>
                 <Styled(Link)
                   to="/import"
@@ -3731,7 +3553,6 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            undefined,
             Object {
               "instance": null,
               "key": "cooking",
@@ -3799,105 +3620,6 @@ ShallowWrapper {
                       "type": [Function],
                     },
                     "Cooking",
-                  ],
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "children": Array [
-                      <UserIcon />,
-                      null,
-                    ],
-                    "to": "/import",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "class",
-                      "props": Object {},
-                      "ref": null,
-                      "rendered": null,
-                      "type": [Function],
-                    },
-                    null,
-                  ],
-                  "type": [Function],
-                },
-              ],
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": "firstaid",
-              "nodeType": "class",
-              "props": Object {
-                "children": Array [
-                  <ExpandButton>
-                    +
-                  </ExpandButton>,
-                  <BrowseLink
-                    to="/browse/firstaid/1"
-                  >
-                    <CategoryImg
-                      alt="Category Icon"
-                      src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg"
-                    />
-                    First Aid
-                  </BrowseLink>,
-                  <Styled(Link)
-                    to="/import"
-                  >
-                    <UserIcon />
-                  </Styled(Link)>,
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "children": "+",
-                  },
-                  "ref": null,
-                  "rendered": "+",
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "children": Array [
-                      <CategoryImg
-                        alt="Category Icon"
-                        src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg"
-                      />,
-                      "First Aid",
-                    ],
-                    "to": "/browse/firstaid/1",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "class",
-                      "props": Object {
-                        "alt": "Category Icon",
-                        "src": "http://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofsacrifice.jpg",
-                      },
-                      "ref": null,
-                      "rendered": null,
-                      "type": [Function],
-                    },
-                    "First Aid",
                   ],
                   "type": [Function],
                 },
