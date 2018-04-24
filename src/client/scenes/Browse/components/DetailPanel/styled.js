@@ -10,10 +10,10 @@ export const DetailPanel = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   position: sticky;
-  top: ${vars.navBarHeight + vars.browsePadding}rem;
-  right: ${vars.browsePadding}rem;
-  width: 50rem;
-  height: calc(100vh - ${vars.navBarHeight + vars.browsePadding * 2}rem);
+  top: ${vars.navBarHeight}rem;
+  right: 0;
+  height: calc(100vh - ${vars.navBarHeight}rem);
+  width: 40rem;
   padding: ${vars.itemListPadding}rem;
   border-radius: 0.4rem;
   background-color: ${vars.mainGrey};

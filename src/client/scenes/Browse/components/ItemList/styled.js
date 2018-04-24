@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ListWrap = styled.div`
+export const ItemList = styled.div`
   flex-grow: 1;
   width: 100%;
 `
