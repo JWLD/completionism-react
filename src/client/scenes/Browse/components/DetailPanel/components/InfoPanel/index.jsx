@@ -16,7 +16,9 @@ const InfoPanel = ({ itemData }) => {
     <SC.InfoPanel>
       <SC.ItemName>{itemData.name || 'Select An Item'}</SC.ItemName>
       <SC.ItemImage imageUrl={imageUrl} />
-      <SC.WowheadLink href={`http://www.wowhead.com/item=${itemData.id}`} target="_blank">
+      <SC.WowheadLink
+        href={`http://www.wowhead.com/spell=${itemData.id}`}
+        target="_blank">
         View on Wowhead
       </SC.WowheadLink>
     </SC.InfoPanel>
