@@ -131,9 +131,7 @@ const updateItemQuality = (data, petQualityById) => {
 // LOCAL STORAGE SELECTORS
 
 const petQualitySelector = createSelector([categoryParamSelector], category => {
-  const data = localStorage[category]
-    ? JSON.parse(localStorage[category]).ids
-    : []
+  const data = localStorage[category] ? JSON.parse(localStorage[category]).ids : []
 
   return data.reduce((acc, item) => {
     acc[item.id] = item.quality
@@ -142,23 +140,18 @@ const petQualitySelector = createSelector([categoryParamSelector], category => {
   }, {})
 })
 
-const collectedIdsSelector = createSelector(
-  [categoryParamSelector],
-  category => {
-    const data = localStorage[category] && JSON.parse(localStorage[category])
+const collectedIdsSelector = createSelector([categoryParamSelector], category => {
+  const data = localStorage[category] && JSON.parse(localStorage[category])
 
-    if (!data) return []
+  if (!data) return []
 
-    const ids = category === 'pets' ? data.ids.map(item => item.id) : data.ids
+  const ids = category === 'pets' ? data.ids.map(item => item.id) : data.ids
 
-    return ids
-  }
-)
+  return ids
+})
 
 const factionSelector = createSelector([categoryParamSelector], category => {
-  return localStorage[category]
-    ? JSON.parse(localStorage[category]).char.faction
-    : 2
+  return localStorage[category] ? JSON.parse(localStorage[category]).char.faction : 2
 })
 
 const addPetLevel = data => {
@@ -191,15 +184,7 @@ const itemsSelector = createSelector(
     collectedIdsSelector,
     petQualitySelector
   ],
-  (
-    data,
-    category,
-    content,
-    faction,
-    filterValue,
-    collectedIds,
-    petQualityById
-  ) => {
+  (data, category, content, faction, filterValue, collectedIds, petQualityById) => {
     data = filterByContent(data, content)
     data = filterByFaction(data, faction)
     data = filterByUserFilter(data, filterValue)
