@@ -9,7 +9,8 @@ import { itemDataSelector } from 'InfoPanel/selectors'
 import * as SC from 'InfoPanel/styled'
 
 const InfoPanel = ({ itemData }) => {
-  const imageUrl = itemData.displayId && `${NPC_RENDER_URLS.zoom}${itemData.displayId}.jpg`
+  const imageUrl =
+    itemData.displayId && `${NPC_RENDER_URLS.zoom}${itemData.displayId}.jpg`
 
   return (
     <SC.InfoPanel>
