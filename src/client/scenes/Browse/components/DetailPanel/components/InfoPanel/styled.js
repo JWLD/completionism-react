@@ -6,7 +6,7 @@ export const InfoPanel = styled.div`
   ${mixins.flexVerticalTop};
 
   width: 100%;
-  height: 100%;
+  flex-grow: 1;
   overflow: scroll;
 
   > *:not(:last-child) {
