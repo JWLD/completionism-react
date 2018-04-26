@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import FaInfoCircle from 'react-icons/lib/fa/times-circle'
+import FaInfoCircle from 'react-icons/lib/fa/info-circle'
 import FaCog from 'react-icons/lib/fa/cog'
 
 import { mixins, vars } from 'style'
@@ -13,36 +13,10 @@ export const DetailPanel = styled.div`
   top: ${vars.navBarHeight}rem;
   right: 0;
   height: calc(100vh - ${vars.navBarHeight}rem);
-  width: 40rem;
+  min-width: 32.5rem;
   padding: ${vars.itemListPadding}rem;
   border-radius: 0.4rem;
   background-color: ${vars.mainGrey};
-
-  > * {
-    :not(:last-child) {
-      margin-bottom: ${vars.itemListPadding}rem;
-    }
-  }
-`
-
-export const TopBar = styled.div`
-  ${mixins.flex};
-
-  height: ${vars.itemHeight}rem;
-  min-height: ${vars.itemHeight}rem;
-  width: 100%;
-`
-
-export const Title = styled.span`
-  ${mixins.flex};
-
-  flex-grow: 1;
-  height: 100%;
-  border-radius: 0.4rem;
-  background-color: #444;
-  color: white;
-  font: 3rem DinMC;
-  text-transform: uppercase;
 `
 
 export const ToggleWrap = styled.button`
@@ -50,11 +24,14 @@ export const ToggleWrap = styled.button`
 
   position: relative;
   height: ${vars.itemHeight}rem;
-  width: ${vars.itemHeight * 2 - vars.itemHeight * 0.15}rem;
+  width: 100%;
+  margin-bottom: ${vars.itemListPadding}rem;
   padding: ${vars.itemHeight * 0.15}rem;
-  margin-left: ${vars.itemListPadding}rem;
   border-radius: 0.4rem;
   background-color: ${vars.mainDark};
+  color: white;
+  font: 3rem DinMC;
+  text-transform: uppercase;
   overflow: hidden;
 `
 

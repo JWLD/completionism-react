@@ -10,25 +10,17 @@ import * as SC from 'DetailPanel/styled'
 import ControlPanel from 'ControlPanel'
 import InfoPanel from 'InfoPanel'
 
-export const DetailPanel = props => {
-  const title = props.controlPanelIsActive
-    ? 'Control Panel'
-    : 'Item Info'
+export const DetailPanel = ({ controlPanelIsActive, toggleControlPanel }) => (
+  <SC.DetailPanel>
+    <SC.ToggleWrap onClick={() => toggleControlPanel()}>
+      <SC.CogIcon active={controlPanelIsActive ? 1 : 0} />
+      {controlPanelIsActive ? 'Settings' : 'Info'}
+      <SC.InfoIcon active={!controlPanelIsActive ? 1 : 0} />
+    </SC.ToggleWrap>
 
-  return (
-    <SC.DetailPanel>
-      <SC.TopBar>
-        <SC.Title>{title}</SC.Title>
-        <SC.ToggleWrap onClick={() => props.toggleControlPanel()}>
-          <SC.CogIcon active={props.controlPanelIsActive ? 1 : 0} />
-          <SC.InfoIcon active={!props.controlPanelIsActive ? 1 : 0} />
-        </SC.ToggleWrap>
-      </SC.TopBar>
-
-      {props.controlPanelIsActive ? <ControlPanel /> : <InfoPanel />}
-    </SC.DetailPanel>
-  )
-}
+    {controlPanelIsActive ? <ControlPanel /> : <InfoPanel />}
+  </SC.DetailPanel>
+)
 
 DetailPanel.propTypes = {
   controlPanelIsActive: PropTypes.bool.isRequired,
