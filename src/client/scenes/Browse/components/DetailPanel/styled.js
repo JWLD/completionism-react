@@ -13,6 +13,7 @@ export const DetailPanel = styled.div`
   top: ${vars.navBarHeight}rem;
   right: 0;
   height: calc(100vh - ${vars.navBarHeight}rem);
+  width: 32.5rem;
   min-width: 32.5rem;
   padding: ${vars.itemListPadding}rem;
   border-radius: 0.4rem;
