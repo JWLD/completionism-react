@@ -2,6 +2,18 @@ import styled from 'styled-components'
 
 import { mixins, vars } from 'style'
 
+export const InfoPanel = styled.div`
+  ${mixins.flexVerticalTop};
+
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+
+  > *:not(:last-child) {
+    margin-bottom: ${vars.itemListPadding}rem;
+  }
+`
+
 export const ItemName = styled.span`
   ${mixins.flex};
 
