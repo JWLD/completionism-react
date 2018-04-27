@@ -9,25 +9,29 @@ import { activeCategorySelector } from 'Browse/selectors'
 import * as SC from 'TileGrid/styled'
 
 const TileGrid = ({ category, items, setActiveItem }) => {
-  const renderTiles = () => {
-    return items.map(({ collected, icon, id, level, quality }) => {
-      const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
+  const tiles = items.map(({ collected, icon, id, level, quality }) => {
+    const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
 
-      return (
-        <SC.TileWrap key={id}>
-          <SC.Tile
-            collected={collected}
-            onClick={() => setActiveItem(id)}
-            quality={quality}>
-            <SC.TileIcon iconUrl={iconUrl} />
-          </SC.Tile>
-          {category === 'pets' && <SC.QualityBar level={level} quality={quality} />}
-        </SC.TileWrap>
-      )
-    })
-  }
+    const renderQualityBar = () => {
+      const petQuality = quality === 3 && level === 25 ? 7 : quality
 
-  return <SC.TileGrid>{renderTiles()}</SC.TileGrid>
+      return <SC.QualityBar petQuality={petQuality} />
+    }
+
+    return (
+      <SC.TileWrap key={id}>
+        <SC.Tile
+          collected={collected}
+          onClick={() => setActiveItem(id)}
+          quality={quality}>
+          <SC.TileIcon iconUrl={iconUrl} />
+        </SC.Tile>
+        {category === 'pets' && renderQualityBar()}
+      </SC.TileWrap>
+    )
+  })
+
+  return <SC.TileGrid>{tiles}</SC.TileGrid>
 }
 
 TileGrid.propTypes = {

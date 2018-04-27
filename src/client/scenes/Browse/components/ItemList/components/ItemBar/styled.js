@@ -58,6 +58,6 @@ export const CrossIcon = styled(TileIcon.withComponent(FaTimesCircle))`
 export const PetLevel = styled(TileIcon)`
   ${mixins.flex};
 
-  color: ${props => (props.level === 25 ? vars.q7 : vars.pos)};
+  color: ${props => (props.maxPet ? vars.q7 : vars.pos)};
   font: 2rem DinB;
 `

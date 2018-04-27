@@ -23,7 +23,9 @@ export const ItemBar = ({
   let progressIcon = null
 
   if (collected && category === 'pets') {
-    progressIcon = <SC.PetLevel level={level}>{level}</SC.PetLevel>
+    const maxPet = quality === 3 && level === 25
+
+    progressIcon = <SC.PetLevel maxPet={maxPet}>{level}</SC.PetLevel>
   } else if (collected) {
     progressIcon = <SC.CheckIcon />
   } else {
