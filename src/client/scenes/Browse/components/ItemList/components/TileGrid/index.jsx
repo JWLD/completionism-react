@@ -4,18 +4,25 @@ import PropTypes from 'prop-types'
 
 import { ICON_URLS } from 'constants/urls'
 import { setActiveItem } from 'ItemList/actions'
+import { activeCategorySelector } from 'Browse/selectors'
 
 import * as SC from 'TileGrid/styled'
 
-const TileGrid = ({ items, setActiveItem }) => {
+const TileGrid = ({ category, items, setActiveItem }) => {
   const renderTiles = () => {
-    return items.map(({ collected, icon, id }) => {
+    return items.map(({ collected, icon, id, quality }) => {
       const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
 
       return (
-        <SC.Tile collected={collected} key={id} onClick={() => setActiveItem(id)}>
-          <SC.TileIcon iconUrl={iconUrl} />
-        </SC.Tile>
+        <SC.TileWrap key={id}>
+          <SC.Tile
+            collected={collected}
+            onClick={() => setActiveItem(id)}
+            quality={quality}>
+            <SC.TileIcon iconUrl={iconUrl} />
+          </SC.Tile>
+          {category === 'pets' && <SC.QualityBar quality={quality} />}
+        </SC.TileWrap>
       )
     })
   }
@@ -24,12 +31,17 @@ const TileGrid = ({ items, setActiveItem }) => {
 }
 
 TileGrid.propTypes = {
+  category: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
   setActiveItem: PropTypes.func.isRequired
 }
+
+const mapStateToProps = state => ({
+  category: activeCategorySelector(state)
+})
 
 const mapDispatchToProps = {
   setActiveItem
 }
 
-export default connect(null, mapDispatchToProps)(TileGrid)
+export default connect(mapStateToProps, mapDispatchToProps)(TileGrid)

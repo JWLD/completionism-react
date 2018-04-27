@@ -17,10 +17,15 @@ export const TileGrid = styled.div`
   }
 `
 
+export const TileWrap = styled.div`
+  ${mixins.flexVertical};
+`
+
 export const Tile = styled.button`
   ${mixins.flex};
 
   position: relative;
+  width: 100%;
   padding-top: 100%;
   border-radius: 0.4rem;
   background-color: ${props => (props.collected ? vars.pos : vars.neg)};
@@ -39,4 +44,12 @@ export const TileIcon = styled('i').attrs({
   border-radius: 0.4rem;
   background-color: ${vars.mainGrey};
   background-size: cover;
+`
+
+export const QualityBar = styled.div`
+  width: 100%;
+  height: 0.75rem;
+  margin-top: ${tilePadding * 2}rem;
+  border-radius: 0.2rem;
+  background-color: ${props => vars[`q${props.quality}`]};
 `
