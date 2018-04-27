@@ -4,11 +4,6 @@ import { fetchDBCategoryData } from 'services/api'
 import history from 'services/history'
 import { activeCategorySelector, activeContentSelector } from 'Browse/selectors'
 
-export const changeActiveCategory = category => ({
-  type: ACTIONS.UPDATE_ACTIVE_CATEGORY,
-  category
-})
-
 export const changeActiveContent = content => ({
   type: ACTIONS.UPDATE_ACTIVE_CONTENT,
   content
@@ -20,11 +15,21 @@ export const loadCategoryData = (categoryData, category) => ({
   category
 })
 
-export const resetActiveItemId = () => ({
+const resetActiveItemId = () => ({
   type: ACTIONS.RESET_ACTIVE_ITEM_ID
 })
 
+export const updateActiveCategory = category => ({
+  type: ACTIONS.UPDATE_ACTIVE_CATEGORY,
+  category
+})
+
 // THUNKS
+
+export const changeActiveCategory = category => dispatch => {
+  dispatch(updateActiveCategory(category))
+  dispatch(resetActiveItemId())
+}
 
 export const changeBrowsePage = ({ next }) => (_, getState) => {
   const state = getState()
