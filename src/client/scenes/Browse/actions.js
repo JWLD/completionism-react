@@ -20,11 +20,6 @@ export const loadCategoryData = (categoryData, category) => ({
   category
 })
 
-export const setActiveItemId = itemId => ({
-  type: ACTIONS.SET_ACTIVE_ITEM_ID,
-  payload: itemId
-})
-
 // THUNKS
 
 export const changeBrowsePage = ({ next }) => (_, getState) => {
@@ -35,8 +30,12 @@ export const changeBrowsePage = ({ next }) => (_, getState) => {
   const lastPage = CONTENT_ARR.length
 
   const newPage = next
-    ? currentPage === lastPage ? 1 : currentPage + 1
-    : currentPage === 1 ? lastPage : currentPage - 1
+    ? currentPage === lastPage
+      ? 1
+      : currentPage + 1
+    : currentPage === 1
+      ? lastPage
+      : currentPage - 1
 
   history.push(`/browse/${category}/${newPage}`)
 }
