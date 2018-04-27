@@ -9,15 +9,19 @@ import { itemDataSelector, itemIdTypeSelector } from 'InfoPanel/selectors'
 import * as SC from 'InfoPanel/styled'
 
 const InfoPanel = ({ activeItemId, itemData, itemIdType }) => {
-  const imageUrl =
-    itemData.displayId && `${NPC_RENDER_URLS.zoom}${itemData.displayId}.jpg`
+  const renderItemImage = () => {
+    const imageUrl =
+      itemData.displayId && `${NPC_RENDER_URLS.zoom}${itemData.displayId}.jpg`
+
+    return <SC.ItemImage imageUrl={imageUrl} />
+  }
 
   const placeholder = <SC.Placeholder>Please select an item</SC.Placeholder>
 
   const panelComponents = (
     <Fragment>
       <SC.ItemName>{itemData.name || 'Select An Item'}</SC.ItemName>
-      <SC.ItemImage imageUrl={imageUrl} />
+      {itemData.displayId && renderItemImage()}
       <SC.WowheadLink
         href={`http://www.wowhead.com/${itemIdType}=${itemData.id}`}
         target="_blank">
