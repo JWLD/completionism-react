@@ -2,116 +2,130 @@ const ALL_CATEGORIES = [
   // collections
   {
     key: 'mounts',
-    name: 'Mounts',
-    icon: 'mountjournalportrait',
     battleNet: true,
     enabled: true,
+    icon: 'mountjournalportrait',
+    idType: 'spell',
+    name: 'Mounts',
     section: 'collections'
   },
   {
     key: 'pets',
-    name: 'Pets',
-    icon: 'petjournalportrait',
     battleNet: true,
     enabled: true,
+    icon: 'petjournalportrait',
+    idType: 'npc',
+    name: 'Pets',
     section: 'collections'
   },
   {
     key: 'toys',
-    name: 'Toys',
-    icon: 'inv_misc_toy_05',
     battleNet: false,
     enabled: true,
+    icon: 'inv_misc_toy_05',
+    idType: 'item',
+    name: 'Toys',
     section: 'collections'
   },
   // primary professions
   {
     key: 'alchemy',
-    name: 'Alchemy',
-    icon: 'trade_alchemy',
     battleNet: true,
     enabled: true,
+    icon: 'trade_alchemy',
+    idType: 'spell',
+    name: 'Alchemy',
     section: 'primary'
   },
   {
     key: 'blacksmithing',
-    name: 'Blacksmithing',
-    icon: 'trade_blacksmithing',
     battleNet: true,
     enabled: true,
+    icon: 'trade_blacksmithing',
+    idType: 'spell',
+    name: 'Blacksmithing',
     section: 'primary'
   },
   {
     key: 'enchanting',
-    name: 'Enchanting',
-    icon: 'trade_engraving',
     battleNet: true,
     enabled: true,
+    icon: 'trade_engraving',
+    idType: 'spell',
+    name: 'Enchanting',
     section: 'primary'
   },
   {
     key: 'engineering',
-    name: 'Engineering',
-    icon: 'trade_engineering',
     battleNet: true,
     enabled: true,
+    icon: 'trade_engineering',
+    idType: 'spell',
+    name: 'Engineering',
     section: 'primary'
   },
   {
     key: 'inscription',
-    name: 'Inscription',
-    icon: 'inv_inscription_tradeskill01',
     battleNet: true,
     enabled: true,
+    icon: 'inv_inscription_tradeskill01',
+    idType: 'spell',
+    name: 'Inscription',
     section: 'primary'
   },
   {
     key: 'jewelcrafting',
-    name: 'Jewelcrafting',
-    icon: 'inv_misc_gem_01',
     battleNet: true,
     enabled: true,
+    icon: 'inv_misc_gem_01',
+    idType: 'spell',
+    name: 'Jewelcrafting',
     section: 'primary'
   },
   {
     key: 'leatherworking',
-    name: 'Leatherworking',
-    icon: 'inv_misc_armorkit_17',
     battleNet: true,
     enabled: true,
+    icon: 'inv_misc_armorkit_17',
+    idType: 'spell',
+    name: 'Leatherworking',
     section: 'primary'
   },
   {
     key: 'tailoring',
-    name: 'Tailoring',
-    icon: 'trade_tailoring',
     battleNet: true,
     enabled: true,
+    icon: 'trade_tailoring',
+    idType: 'spell',
+    name: 'Tailoring',
     section: 'primary'
   },
   // secondary professions
   {
     key: 'archaeology',
-    name: 'Archaeology',
-    icon: 'trade_archaeology',
     battleNet: false,
     enabled: false,
+    icon: 'trade_archaeology',
+    idType: 'spell',
+    name: 'Archaeology',
     section: 'secondary'
   },
   {
     key: 'cooking',
-    name: 'Cooking',
-    icon: 'inv_misc_food_15',
     battleNet: true,
     enabled: true,
+    icon: 'inv_misc_food_15',
+    idType: 'spell',
+    name: 'Cooking',
     section: 'secondary'
   },
   {
     key: 'mining',
-    name: 'Mining',
-    icon: 'trade_mining',
     battleNet: true,
     enabled: true,
+    icon: 'trade_mining',
+    idType: 'spell',
+    name: 'Mining',
     section: 'secondary'
   }
 ]
