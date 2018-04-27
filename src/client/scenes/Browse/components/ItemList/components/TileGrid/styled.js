@@ -51,5 +51,6 @@ export const QualityBar = styled.div`
   height: 0.75rem;
   margin-top: ${tilePadding * 2}rem;
   border-radius: 0.2rem;
-  background-color: ${props => vars[`q${props.quality}`]};
+  background-color: ${props =>
+    props.level === 25 ? vars.q7 : vars[`q${props.quality}`]};
 `

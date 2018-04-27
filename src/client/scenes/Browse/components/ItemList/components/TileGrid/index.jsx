@@ -10,7 +10,7 @@ import * as SC from 'TileGrid/styled'
 
 const TileGrid = ({ category, items, setActiveItem }) => {
   const renderTiles = () => {
-    return items.map(({ collected, icon, id, quality }) => {
+    return items.map(({ collected, icon, id, level, quality }) => {
       const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
 
       return (
@@ -21,7 +21,7 @@ const TileGrid = ({ category, items, setActiveItem }) => {
             quality={quality}>
             <SC.TileIcon iconUrl={iconUrl} />
           </SC.Tile>
-          {category === 'pets' && <SC.QualityBar quality={quality} />}
+          {category === 'pets' && <SC.QualityBar level={level} quality={quality} />}
         </SC.TileWrap>
       )
     })
