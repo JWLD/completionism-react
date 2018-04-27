@@ -6,13 +6,23 @@ import { mixins, vars } from 'style'
 export const InfoPanel = styled.div`
   ${mixins.flexVerticalTop};
 
-  width: 100%;
   flex-grow: 1;
+  width: 100%;
   overflow: scroll;
 
   > *:not(:last-child) {
     margin-bottom: ${vars.itemListPadding}rem;
   }
+`
+
+export const Placeholder = styled.div`
+  ${mixins.flex};
+
+  flex-grow: 1;
+  width: 100%;
+  color: white;
+  font: 2.5rem DinMC;
+  text-transform: uppercase;
 `
 
 export const ItemName = styled.span`
