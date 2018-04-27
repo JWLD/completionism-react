@@ -18,12 +18,10 @@ import DetailPanel from 'DetailPanel'
 
 export class Browse extends Component {
   componentWillMount() {
-    document.addEventListener('keydown', this.handleKeyDown)
-  }
-
-  componentDidMount() {
     this.props.changeActiveCategory(this.props.category)
     this.props.changeActiveContent(this.props.content)
+
+    document.addEventListener('keydown', this.handleKeyDown)
   }
 
   componentDidUpdate() {

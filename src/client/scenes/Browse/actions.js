@@ -27,8 +27,8 @@ export const updateActiveCategory = category => ({
 // THUNKS
 
 export const changeActiveCategory = category => dispatch => {
-  dispatch(updateActiveCategory(category))
   dispatch(resetActiveItemId())
+  dispatch(updateActiveCategory(category))
 }
 
 export const changeBrowsePage = ({ next }) => (_, getState) => {
