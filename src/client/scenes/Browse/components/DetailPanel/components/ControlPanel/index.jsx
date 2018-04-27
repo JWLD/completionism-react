@@ -15,7 +15,7 @@ const ControlPanel = ({ listView, toggleViewMode }) => (
       <SC.CheckBox active={listView ? 1 : 0} />
     </SC.Option>
     <SC.Option onClick={() => toggleViewMode()}>
-      Grid
+      Icons
       <SC.CheckBox active={listView ? 0 : 1} />
     </SC.Option>
   </SC.Setting>
