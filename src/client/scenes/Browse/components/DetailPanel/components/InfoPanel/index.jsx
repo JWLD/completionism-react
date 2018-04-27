@@ -19,7 +19,8 @@ const InfoPanel = ({ itemData }) => {
       <SC.WowheadLink
         href={`http://www.wowhead.com/spell=${itemData.id}`}
         target="_blank">
-        View on Wowhead
+        Wowhead
+        <SC.WowheadIcon />
       </SC.WowheadLink>
     </SC.InfoPanel>
   )

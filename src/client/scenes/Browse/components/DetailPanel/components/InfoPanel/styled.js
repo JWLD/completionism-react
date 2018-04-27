@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import FaRocket from 'react-icons/lib/fa/rocket'
 
 import { mixins, vars } from 'style'
 
@@ -17,10 +18,7 @@ export const InfoPanel = styled.div`
 export const ItemName = styled.span`
   ${mixins.flex};
 
-  height: ${vars.itemHeight}rem;
   width: 100%;
-  border-radius: 0.4rem;
-  background-color: #444;
   color: white;
   font: 2.5rem DinRC;
   white-space: nowrap;
@@ -39,4 +37,23 @@ export const ItemImage = styled.div.attrs({
   background-position: center;
 `
 
-export const WowheadLink = ItemName.withComponent('a')
+export const WowheadLink = styled.a`
+  ${mixins.flexLeft};
+
+  justify-content: space-between;
+  width: 100%;
+  height: ${vars.itemHeight}rem;
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+  background-color: #444;
+  color: white;
+  font: 2.5rem DinRC;
+
+  :hover {
+    background-color: #555;
+  }
+`
+
+export const WowheadIcon = styled(FaRocket)`
+  height: 100%;
+`
