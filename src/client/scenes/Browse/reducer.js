@@ -15,6 +15,8 @@ const browseReducer = (state = initialState, action) => {
       return { ...state, [action.category]: action.payload }
     case ACTIONS.OPEN_INFO_PANEL:
       return { ...state, controlPanelIsActive: false }
+    case ACTIONS.RESET_ACTIVE_ITEM_ID:
+      return { ...state, activeItemId: 0 }
     case ACTIONS.RESET_FILTER:
       return { ...state, filter: '' }
     case ACTIONS.SET_ACTIVE_ITEM_ID:

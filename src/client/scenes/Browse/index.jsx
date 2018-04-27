@@ -8,7 +8,7 @@ import {
   categoryParamSelector,
   contentParamSelector
 } from 'Browse/selectors'
-import { changeBrowsePage } from 'Browse/actions'
+import { changeBrowsePage, resetActiveItemId } from 'Browse/actions'
 
 import * as SC from 'Browse/styled'
 import NavBar from 'NavBar'
@@ -34,6 +34,7 @@ export class Browse extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyDown)
+    this.props.resetActiveItemId()
   }
 
   handleKeyDown = ({ key }) => {
@@ -65,7 +66,8 @@ Browse.propTypes = {
   changeActiveCategory: PropTypes.func.isRequired,
   changeActiveContent: PropTypes.func.isRequired,
   changeBrowsePage: PropTypes.func.isRequired,
-  content: PropTypes.number.isRequired
+  content: PropTypes.number.isRequired,
+  resetActiveItemId: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state, ownProps) => ({
@@ -77,7 +79,8 @@ export const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = {
   changeActiveCategory,
   changeActiveContent,
-  changeBrowsePage
+  changeBrowsePage,
+  resetActiveItemId
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Browse)

@@ -20,6 +20,10 @@ export const loadCategoryData = (categoryData, category) => ({
   category
 })
 
+export const resetActiveItemId = () => ({
+  type: ACTIONS.RESET_ACTIVE_ITEM_ID
+})
+
 // THUNKS
 
 export const changeBrowsePage = ({ next }) => (_, getState) => {
