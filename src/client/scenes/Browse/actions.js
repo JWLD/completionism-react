@@ -31,10 +31,9 @@ export const changeActiveCategory = category => dispatch => {
   dispatch(updateActiveCategory(category))
 }
 
-export const changeBrowsePage = ({ next }) => (_, getState) => {
-  const state = getState()
-  const category = activeCategorySelector(state)
-  const currentPage = activeContentSelector(state)
+export const changeBrowsePage = ({ next }) => (dispatch, getState) => {
+  const category = activeCategorySelector(getState())
+  const currentPage = activeContentSelector(getState())
 
   const lastPage = CONTENT_ARR.length
 
@@ -47,6 +46,8 @@ export const changeBrowsePage = ({ next }) => (_, getState) => {
       : currentPage - 1
 
   history.push(`/browse/${category}/${newPage}`)
+
+  dispatch(changeActiveContent(newPage))
 }
 
 export const fetchCategoryData = category => dispatch => {

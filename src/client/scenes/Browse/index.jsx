@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { changeActiveCategory, changeActiveContent } from 'Browse/actions'
-import {
-  activeContentSelector,
-  categoryParamSelector,
-  contentParamSelector
-} from 'Browse/selectors'
+import { categoryParamSelector, contentParamSelector } from 'Browse/selectors'
 import { changeBrowsePage } from 'Browse/actions'
 
 import * as SC from 'Browse/styled'
@@ -22,12 +18,6 @@ export class Browse extends Component {
     this.props.changeActiveContent(this.props.content)
 
     document.addEventListener('keydown', this.handleKeyDown)
-  }
-
-  componentDidUpdate() {
-    if (this.props.activeContent !== this.props.content) {
-      this.props.changeActiveContent(this.props.content)
-    }
   }
 
   componentWillUnmount() {
@@ -58,7 +48,6 @@ export class Browse extends Component {
 }
 
 Browse.propTypes = {
-  activeContent: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
   changeActiveCategory: PropTypes.func.isRequired,
   changeActiveContent: PropTypes.func.isRequired,
@@ -67,7 +56,6 @@ Browse.propTypes = {
 }
 
 export const mapStateToProps = (state, ownProps) => ({
-  activeContent: activeContentSelector(state),
   category: categoryParamSelector(state, ownProps),
   content: contentParamSelector(state, ownProps)
 })
