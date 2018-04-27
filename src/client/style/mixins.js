@@ -18,9 +18,9 @@ const flexRight = `
 
 const flexVertical = `
   display: flex;
+	flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 `
 
 const flexVerticalTop = `
@@ -30,10 +30,18 @@ const flexVerticalTop = `
   justify-content: flex-start;
 `
 
+const flexVerticalLeft = `
+  display: flex;
+	flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`
+
 export default {
   flex,
   flexLeft,
   flexRight,
   flexVertical,
-  flexVerticalTop
+  flexVerticalTop,
+  flexVerticalLeft
 }

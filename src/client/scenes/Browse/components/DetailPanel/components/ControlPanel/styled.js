@@ -1,42 +1,47 @@
 import styled from 'styled-components'
-import FaAlignJustify from 'react-icons/lib/fa/align-justify'
-import FaTh from 'react-icons/lib/fa/th'
+import FaCheck from 'react-icons/lib/fa/check'
 
 import { mixins, vars } from 'style'
 
-export const SettingRow = styled.div`
-  ${mixins.flexLeft};
+const settingPadding = vars.itemListPadding * 0.75
+const checkBoxHeight = 2.2
 
-  height: ${vars.itemHeight}rem;
-  min-height: ${vars.itemHeight}rem;
+export const Setting = styled.div`
+  ${mixins.flexVertical};
+
   width: 100%;
+  padding: ${settingPadding}rem;
   border-radius: 0.4rem;
-  background-color: ${vars.barGrey};
+  background-color: #444;
+  color: white;
 `
 
 export const SettingTitle = styled.span`
-  margin-left: 1.5rem;
-  margin-right: auto;
-  color: white;
-  font: 2.5rem DinMC;
+  margin: -0.3rem 0 ${settingPadding * 0.5}rem 0;
+  font: 2.25rem DinMC;
+  text-transform: uppercase;
 `
 
-const SettingIcon = styled.i`
-  height: ${vars.itemHeight}rem;
-  width: ${vars.itemHeight}rem;
-  padding: 0.75rem;
-  padding-top: 0.9rem;
-  color: white;
+export const Option = styled.button`
+  ${mixins.flex};
 
-  :hover {
-    cursor: pointer;
+  justify-content: space-between;
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  font: 2.2rem DinRC;
+  line-height: 0;
+
+  :not(:last-child) {
+    margin-bottom: ${settingPadding * 0.75}rem;
   }
 `
 
-export const ListIcon = styled(SettingIcon.withComponent(FaAlignJustify))`
-  color: ${props => (props.active ? 'white' : 'grey')};
-`
-
-export const SquaresIcon = styled(SettingIcon.withComponent(FaTh))`
-  color: ${props => (props.active ? 'white' : 'grey')};
+export const CheckBox = styled(FaCheck)`
+  height: ${checkBoxHeight}rem;
+  width: ${checkBoxHeight}rem;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  background-color: ${props => (props.active ? vars.pos : vars.mainGrey)};
+  color: ${props => (props.active ? 'white' : vars.mainGrey)};
 `

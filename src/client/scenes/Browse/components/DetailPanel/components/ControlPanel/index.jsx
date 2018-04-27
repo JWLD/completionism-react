@@ -8,14 +8,17 @@ import { viewModeListSelector } from 'Browse/selectors'
 import * as SC from 'ControlPanel/styled'
 
 const ControlPanel = ({ listView, toggleViewMode }) => (
-  <SC.SettingRow>
+  <SC.Setting>
     <SC.SettingTitle>View Mode</SC.SettingTitle>
-    <SC.ListIcon active={listView ? 1 : 0} onClick={() => toggleViewMode()} />
-    <SC.SquaresIcon
-      active={listView ? 0 : 1}
-      onClick={() => toggleViewMode()}
-    />
-  </SC.SettingRow>
+    <SC.Option onClick={() => toggleViewMode()}>
+      List
+      <SC.CheckBox active={listView ? 1 : 0} />
+    </SC.Option>
+    <SC.Option onClick={() => toggleViewMode()}>
+      Grid
+      <SC.CheckBox active={listView ? 0 : 1} />
+    </SC.Option>
+  </SC.Setting>
 )
 
 ControlPanel.propTypes = {
