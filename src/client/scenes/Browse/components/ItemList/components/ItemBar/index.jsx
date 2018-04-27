@@ -20,23 +20,23 @@ export const ItemBar = ({
 }) => {
   const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
 
-  let progressIcon = null
+  const renderProgressIcon = () => {
+    if (collected && category === 'pets') {
+      const maxPet = quality === 3 && level === 25
 
-  if (collected && category === 'pets') {
-    const maxPet = quality === 3 && level === 25
-
-    progressIcon = <SC.PetLevel maxPet={maxPet}>{level}</SC.PetLevel>
-  } else if (collected) {
-    progressIcon = <SC.CheckIcon />
-  } else {
-    progressIcon = <SC.CrossIcon />
+      return <SC.PetLevel maxPet={maxPet}>{level}</SC.PetLevel>
+    } else if (collected) {
+      return <SC.CheckIcon />
+    } else {
+      return <SC.CrossIcon />
+    }
   }
 
   return (
     <SC.ItemBar onClick={() => setActiveItem(id)}>
       <SC.ItemIcon iconUrl={iconUrl} />
       <SC.ItemTitle quality={quality}>{name}</SC.ItemTitle>
-      {progressIcon}
+      {renderProgressIcon()}
     </SC.ItemBar>
   )
 }
