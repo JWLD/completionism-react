@@ -10,8 +10,7 @@ export const activeContentSelector = state => state.browse.activeContent
 
 export const activeItemIdSelector = state => state.browse.activeItemId
 
-export const controlPanelIsActiveSelector = state =>
-  state.browse.controlPanelIsActive
+export const controlPanelIsActiveSelector = state => state.browse.controlPanelIsActive
 
 export const filterSelector = state => state.browse.filter
 
@@ -19,11 +18,9 @@ export const viewModeListSelector = state => state.browse.viewModeList
 
 // PROPS
 
-export const categoryParamSelector = (state, props) =>
-  props.match.params.category
+export const categoryParamSelector = (state, props) => props.match.params.category
 
-export const contentParamSelector = (state, props) =>
-  Number(props.match.params.content)
+export const contentParamSelector = (state, props) => Number(props.match.params.content)
 
 // DERIVED
 
@@ -35,6 +32,6 @@ export const categoryDataExistsSelector = createSelector(
 )
 
 export const activeCategoryDataSelector = createSelector(
-  [categoryDataSelector, categoryParamSelector],
-  (categoryData, categoryParam) => categoryData[categoryParam] || []
+  [categoryDataSelector, activeCategorySelector],
+  (categoryData, activeCategory) => categoryData[activeCategory] || []
 )

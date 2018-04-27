@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { controlPanelIsActiveSelector } from 'Browse/selectors'
@@ -35,6 +34,4 @@ const mapDispatchToProps = {
   toggleControlPanel
 }
 
-const ReduxComponent = connect(mapStateToProps, mapDispatchToProps)(DetailPanel)
-
-export default withRouter(ReduxComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(DetailPanel)

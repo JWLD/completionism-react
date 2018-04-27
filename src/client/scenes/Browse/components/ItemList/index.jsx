@@ -1,15 +1,13 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 
 import { itemBlocksSelector, progressDataSelector } from 'ItemList/selectors'
-import { contentParamSelector, viewModeListSelector } from 'Browse/selectors'
+import { activeContentSelector, viewModeListSelector } from 'Browse/selectors'
 import { CONTENT } from 'constants/content'
-
 import * as SC from 'ItemList/styled'
-import { BrowseBlock } from 'style/components'
 
+import { BrowseBlock } from 'style/components'
 import ProgressBar from 'ProgressBar'
 import ItemBar from 'ItemBar'
 import TileGrid from 'TileGrid'
@@ -25,9 +23,7 @@ const ItemList = props => {
     return subs.map(subCat => (
       <Fragment key={subCat.name}>
         <SC.SubTitle>{subCat.name}</SC.SubTitle>
-        {props.listView
-          ? renderItemBars(subCat.items)
-          : renderTileGrid(subCat.items)}
+        {props.listView ? renderItemBars(subCat.items) : renderTileGrid(subCat.items)}
       </Fragment>
     ))
   }
@@ -62,13 +58,11 @@ ItemList.propTypes = {
   progress: PropTypes.object.isRequired
 }
 
-export const mapStateToProps = (state, ownProps) => ({
-  blocks: itemBlocksSelector(state, ownProps),
-  content: contentParamSelector(state, ownProps),
+export const mapStateToProps = state => ({
+  blocks: itemBlocksSelector(state),
+  content: activeContentSelector(state),
   listView: viewModeListSelector(state),
-  progress: progressDataSelector(state, ownProps)
+  progress: progressDataSelector(state)
 })
 
-const ReduxComponent = connect(mapStateToProps)(ItemList)
-
-export default withRouter(ReduxComponent)
+export default connect(mapStateToProps)(ItemList)

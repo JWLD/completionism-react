@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { NPC_RENDER_URLS } from 'constants/urls'
@@ -36,11 +35,9 @@ InfoPanel.propTypes = {
   itemData: PropTypes.object.isRequired
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   activeItemId: activeItemIdSelector(state),
-  itemData: itemDataSelector(state, props)
+  itemData: itemDataSelector(state)
 })
 
-const ReduxComponent = connect(mapStateToProps)(InfoPanel)
-
-export default withRouter(ReduxComponent)
+export default connect(mapStateToProps)(InfoPanel)

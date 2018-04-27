@@ -3,8 +3,8 @@ import _ from 'lodash'
 
 import {
   activeCategoryDataSelector,
-  categoryParamSelector,
-  contentParamSelector,
+  activeCategorySelector,
+  activeContentSelector,
   filterSelector
 } from 'Browse/selectors'
 import { SOURCES } from 'constants/sources'
@@ -130,7 +130,7 @@ const updateItemQuality = (data, petQualityById) => {
 
 // LOCAL STORAGE SELECTORS
 
-const petQualitySelector = createSelector([categoryParamSelector], category => {
+const petQualitySelector = createSelector([activeCategorySelector], category => {
   const data = localStorage[category] ? JSON.parse(localStorage[category]).ids : []
 
   return data.reduce((acc, item) => {
@@ -140,7 +140,7 @@ const petQualitySelector = createSelector([categoryParamSelector], category => {
   }, {})
 })
 
-const collectedIdsSelector = createSelector([categoryParamSelector], category => {
+const collectedIdsSelector = createSelector([activeCategorySelector], category => {
   const data = localStorage[category] && JSON.parse(localStorage[category])
 
   if (!data) return []
@@ -150,7 +150,7 @@ const collectedIdsSelector = createSelector([categoryParamSelector], category =>
   return ids
 })
 
-const factionSelector = createSelector([categoryParamSelector], category => {
+const factionSelector = createSelector([activeCategorySelector], category => {
   return localStorage[category] ? JSON.parse(localStorage[category]).char.faction : 2
 })
 
@@ -177,8 +177,8 @@ const addPetLevel = data => {
 const itemsSelector = createSelector(
   [
     activeCategoryDataSelector,
-    categoryParamSelector,
-    contentParamSelector,
+    activeCategorySelector,
+    activeContentSelector,
     factionSelector,
     filterSelector,
     collectedIdsSelector,
