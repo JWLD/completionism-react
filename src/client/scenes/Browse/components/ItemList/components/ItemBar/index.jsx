@@ -22,9 +22,10 @@ export const ItemBar = ({
 
   const renderProgressIcon = () => {
     if (collected && category === 'pets') {
-      const maxPet = quality === 3 && level === 25
+      const maxPet = level === 0 || (quality === 3 && level === 25)
+      const petLevel = level === 0 ? '-' : level
 
-      return <SC.PetLevel maxPet={maxPet}>{level}</SC.PetLevel>
+      return <SC.PetLevel maxPet={maxPet}>{petLevel}</SC.PetLevel>
     } else if (collected) {
       return <SC.CheckIcon />
     } else {
