@@ -1,6 +1,6 @@
 import store from 'redux/store'
 import { fetchCategoryData } from 'redux/actions'
-import CATEGORIES from 'constants/categories'
+import { CATEGORIES } from 'constants/categories'
 
 const fetchApiData = () => {
   CATEGORIES.forEach(category => {

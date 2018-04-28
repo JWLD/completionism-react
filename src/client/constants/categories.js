@@ -1,9 +1,7 @@
-const ALL_CATEGORIES = [
-  // collections
+export const CATEGORIES = [
   {
     key: 'mounts',
     battleNet: true,
-    enabled: true,
     icon: 'mountjournalportrait',
     idType: 'spell',
     name: 'Mounts',
@@ -12,7 +10,6 @@ const ALL_CATEGORIES = [
   {
     key: 'pets',
     battleNet: true,
-    enabled: true,
     icon: 'petjournalportrait',
     idType: 'npc',
     name: 'Pets',
@@ -21,17 +18,14 @@ const ALL_CATEGORIES = [
   {
     key: 'toys',
     battleNet: false,
-    enabled: true,
     icon: 'inv_misc_toy_05',
     idType: 'item',
     name: 'Toys',
     section: 'collections'
   },
-  // primary professions
   {
     key: 'alchemy',
     battleNet: true,
-    enabled: true,
     icon: 'trade_alchemy',
     idType: 'spell',
     name: 'Alchemy',
@@ -40,7 +34,6 @@ const ALL_CATEGORIES = [
   {
     key: 'blacksmithing',
     battleNet: true,
-    enabled: true,
     icon: 'trade_blacksmithing',
     idType: 'spell',
     name: 'Blacksmithing',
@@ -49,7 +42,6 @@ const ALL_CATEGORIES = [
   {
     key: 'enchanting',
     battleNet: true,
-    enabled: true,
     icon: 'trade_engraving',
     idType: 'spell',
     name: 'Enchanting',
@@ -58,7 +50,6 @@ const ALL_CATEGORIES = [
   {
     key: 'engineering',
     battleNet: true,
-    enabled: true,
     icon: 'trade_engineering',
     idType: 'spell',
     name: 'Engineering',
@@ -67,7 +58,6 @@ const ALL_CATEGORIES = [
   {
     key: 'inscription',
     battleNet: true,
-    enabled: true,
     icon: 'inv_inscription_tradeskill01',
     idType: 'spell',
     name: 'Inscription',
@@ -76,7 +66,6 @@ const ALL_CATEGORIES = [
   {
     key: 'jewelcrafting',
     battleNet: true,
-    enabled: true,
     icon: 'inv_misc_gem_01',
     idType: 'spell',
     name: 'Jewelcrafting',
@@ -85,7 +74,6 @@ const ALL_CATEGORIES = [
   {
     key: 'leatherworking',
     battleNet: true,
-    enabled: true,
     icon: 'inv_misc_armorkit_17',
     idType: 'spell',
     name: 'Leatherworking',
@@ -94,26 +82,14 @@ const ALL_CATEGORIES = [
   {
     key: 'tailoring',
     battleNet: true,
-    enabled: true,
     icon: 'trade_tailoring',
     idType: 'spell',
     name: 'Tailoring',
     section: 'primary'
   },
-  // secondary professions
-  {
-    key: 'archaeology',
-    battleNet: false,
-    enabled: false,
-    icon: 'trade_archaeology',
-    idType: 'spell',
-    name: 'Archaeology',
-    section: 'secondary'
-  },
   {
     key: 'cooking',
     battleNet: true,
-    enabled: true,
     icon: 'inv_misc_food_15',
     idType: 'spell',
     name: 'Cooking',
@@ -122,7 +98,6 @@ const ALL_CATEGORIES = [
   {
     key: 'mining',
     battleNet: true,
-    enabled: true,
     icon: 'trade_mining',
     idType: 'spell',
     name: 'Mining',
@@ -130,9 +105,7 @@ const ALL_CATEGORIES = [
   }
 ]
 
-const CATEGORIES = ALL_CATEGORIES.filter(category => category.enabled)
-
-export const BY_SECTION = CATEGORIES.reduce((acc, category) => {
+export const CATEGORIES_BY_SECTION = CATEGORIES.reduce((acc, category) => {
   const categorySection = category.section
 
   if (!acc[categorySection]) {
@@ -143,5 +116,3 @@ export const BY_SECTION = CATEGORIES.reduce((acc, category) => {
 
   return acc
 }, {})
-
-export default CATEGORIES

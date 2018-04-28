@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BY_SECTION as CATEGORIES } from 'constants/categories'
+import { CATEGORIES_BY_SECTION as CATEGORIES } from 'constants/categories'
 import { ICON_URLS } from 'constants/urls'
 
 import * as SC from 'Landing/styled'
@@ -22,19 +22,15 @@ const Landing = () => {
 
   const renderCategoryPanels = categoryBlock => {
     return categoryBlock.map(category => {
-      if (!category.enabled) return
-
       const { icon, key, name } = category
+      const iconUrl = `${ICON_URLS.large}${icon}.jpg`
 
       return (
         <SC.CategoryPanel key={key}>
           <SC.ExpandButton>+</SC.ExpandButton>
 
           <SC.BrowseLink to={`/browse/${key}/1`}>
-            <SC.CategoryImg
-              alt="Category Icon"
-              src={`${ICON_URLS.large}${icon}.jpg`}
-            />
+            <SC.CategoryImg alt="Category Icon" src={iconUrl} />
             {name}
           </SC.BrowseLink>
 

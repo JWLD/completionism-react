@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import CATEGORIES from 'constants/categories'
+import { CATEGORIES } from 'constants/categories'
 
 import {
   activeCategoryDataSelector,

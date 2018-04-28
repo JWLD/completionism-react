@@ -1,5 +1,5 @@
 import * as ACTIONS from 'constants/action_types'
-import CATEGORIES from 'constants/categories'
+import { CATEGORIES } from 'constants/categories'
 
 const categoriesInitialState = CATEGORIES.reduce((acc, category) => {
   return { ...acc, [category.key]: [] }
