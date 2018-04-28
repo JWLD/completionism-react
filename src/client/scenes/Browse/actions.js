@@ -49,9 +49,3 @@ export const changeBrowsePage = ({ next }) => (dispatch, getState) => {
 
   dispatch(changeActiveContent(newPage))
 }
-
-export const fetchCategoryData = category => dispatch => {
-  return fetchDBCategoryData(category).then(categoryData => {
-    return dispatch(loadCategoryData(categoryData, category))
-  })
-}
