@@ -23,7 +23,7 @@ module.exports = {
       path.resolve('./src/client/components'),
       path.resolve('./src/client/scenes'),
       path.resolve('./src/client/scenes/Browse/components'),
-      path.resolve('./src/client/scenes/Browse/components/DetailPanel/components'),
+      path.resolve('./src/client/scenes/Browse/components/SidePanel/components'),
       path.resolve('./src/client/scenes/Browse/components/ItemList/components'),
       path.resolve('./src/client/scenes/Import/components'),
       path.resolve('./src/client/scenes/Landing/components'),

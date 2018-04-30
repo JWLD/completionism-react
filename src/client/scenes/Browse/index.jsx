@@ -10,7 +10,7 @@ import * as SC from 'Browse/styled'
 import NavBar from 'NavBar'
 import FilterBox from 'FilterBox'
 import ItemList from 'ItemList'
-import DetailPanel from 'DetailPanel'
+import SidePanel from 'SidePanel'
 
 export class Browse extends Component {
   componentWillMount() {
@@ -41,7 +41,7 @@ export class Browse extends Component {
           <FilterBox />
           <ItemList />
         </SC.ListWrap>
-        <DetailPanel />
+        <SidePanel />
       </SC.BrowsePage>
     )
   }

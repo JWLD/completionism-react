@@ -4,7 +4,7 @@ import FaCog from 'react-icons/lib/fa/cog'
 
 import { mixins, vars } from 'style'
 
-export const DetailPanel = styled.div`
+export const SidePanel = styled.div`
   ${mixins.flexVerticalTop};
 
   justify-content: flex-start;

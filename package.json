@@ -73,7 +73,7 @@
       "src/client/components",
       "src/client/scenes",
       "src/client/scenes/Browse/components",
-      "src/client/scenes/Browse/components/DetailPanel/components",
+      "src/client/scenes/Browse/components/SidePanel/components",
       "src/client/scenes/Browse/components/ItemList/components",
       "src/client/scenes/Import/components",
       "src/client/scenes/Landing/components"
