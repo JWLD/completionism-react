@@ -11,8 +11,6 @@ export const initialState = {
 
 const browseReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ACTIONS.LOAD_CATEGORY_DATA:
-      return { ...state, [action.category]: action.payload }
     case ACTIONS.OPEN_INFO_PANEL:
       return { ...state, controlPanelIsActive: false }
     case ACTIONS.RESET_ACTIVE_ITEM_ID:
