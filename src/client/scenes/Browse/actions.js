@@ -1,6 +1,5 @@
 import * as ACTIONS from 'constants/action_types'
 import { CONTENT_ARR } from 'constants/content'
-import { fetchDBCategoryData } from 'services/api'
 import history from 'services/history'
 import { activeCategorySelector, activeContentSelector } from 'Browse/selectors'
 
