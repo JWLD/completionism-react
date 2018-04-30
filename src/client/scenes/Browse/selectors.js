@@ -12,8 +12,6 @@ export const activeItemIdSelector = state => state.browse.activeItemId
 
 export const controlPanelIsActiveSelector = state => state.browse.controlPanelIsActive
 
-export const filterSelector = state => state.browse.filter
-
 export const viewModeListSelector = state => state.browse.viewModeList
 
 // PROPS

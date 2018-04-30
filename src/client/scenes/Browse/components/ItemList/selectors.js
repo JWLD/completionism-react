@@ -4,9 +4,9 @@ import _ from 'lodash'
 import {
   activeCategoryDataSelector,
   activeCategorySelector,
-  activeContentSelector,
-  filterSelector
+  activeContentSelector
 } from 'Browse/selectors'
+import { filterValueSelector } from 'FilterBox/selectors'
 import { SOURCES } from 'constants/sources'
 
 // FILTER FUNCTIONS
@@ -180,7 +180,7 @@ const itemsSelector = createSelector(
     activeCategorySelector,
     activeContentSelector,
     factionSelector,
-    filterSelector,
+    filterValueSelector,
     collectedIdsSelector,
     petQualitySelector
   ],
