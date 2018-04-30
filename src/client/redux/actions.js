@@ -7,7 +7,7 @@ export const loadCategoryData = (category, data) => ({
   data
 })
 
-// thunks
+// THUNKS
 
 export const fetchCategoryData = category => dispatch => {
   return fetchDBCategoryData(category).then(categoryData => {
