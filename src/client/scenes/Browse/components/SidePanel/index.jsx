@@ -2,36 +2,36 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { controlPanelIsActiveSelector } from 'SidePanel/selectors'
-import { toggleControlPanel } from 'SidePanel/actions'
+import { infoPanelIsActiveSelector } from 'SidePanel/selectors'
+import { toggleInfoPanel } from 'SidePanel/actions'
 
 import * as SC from 'SidePanel/styled'
 import ControlPanel from 'ControlPanel'
 import InfoPanel from 'InfoPanel'
 
-export const SidePanel = ({ controlPanelIsActive, toggleControlPanel }) => (
+export const SidePanel = ({ infoPanelIsActive, toggleInfoPanel }) => (
   <SC.SidePanel>
-    <SC.ToggleWrap onClick={() => toggleControlPanel()}>
-      <SC.CogIcon active={controlPanelIsActive ? 1 : 0} />
-      {controlPanelIsActive ? 'Settings' : 'Info'}
-      <SC.InfoIcon active={!controlPanelIsActive ? 1 : 0} />
+    <SC.ToggleWrap onClick={() => toggleInfoPanel()}>
+      <SC.CogIcon active={infoPanelIsActive ? 0 : 1} />
+      {infoPanelIsActive ? 'Info' : 'Settings'}
+      <SC.InfoIcon active={!infoPanelIsActive ? 0 : 1} />
     </SC.ToggleWrap>
 
-    {controlPanelIsActive ? <ControlPanel /> : <InfoPanel />}
+    {infoPanelIsActive ? <InfoPanel /> : <ControlPanel />}
   </SC.SidePanel>
 )
 
 SidePanel.propTypes = {
-  controlPanelIsActive: PropTypes.bool.isRequired,
-  toggleControlPanel: PropTypes.func.isRequired
+  infoPanelIsActive: PropTypes.bool.isRequired,
+  toggleInfoPanel: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
-  controlPanelIsActive: controlPanelIsActiveSelector(state)
+  infoPanelIsActive: infoPanelIsActiveSelector(state)
 })
 
 const mapDispatchToProps = {
-  toggleControlPanel
+  toggleInfoPanel
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SidePanel)
