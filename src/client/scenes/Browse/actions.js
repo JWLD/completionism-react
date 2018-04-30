@@ -8,22 +8,21 @@ export const changeActiveContent = content => ({
   content
 })
 
-export const loadCategoryData = (categoryData, category) => ({
-  type: ACTIONS.LOAD_CATEGORY_DATA,
-  payload: categoryData,
-  category
-})
-
-const resetActiveItemId = () => ({
-  type: ACTIONS.RESET_ACTIVE_ITEM_ID
-})
-
 export const updateActiveCategory = category => ({
   type: ACTIONS.UPDATE_ACTIVE_CATEGORY,
   category
 })
 
 // THUNKS
+
+export const setActiveItemId = itemId => ({
+  type: ACTIONS.SET_ACTIVE_ITEM_ID,
+  payload: itemId
+})
+
+const resetActiveItemId = () => dispatch => {
+  dispatch(setActiveItemId(0))
+}
 
 export const changeActiveCategory = category => dispatch => {
   dispatch(resetActiveItemId())

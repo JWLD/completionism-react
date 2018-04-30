@@ -10,8 +10,6 @@ export const initialState = {
 
 const browseReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ACTIONS.RESET_ACTIVE_ITEM_ID:
-      return { ...state, activeItemId: 0 }
     case ACTIONS.SET_ACTIVE_ITEM_ID:
       return { ...state, activeItemId: action.payload }
     case ACTIONS.UPDATE_ACTIVE_CATEGORY:

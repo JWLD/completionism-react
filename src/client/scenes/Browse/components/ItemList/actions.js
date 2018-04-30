@@ -1,12 +1,8 @@
 import * as ACTIONS from 'constants/action_types'
+import { setActiveItemId } from 'Browse/actions'
 
 export const openInfoPanel = () => ({
   type: ACTIONS.OPEN_INFO_PANEL
-})
-
-export const setActiveItemId = itemId => ({
-  type: ACTIONS.SET_ACTIVE_ITEM_ID,
-  payload: itemId
 })
 
 export const setActiveItem = itemId => dispatch => {
