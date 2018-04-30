@@ -1,1 +1,1 @@
-export const filterValueSelector = state => state.browse.filter.value
+export const filterValueSelector = state => state.browse.filterBox.value

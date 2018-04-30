@@ -21,7 +21,7 @@ const browseReducer = (state = initialState, action) => {
     default:
       return {
         ...state,
-        filter: filterReducer(state.filter, action),
+        filterBox: filterReducer(state.filterBox, action),
         sidePanel: sidePanelReducer(state.sidePanel, action)
       }
   }

@@ -1,13 +1,13 @@
 import * as ACTIONS from 'constants/action_types'
 
-// action creators
+// ACTION CREATORS
 
 export const setFilter = value => ({
-  type: ACTIONS.SET_FILTER,
+  type: ACTIONS.SET_FILTER_VALUE,
   value
 })
 
-// thunks
+// THUNKS
 
 export const resetFilter = () => dispatch => {
   dispatch(setFilter(''))

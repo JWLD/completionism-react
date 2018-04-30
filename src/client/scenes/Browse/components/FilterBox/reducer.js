@@ -4,7 +4,7 @@ export const initialState = {
   value: ''
 }
 
-const filterReducer = (state = initialState, action) => {
+const filterBoxReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIONS.SET_FILTER_VALUE:
       return { ...state, value: action.value }
@@ -13,4 +13,4 @@ const filterReducer = (state = initialState, action) => {
   }
 }
 
-export default filterReducer
+export default filterBoxReducer
