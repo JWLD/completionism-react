@@ -106,13 +106,15 @@ export const CATEGORIES = [
 ]
 
 export const CATEGORIES_BY_SECTION = CATEGORIES.reduce((acc, category) => {
-  const categorySection = category.section
+  const sectionIndex = acc.findIndex(section => {
+    return section.key === category.section
+  })
 
-  if (!acc[categorySection]) {
-    acc[categorySection] = [category]
+  if (sectionIndex === -1) {
+    acc.push({ key: category.section, categories: [category] })
   } else {
-    acc[categorySection].push(category)
+    acc[sectionIndex].categories.push(category)
   }
 
   return acc
-}, {})
+}, [])

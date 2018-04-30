@@ -20,8 +20,8 @@ const Landing = () => {
     )
   }
 
-  const renderCategoryPanels = categoryBlock => {
-    return categoryBlock.map(category => {
+  const renderCategoryPanels = section => {
+    return section.categories.map(category => {
       const { icon, key, name } = category
       const iconUrl = `${ICON_URLS.large}${icon}.jpg`
 
@@ -43,19 +43,17 @@ const Landing = () => {
     })
   }
 
-  const renderCategoryBlocks = () => {
-    return Object.keys(CATEGORIES).map(categoryBlock => (
-      <SC.CategoryBlock key={categoryBlock}>
-        {renderCategoryPanels(CATEGORIES[categoryBlock])}
-      </SC.CategoryBlock>
-    ))
-  }
+  const categoryBlocks = CATEGORIES.map(section => (
+    <SC.CategoryBlock key={section.key}>
+      {renderCategoryPanels(section)}
+    </SC.CategoryBlock>
+  ))
 
   return (
     <PageWrap>
       <NavBar />
 
-      {renderCategoryBlocks()}
+      {categoryBlocks}
     </PageWrap>
   )
 }

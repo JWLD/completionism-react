@@ -1,5 +1,5 @@
 import * as ACTIONS from 'constants/action_types'
-import filterReducer from 'FilterBox/reducer'
+import filterBoxReducer from 'FilterBox/reducer'
 import sidePanelReducer from 'SidePanel/reducer'
 
 export const initialState = {
@@ -19,7 +19,7 @@ const browseReducer = (state = initialState, action) => {
     default:
       return {
         ...state,
-        filterBox: filterReducer(state.filterBox, action),
+        filterBox: filterBoxReducer(state.filterBox, action),
         sidePanel: sidePanelReducer(state.sidePanel, action)
       }
   }

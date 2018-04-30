@@ -25,15 +25,13 @@ const CategoryFields = () => {
     })
   }
 
-  const renderCheckboxColumns = () => {
-    return Object.keys(CATEGORIES).map(category => (
-      <SC.CheckboxWrap key={category}>
-        {renderInputRows(CATEGORIES[category])}
-      </SC.CheckboxWrap>
-    ))
-  }
+  const categorySections = CATEGORIES.map(section => (
+    <SC.CheckboxWrap key={section.key}>
+      {renderInputRows(section.categories)}
+    </SC.CheckboxWrap>
+  ))
 
-  return renderCheckboxColumns()
+  return categorySections
 }
 
 export default CategoryFields
