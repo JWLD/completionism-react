@@ -3,30 +3,26 @@ import { CONTENT_ARR } from 'constants/content'
 import history from 'services/history'
 import { activeCategorySelector, activeContentSelector } from 'Browse/selectors'
 
-export const changeActiveContent = content => ({
-  type: ACTIONS.UPDATE_ACTIVE_CONTENT,
+export const setActiveCategory = category => ({
+  type: ACTIONS.SET_ACTIVE_CATEGORY,
+  category
+})
+
+export const setActiveContent = content => ({
+  type: ACTIONS.SET_ACTIVE_CONTENT,
   content
 })
 
-export const updateActiveCategory = category => ({
-  type: ACTIONS.UPDATE_ACTIVE_CATEGORY,
-  category
+export const setActiveItemId = itemId => ({
+  type: ACTIONS.SET_ACTIVE_ITEM_ID,
+  itemId
 })
 
 // THUNKS
 
-export const setActiveItemId = itemId => ({
-  type: ACTIONS.SET_ACTIVE_ITEM_ID,
-  payload: itemId
-})
-
-const resetActiveItemId = () => dispatch => {
-  dispatch(setActiveItemId(0))
-}
-
 export const changeActiveCategory = category => dispatch => {
   dispatch(resetActiveItemId())
-  dispatch(updateActiveCategory(category))
+  dispatch(setActiveCategory(category))
 }
 
 export const changeBrowsePage = ({ next }) => (dispatch, getState) => {
@@ -45,5 +41,9 @@ export const changeBrowsePage = ({ next }) => (dispatch, getState) => {
 
   history.push(`/browse/${category}/${newPage}`)
 
-  dispatch(changeActiveContent(newPage))
+  dispatch(setActiveContent(newPage))
+}
+
+const resetActiveItemId = () => dispatch => {
+  dispatch(setActiveItemId(0))
 }

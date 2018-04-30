@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { changeActiveCategory, changeActiveContent } from 'Browse/actions'
+import { changeActiveCategory, setActiveContent } from 'Browse/actions'
 import { categoryParamSelector, contentParamSelector } from 'Browse/selectors'
 import { changeBrowsePage } from 'Browse/actions'
 
@@ -15,7 +15,7 @@ import SidePanel from 'SidePanel'
 export class Browse extends Component {
   componentWillMount() {
     this.props.changeActiveCategory(this.props.category)
-    this.props.changeActiveContent(this.props.content)
+    this.props.setActiveContent(this.props.content)
 
     document.addEventListener('keydown', this.handleKeyDown)
   }
@@ -50,7 +50,7 @@ export class Browse extends Component {
 Browse.propTypes = {
   category: PropTypes.string.isRequired,
   changeActiveCategory: PropTypes.func.isRequired,
-  changeActiveContent: PropTypes.func.isRequired,
+  setActiveContent: PropTypes.func.isRequired,
   changeBrowsePage: PropTypes.func.isRequired,
   content: PropTypes.number.isRequired
 }
@@ -62,7 +62,7 @@ export const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {
   changeActiveCategory,
-  changeActiveContent,
+  setActiveContent,
   changeBrowsePage
 }
 
