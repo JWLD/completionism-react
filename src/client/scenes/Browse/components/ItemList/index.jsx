@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { itemBlocksSelector, progressDataSelector } from 'ItemList/selectors'
-import { activeContentSelector, viewModeListSelector } from 'Browse/selectors'
+import { activeContentSelector } from 'Browse/selectors'
+import { viewModeListSelector } from 'SidePanel/selectors'
 import { CONTENT } from 'constants/content'
 import * as SC from 'ItemList/styled'
 

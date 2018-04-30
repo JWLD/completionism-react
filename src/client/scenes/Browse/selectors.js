@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 
 import { categoryDataSelector } from 'redux/selectors'
 
-// STATE
+// BASE - STATE
 
 export const activeCategorySelector = state => state.browse.activeCategory
 
@@ -10,11 +10,7 @@ export const activeContentSelector = state => state.browse.activeContent
 
 export const activeItemIdSelector = state => state.browse.activeItemId
 
-export const controlPanelIsActiveSelector = state => state.browse.controlPanelIsActive
-
-export const viewModeListSelector = state => state.browse.viewModeList
-
-// PROPS
+// BASE - PROPS
 
 export const categoryParamSelector = (state, props) => props.match.params.category
 

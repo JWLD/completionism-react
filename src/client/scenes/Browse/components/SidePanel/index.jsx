@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { controlPanelIsActiveSelector } from 'Browse/selectors'
+import { controlPanelIsActiveSelector } from 'SidePanel/selectors'
 import { toggleControlPanel } from 'SidePanel/actions'
 
 import * as SC from 'SidePanel/styled'

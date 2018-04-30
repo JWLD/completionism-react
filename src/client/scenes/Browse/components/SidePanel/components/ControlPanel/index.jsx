@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { toggleViewMode } from 'ControlPanel/actions'
-import { viewModeListSelector } from 'Browse/selectors'
+import { viewModeListSelector } from 'SidePanel/selectors'
 
 import * as SC from 'ControlPanel/styled'
 
