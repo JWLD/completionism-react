@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './src/client/index.js',
@@ -39,5 +40,6 @@ module.exports = {
         use: 'babel-loader'
       }
     ]
-  }
+  },
+  plugins: [new webpack.NamedModulesPlugin()]
 }
