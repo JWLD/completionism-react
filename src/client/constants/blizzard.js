@@ -14,9 +14,9 @@ export const CLASSES = {
 }
 
 export const FACTIONS = {
-  0: 'Alliance',
-  1: 'Horde',
-  2: 'Neutral'
+  ALLIANCE: 0,
+  HORDE: 1,
+  NEUTRAL: 2
 }
 
 export const REGIONS = {
