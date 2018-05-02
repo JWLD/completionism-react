@@ -24,7 +24,9 @@ const ItemList = props => {
     return subs.map(subCat => (
       <Fragment key={subCat.name}>
         <SC.SubTitle>{subCat.name}</SC.SubTitle>
-        {props.listView ? renderItemBars(subCat.items) : renderTileGrid(subCat.items)}
+        {props.listView
+          ? renderItemBars(subCat.items)
+          : renderTileGrid(subCat.items)}
       </Fragment>
     ))
   }

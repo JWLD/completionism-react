@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect'
-import _ from 'lodash'
 
 import {
   activeCategoryDataSelector,
@@ -8,29 +7,18 @@ import {
 } from 'Browse/selectors'
 import { filterValueSelector } from 'FilterBox/selectors'
 import { SOURCES } from 'constants/sources'
-
-// FILTER FUNCTIONS
-
-const filterByContent = (data, content) => {
-  return data.filter(item => item.content === content)
-}
-
-const filterByFaction = (data, faction) => {
-  return data.filter(item => {
-    const factionIsNeutral = item.faction === 2
-
-    return item.faction === faction || factionIsNeutral
-  })
-}
-
-const filterByUserFilter = (data, filterValue) => {
-  return data.filter(item => {
-    const normalisedName = item.name.toLowerCase()
-    const normalisedFilterValue = filterValue.toLowerCase()
-
-    return normalisedName.includes(normalisedFilterValue)
-  })
-}
+import {
+  checkFaction,
+  checkFilterValue,
+  sortItemBlocks,
+  sortNonPets,
+  sortPets
+} from 'ItemList/helpers'
+import {
+  getCollectedIdsFromLocalStorage,
+  getFactionFromLocalStorage,
+  getPetCollectionFromLocalStorage
+} from 'services/local_storage'
 
 // ORGANISE FUNCTIONS
 
@@ -88,137 +76,77 @@ const organiseIntoSubs = data => {
   }, [])
 }
 
-// SORT FUNCTIONS
+// DERIVED SELECTORS
 
-const sortItems = data => {
-  return _.sortBy(data, ['skill', 'quality', 'name'])
-}
-
-const sortPets = data => {
-  return _.sortBy(data, ['name'])
-}
-
-const sortItemBlocks = data => {
-  return _.sortBy(data, 'name')
-}
-
-// DATA FUNCTIONS
-
-const addCollectedInfo = (data, collectedIds) => {
-  return data.map(item => {
-    if (collectedIds.includes(item.id)) {
-      item.collected = true
-    } else {
-      item.collected = false
-    }
-
-    return item
-  })
-}
-
-const updateItemQuality = (data, petQualityById) => {
-  return data.map(item => {
-    const quality = petQualityById[item.id]
-
-    if (quality) {
-      item.quality = quality
-    }
-
-    return item
-  })
-}
-
-// LOCAL STORAGE SELECTORS
-
-const petQualitySelector = createSelector([activeCategorySelector], category => {
-  const data = localStorage[category] ? JSON.parse(localStorage[category]).ids : []
-
-  return data.reduce((acc, item) => {
-    acc[item.id] = item.quality
-
-    return acc
-  }, {})
-})
-
-const collectedIdsSelector = createSelector([activeCategorySelector], category => {
-  const data = localStorage[category] && JSON.parse(localStorage[category])
-
-  if (!data) return []
-
-  const ids = category === 'pets' ? data.ids.map(item => item.id) : data.ids
-
-  return ids
-})
-
-const factionSelector = createSelector([activeCategorySelector], category => {
-  return localStorage[category] ? JSON.parse(localStorage[category]).char.faction : 2
-})
-
-const addPetLevel = data => {
-  const localPetData = JSON.parse(localStorage.getItem('pets'))
-
-  const petLevelById = localPetData.ids.reduce((acc, pet) => {
-    acc[pet.id] = pet.level
-
-    return acc
-  }, {})
-
-  const newData = data.map(item => {
-    item.level = petLevelById[item.id]
-
-    return item
-  })
-
-  return newData
-}
-
-// REGULAR SELECTORS
-
-const itemsSelector = createSelector(
+const getFilteredItems = createSelector(
   [
-    activeCategoryDataSelector,
     activeCategorySelector,
+    activeCategoryDataSelector,
     activeContentSelector,
-    factionSelector,
-    filterValueSelector,
-    collectedIdsSelector,
-    petQualitySelector
+    filterValueSelector
   ],
-  (data, category, content, faction, filterValue, collectedIds, petQualityById) => {
-    data = filterByContent(data, content)
-    data = filterByFaction(data, faction)
-    data = filterByUserFilter(data, filterValue)
+  (activeCategory, activeCategoryData, activeContent, filterValue) => {
+    const faction = getFactionFromLocalStorage(activeCategory)
 
-    if (category === 'pets') {
-      data = sortPets(data)
-    } else {
-      data = sortItems(data)
-    }
+    const filteredItems = activeCategoryData.filter(item => {
+      const itemMatchesContent = item.content === activeContent
+      const itemMatchesFaction = checkFaction(item.faction, faction)
+      const itemMatchesFilterValue = checkFilterValue(item.name, filterValue)
 
-    data = addCollectedInfo(data, collectedIds)
+      return itemMatchesContent && itemMatchesFaction && itemMatchesFilterValue
+    })
 
-    if (category === 'pets') {
-      data = updateItemQuality(data, petQualityById)
-      data = addPetLevel(data)
-    }
-
-    return data
+    return filteredItems
   }
 )
 
-export const itemBlocksSelector = createSelector([itemsSelector], items => {
-  let blocks = organiseIntoSources(items)
-  blocks = sortItemBlocks(blocks)
-  blocks = organiseIntoSubs(blocks)
-
-  return blocks
-})
-
-export const progressDataSelector = createSelector([itemsSelector], items => {
-  const collectedItems = items.filter(item => item.collected)
-
-  return {
-    count: collectedItems.length,
-    total: items.length
+const getSortedItems = createSelector(
+  [getFilteredItems, activeCategorySelector],
+  (items, category) => {
+    return category === 'pets' ? sortPets(items) : sortNonPets(items)
   }
-})
+)
+
+const getItemsWithAdditionalData = createSelector(
+  [getSortedItems, activeCategorySelector],
+  (items, category) => {
+    const collectedIds = getCollectedIdsFromLocalStorage(category)
+    const petData = category === 'pets' && getPetCollectionFromLocalStorage()
+
+    const itemsWithAdditionalData = items.map(item => {
+      item.collected = collectedIds.includes(item.id)
+
+      if (category === 'pets' && petData[item.id]) {
+        item.level = petData[item.id].level
+        item.quality = petData[item.id].quality
+      }
+
+      return item
+    })
+
+    return itemsWithAdditionalData
+  }
+)
+
+export const itemBlocksSelector = createSelector(
+  [getItemsWithAdditionalData],
+  items => {
+    let blocks = organiseIntoSources(items)
+    blocks = sortItemBlocks(blocks)
+    blocks = organiseIntoSubs(blocks)
+
+    return blocks
+  }
+)
+
+export const progressDataSelector = createSelector(
+  [getItemsWithAdditionalData],
+  items => {
+    const collectedItems = items.filter(item => item.collected)
+
+    return {
+      count: collectedItems.length,
+      total: items.length
+    }
+  }
+)
