@@ -7,6 +7,12 @@ export const getCategoryDataFromLocalStorage = category => {
   return categoryData
 }
 
+export const getCharacterDataFromLocalStorage = category => {
+  const categoryData = getCategoryDataFromLocalStorage(category)
+
+  return categoryData && categoryData.char
+}
+
 export const getCollectedIdsFromLocalStorage = category => {
   const categoryData = getCategoryDataFromLocalStorage(category)
 
