@@ -50,7 +50,10 @@ export const organiseIntoSourceBlocks = items => {
     if (!blockExists) {
       acc.push({
         name: sourceType,
-        items: organiseIntoSubCategoryBlocks({ items, source: item.source })
+        subCategories: organiseIntoSubCategoryBlocks({
+          items,
+          source: item.source
+        })
       })
     }
 

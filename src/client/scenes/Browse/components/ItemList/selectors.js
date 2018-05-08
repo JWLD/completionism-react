@@ -83,10 +83,12 @@ export const itemBlocksSelector = createSelector(
 export const progressDataSelector = createSelector(
   [getItemsWithAdditionalData],
   items => {
-    const collectedItems = items.filter(item => item.collected)
+    const collectedItemCount = items.reduce((count, item) => {
+      return item.collected ? count + 1 : count
+    }, 0)
 
     return {
-      count: collectedItems.length,
+      count: collectedItemCount,
       total: items.length
     }
   }

@@ -13,43 +13,41 @@ import ProgressBar from 'ProgressBar'
 import ItemBar from 'ItemBar'
 import TileGrid from 'TileGrid'
 
-const ItemList = props => {
+const ItemList = ({ blocks, content, listView, progress }) => {
   const renderItemBars = data => {
     return data.map(item => <ItemBar {...item} key={item.id} />)
   }
 
   const renderTileGrid = items => <TileGrid items={items} />
 
-  const renderSubBlocks = subs => {
-    return subs.map(subCat => (
-      <Fragment key={subCat.name}>
-        <SC.SubTitle>{subCat.name}</SC.SubTitle>
-        {props.listView
-          ? renderItemBars(subCat.items)
-          : renderTileGrid(subCat.items)}
+  const renderSubBlocks = subCategories => {
+    return subCategories.map(subCategory => (
+      <Fragment key={subCategory.name}>
+        <SC.SubTitle>{subCategory.name}</SC.SubTitle>
+        {listView
+          ? renderItemBars(subCategory.items)
+          : renderTileGrid(subCategory.items)}
       </Fragment>
     ))
   }
 
-  const renderSourceBlocks = () => {
-    return props.blocks.map(subCategory => (
-      <BrowseBlock key={subCategory.name}>
-        <SC.SourceTitle>{subCategory.name}</SC.SourceTitle>
-        {renderSubBlocks(subCategory.subs)}
-      </BrowseBlock>
-    ))
-  }
+  const sourceBlocks = blocks.map(sourceBlock => (
+    <BrowseBlock key={sourceBlock.name}>
+      <SC.SourceTitle>{sourceBlock.name}</SC.SourceTitle>
+      {renderSubBlocks(sourceBlock.subCategories)}
+    </BrowseBlock>
+  ))
 
-  const progressBarTitle = CONTENT[props.content].xpac
+  const progressBarTitle = CONTENT[content].xpac
 
   return (
     <SC.ItemList>
       <ProgressBar
-        count={props.progress.count}
+        count={progress.count}
         title={progressBarTitle}
-        total={props.progress.total}
+        total={progress.total}
       />
-      {renderSourceBlocks()}
+      {sourceBlocks}
     </SC.ItemList>
   )
 }
