@@ -6,11 +6,10 @@ import {
   activeContentSelector
 } from 'Browse/selectors'
 import { filterValueSelector } from 'FilterBox/selectors'
-import { SOURCES } from 'constants/sources'
 import {
   checkFaction,
   checkFilterValue,
-  sortItemBlocks,
+  organiseIntoSourceBlocks,
   sortNonPets,
   sortPets
 } from 'ItemList/helpers'
@@ -19,62 +18,6 @@ import {
   getFactionFromLocalStorage,
   getPetCollectionFromLocalStorage
 } from 'services/local_storage'
-
-// ORGANISE FUNCTIONS
-
-const organiseIntoSources = data => {
-  return data.reduce((acc, item) => {
-    const sourceType = SOURCES[item.source]
-    const entry = acc.find(sources => sources.name === sourceType)
-
-    if (!entry) {
-      acc.push({
-        name: sourceType,
-        items: [item]
-      })
-    } else {
-      const entryIndex = acc.indexOf(entry)
-
-      acc[entryIndex].items.push(item)
-    }
-
-    return acc
-  }, [])
-}
-
-const setSubs = items => {
-  let subs = items.reduce((acc, item) => {
-    const subType = item.sub1
-    const entry = acc.find(subs => subs.name === subType)
-
-    if (!entry) {
-      acc.push({
-        name: subType,
-        items: [item]
-      })
-    } else {
-      const entryIndex = acc.indexOf(entry)
-      acc[entryIndex].items.push(item)
-    }
-
-    return acc
-  }, [])
-
-  subs = sortItemBlocks(subs)
-
-  return subs
-}
-
-const organiseIntoSubs = data => {
-  return data.reduce((acc, block) => {
-    const newBlock = { ...block, subs: setSubs(block.items) }
-    delete newBlock.items
-
-    acc.push(newBlock)
-
-    return acc
-  }, [])
-}
 
 // DERIVED SELECTORS
 
@@ -131,11 +74,9 @@ const getItemsWithAdditionalData = createSelector(
 export const itemBlocksSelector = createSelector(
   [getItemsWithAdditionalData],
   items => {
-    let blocks = organiseIntoSources(items)
-    blocks = sortItemBlocks(blocks)
-    blocks = organiseIntoSubs(blocks)
+    const itemBlocks = organiseIntoSourceBlocks(items)
 
-    return blocks
+    return itemBlocks
   }
 )
 
