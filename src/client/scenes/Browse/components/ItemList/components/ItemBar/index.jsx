@@ -18,7 +18,7 @@ export const ItemBar = ({
   quality,
   setActiveItem
 }) => {
-  const iconUrl = icon ? `url(${ICON_URLS.large}${icon}.jpg)` : 'none'
+  const iconUrl = icon ? `url(${ICON_URLS.large}/${icon}.jpg)` : 'none'
 
   const renderProgressIcon = () => {
     if (collected && category === 'pets') {
