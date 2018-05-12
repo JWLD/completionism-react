@@ -9,7 +9,7 @@ import { CONTENT } from 'constants/content'
 import * as SC from 'ItemList/styled'
 
 import { BrowseBlock } from 'style/components'
-import ProgressBar from 'ProgressBar'
+import ProgressBox from 'ProgressBox'
 import ItemBar from 'ItemBar'
 import TileGrid from 'TileGrid'
 
@@ -42,7 +42,7 @@ const ItemList = ({ blocks, content, listView, progress }) => {
 
   return (
     <SC.ItemList>
-      <ProgressBar
+      <ProgressBox
         count={progress.count}
         title={progressBarTitle}
         total={progress.total}
