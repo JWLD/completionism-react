@@ -4,15 +4,20 @@ const flex = `
 	align-items: center;
 `
 
-const flexLeft = `
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+const flexTop = `
+	${flex};
+	align-items: flex-start;
 `
 
 const flexRight = `
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+`
+
+const flexLeft = `
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
 `
 
@@ -39,8 +44,9 @@ const flexVerticalLeft = `
 
 export default {
   flex,
-  flexLeft,
+  flexTop,
   flexRight,
+  flexLeft,
   flexVertical,
   flexVerticalTop,
   flexVerticalLeft

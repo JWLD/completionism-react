@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { mixins } from 'style'
+import { mixins, vars } from 'style'
 import { BrowseBlock } from 'style/components'
 
 export const ProgressBarWrap = styled(BrowseBlock)`
@@ -12,6 +12,7 @@ export const TextWrap = styled.div`
 
   justify-content: space-between;
   width: 100%;
+  margin-bottom: ${vars.itemListPadding}rem;
 `
 
 export const ProgressText = styled.span`

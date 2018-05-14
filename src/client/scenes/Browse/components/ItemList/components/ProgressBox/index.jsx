@@ -6,23 +6,18 @@ import ProgressBar from 'ProgressBar'
 
 import * as SC from 'ProgressBox/styled'
 
-const ProgressBox = ({ count, title, total }) => {
-  const fillPercent = count / total * 100
-  const fillProp = isNaN(fillPercent) ? 0 : fillPercent
+const ProgressBox = ({ count, title, total }) => (
+  <BrowseBlock>
+    <SC.TextWrap>
+      <SC.ProgressText>{title}</SC.ProgressText>
+      <SC.ProgressText>
+        {count} / {total}
+      </SC.ProgressText>
+    </SC.TextWrap>
 
-  return (
-    <BrowseBlock>
-      <SC.TextWrap>
-        <SC.ProgressText>{title}</SC.ProgressText>
-        <SC.ProgressText>
-          {count} / {total}
-        </SC.ProgressText>
-      </SC.TextWrap>
-
-      <ProgressBar count={fillProp} />
-    </BrowseBlock>
-  )
-}
+    <ProgressBar count={count} total={total} />
+  </BrowseBlock>
+)
 
 ProgressBox.propTypes = {
   count: PropTypes.number.isRequired,

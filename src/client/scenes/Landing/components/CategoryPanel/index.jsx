@@ -4,13 +4,12 @@ import PropTypes from 'prop-types'
 
 import { ICON_URLS } from 'constants/urls'
 import { getCharacterDataFromLocalStorage } from 'services/local_storage'
+import ProgressBar from 'ProgressBar'
 
 import { getProgressData } from 'CategoryPanel/selectors'
 import * as SC from 'CategoryPanel/styled'
 
 const CategoryPanel = ({ category, icon, name, progress }) => {
-  console.log(progress)
-
   // eslint-disable-next-line
   const renderPortrait = ({ region, thumb }) => {
     const portraitUrl = `http://render-${region}.worldofwarcraft.com/character/${thumb}`
@@ -29,7 +28,19 @@ const CategoryPanel = ({ category, icon, name, progress }) => {
 
       <SC.BrowseLink to={browsePageUrl}>
         <SC.CategoryImg alt="Category Icon" src={iconUrl} />
-        {name}
+        <SC.CategoryDetails>
+          <SC.TextWrap>
+            <SC.CategoryName>{name}</SC.CategoryName>
+            <SC.CategoryProgress>
+              {progress.count} / {progress.total}
+            </SC.CategoryProgress>
+          </SC.TextWrap>
+          <ProgressBar
+            count={progress.count}
+            height={1}
+            total={progress.total}
+          />
+        </SC.CategoryDetails>
       </SC.BrowseLink>
 
       <SC.ImportPageLink to="/import">

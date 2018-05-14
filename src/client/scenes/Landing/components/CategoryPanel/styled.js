@@ -39,10 +39,11 @@ export const BrowseLink = styled(Link)`
   width: 50rem;
   height: ${panelHeight}rem;
   margin: 0 ${panelPadding}rem;
+  padding: ${panelPadding}rem;
   border-radius: 0.4rem;
   background-color: #333;
   color: white;
-  font: 2.5rem DinMC;
+  font: 2.5rem DinRC;
 
   :hover {
     background-color: #444;
@@ -51,11 +52,9 @@ export const BrowseLink = styled(Link)`
 `
 
 export const CategoryImg = styled.img`
-  position: absolute;
-  left: ${panelPadding}rem;
-  top: ${panelPadding}rem;
   height: ${panelHeight - panelPadding * 2}rem;
   width: ${panelHeight - panelPadding * 2}rem;
+  margin-right: ${panelPadding}rem;
   border: none;
   border-radius: 0.4rem;
 
@@ -63,6 +62,25 @@ export const CategoryImg = styled.img`
     filter: brightness(115%);
   }
 `
+
+export const CategoryDetails = styled.div`
+  ${mixins.flexVerticalLeft};
+
+  width: 100%;
+  height: 100%;
+`
+
+export const TextWrap = styled.div`
+  ${mixins.flexTop};
+
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+`
+
+export const CategoryName = styled.span``
+
+export const CategoryProgress = styled.span``
 
 export const ImportPageLink = ExpandButton.withComponent(Link).extend`
 	position: relative;
