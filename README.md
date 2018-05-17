@@ -1,6 +1,6 @@
 # completionism-react
 
-Work in progress!
+Work in progress! View [here](https://completionism.herokuapp.com/).
 
 #### Tech Stack
 - react
