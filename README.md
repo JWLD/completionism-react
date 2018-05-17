@@ -2,6 +2,11 @@
 
 Work in progress! View [here](https://completionism.herokuapp.com/).
 
+You can import a character's collection by clicking the user icon to the right of any category (this will be made clearer in the future). Try importing the following for the mounts category: 
+- EU
+- Realm: Sylvanas
+- Name: Knoxis
+
 #### Tech Stack
 - react
 - redux
