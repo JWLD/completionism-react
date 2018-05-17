@@ -27,7 +27,7 @@ export const ExpandButton = styled.button`
   font-size: 4rem;
 
   :hover {
-    background-color: #444;
+    filter: brightness(115%);
     color: gray;
   }
 `
@@ -46,7 +46,7 @@ export const BrowseLink = styled(Link)`
   font: 2.5rem DinRC;
 
   :hover {
-    background-color: #444;
+    filter: brightness(115%);
     color: white;
   }
 `
