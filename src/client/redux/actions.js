@@ -1,8 +1,8 @@
 import * as ACTIONS from 'constants/action_types'
 import { fetchDBCategoryData } from 'services/api'
 
-export const loadCategoryData = (category, data) => ({
-  type: ACTIONS.LOAD_CATEGORY_DATA,
+export const setCategoryData = (category, data) => ({
+  type: ACTIONS.SET_CATEGORY_DATA,
   category,
   data
 })
@@ -11,6 +11,6 @@ export const loadCategoryData = (category, data) => ({
 
 export const fetchCategoryData = category => dispatch => {
   return fetchDBCategoryData(category).then(categoryData => {
-    return dispatch(loadCategoryData(category, categoryData))
+    return dispatch(setCategoryData(category, categoryData))
   })
 }

@@ -11,7 +11,7 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ACTIONS.LOAD_CATEGORY_DATA:
+    case ACTIONS.SET_CATEGORY_DATA:
       return {
         ...state,
         categoryData: {
