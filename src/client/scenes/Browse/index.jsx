@@ -50,9 +50,9 @@ export class Browse extends Component {
 Browse.propTypes = {
   category: PropTypes.string.isRequired,
   changeActiveCategory: PropTypes.func.isRequired,
-  setActiveContent: PropTypes.func.isRequired,
   changeBrowsePage: PropTypes.func.isRequired,
-  content: PropTypes.number.isRequired
+  content: PropTypes.number.isRequired,
+  setActiveContent: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state, ownProps) => ({
@@ -62,8 +62,8 @@ export const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {
   changeActiveCategory,
-  setActiveContent,
-  changeBrowsePage
+  changeBrowsePage,
+  setActiveContent
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Browse)
