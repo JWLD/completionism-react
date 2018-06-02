@@ -26,3 +26,11 @@ export const fetchDBCategoryData = category => {
     .then(res => res.data)
     .catch(err => console.log(`Error fetching category data from DB: ${err}`))
 }
+
+export const getCategoryData = () => {
+  return axios.get(URLS.CATEGORY_DATA_URL).then(res => res.data)
+}
+
+export default {
+  getCategoryData
+}

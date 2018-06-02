@@ -8,7 +8,7 @@ const initialState = CATEGORIES.reduce((acc, category) => {
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIONS.SET_CATEGORY_DATA:
-      return { ...state, [action.category]: action.data }
+      return action.data
     default:
       return state
   }
