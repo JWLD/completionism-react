@@ -4,7 +4,7 @@ import { CATEGORIES_BY_SECTION as CATEGORIES } from 'constants/categories'
 import { PageWrap } from 'style/components'
 import NavBar from 'NavBar'
 
-import * as SC from 'Landing/styled'
+import { SectionTitle, SectionWrap } from 'Landing/styled'
 import CategoryPanel from 'CategoryPanel'
 
 const Landing = () => {
@@ -20,9 +20,10 @@ const Landing = () => {
   }
 
   const categoryBlocks = CATEGORIES.map(section => (
-    <SC.CategoryBlock key={section.key}>
+    <SectionWrap key={section.key}>
+      <SectionTitle>{section.key}</SectionTitle>
       {renderCategoryPanels(section)}
-    </SC.CategoryBlock>
+    </SectionWrap>
   ))
 
   return (
