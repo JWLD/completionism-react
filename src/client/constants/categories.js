@@ -29,7 +29,7 @@ export const CATEGORIES = [
     icon: 'trade_alchemy',
     idType: 'spell',
     name: 'Alchemy',
-    section: 'primary'
+    section: 'professions'
   },
   {
     key: 'blacksmithing',
@@ -37,55 +37,7 @@ export const CATEGORIES = [
     icon: 'trade_blacksmithing',
     idType: 'spell',
     name: 'Blacksmithing',
-    section: 'primary'
-  },
-  {
-    key: 'enchanting',
-    battleNet: true,
-    icon: 'trade_engraving',
-    idType: 'spell',
-    name: 'Enchanting',
-    section: 'primary'
-  },
-  {
-    key: 'engineering',
-    battleNet: true,
-    icon: 'trade_engineering',
-    idType: 'spell',
-    name: 'Engineering',
-    section: 'primary'
-  },
-  {
-    key: 'inscription',
-    battleNet: true,
-    icon: 'inv_inscription_tradeskill01',
-    idType: 'spell',
-    name: 'Inscription',
-    section: 'primary'
-  },
-  {
-    key: 'jewelcrafting',
-    battleNet: true,
-    icon: 'inv_misc_gem_01',
-    idType: 'spell',
-    name: 'Jewelcrafting',
-    section: 'primary'
-  },
-  {
-    key: 'leatherworking',
-    battleNet: true,
-    icon: 'inv_misc_armorkit_17',
-    idType: 'spell',
-    name: 'Leatherworking',
-    section: 'primary'
-  },
-  {
-    key: 'tailoring',
-    battleNet: true,
-    icon: 'trade_tailoring',
-    idType: 'spell',
-    name: 'Tailoring',
-    section: 'primary'
+    section: 'professions'
   },
   {
     key: 'cooking',
@@ -93,15 +45,55 @@ export const CATEGORIES = [
     icon: 'inv_misc_food_15',
     idType: 'spell',
     name: 'Cooking',
-    section: 'secondary'
+    section: 'professions'
   },
   {
-    key: 'mining',
+    key: 'enchanting',
     battleNet: true,
-    icon: 'trade_mining',
+    icon: 'trade_engraving',
     idType: 'spell',
-    name: 'Mining',
-    section: 'secondary'
+    name: 'Enchanting',
+    section: 'professions'
+  },
+  {
+    key: 'engineering',
+    battleNet: true,
+    icon: 'trade_engineering',
+    idType: 'spell',
+    name: 'Engineering',
+    section: 'professions'
+  },
+  {
+    key: 'inscription',
+    battleNet: true,
+    icon: 'inv_inscription_tradeskill01',
+    idType: 'spell',
+    name: 'Inscription',
+    section: 'professions'
+  },
+  {
+    key: 'jewelcrafting',
+    battleNet: true,
+    icon: 'inv_misc_gem_01',
+    idType: 'spell',
+    name: 'Jewelcrafting',
+    section: 'professions'
+  },
+  {
+    key: 'leatherworking',
+    battleNet: true,
+    icon: 'inv_misc_armorkit_17',
+    idType: 'spell',
+    name: 'Leatherworking',
+    section: 'professions'
+  },
+  {
+    key: 'tailoring',
+    battleNet: true,
+    icon: 'trade_tailoring',
+    idType: 'spell',
+    name: 'Tailoring',
+    section: 'professions'
   }
 ]
 
