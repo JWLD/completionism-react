@@ -7,12 +7,10 @@ import { mixins } from 'style'
 const panelHeight = 7
 const panelPadding = 1
 
-export const CategoryPanel = styled.li`
+export const CategoryPanel = styled.div`
   ${mixins.flex};
 
-  :not(:last-child) {
-    margin-bottom: ${panelPadding}rem;
-  }
+  flex-grow: 1;
 `
 
 export const ExpandButton = styled.button`
@@ -35,10 +33,10 @@ export const ExpandButton = styled.button`
 export const BrowseLink = styled(Link)`
   ${mixins.flex};
 
+  flex-grow: 1;
   position: relative;
-  width: 50rem;
   height: ${panelHeight}rem;
-  margin: 0 ${panelPadding}rem;
+  margin-right: ${panelPadding}rem;
   padding: ${panelPadding}rem;
   border-radius: 0.4rem;
   background-color: #333;
@@ -53,7 +51,7 @@ export const BrowseLink = styled(Link)`
 
 export const CategoryImg = styled.img`
   height: ${panelHeight - panelPadding * 2}rem;
-  width: ${panelHeight - panelPadding * 2}rem;
+  min-width: ${panelHeight - panelPadding * 2}rem;
   margin-right: ${panelPadding}rem;
   border: none;
   border-radius: 0.4rem;

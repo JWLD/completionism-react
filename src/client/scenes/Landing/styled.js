@@ -2,7 +2,16 @@ import styled from 'styled-components'
 
 import { mixins } from 'style'
 
-const panelPadding = 1
+export const SectionWrap = styled.div`
+  ${mixins.flexVerticalLeft};
+
+  width: 100%;
+  max-width: 120rem;
+
+  :not(:last-child) {
+    margin-bottom: 3rem;
+  }
+`
 
 export const SectionTitle = styled.span`
   margin-bottom: 0.5rem;
@@ -11,10 +20,9 @@ export const SectionTitle = styled.span`
   text-transform: uppercase;
 `
 
-export const SectionWrap = styled.ul`
-  ${mixins.flexVerticalLeft};
-
-  :not(:last-child) {
-    margin-bottom: ${panelPadding * 3}rem;
-  }
+export const CategoriesWrap = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  grid-gap: 1rem;
+  width: 100%;
 `
