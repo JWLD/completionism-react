@@ -9,19 +9,19 @@ const ProgressBar = ({ count, height, total }) => {
 
   return (
     <SC.ProgressBar height={height}>
-      <SC.BarFill fill={fillProp} height={height} />
+      <SC.BarFill fill={fillProp} />
     </SC.ProgressBar>
   )
 }
 
 ProgressBar.propTypes = {
   count: PropTypes.number.isRequired,
-  height: PropTypes.number,
+  height: PropTypes.string,
   total: PropTypes.number.isRequired
 }
 
 ProgressBar.defaultProps = {
-  height: 1.5
+  height: '1.5rem'
 }
 
 export default ProgressBar

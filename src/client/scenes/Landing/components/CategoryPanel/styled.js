@@ -4,8 +4,8 @@ import FaUser from 'react-icons/lib/fa/user'
 
 import { mixins } from 'style'
 
-const panelHeight = 7
-const panelPadding = 1
+const panelHeight = 8
+const panelPadding = 1.2
 
 export const CategoryPanel = styled.div`
   ${mixins.flex};
