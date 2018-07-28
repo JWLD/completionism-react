@@ -37,7 +37,7 @@ const CategoryPanel = ({ category, icon, name, progress }) => {
           </SC.TextWrap>
           <ProgressBar
             count={progress.count}
-            height={'1.5rem'}
+            height={'1.75rem'}
             total={progress.total}
           />
         </SC.CategoryDetails>
