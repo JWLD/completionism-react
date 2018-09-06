@@ -1,13 +1,13 @@
 import React from 'react'
+import { hot } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
-import { hot } from 'react-hot-loader'
 
 import store from 'redux/store'
 import initialiseApp from 'services/app_initialiser'
 
-import Landing from 'Landing'
 import Browse from 'Browse'
+import Landing from 'Landing'
 import Import from 'Import'
 
 initialiseApp()
