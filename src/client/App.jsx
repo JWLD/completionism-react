@@ -3,8 +3,8 @@ import { hot } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 
+import initialiseApp from 'helpers/initialisation'
 import store from 'redux/store'
-import initialiseApp from 'services/app_initialiser'
 
 import Browse from 'Browse'
 import Landing from 'Landing'
