@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import { categoryDataSelector as getCategoryData } from 'redux/selectors'
+import { getCategoryData } from 'redux/selectors'
 
 import { extractProgressData } from './helpers'
 
