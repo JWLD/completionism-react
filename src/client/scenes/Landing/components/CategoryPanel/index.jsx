@@ -4,15 +4,15 @@ import PropTypes from 'prop-types'
 
 import { ICON_URLS } from 'constants/urls'
 import { getCharacterDataFromLocalStorage } from 'services/local_storage'
+
 import ProgressBar from 'ProgressBar'
 
-import { getProgressData } from 'CategoryPanel/selectors'
-import * as SC from 'CategoryPanel/styled'
+import { getProgressData } from './selectors'
+import * as SC from './styled'
 
 const CategoryPanel = ({ category, icon, name, progress }) => {
   const renderPortrait = () => {
     const characterData = getCharacterDataFromLocalStorage(category)
-
     if (!characterData) return <SC.UserIcon />
 
     const { region, thumb } = characterData
@@ -37,7 +37,7 @@ const CategoryPanel = ({ category, icon, name, progress }) => {
           </SC.TextWrap>
           <ProgressBar
             count={progress.count}
-            height={'1.75rem'}
+            height="1.75rem"
             total={progress.total}
           />
         </SC.CategoryDetails>

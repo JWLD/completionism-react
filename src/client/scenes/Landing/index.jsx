@@ -2,10 +2,11 @@ import React from 'react'
 
 import { CATEGORIES_BY_SECTION as CATEGORIES } from 'constants/categories'
 import { PageWrap } from 'style/components'
+
+import CategoryPanel from 'CategoryPanel'
 import NavBar from 'NavBar'
 
-import { CategoriesWrap, SectionTitle, SectionWrap } from 'Landing/styled'
-import CategoryPanel from 'CategoryPanel'
+import { CategoriesWrap, SectionTitle, SectionWrap } from './styled'
 
 const Landing = () => {
   const renderCategoryPanels = section => {
