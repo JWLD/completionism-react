@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 import { itemBlocksSelector, progressDataSelector } from 'ItemList/selectors'
 import { activeContentSelector } from 'Browse/selectors'
-import { viewModeListSelector } from 'SidePanel/selectors'
+import { VIEW_MODES } from 'ControlPanel/constants'
+import { viewModeSelector } from 'SidePanel/selectors'
 import { CONTENT } from 'constants/content'
 import * as SC from 'ItemList/styled'
 
@@ -13,7 +14,7 @@ import ProgressBox from 'ProgressBox'
 import ItemBar from 'ItemBar'
 import TileGrid from 'TileGrid'
 
-const ItemList = ({ blocks, content, listView, progress }) => {
+const ItemList = ({ blocks, content, progress, viewMode }) => {
   const renderItemBars = data => {
     return data.map(item => <ItemBar {...item} key={item.id} />)
   }
@@ -24,7 +25,7 @@ const ItemList = ({ blocks, content, listView, progress }) => {
     return subCategories.map(subCategory => (
       <Fragment key={subCategory.name}>
         <SC.SubTitle>{subCategory.name}</SC.SubTitle>
-        {listView
+        {viewMode === VIEW_MODES.LIST
           ? renderItemBars(subCategory.items)
           : renderTileGrid(subCategory.items)}
       </Fragment>
@@ -55,15 +56,15 @@ const ItemList = ({ blocks, content, listView, progress }) => {
 ItemList.propTypes = {
   blocks: PropTypes.array.isRequired,
   content: PropTypes.number.isRequired,
-  listView: PropTypes.bool.isRequired,
-  progress: PropTypes.object.isRequired
+  progress: PropTypes.object.isRequired,
+  viewMode: PropTypes.string.isRequired
 }
 
 export const mapStateToProps = state => ({
   blocks: itemBlocksSelector(state),
   content: activeContentSelector(state),
-  listView: viewModeListSelector(state),
-  progress: progressDataSelector(state)
+  progress: progressDataSelector(state),
+  viewMode: viewModeSelector(state)
 })
 
 export default connect(mapStateToProps)(ItemList)

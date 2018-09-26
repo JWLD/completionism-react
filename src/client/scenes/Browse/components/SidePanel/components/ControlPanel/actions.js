@@ -1,5 +1,6 @@
 import * as ACTIONS from 'constants/action_types'
 
-export const toggleViewMode = () => ({
-  type: ACTIONS.TOGGLE_VIEW_MODE
+export const setViewMode = mode => ({
+  mode,
+  type: ACTIONS.SET_VIEW_MODE
 })
