@@ -22,10 +22,10 @@ const ControlPanel = ({ setViewMode, viewMode }) => (
       <SC.CheckBox active={viewMode === VIEW_MODES.ICONS ? 1 : 0} />
     </SC.Option>
 
-    <SC.Option onClick={() => setViewMode(VIEW_MODES.TILES)}>
+    {/* <SC.Option onClick={() => setViewMode(VIEW_MODES.TILES)}>
       Tiles
       <SC.CheckBox active={viewMode === VIEW_MODES.TILES ? 1 : 0} />
-    </SC.Option>
+    </SC.Option> */}
   </SC.Setting>
 )
 
