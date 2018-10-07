@@ -7,8 +7,8 @@ export const addRealmData = (realmData, region) => ({
   region
 })
 
-export const fetchRealmData = region => dispatch => {
-  return fetchBattleNetRealmData(region).then(realmData => {
-    return dispatch(addRealmData(realmData, region))
-  })
+export const fetchRealmData = region => async dispatch => {
+  const realmData = await fetchBattleNetRealmData(region)
+
+  dispatch(addRealmData(realmData, region))
 }

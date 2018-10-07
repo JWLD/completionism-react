@@ -41,10 +41,9 @@ const saveCharDataToLocalStorage = ({ char, collections }) => {
   })
 }
 
-export const fetchCharData = values => {
+export const fetchCharData = async values => {
   const urlParams = constructUrlParams(values)
+  const characterData = await fetchBattleNetCharacterData(urlParams)
 
-  fetchBattleNetCharacterData(urlParams).then(characterData => {
-    saveCharDataToLocalStorage(characterData)
-  })
+  return saveCharDataToLocalStorage(characterData)
 }

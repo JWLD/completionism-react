@@ -2,36 +2,44 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { toggleViewMode } from 'ControlPanel/actions'
-import { viewModeListSelector } from 'SidePanel/selectors'
+import { setViewMode } from 'ControlPanel/actions'
+import { viewModeSelector } from 'SidePanel/selectors'
 
 import * as SC from 'ControlPanel/styled'
+import { VIEW_MODES } from 'ControlPanel/constants'
 
-const ControlPanel = ({ listView, toggleViewMode }) => (
+const ControlPanel = ({ setViewMode, viewMode }) => (
   <SC.Setting>
     <SC.SettingTitle>View Mode</SC.SettingTitle>
-    <SC.Option onClick={() => toggleViewMode()}>
+
+    <SC.Option onClick={() => setViewMode(VIEW_MODES.LIST)}>
       List
-      <SC.CheckBox active={listView ? 1 : 0} />
+      <SC.CheckBox active={viewMode === VIEW_MODES.LIST ? 1 : 0} />
     </SC.Option>
-    <SC.Option onClick={() => toggleViewMode()}>
+
+    <SC.Option onClick={() => setViewMode(VIEW_MODES.ICONS)}>
       Icons
-      <SC.CheckBox active={listView ? 0 : 1} />
+      <SC.CheckBox active={viewMode === VIEW_MODES.ICONS ? 1 : 0} />
+    </SC.Option>
+
+    <SC.Option onClick={() => setViewMode(VIEW_MODES.TILES)}>
+      Tiles
+      <SC.CheckBox active={viewMode === VIEW_MODES.TILES ? 1 : 0} />
     </SC.Option>
   </SC.Setting>
 )
 
 ControlPanel.propTypes = {
-  listView: PropTypes.bool.isRequired,
-  toggleViewMode: PropTypes.func.isRequired
+  setViewMode: PropTypes.func.isRequired,
+  viewMode: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
-  listView: viewModeListSelector(state)
+  viewMode: viewModeSelector(state)
 })
 
 const mapDispatchToProps = {
-  toggleViewMode
+  setViewMode
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ControlPanel)

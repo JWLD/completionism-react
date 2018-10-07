@@ -1,5 +1,5 @@
 export const SOURCES = {
-  100: 'No Longer In-Game',
+  100: 'No Longer Available',
   101: 'Achievement',
   102: 'Drop',
   103: 'Profession',

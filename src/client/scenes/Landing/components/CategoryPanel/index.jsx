@@ -4,30 +4,30 @@ import PropTypes from 'prop-types'
 
 import { ICON_URLS } from 'constants/urls'
 import { getCharacterDataFromLocalStorage } from 'services/local_storage'
+
 import ProgressBar from 'ProgressBar'
 
-import { getProgressData } from 'CategoryPanel/selectors'
-import * as SC from 'CategoryPanel/styled'
+import { getProgressData } from './selectors'
+import * as SC from './styled'
 
 const CategoryPanel = ({ category, icon, name, progress }) => {
-  // eslint-disable-next-line
-  const renderPortrait = ({ region, thumb }) => {
+  const renderPortrait = () => {
+    const characterData = getCharacterDataFromLocalStorage(category)
+    if (!characterData) return <SC.UserIcon />
+
+    const { region, thumb } = characterData
     const portraitUrl = `http://render-${region}.worldofwarcraft.com/character/${thumb}`
 
     return <SC.Portrait src={portraitUrl} />
   }
 
-  const characterData = getCharacterDataFromLocalStorage(category)
-
-  const iconUrl = `${ICON_URLS.large}/${icon}.jpg`
-  const browsePageUrl = `/browse/${category}/1`
-
   return (
     <SC.CategoryPanel>
-      <SC.ExpandButton>+</SC.ExpandButton>
-
-      <SC.BrowseLink to={browsePageUrl}>
-        <SC.CategoryImg alt="Category Icon" src={iconUrl} />
+      <SC.BrowseLink to={`/browse/${category}/1`}>
+        <SC.CategoryImg
+          alt="Category Icon"
+          src={`${ICON_URLS.large}/${icon}.jpg`}
+        />
         <SC.CategoryDetails>
           <SC.TextWrap>
             <SC.CategoryName>{name}</SC.CategoryName>
@@ -37,15 +37,13 @@ const CategoryPanel = ({ category, icon, name, progress }) => {
           </SC.TextWrap>
           <ProgressBar
             count={progress.count}
-            height={1}
+            height="1.75rem"
             total={progress.total}
           />
         </SC.CategoryDetails>
       </SC.BrowseLink>
 
-      <SC.ImportPageLink to="/import">
-        {characterData ? renderPortrait(characterData) : <SC.UserIcon />}
-      </SC.ImportPageLink>
+      <SC.ImportPageLink to="/import">{renderPortrait()}</SC.ImportPageLink>
     </SC.CategoryPanel>
   )
 }

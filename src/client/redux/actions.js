@@ -1,16 +1,13 @@
 import * as ACTIONS from 'constants/action_types'
-import { fetchDBCategoryData } from 'services/api'
+import { fetchAllCategoryData } from 'services/api'
 
-export const loadCategoryData = (category, data) => ({
-  type: ACTIONS.LOAD_CATEGORY_DATA,
-  category,
+export const setCategoryData = data => ({
+  type: ACTIONS.SET_CATEGORY_DATA,
   data
 })
 
-// THUNKS
+export const fetchCategoryData = () => async dispatch => {
+  const categoryData = await fetchAllCategoryData()
 
-export const fetchCategoryData = category => dispatch => {
-  return fetchDBCategoryData(category).then(categoryData => {
-    return dispatch(loadCategoryData(category, categoryData))
-  })
+  dispatch(setCategoryData(categoryData))
 }

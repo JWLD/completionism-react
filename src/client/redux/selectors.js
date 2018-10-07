@@ -1,1 +1,1 @@
-export const categoryDataSelector = state => state.app.categoryData
+export const getCategoryData = state => state.data

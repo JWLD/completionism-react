@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import { categoryDataSelector } from 'redux/selectors'
+import { getCategoryData } from 'redux/selectors'
 
 // BASE - STATE
 
@@ -19,13 +19,13 @@ export const contentParamSelector = (state, props) => Number(props.match.params.
 // DERIVED
 
 export const categoryDataExistsSelector = createSelector(
-  [categoryDataSelector, categoryParamSelector],
+  [getCategoryData, categoryParamSelector],
   (categoryData, categoryParam) => {
     return categoryData[categoryParam] ? true : false
   }
 )
 
 export const activeCategoryDataSelector = createSelector(
-  [categoryDataSelector, activeCategorySelector],
+  [getCategoryData, activeCategorySelector],
   (categoryData, activeCategory) => categoryData[activeCategory] || []
 )

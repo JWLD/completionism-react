@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import FaHome from 'react-icons/lib/fa/home'
 import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left'
 import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right'
+import FaHome from 'react-icons/lib/fa/home'
+import FaUser from 'react-icons/lib/fa/user'
 
 import { mixins, vars } from 'style'
 
@@ -14,22 +15,19 @@ export const NavBar = styled.nav`
   ${mixins.flex};
 
   z-index: ${vars.navBar};
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: ${vars.navBarHeight}rem;
+  padding: ${navBarPadding}rem;
   background-color: ${vars.mainLight};
   box-shadow: 0 0 1.5rem 0.1rem black;
 `
 
 export const LeftWrap = styled.div`
   ${mixins.flex};
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: ${navBarPadding}rem;
 `
 
 export const CentreWrap = styled.div`
@@ -77,3 +75,5 @@ export const HomeIcon = styled(FaHome)`
 export const CircleLeftIcon = HomeIcon.withComponent(FaArrowCircleLeft)
 
 export const CircleRightIcon = HomeIcon.withComponent(FaArrowCircleRight)
+
+export const CharacterPageLink = HomeIcon.withComponent(FaUser)
